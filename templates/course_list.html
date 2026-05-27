@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوره‌های آموزشی | فروشگاه دوره</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazir', 'Tahoma', 'Segoe UI', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* هدر */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #475569;
+        }
+
+        /* فرم جستجو و فیلتر */
+        .search-section {
+            background: white;
+            padding: 1rem;
+            border-radius: 60px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .search-input {
+            flex: 2;
+            min-width: 200px;
+            padding: 12px 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 40px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+        .search-input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+        }
+        .category-select {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 40px;
+            background: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .search-btn {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .search-btn:hover {
+            background: #4f46e5;
+        }
+
+        /* گرید دوره‌ها */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* کارت دوره */
+        .course-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #4338ca;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            margin: 1rem 1rem 0;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .course-desc {
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+        }
+
+        /* بخش درصد عملی */
+        .practical-box {
+            margin: 1rem 0;
+        }
+        .practical-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #4f46e5;
+            margin-bottom: 0.3rem;
+        }
+        .progress-bar {
+            background: #e2e8f0;
+            border-radius: 12px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #6366f1;
+            width: 0%;
+            height: 100%;
+            border-radius: 12px;
+            transition: width 0.4s ease;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #10b981;
+            margin-top: 1rem;
+        }
+
+        .btn-detail {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #f1f5f9;
+            color: #1e293b;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .btn-detail:hover {
+            background: #6366f1;
+            color: white;
+        }
+
+        /* صفحه‌بندی */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        .pagination a, .pagination span {
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+        }
+        .pagination .current {
+            background: #6366f1;
+            color: white;
+            border: none;
+        }
+
+        @media (max-width: 640px) {
+            .search-section {
+                border-radius: 30px;
+                flex-direction: column;
+            }
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>دوره‌های محبوب</h1>
+        <p>مهارت‌هایی که امروز یاد می‌گیرید، آینده شما را می‌سازند.</p>
+    </div>
+
+    <!-- فرم جستجو و فیلتر -->
+    <div class="search-section">
+        <form method="get" action="" style="display: flex; flex-wrap: wrap; gap: 1rem; width: 100%;">
+            {{ search_form.q }}
+            {{ search_form.category }}
+            <button type="submit" class="search-btn">جستجو</button>
+        </form>
+    </div>
+
+    <!-- لیست دوره‌ها -->
+    <div class="courses-grid">
+        {% for course in courses %}
+        <div class="course-card">
+            <div class="card-badge">{{ course.get_category_display }}</div>
+            <div class="card-content">
+                <h3 class="course-title">{{ course.title }}</h3>
+                <p class="course-desc">{{ course.short_description }}</p>
+
+                <div class="practical-box">
+                    <div class="practical-header">
+                        <span>بخش عملی</span>
+                        <span>{{ course.practical_percentage }}%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{ course.practical_percentage }}%;"></div>
+                    </div>
+                </div>
+
+                <div class="price">
+                    {% if course.price == 0 %}رایگان{% else %}{{ course.price|floatformat:0 }} تومان{% endif %}
+                </div>
+
+                <a href="{{ course.get_absolute_url }}" class="btn-detail">مشاهده دوره</a>
+            </div>
+        </div>
+        {% empty %}
+        <p style="grid-column: 1/-1; text-align: center; padding: 3rem;">دوره‌ای با این مشخصات یافت نشد.</p>
+        {% endfor %}
+    </div>
+
+    <!-- صفحه‌بندی -->
+    {% if is_paginated %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">&laquo; اول</a>
+            <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">قبلی</a>
+        {% endif %}
+
+        <span class="current">صفحه {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">بعدی</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">آخر &raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
