@@ -1,0 +1,2600 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>خدمات طراحی وب آذریزدان</title>
+    <style>
+    :root {
+      --navy: #1D3363;
+      --gold: #F0C040;
+      --accent: #E2543D;
+      --gold-dark: #E8C259;
+      /* رنگ تقریبی برای نام برند، رنگ دقیق برام مشخص نشده بود */
+      --bg: #F7F5F1;
+      --text-dark: #1D2430;
+      --text-muted: #6b7280;
+      --card-bg: #ffffff;
+      --card-border: #eceae5;
+      --navy-dark: #223260;
+      --text-gray: #6B7280;
+      --bg-light: #F6F7FA;
+      --bg-highlight: #FBF3DD;
+      
+    }
+    a {
+      text-decoration: none !important;
+    }
+
+    /* حفظ رنگ پیش‌فرض لینک‌ها */
+    a {
+      color: inherit;
+    }
+
+    @font-face {
+      font-family: "Google Sans Flex";
+      src: url(../fonts/GoogleSansFlex.ttf);
+    }
+
+    @font-face {
+      font-family: "Vazir-Bold";
+      src: url(../fonts/Vazir-Bold.ttf);
+    }
+
+
+    @font-face {
+      font-family: "Vazir-Light";
+      src: url(../fonts/Vazir-Light.ttf);
+    }
+
+    @font-face {
+      font-family: "Vazir-Meduim";
+      src: url(../fonts/Vazir-Medium.ttf);
+    }
+
+    @font-face {
+      font-family: "Vazir-Thin";
+      src: url(../fonts/Vazir-Thin.ttf);
+    }
+
+    @font-face {
+      font-family: "Vazir";
+      src: url(../fonts/Vazir.ttf);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Vazir";
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+      direction: rtl;
+      width: 100%;
+    }
+
+
+
+/* ناو بار */
+.navbar-wrapper {
+  width: 100%;
+  height: 88px;
+  position: fixed;
+  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
+  text-align: left;
+  font-size: 16px;
+  color: #ebebeb;
+  font-family: Rubik;
+  align-items: center;
+  justify-self: center;
+  z-index: 1000;
+}
+.rectangle-parent {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 526px;
+  height: 88px;
+  overflow: hidden;
+}
+.frame-child {
+  position: absolute;
+  top: 0px;
+  left: -18px;
+  width: 422px;
+  height: 106px;
+  flex-shrink: 0;
+}
+
+.frame-wrapper {
+  position: absolute;
+  top: 18px;
+  left: 64px;
+  width: 293px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.cta-button-parent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.cta-button {
+  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
+  border-radius: 12px;
+  background-color: #1d3363;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  gap: 8px;
+}
+.phone-call-3-1 {
+  height: 16px;
+  width: 16px;
+  position: relative;
+}
+.button-label {
+  position: relative;
+}
+.frame-inner {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  border-radius: 12px;
+}
+.frame-group {
+  position: absolute;
+  top: 16px;
+  border-radius: 16px;
+  width: 887px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  text-align: right;
+  font-size: 20px;
+  color: #fbf8f8;
+  font-family: "Google Sans Flex";
+}
+.parent {
+  display: flex;
+  align-items: center;
+  gap: 57px;
+}
+.div {
+  position: relative;
+  font-weight: 600;
+  cursor: pointer;
+}
+.div3 {
+  width: 69px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.angle-small-down-2-2-parent,
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.angle-small-down-2-2-parent {
+  width: 97px;
+}
+
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  width: 110px;
+}
+
+.logo-icon {
+  height: 56px;
+  width: 56px;
+  position: relative;
+  right: 10px;
+}
+
+/* استایل‌های جدید برای دراپ‌منو */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  z-index: 1001;
+}
+
+.blog-dropdown {
+  right: 0;
+}
+
+.academy-dropdown {
+  right: 0;
+}
+
+.services-dropdown {
+  right: 0;
+}
+
+.services {
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 40px;
+}
+.component-44-parent {
+  height: 176px;
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component-44 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+.component-38:hover,
+.component-44:hover,
+.component-442:hover,
+.component-443:hover,
+.component-402:hover {
+  background-color: rgba(118, 130, 156, 0.6);
+}
+.div {
+  position: relative;
+  font-weight: 500;
+}
+
+.services-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+.component-38-parent {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.component-38-parent :last-child {
+  border-bottom-right-radius: 12px;
+}
+.component-38-parent :first-child {
+  border-top-right-radius: 12px;
+}
+.component-44-parent :first-child {
+  border-top-left-radius: 12px;
+}
+.component-38 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+.line-div {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+
+.academi {
+  width: 465px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 93%;
+  max-height: 90%;
+  overflow: hidden;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 110px;
+}
+.component-44-group {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.component-442 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+.div14 {
+  position: relative;
+  font-weight: 500;
+  white-space: pre-wrap;
+}
+.frame-child7 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+.div15 {
+  position: relative;
+  font-weight: 500;
+}
+.academi-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+  flex-shrink: 0;
+}
+.component-38-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.component-402 {
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px 16px;
+}
+
+.blog {
+  width: 409px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+}
+.component-44-container {
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component-443 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+.div20 {
+  position: relative;
+  font-weight: 500;
+}
+.frame-child13 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+.blog-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+.component-38-container {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
+.popup-overlay {
+  display: none;
+}
+
+
+    .web-design-hero-wrap {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 100px 80px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      justify-self: center;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .web-design-hero-img img {
+      width: 580px;
+      height: 363px;
+      border-radius: 32px;
+    }
+
+    .web-design-hero-content {
+      width: 640px;
+      height: 429px;
+      gap: 24px;
+    }
+
+    .web-design-hero-badge {
+      width: 203px;
+      height: 33px;
+      border-radius: 20px;
+      border: 1px solid #F0C040;
+      background: rgba(240, 192, 64, 0.08);
+      display: flex;
+      padding: 8px 16px;
+      align-items: center;
+      gap: 8px;
+      color: #1D3363;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+
+    .web-design-hero-content h1 {
+      align-self: stretch;
+      color: var(--navy);
+      font-size: 55px;
+      font-weight: 900;
+      line-height: 62.4px;
+    }
+
+    .hero-h1-yellow {
+      color: var(--gold);
+      padding: 0;
+      margin: 0;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
+    .web-design-hero-content .discription {
+      width: 500px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #4B5563;
+      text-align: justify;
+      line-height: 32px;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: start;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* CTA overlays at fixed position, doesn't add height */
+    .cta {
+      width: 209px;
+      height: 51px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: start;
+      padding: 16px 28px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease-out;
+      font-size: 16px;
+      font-weight: 700;
+      justify-content: space-around;
+      box-shadow: 0 8px 16px 0 rgba(240, 192, 64, 0.19);
+    }
+
+    .cta-outline {
+      width: 209px;
+      height: 51px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: start;
+      padding: 16px 28px;
+      background: var(--card-bg);
+      color: var(--navy);
+      font-size: 20px;
+      border: 1.5px solid var(--navy);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease-out;
+      font-size: 16px;
+      font-weight: 700;
+      justify-content: space-around;
+      box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta:hover,
+    .cta-outline:hover {
+      transform: translateY(-5px);
+    }
+
+    .cta::selection,
+    .cta-outline::selection {
+      text-decoration: none;
+      border: none;
+    }
+
+    .why-web-section {
+      max-width: 1440px;
+      width: 100%;
+      height: 544px;
+      display: flex;
+      padding: 100px 80px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 48px;
+      align-self: stretch;
+      background: var(--navy);
+      justify-self: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .why-web-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      align-self: stretch;
+    }
+
+    .why-web-title h2 {
+      color: #EBEBEB;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .why-web-title p {
+      color: #FFF;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .why-web-card-row {
+      width: 1280px;
+      height: 288px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      align-self: stretch;
+    }
+
+    .why-web-card {
+      display: flex;
+      width: 302px;
+      height: 228px;
+      padding: 28px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      border-radius: 16px;
+      border: 1px solid #E2E8F0;
+      background: #FFF;
+      box-shadow: 0 10px 20px 0 rgba(29, 51, 99, 0.02);
+      transition: all 0.2s ease;
+    }
+
+    .why-web-card:hover {
+      box-shadow: 1px 1px 20px 0px #fdbe02da;
+    }
+
+    .why-web-card-icon {
+      width: 100%;
+      height: 44px;
+    }
+
+    .why-web-card-icon img {
+      width: 44px;
+      height: 44px;
+    }
+
+    .why-web-card-title {
+      color: #0F172A;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .why-web-card-content {
+      color: #475569;
+      text-align: right;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22.4px;
+    }
+/* sectionman */
+
+.my-section-header {
+  	width: 100%;
+  	position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	gap: 12px;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #1d3363;
+  	font-family: Inter;
+}
+.b {
+  	position: relative;
+  	text-transform: uppercase;
+}
+.matn-head {
+  	position: relative;
+  	font-size: 32px;
+  	font-weight: 800;
+  	color: #0f172a;
+}
+
+
+        .my-services-grid {
+            max-width: 1440px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-self: center;
+            padding: 100px 0px;
+            gap: 24px;
+            text-align: left;
+            font-size: 20px;
+            color: #1d3363;
+            font-family: Inter;
+            direction: ltr;
+            top: 56px;
+        }
+
+        .my-grid-row {
+            align-self: stretch;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .my-service-box {
+            width: 410.7px;
+            box-shadow: 0px 12px 24px rgba(29, 51, 99, 0.02);
+            border-radius: 16px;
+            background-color: #fff;
+            border: 1.5px solid #e2e8f0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 32px;
+            gap: 20px;
+            transition: border 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* هاور طلایی برای باکس های بخش اول */
+        .my-service-box:hover {
+            border: 1.5px solid #f0c040;
+            box-shadow: 0px 12px 24px rgba(240, 192, 64, 0.08);
+        }
+
+        .my-box-header {
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .my-vertical-line {
+            height: 100px;
+            width: 1px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .my-icon-wrapper {
+            height: 44px;
+            width: 44px;
+            border-radius: 12px;
+            background-color: rgba(240, 192, 64, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .my-service-icon1{
+        
+    width: 23px;
+    height: 23px;  /* از 14px به 23px تغییر کنه */
+}
+        
+
+        .my-service-icon {
+            width: 28px;
+            height: 28px;
+            position: relative;
+        }
+
+        .my-service-title {
+            position: relative;
+            font-weight: 800;
+        }
+
+        .my-service-desc {
+            align-self: stretch;
+            position: relative;
+            font-size: 14px;
+            line-height: 160%;
+            color: #475569;
+            text-align: right;
+        }
+
+        .my-process-section {
+            max-width: 1440px;
+            width: 100%;
+            position: relative;
+            background-color: #f0c040;
+            border: 1px solid #e2e8f0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-self: center;
+            padding: 100px 80px;
+            direction: ltr;
+            gap: 64px;
+            
+            text-align: left;
+            font-size: 14px;
+            color: #1d3363;
+            font-family: Inter;
+        }
+
+        .my-section-headerrr {
+          position: relative;
+          top: 70px;
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .my-section-subtitle {
+            position: relative;
+        }
+
+        .my-section-title {
+            position: relative;
+            font-size: 32px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .my-timeline-wrapper {
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0px;
+            position: relative;
+            isolation: isolate;
+            font-size: 10px;
+            color: #fff;
+        }
+
+        .my-timeline-line {
+            height: 0px;
+            width: 1100px;
+            position: absolute;
+            margin: 0 !important;
+            top: 48px;
+            left: 90px;
+            border-top: 2px solid #1d3363;
+            box-sizing: border-box;
+            z-index: 0;
+        }
+
+        .my-steps-container {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            z-index: 1;
+        }
+
+        .my-step-item {
+            width: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .my-step-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            background-color: #fff;
+            border: 2px solid #f0c040;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .my-step-img {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            z-index: 0;
+            flex-shrink: 0;
+        }
+
+        .my-step-badge {
+            margin: 0 !important;
+            position: absolute;
+            top: -8px;
+            left: 38px;
+            border-radius: 8px;
+            background-color: #1d3363;
+            display: flex;
+            align-items: flex-start;
+            padding: 2px 6px;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .my-step-label {
+            position: relative;
+            font-size: 15px;
+            color: #0f172a;
+            text-align: center;
+        }
+/* section galeb */
+           .section-galebha {
+  	width: 100%;
+  	position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	gap: 12px;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #1d3363;
+  	font-family: Inter;
+    padding: 100px 0px;
+}
+.b-galebha {
+  	position: relative;
+}
+.div-galebha {
+  	position: relative;
+  	font-size: 32px;
+  	font-weight: 800;
+  	color: #0f172a;
+}
+ /* ══════════════════════════════════════════
+           PORTFOLIO SECTION - اصلاح شده
+        ══════════════════════════════════════════ */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1280px;
+        width: 100%;
+      }
+
+      .portfolio-section {
+        justify-self: center;
+        background: #fff;
+        max-width: 1440px;
+        width: 100%;
+        padding: 80px 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .card-container {
+        width: 100%;
+        height: 320px;
+        position: relative;
+        perspective: 1200px;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        border-radius: 12px;
+      }
+
+      .text {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) rotateY(0deg);
+        transform-origin: right center;
+        color: white;
+        z-index: 3;
+        padding: 1rem 1.5rem;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(4px);
+        border-radius: 8px 0 0 8px;
+        text-align: right;
+        border-right: 2px solid rgba(255, 255, 255, 0.5);
+        transition:
+          transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          background 0.7s ease;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        pointer-events: none;
+      }
+
+      .text h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+      }
+
+      .text p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .image1,
+      .image2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        border-radius: 12px;
+        transition:
+          transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+
+      .image1 {
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        transform-origin: right center;
+        transform: rotateY(0deg);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .image2 {
+        width: 30%;
+        height: 100%;
+        z-index: 1;
+        transform-origin: left center;
+        transform: rotateY(0deg);
+        opacity: 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-container.hovered .image1 {
+        transform: rotateY(-35deg);
+        box-shadow: -8px 4px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-container.hovered .image2 {
+        opacity: 1;
+        transform: rotateY(22deg);
+        box-shadow: 8px 4px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-container.hovered .text {
+        transform: translateY(-50%) rotateY(-35deg);
+        background: rgba(0, 0, 0, 0.65);
+      }
+
+      .portfolio-btn {
+  	position: relative;
+  	box-shadow: 0px 10px 20px rgba(240, 192, 64, 0.19);
+  	border-radius: 12px;
+  	background-color: #f0c040;
+  	width: 235px;
+    height: 55px;
+    text-align: center;
+  	display: flex;
+  	align-items: center;
+  	padding: 18px 32px;
+  	box-sizing: border-box;
+  	font-size: 16px;
+  	color: #1d3363;
+  	font-family: Inter;
+    justify-self: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+.b-btn-galeb {
+  position: relative;
+
+
+
+}
+.portfolio-btn:hover{
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+
+
+
+
+        /* salma section */
+        
+
+        .my-page-wrap {
+            max-width: 1440px;
+            height: 471px;
+            margin: 0 auto;
+            padding: 50px 80px 100px;
+            background-color:#F8FAFC;;
+        }
+
+        /* ================= SECTION 1: چرا آذر یزدان ================= */
+        .my-why-section {
+            padding: 60px 0 70px;
+        }
+
+        .my-why-main-title {
+          
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--navy);
+           
+        }
+
+        .my-why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 40px;
+            column-gap: 40px;
+        }
+
+        .my-why-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .my-why-icon-circle {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #ECEEF3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+        }
+
+        .my-why-icon-circle svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .my-why-card-text h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .my-why-card-text p {
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--text-gray);
+        }
+
+        /* ================= SECTION 2: CTA banner ================= */
+        .my-cta-section {
+            background: var(--navy-dark);
+            padding: 70px 24px;
+            text-align: center;
+        }
+
+        .my-cta-title {
+            color: #fff;
+            font-size: 30px;
+            font-weight: 800;
+            max-width: 780px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        .my-cta-desc {
+            color: #B9C2D6;
+            font-size: 14.5px;
+            line-height: 2;
+            max-width: 620px;
+            margin: 0 auto 32px;
+        }
+
+        .my-cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 15px;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .my-cta-button:hover {
+            background: var(--gold-dark);
+        }
+
+        /* ================= SECTION 3: Article ================= */
+        .my-article-section {
+            padding: 100px 80px;
+        }
+
+        .my-article-layout {
+          justify-self: center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 60px;
+        }
+
+        /* عکس سمت راست */
+        .my-article-image {
+            order: 1;
+            width: 500px;
+            height: 400px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        /* متن سمت چپ */
+        .my-article-text-block {
+            order: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            width: 100%;
+            max-width: 720px;
+            font-family: 'Inter', 'Vazirmatn', sans-serif;
+        }
+
+        .my-article-label {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            color: #1D3363;
+            text-align: right;
+        }
+
+        .my-article-heading {
+            font-weight: 800;
+            font-size: 28px;
+            line-height: 34px;
+            text-align: right;
+            color: #0F172A;
+            margin: 0;
+        }
+
+        .my-article-paragraph {
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 180%;
+            text-align: right;
+            color: #475569;
+            margin: 0;
+        }
+
+        .my-article-highlight-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 16px 24px;
+            background: rgba(223, 177, 50, 0.159);
+            border-right: 4px solid #F0C040;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 160%;
+            text-align: right;
+            color: #1D3363;
+            margin: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 860px) {
+            .my-why-grid {
+                grid-template-columns: 1fr;
+            }
+            .my-article-section {
+                padding: 60px 24px;
+            }
+            .my-article-layout {
+                flex-direction: column;
+                gap: 40px;
+            }
+            /* در موبایل، عکس بالا و متن پایین */
+            .my-article-image {
+                order: 0;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 500 / 400;
+            }
+            .my-article-text-block {
+                order: 1;
+                max-width: 100%;
+            }
+        }
+    
+/* ریسپانسیو */
+/* ══════════════════════════════════════════
+   RESPONSIVE STYLES - Mobile First
+   ══════════════════════════════════════════ */
+
+@media screen and (max-width: 1400px) {
+  /* ═══ هیرو: حفظ چیدمان کنار هم ═══ */
+  .web-design-hero-wrap {
+    padding: 100px 40px;
+    gap: 40px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .web-design-hero-content {
+    width: auto;
+    height: auto;
+    flex: 1;
+  }
+  .web-design-hero-content h1 {
+    font-size: 48px;
+    line-height: 58px;
+  }
+  .web-design-hero-content .discription {
+    width: 100%;
+    font-size: 17px;
+  }
+  .web-design-hero-img {
+    flex-shrink: 0;
+  }
+  .web-design-hero-img img {
+    width: 450px;
+    height: auto;
+  }
+  
+  .why-web-card-row {
+    width: 100%;
+    padding: 0 40px;
+  }
+  .my-services-grid {
+    padding: 100px 40px;
+  }
+  .my-service-box {
+    min-height: 100%;
+    align-self: stretch;
+    width: auto;
+    flex: 1;
+  }
+  .my-process-section {
+    padding: 100px 40px;
+  }
+  .my-timeline-line {
+    width: calc(100% - 180px);
+    left: 90px;
+  }
+  
+  /* سکشن ۴: حفظ چیدمان خطی */
+  .my-steps-container {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  
+  /* سکشن ۱: حفظ چیدمان ۳ ستونه */
+  .my-why-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+    column-gap: 40px;
+  }
+  
+  /* ═══ سکشن مقاله: حفظ چیدمان اصلی (عکس سمت چپ - متن سمت راست) ═══ */
+  .my-article-layout {
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+  }
+  .my-article-image {
+    order: 1 !important;
+    width: 450px;
+    height: auto;
+    aspect-ratio: auto;
+  }
+  .my-article-text-block {
+    order: 0 !important;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  /* ═══ هیرو: حفظ چیدمان کنار هم ═══ */
+  .web-design-hero-wrap {
+    padding: 80px 30px;
+    gap: 30px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .web-design-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+  }
+  .web-design-hero-content h1 {
+    font-size: 38px;
+    line-height: 48px;
+    text-align: right;
+  }
+  .web-design-hero-content .discription {
+    width: 100%;
+    text-align: justify;
+    font-size: 16px;
+  }
+  .web-design-hero-img {
+    flex-shrink: 0;
+  }
+  .web-design-hero-img img {
+    width: 400px;
+    height: auto;
+    max-width: none;
+  }
+  .web-design-hero-badge {
+    width: auto;
+    font-size: 13px;
+    align-self: flex-start;
+  }
+  .cta-group {
+    justify-content: flex-start;
+  }
+  .cta,
+  .cta-outline {
+    width: 180px;
+    height: 48px;
+    font-size: 14px;
+  }
+  
+  .why-web-section {
+    height: auto;
+    padding: 80px 30px;
+  }
+  .why-web-card-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    padding: 0;
+  }
+  .why-web-card {
+    width: calc(50% - 12px);
+    height: auto;
+    min-height: 228px;
+  }
+  
+  /* ═══ سکشن سوم: ۳ کارت بالا + ۳ کارت پایین ═══ */
+  .my-grid-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  .my-service-box {
+    width: calc(33.333% - 16px);
+    flex: none;
+    min-width: 280px;
+  }
+  /* رفع مشکل ارتفاع کارت دوم */
+  .my-vertical-line {
+    height: auto;
+    min-height: 60px;
+  }
+  
+  /* سکشن ۴: حفظ چیدمان خطی */
+  .my-steps-container {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .my-step-item {
+    width: auto;
+    flex: 1;
+    min-width: 100px;
+  }
+  .my-timeline-line {
+    width: calc(100% - 180px);
+    left: 90px;
+  }
+  
+  /* سکشن ۱: حفظ چیدمان ۳ ستونه */
+  .my-why-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 35px;
+    column-gap: 30px;
+  }
+  .my-why-card {
+    gap: 14px;
+  }
+  .my-why-card-text h3 {
+    font-size: 15px;
+  }
+  .my-why-card-text p {
+    font-size: 12.5px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  /* ═══ سکشن مقاله: حفظ چیدمان اصلی (عکس سمت چپ - متن سمت راست) ═══ */
+  .my-article-section {
+    padding: 80px 30px;
+  }
+  .my-article-layout {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+  .my-article-image {
+    order: 1 !important;
+    width: 380px;
+    height: auto;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
+  .my-article-text-block {
+    order: 0 !important;
+    max-width: 100%;
+    flex: 1;
+  }
+  .my-article-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .my-article-paragraph {
+    font-size: 14px;
+  }
+  
+  .my-page-wrap {
+    height: auto;
+    padding: 50px 30px 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* ═══ هیرو: حفظ چیدمان کنار هم (تبلت) ═══ */
+  .web-design-hero-wrap {
+    padding: 60px 20px;
+    gap: 24px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .web-design-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+  }
+  .web-design-hero-content h1 {
+    font-size: 28px;
+    line-height: 38px;
+    text-align: right;
+  }
+  .web-design-hero-content .discription {
+    width: 100%;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .web-design-hero-badge {
+    width: auto;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  .web-design-hero-img {
+    flex-shrink: 0;
+  }
+  .web-design-hero-img img {
+    width: 300px;
+    height: auto;
+    max-width: none;
+    border-radius: 24px;
+  }
+  .cta-group {
+    flex-direction: row;
+    width: 100%;
+    gap: 12px;
+  }
+  .cta,
+  .cta-outline {
+    width: auto;
+    flex: 1;
+    height: 44px;
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+  
+  .why-web-section {
+    padding: 60px 20px;
+  }
+  .why-web-title h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  .why-web-title p {
+    font-size: 12px;
+  }
+  .why-web-card {
+    width: 100%;
+  }
+  
+  /* ═══ سکشن سوم: ۳ کارت بالا + ۳ کارت پایین (تبلت) ═══ */
+  .my-section-headerrr {
+    padding: 0 20px;
+  }
+  .matn-head {
+    font-size: 24px;
+    text-align: center;
+  }
+  .my-services-grid {
+    padding: 60px 20px;
+  }
+  .my-grid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+  .my-service-box {
+    width: 100%;
+    min-width: unset;
+    padding: 20px;
+    gap: 14px;
+  }
+  .my-service-title {
+    font-size: 16px;
+  }
+  .my-service-desc {
+    font-size: 12px;
+    line-height: 150%;
+  }
+  .my-box-header {
+    gap: 12px;
+  }
+  .my-icon-wrapper {
+    height: 36px;
+    width: 36px;
+    border-radius: 10px;
+  }
+  .my-service-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .my-service-icon1 {
+    width: 18px;
+    height: 18px;
+  }
+  /* رفع مشکل ارتفاع کارت دوم */
+  .my-vertical-line {
+    height: auto;
+    min-height: 50px;
+  }
+  
+  /* سکشن ۴: حفظ چیدمان خطی */
+  .my-process-section {
+    padding: 60px 20px;
+  }
+  .my-section-title {
+    font-size: 24px;
+    text-align: center;
+  }
+  .my-steps-container {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .my-step-item {
+    width: auto;
+    flex: 1;
+    min-width: 70px;
+    gap: 10px;
+  }
+  .my-step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+  }
+  .my-step-img {
+    width: 20px;
+    height: 20px;
+  }
+  .my-step-badge {
+    top: -6px;
+    left: 30px;
+    padding: 1px 5px;
+    border-radius: 6px;
+    font-size: 8px;
+  }
+  .my-step-label {
+    font-size: 12px;
+  }
+  .my-timeline-line {
+    display: block;
+    width: calc(100% - 140px);
+    left: 70px;
+    top: 38px;
+  }
+  
+  /* ═══ سکشن ۱: حفظ چیدمان ۳ ستونه (تبلت) ═══ */
+  .my-why-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 30px;
+    column-gap: 20px;
+  }
+  .my-why-main-title {
+    font-size: 24px;
+  }
+  .my-why-card {
+    gap: 12px;
+  }
+  .my-why-icon-circle {
+    width: 36px;
+    height: 36px;
+  }
+  .my-why-icon-circle svg {
+    width: 16px;
+    height: 16px;
+  }
+  .my-why-card-text h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .my-why-card-text p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  
+  .section-galebha {
+    padding: 60px 20px;
+  }
+  .div-galebha {
+    font-size: 24px;
+    text-align: center;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 16px;
+  }
+  .card-container {
+    height: 250px;
+  }
+  .portfolio-section {
+    padding: 40px 20px;
+  }
+  .portfolio-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  .my-cta-section {
+    padding: 50px 20px;
+  }
+  .my-cta-title {
+    font-size: 24px;
+  }
+  
+  /* ═══ سکشن مقاله: حفظ چیدمان اصلی (عکس سمت چپ - متن سمت راست) ═══ */
+  .my-article-section {
+    padding: 60px 20px;
+  }
+  .my-article-layout {
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+  }
+  .my-article-image {
+    order: 1 !important;
+    width: 280px;
+    height: auto;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
+  .my-article-text-block {
+    order: 0 !important;
+    max-width: 100%;
+    flex: 1;
+    gap: 16px;
+  }
+  .my-article-heading {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .my-article-paragraph {
+    font-size: 13px;
+  }
+  .my-article-highlight-box {
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+  
+  .my-page-wrap {
+    padding: 40px 20px 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* ═══ هیرو: حفظ چیدمان کنار هم (موبایل) ═══ */
+  .web-design-hero-wrap {
+    padding: 40px 16px;
+    gap: 16px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .web-design-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    gap: 12px;
+  }
+  .web-design-hero-content h1 {
+    font-size: 20px;
+    line-height: 28px;
+    text-align: right;
+  }
+  .web-design-hero-content .discription {
+    width: 100%;
+    text-align: justify;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .web-design-hero-badge {
+    width: auto;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 14px;
+    gap: 4px;
+  }
+  .web-design-hero-badge svg {
+    width: 4px;
+    height: 4px;
+  }
+  .web-design-hero-img {
+    flex-shrink: 0;
+  }
+  .web-design-hero-img img {
+    width: 180px;
+    height: auto;
+    max-width: none;
+    border-radius: 16px;
+  }
+  .cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  .cta,
+  .cta-outline {
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+  
+  .why-web-title h2 {
+    font-size: 20px;
+  }
+  .why-web-card {
+    padding: 20px;
+    gap: 14px;
+  }
+  .why-web-card-title {
+    font-size: 16px;
+  }
+  .why-web-card-content {
+    font-size: 13px;
+  }
+  
+  /* ═══ سکشن سوم: ۳ کارت بالا + ۳ کارت پایین (موبایل) ═══ */
+  .my-grid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .my-service-box {
+    padding: 14px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+  .my-service-title {
+    font-size: 13px;
+  }
+  .my-service-desc {
+    font-size: 10px;
+    line-height: 140%;
+  }
+  .my-icon-wrapper {
+    height: 30px;
+    width: 30px;
+    border-radius: 8px;
+  }
+  .my-service-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .my-service-icon1 {
+    width: 15px;
+    height: 15px;
+  }
+  /* رفع مشکل ارتفاع کارت دوم */
+  .my-vertical-line {
+    height: auto;
+    min-height: 40px;
+  }
+  
+  /* سکشن ۴: حفظ چیدمان خطی */
+  .my-process-section {
+    padding: 40px 12px;
+    gap: 40px;
+  }
+  .my-section-title {
+    font-size: 20px;
+  }
+  .my-section-subtitle {
+    font-size: 12px;
+  }
+  .my-timeline-wrapper {
+    padding: 10px 0;
+  }
+  .my-steps-container {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 4px;
+  }
+  .my-step-item {
+    width: auto;
+    flex: 1;
+    min-width: 50px;
+    gap: 8px;
+  }
+  .my-step-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+  }
+  .my-step-img {
+    width: 16px;
+    height: 16px;
+  }
+  .my-step-badge {
+    top: -5px;
+    left: 26px;
+    padding: 1px 4px;
+    border-radius: 5px;
+    font-size: 7px;
+  }
+  .my-step-label {
+    font-size: 10px;
+  }
+  .my-timeline-line {
+    display: block;
+    width: calc(100% - 100px);
+    left: 50px;
+    top: 30px;
+    border-top-width: 1.5px;
+  }
+  
+  /* ═══ سکشن ۱: حفظ چیدمان ۳ ستونه (موبایل) ═══ */
+  .my-why-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 24px;
+    column-gap: 14px;
+  }
+  .my-why-main-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .my-why-card {
+    gap: 10px;
+  }
+  .my-why-icon-circle {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+  .my-why-icon-circle svg {
+    width: 14px;
+    height: 14px;
+  }
+  .my-why-card-text h3 {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .my-why-card-text p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  
+  .card-container {
+    height: 200px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 10px;
+  }
+  .my-cta-title {
+    font-size: 20px;
+  }
+  .my-cta-desc {
+    font-size: 13px;
+  }
+  .my-cta-button {
+    font-size: 14px;
+    padding: 12px 28px;
+  }
+  
+  /* ═══ سکشن مقاله: حفظ چیدمان اصلی (عکس سمت چپ - متن سمت راست) ═══ */
+  .my-article-section {
+    padding: 40px 16px;
+  }
+  .my-article-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .my-article-image {
+    order: 1 !important;
+    width: 160px;
+    height: auto;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+    border-radius: 12px;
+  }
+  .my-article-text-block {
+    order: 0 !important;
+    max-width: 100%;
+    flex: 1;
+    gap: 12px;
+  }
+  .my-article-heading {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .my-article-paragraph {
+    font-size: 11px;
+    line-height: 160%;
+  }
+  .my-article-label {
+    font-size: 10px;
+  }
+  .my-article-highlight-box {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+  
+  .my-page-wrap {
+    padding: 30px 12px 50px;
+  }
+}
+  </style>
+  </head>
+
+  <body>
+
+    <!-- navbar -->
+    {% include "includes/navbar.html" %}
+
+    <div class="web-design-hero-wrap ">
+      <div class="web-design-hero-content">
+        <div class="web-design-hero-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6"
+            viewBox="0 0 6 6" fill="none">
+            <circle cx="3" cy="3" r="3" fill="#1D3363" />
+          </svg>
+          <span>خدمات تخصصی آذر یزدان </span>
+        </div>
+        <h1>طراحی وب‌سایت حرفه‌ای برای ارتقای بی‌سابقه <p
+            class="hero-h1-yellow">کسب‌وکار شما</p>
+        </h1>
+        <div class="discription">
+          <p>ما با تکیه بر دیزاین لوکس و متدهای نوین بهینه‌سازی، بستری خلق
+            می‌کنیم تا مخاطبان شما در نگاه اول، شیفته هویت
+            متمایز برندتان شوند.</p>
+        </div>
+        <div class="cta-group">
+          <a href class="cta">دریافت مشاوره رایگان</a>
+          <a href class="cta-outline">مشاهده نمونه کارها</a>
+        </div>
+      </div>
+      <div class="web-design-hero-img">
+        <img src="{% static 'asets/pro-web-design-hero-img.png' %}"
+          alt="wordpress-hero-image">
+      </div>
+    </div>
+    <div class="why-web-section">
+      <div class="why-web-title">
+        <p>ضرورت حضور آنلاین قدرتمند</p>
+        <h2>چرا کسب‌وکار شما به یک وب‌سایت حرفه‌ای نیاز دارد؟</h2>
+      </div>
+      <div class="why-web-card-row">
+        <div class="why-web-card">
+          <div class="why-web-card-icon">
+            <img src="{% static 'asets/icon-trening-up.png' %}" alt="icon-trening-up">
+          </div>
+          <div class="why-web-card-title"><span>ساختار سئو محور</span></div>
+          <div class="why-web-card-content"><span>رعایت استانداردهای
+              الگوریتم‌های گوگل از اولین گام دیزاین برای جذب بیشترین ترافیک
+              ارگانیک.</span></div>
+        </div>
+        <div class="why-web-card">
+          <div class="why-web-card-icon">
+            <img src="{% static 'asets/icon-zap.png' %}" alt="icon-zap">
+          </div>
+          <div class="why-web-card-title"><span>عملکرد سریع</span></div>
+          <div class="why-web-card-content"><span>کدهای تمیز و معماری فوق‌سریع
+              که تضمین‌کننده لود چندثانیه‌ای صفحات و رضایت کاربر
+              است.</span></div>
+        </div>
+        <div class="why-web-card">
+          <div class="why-web-card-icon">
+            <img src="{% static 'asets/icon-mobile.png' %}" alt="icon-mobile">
+          </div>
+          <div class="why-web-card-title"><span>طراحی واکنش‌گرا</span></div>
+          <div class="why-web-card-content"><span>نمایش بی‌نقص و بهینه در تمام
+              نمایشگرها اعم از موبایل، تبلت و دسکتاپ با حداکثر
+              سازگاری.</span></div>
+        </div>
+        <div class="why-web-card">
+          <div class="why-web-card-icon">
+            <img src="{% static 'asets/icon-box.png'%}" alt="icon-box ">
+          </div>
+          <div class="why-web-card-title"><span>طراحی مدرن UI/UX</span></div>
+          <div class="why-web-card-content"><span>رابط‌های کاربری خیره‌کننده و
+              تجربه‌های کاربری روان که نرخ تبدیل مخاطب به
+              مشتری را چندین برابر می‌سازد.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sectionman -->
+
+    <div class="my-section-headerrr">
+      <b class="b">خدمات تخصصی آذر یزدان</b>
+      <div class="matn-head">طیف جامع سرویس‌های طراحی وب‌سایت</div>
+    </div>
+    <div class="my-services-grid">
+      <div class="my-grid-row">
+        <div class="my-service-box">
+          <div class="my-box-header">
+            <div class="my-vertical-line"></div>
+            <div class="my-icon-wrapper">
+              <img class="my-service-icon"
+                src="{% static 'asets/sabadtalayi.png' %}" alt>
+            </div>
+          </div>
+          <div class="my-service-title">فروشگاه اینترنتی</div>
+          <div class="my-service-desc">پلتفرم‌های فروش آنلاین هوشمند
+            با سبد خرید
+            و درگاه پرداخت امن جهت کسب بیشترین سهم بازار.
+          </div>
+        </div>
+        <div class="my-service-box">
+          <div class="my-box-header">
+            <div class="my-vertical-line"></div>
+            <div class="my-icon-wrapper">
+              <img class="my-service-icon"
+                src="{% static 'asets/poshtibani.png' %}" alt>
+            </div>
+          </div>
+          <div class="my-service-title">پشتیبانی و نگهداری</div>
+          <div class="my-service-desc">نظارت مداوم، به‌روزرسانی‌های
+            امنیتی مکرر و
+            پشتیبانی فنی سریع بدون دغدغه فنی.
+          </div>
+        </div>
+        <div class="my-service-box">
+          <div class="my-box-header">
+            <div class="my-vertical-line"></div>
+            <div class="my-icon-wrapper">
+              <img class="my-service-icon1"
+                src="{% static 'asets/codetalayi.png' %}" alt>
+            </div>
+          </div>
+          <div class="my-service-title">وب‌سایت سفارشی</div>
+          <div class="my-service-desc">پیاده‌سازی پیچیده‌ترین ایده‌ها
+            و کارکردها
+            با برنامه‌نویسی اختصاصی منطبق با الگوی رشد شما.
+          </div>
+        </div>
+      </div>
+      <div class="my-grid-row">
+        <div class="my-service-box">
+          <div class="my-box-header">
+            <div class="my-vertical-line"></div>
+            <div class="my-icon-wrapper">
+              <img class="my-service-icon"
+                src="{% static 'asets/refreshtalayi.png' %}" alt>
+            </div>
+          </div>
+          <div class="my-service-title">بازطراحی وب‌سایت</div>
+          <div class="my-service-desc">مدرن‌سازی وب‌سایت‌های قدیمی
+            منطبق با
+            ترندهای روز طراحی دنیا و تکنولوژی‌های مدرن.
+          </div>
+        </div>
+        <div class="my-service-box">
+          <div class="my-box-header">
+            <div class="my-vertical-line"></div>
+            <div class="my-icon-wrapper">
+              <img class="my-service-icon"
+                src="{% static 'asets/shercatitalayi.png' %}" alt>
+            </div>
+          </div>
+          <div class="my-service-title">وب‌سایت شرکتی</div>
+          <div class="my-service-desc">معرفی مقتدرانه هویت تجاری،
+            اهداف و خدمات
+            شرکت شما در بستری لوکس و اعتمادساز.
+          </div>
+        </div>
+        <div class="my-service-box">
+          <div class="my-box-header">
+            <div class="my-vertical-line"></div>
+            <div class="my-icon-wrapper">
+              <img class="my-service-icon"
+                src="{% static 'asets/landingvector.png' %}" alt>
+            </div>
+          </div>
+          <div class="my-service-title">لندینگ پیج</div>
+          <div class="my-service-desc">صفحات فرود متمرکز و بهینه‌شده
+            به همراه
+            کپی‌رایتینگ ترغیب‌کننده برای بیشترین بازدهی
+            تبلیغاتی.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- do -->
+    <div class="my-process-section">
+      <div class="my-section-header">
+        <b class="my-section-subtitle">مسیر خلق ارزش</b>
+        <div class="my-section-title">فرآیند گام‌به‌گام طراحی ما</div>
+      </div>
+      <div class="my-timeline-wrapper">
+        <div class="my-timeline-line"></div>
+        <div class="my-steps-container">
+          <div class="my-step-item">
+            <div class="my-step-circle">
+              <img class="my-step-img" src="{% static 'asets/rocket.png' %}"
+                alt>
+              <div class="my-step-badge">
+                <b class="my-section-subtitle">6</b>
+              </div>
+            </div>
+            <b class="my-step-label">راه‌اندازی</b>
+          </div>
+          <div class="my-step-item">
+            <div class="my-step-circle">
+              <img class="my-step-img"
+                src="{% static 'asets/check-circle.png' %}" alt>
+              <div class="my-step-badge">
+                <b class="my-section-subtitle">5</b>
+              </div>
+            </div>
+            <b class="my-step-label">تست و بازبینی</b>
+          </div>
+          <div class="my-step-item">
+            <div class="my-step-circle">
+              <img class="my-step-img" src="{% static 'asets/code.png' %}" alt>
+              <div class="my-step-badge">
+                <b class="my-section-subtitle">4</b>
+              </div>
+            </div>
+            <b class="my-step-label">توسعه کدهای تمیز</b>
+          </div>
+          <div class="my-step-item">
+            <div class="my-step-circle">
+              <img class="my-step-img" src="{% static 'asets/figma.png' %}" alt>
+              <div class="my-step-badge">
+                <b class="my-section-subtitle">3</b>
+              </div>
+            </div>
+            <b class="my-step-label">طراحی UI/UX</b>
+          </div>
+          <div class="my-step-item">
+            <div class="my-step-circle">
+              <img class="my-step-img" src="{% static 'asets/search.png' %}"
+                alt>
+              <div class="my-step-badge">
+                <b class="my-section-subtitle">2</b>
+              </div>
+            </div>
+            <b class="my-step-label">تحقیق و استراتژی</b>
+          </div>
+          <div class="my-step-item">
+            <div class="my-step-circle">
+              <img class="my-step-img"
+                src="{% static 'asets/message-square.png' %}" alt>
+              <div class="my-step-badge">
+                <b class="my-section-subtitle">1</b>
+              </div>
+            </div>
+            <b class="my-step-label">مشاوره اولیه</b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- section site gabli -->
+    <div class="section-galebha">
+      <b class="b-galebha">آلبوم شاهکارها</b>
+      <div class="div-galebha">پیش‌نمایش برخی نمونه کارهای شاخص</div>
+    </div>
+    <!-- ═══════════════════ PORTFOLIO ═══════════════════ -->
+    <section class="portfolio-section">
+      <div class="grid">
+        <!-- Card 1 -->
+        <div class="card-container">
+          
+          <img class="image1" src="{% static "img/by_de.png" %}" alt="Khaneara Card" />
+          <img
+            class="image2"
+            src="{% static "img/by_ph.png" %}"
+            alt="Khaneara Screenshot" />
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-container">
+          
+          <img class="image1" src="{% static "img/sis_de.png" %}" alt="Newsaad Card" />
+          <img class="image2" src="{% static "img/sis_ph.png" %}" alt="Newsaad Screenshot" />
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-container">
+          
+          <img
+            class="image1"
+            src="{% static "img/saat_de.png" %}"
+            alt="Novinchoob Card" />
+          <img
+            class="image2"
+            src="{% static "img/saat_ph.png" %}"
+            alt="Novinchoob Screenshot" />
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card-container">
+          
+          <img class="image1" src="{% static "img/ziv_de.png" %}" alt="Zarine Card" />
+          <img
+            class="image2"
+            src="{% static "img/ziv_ph.png" %}"
+            alt="Zarine Screenshot" />
+        </div>
+      </div>
+    </section>
+    <div class="portfolio-btn">
+      <b class="b-btn-galeb">مشاهده تمام نمونه کارها</b>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="my-why-section">
+      <div class="my-page-wrap">
+        <h2 class="my-why-main-title">چرا آذر یزدان؟</h2>
+        <div class="my-why-grid">
+
+          <div class="my-why-card">
+            <div class="my-why-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"><circle cx="12" cy="12"
+                  r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+            </div>
+            <div class="my-why-card-text">
+              <h3>تحویل سریع</h3>
+              <p>برنامه‌ریزی دقیق فازهای اجرایی برای تحویل به موقع پروژه با حفظ
+                حداکثر کیفیت.</p>
+            </div>
+          </div>
+
+          <div class="my-why-card">
+            <div class="my-why-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"><polyline
+                  points="16 18 22 12 16 6" /><polyline
+                  points="8 6 2 12 8 18" /></svg>
+            </div>
+            <div class="my-why-card-text">
+              <h3>کد تمیز</h3>
+              <p>توسعه کدهای استاندارد، بهینه و قابل توسعه جهت ارتقای وب‌سایت در
+                آینده.</p>
+            </div>
+          </div>
+
+          <div class="my-why-card">
+            <div class="my-why-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"><path d="M12 20h9" /><path
+                  d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
+            </div>
+            <div class="my-why-card-text">
+              <h3>طراحی اختصاصی</h3>
+              <p>خلق صفر تا صد دیزاین بر اساس سلیقه و نیازهای متمایز برند شما،
+                بدون قالب‌های آماده.</p>
+            </div>
+          </div>
+
+          <div class="my-why-card">
+            <div class="my-why-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"><path
+                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg>
+            </div>
+            <div class="my-why-card-text">
+              <h3>توسعه امن</h3>
+              <p>به‌کارگیری پروتکل‌های امنیتی لایه‌بندی شده نفوذناپذیر علیه
+                تهدیدات سایبری.</p>
+            </div>
+          </div>
+
+          <div class="my-why-card">
+            <div class="my-why-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line
+                  x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+            </div>
+            <div class="my-why-card-text">
+              <h3>بهینه‌سازی سئو</h3>
+              <p>رعایت عمیق سئوی تکنیکال از هسته طراحی برای کسب صدر نتایج سرچ
+                گوگل.</p>
+            </div>
+          </div>
+
+          <div class="my-why-card">
+            <div class="my-why-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"><path
+                  d="M3 18v-6a9 9 0 0 1 18 0v6" /><path
+                  d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" /></svg>
+            </div>
+            <div class="my-why-card-text">
+              <h3>پشتیبانی مداوم</h3>
+              <p>تیم فنی مجرب در تمام ساعات روز در خدمت امنیت و ثبات کارکردی
+                وب‌سایت شماست.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="my-cta-section">
+      <h2 class="my-cta-title">آماده‌اید پروژه طراحی وب‌سایت خود را آغاز
+        کنید؟</h2>
+      <p class="my-cta-desc">
+        همین امروز فرم درخواست مشاوره را پر کنید یا مستقیماً تماس بگیرید.
+        مشاوران تخصصی ما
+        برای ارائه راهکارهای هوشمند در کنار شما هستند.
+      </p>
+      <button class="my-cta-button">شروع پروژه جدید</button>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="my-article-section">
+      <div class="my-article-layout">
+
+        <img src="{% static 'asets/Rectangle.png' %}" alt="تصویر وب‌سایت"
+          class="my-article-image">
+
+        <div class="my-article-text-block">
+          <div class="my-article-label">راهنمای جامع مارکتینگ دیجیتال</div>
+          <h2 class="my-article-heading">اهمیت دیزاین ممتاز وب‌سایت در موفقیت
+            برندهای مدرن</h2>
+          <p class="my-article-paragraph">
+            وب‌سایت شما حکم ویترین شیشه‌ای و اصلی برند شما را در فضای بی‌انتهای
+            اینترنت دارد.
+            یک وب‌سایت با دیزاین لوکس و منطبق با اصول روز، بیش از یک معرف ساده
+            کالا، ابزاری
+            استراتژیک برای ایجاد ارزش و بستری برای جلب اعتماد قلبی مشتری است. ما
+            در تــوکا
+            معتقدیم تک‌تک پیکسل‌ها سزاوار توجهی معمارگونه هستند.
+          </p>
+          <div class="my-article-highlight-box">
+            نکته آماری: بیش از ۷۵ درصد کاربران، اعتبار و قدرت یک برند را بر اساس
+            ساختار و
+            جزییات دیزاین وب‌سایت آن قضاوت می‌کنند.
+          </div>
+          <p class="my-article-paragraph">
+            زمانی که مخاطب وارد وب‌سایت می‌شود، تنها ۳ ثانیه زمان لازم است تا
+            قضاوت اولیه
+            شکل بگیرد. اگر این بستر با سرعت، زیبایی و روانی پاسخگوی ذهن پویای
+            مخاطب نباشد،
+            فرآیند تبدیل با شکستی جدی مواجه خواهد شد. رویکرد ما، آشتی دادن هنر
+            اصیل دیزاین
+            رابط کاربری با استانداردهای مدرن سئو تکنیکال است.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- فوتر -->
+    {% include "includes/footer.html" %}
+    <!-- salma section -->
+
+    <script>
+  	// تابع باز و بسته کردن دراپ‌منو
+    		function toggleDropdown(triggerId, dropdownId) {
+      			var trigger = document.getElementById(triggerId);
+      			var dropdown = document.getElementById(dropdownId);
+      			
+      			if(trigger && dropdown) {
+        				trigger.addEventListener("click", function(e) {
+          					e.stopPropagation();
+          					
+          					// بستن همه دراپ‌منوهای دیگر
+          					document.querySelectorAll('.dropdown-content').forEach(function(el) {
+            						if(el.id !== dropdownId) {
+              							el.style.display = 'none';
+            						}
+          					});
+          					
+          					// باز و بسته کردن دراپ‌منو فعلی
+          					if(dropdown.style.display === 'flex') {
+            						dropdown.style.display = 'none';
+          					} else {
+            						dropdown.style.display = 'flex';
+          					}
+        				});
+      			}
+    		}
+    		
+    		// بستن دراپ‌منو با کلیک خارج از آن
+    		document.addEventListener("click", function() {
+      			document.querySelectorAll('.dropdown-content').forEach(function(el) {
+        				el.style.display = 'none';
+      			});
+    		});
+    		
+    		// جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
+    		document.querySelectorAll('.dropdown-content').forEach(function(el) {
+      			el.addEventListener("click", function(e) {
+        				e.stopPropagation();
+      			});
+    		});
+    		
+    		// راه‌اندازی دراپ‌منوها
+    		toggleDropdown('frameContainer', 'blogDropdown');
+    		toggleDropdown('frameContainer1', 'academyDropdown');
+    		toggleDropdown('frameContainer2', 'servicesDropdown');
+
+
+
+        // Portfolio Cards
+      const cardContainers = document.querySelectorAll(".card-container");
+      cardContainers.forEach((container) => {
+        container.addEventListener("mouseenter", () => {
+          container.classList.add("hovered");
+        });
+        container.addEventListener("mouseleave", () => {
+          container.classList.remove("hovered");
+          const image1 = container.querySelector(".image1");
+          const image2 = container.querySelector(".image2");
+          const text = container.querySelector(".text");
+          if (image1) image1.style.transform = "";
+          if (image2) image2.style.transform = "";
+          if (text) text.style.transform = "";
+        });
+
+        // Touch support for mobile
+        container.addEventListener("touchstart", () => {
+          container.classList.add("hovered");
+        });
+        container.addEventListener("touchend", () => {
+          setTimeout(() => {
+            container.classList.remove("hovered");
+          }, 1000);
+        });
+      });
+
+
+</script>
+
+  </body>
+
+</html>

@@ -1,0 +1,207 @@
+{% load static %}
+<div class="navbar-wrapper">
+			<div class="rectangle-parent">
+
+				<img class="frame-item" alt>
+
+				<div class="frame-wrapper">
+					<div class="cta-button-parent">
+						<a href="{% url "users:dashboard" %}">
+							<img class="frame-inner" src="{% static 'asets/porof.svg' %}" alt>
+						</a>
+
+						<div class="cta-button">
+							<img class="phone-call-3-1" src="{% static 'asets/phone.svg' %}" alt>
+
+							<b class="button-label">۰۴۱-۳۵۵۷۹۳۹۶</b>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="frame-group">
+				<a href="{% url "home" %}">
+					<img class="logo-icon" src="{% static 'asets/logo.svg' %}" alt>
+				</a>
+				<div class="parent">
+					<!-- services -->
+					<div class="dropdown-trigger" id="frameContainer2">
+
+						<a href="{% url "shop:services" %}" class="div">خدمات ما</a>
+						<img class="phone-call-3-1" src="{% static 'asets/dropmenu.svg' %}" alt>
+
+						<!-- دراپ‌منو خدمات -->
+						<div class="dropdown-content services-dropdown" id="servicesDropdown">
+
+							<div class="services">
+
+								<div class="component-38-parent">
+									<div class="component-38">
+										<div class="div7">طراحی سایت شرکتی</div>
+									</div>
+									<div class="line-div">
+									</div>
+									<div class="frame-child4">
+									</div>
+									<div class="component-38">
+										<div class="div7">طراحی سایت فروشگاهی</div>
+									</div>
+									<div class="line-div">
+									</div>
+									<div class="frame-child4">
+									</div>
+									<a  href="{% url "shop:services_web" %}" style="text-decoration:none;" class="component-38">
+										<div class="div7">طراحی سایت اختصاصی</div>
+									</a>
+									<div class="line-div">
+									</div>
+									<div class="frame-child4">
+									</div>
+									<a href="{% url "shop:services_seo" %}" style="text-decoration:none;" class="component-38">
+										<div  class="div7">سئو سایت</div>
+									</a>
+								</div>
+
+								<div class="services-child">
+								</div>
+
+								<div class="component-44-parent">
+									<a href="{% url "shop:services_digital" %}" style="text-decoration:none;" class="component-44">
+										<div  class="div7">مشاوره دیجیتال مارکتینگ</div>
+									</a>
+									<div class="line-div">
+									</div>
+									<div class="component-44">
+										<div class="div7">پشتیبانی سایت</div>
+									</div>
+									<div class="line-div">
+									</div>
+									<a href="{% url "shop:services_wordpress" %}" style="text-decoration:none;" class="component-44">
+										<div class="div7">خدمات وردپرس</div>
+									</a>
+									<div class="line-div">
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<!-- project -->
+					<div class="div">پروژه ها</div>
+
+					<!-- academi -->
+					<div class="dropdown-trigger" id="frameContainer1">
+
+						<a href="{% url "courses:course_list" %}" style="text-decoration:none;" class="div3">آکادمی</a>
+						<img class="phone-call-3-1" src="{% static 'asets/dropmenu.svg' %}" alt>
+
+						<!-- دراپ‌منو آکادمی -->
+						<div class="dropdown-content academy-dropdown" id="academyDropdown">
+							<div class="academi">
+
+								<div class="component-38-group">
+									<a href="{% url "courses:front_signup" %}" style="text-decoration:none;" class="component-442">
+										<div class="div15">آموزش فرانت اند</div>
+									</a>
+									<div class="frame-child7">
+									</div>
+									<a href="{% url "courses:back_signup" %}" style="text-decoration:none;" class="component-442">
+										<div class="div15">آموزش بک اند</div>
+									</a>
+									<div class="frame-child7">
+									</div>
+									<a href="{% url "courses:wordpress_signup" %}" style="text-decoration:none;" class="component-402">
+										<div class="div15">آموزش طراحی سایت با وردپرس</div>
+									</a>
+									<div class="frame-child7">
+									</div>
+								</div>
+
+								<div class="academi-child">
+								</div>
+								<div class="component-44-group">
+									<a href="{% url "courses:ai_signup" %}" style="text-decoration:none;" class="component-442">
+										<div class="div14">آموزش هوش مصنوعی</div>
+									</a>
+									<div class="frame-child7">
+									</div>
+									<a href="{% url "courses:ui_signup" %}" style="text-decoration:none;" class="component-442">
+										<div class="div15">UI/UX</div>
+									</a>
+									<div class="frame-child7">
+									</div>
+									<a href="{% url "courses:seo_signup" %}" style="text-decoration:none;" class="component-442">
+										<div class="div15">آموزش سئو</div>
+									</a>
+									<div class="frame-child7">
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+					<!-- blog -->
+					<div class="dropdown-trigger" id="frameContainer">
+
+						<a href="{% url "users:blog_home" %}" style="text-decoration:none;" class="div3">وبلاگ</a>
+						<img class="phone-call-3-1" src="{% static 'asets/dropmenu.svg' %}" alt>
+						<!-- دراپ‌منو وبلاگ -->
+						<div class="dropdown-content blog-dropdown" id="blogDropdown">
+							<div class="blog">
+								<div class="component-38-container">
+									<a href="{% url 'users:blog_filter' %}?category=webdevelopment" style="text-decoration:none;" class="component-443">
+										<div class="div20">طراحی سایت</div>
+									</a>
+									<div class="frame-child13"></div>
+									
+									<a href="{% url 'users:blog_filter' %}?category=web" style="text-decoration:none;" class="component-443">
+										<div class="div20">برنامه‌نویسی</div>
+									</a>
+									<div class="frame-child13"></div>
+									
+									<a href="{% url 'users:blog_filter' %}?category=ai" style="text-decoration:none;" class="component-443">
+										<div class="div20">هوش مصنوعی</div>
+									</a>
+									<div class="frame-child13"></div>
+									
+									<a href="{% url 'users:blog_filter' %}?category=seo" style="text-decoration:none;" class="component-443">
+										<div class="div20">سئو</div>
+									</a>
+								</div>
+								
+								<div class="blog-child"></div>
+								
+								<div class="component-44-container">
+									<a href="{% url 'users:blog_filter' %}?category=marketing" style="text-decoration:none;" class="component-443">
+										<div class="div20">دیجیتال مارکتینگ</div>
+									</a>
+									<div class="frame-child13"></div>
+									
+									<a href="{% url 'users:blog_filter' %}?category=work" style="text-decoration:none;" class="component-443">
+										<div class="div20">کسب و کار</div>
+									</a>
+									<div class="frame-child13"></div>
+									
+									<a href="{% url 'users:blog_filter' %}?category=wordpress" style="text-decoration:none;" class="component-443">
+										<div class="div20">وردپرس</div>
+									</a>
+									<div class="frame-child13"></div>
+									
+									<a href="{% url 'users:blog_filter' %}?category=teach" style="text-decoration:none;" class="component-443">
+										<div class="div20">آموزش</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="div">درباره ما</div>
+					<a href="{% url "users:contact_page" %}" class="div">تماس با ما</a>
+
+				</div>
+			</div>
+		</div>

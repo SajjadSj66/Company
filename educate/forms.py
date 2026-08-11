@@ -1,6 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
-from .models import Course, Order, CartItem
+from .models import *
 
 # فرم جستجو و فیلتر دوره‌ها
 class CourseSearchForm(forms.Form):
@@ -76,3 +75,68 @@ class CheckoutForm(forms.ModelForm):
         if phone and not phone.isdigit():
             raise forms.ValidationError('شماره تلفن باید فقط شامل اعداد باشد.')
         return phone
+
+class SeoSignUpForm(forms.ModelForm):
+    class Meta:
+        model = SeoSignUp
+        fields = ['full_name', 'phone', 'educate']
+        wdgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'educate': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
+class AiSignUpForm(forms.ModelForm):
+    class Meta:
+        model = AiSignUp
+        fields = ['full_name', 'phone', 'educate']
+        wdgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'educate': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
+class WordpressSignUpForm(forms.ModelForm):
+    class Meta:
+        model = WordpressSignUp
+        fields = ['full_name', 'phone', 'educate']
+        wdgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'educate': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
+class UiSignUpForm(forms.ModelForm):
+    class Meta:
+        model = UiSignUp
+        fields = ['full_name', 'phone', 'educate']
+        wdgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'educate': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
+class BackSignUpForm(forms.ModelForm):
+    class Meta:
+        model = BackSignUp
+        fields = ['full_name', 'phone', 'educate']
+        wdgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'educate': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
+class FrontSignUpForm(forms.ModelForm):
+    class Meta:
+        model = FrontSignUp
+        fields = ['full_name', 'phone', 'educate']
+        wdgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'educate': forms.TextInput(attrs={'class': 'form-control'}),
+        }

@@ -1,0 +1,2826 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>خدمات وردپرس آذریزدان</title>
+        <style>
+    :root {
+      --navy: #1D3363;
+      --gold: #F0C040;
+      --accent: #E2543D;
+      /* رنگ تقریبی برای نام برند، رنگ دقیق برام مشخص نشده بود */
+      --bg: #F7F5F1;
+      --text-dark: #1D2430;
+      --text-muted: #6b7280;
+      --card-bg: #ffffff;
+      --card-border: #eceae5;
+    }
+    a {
+		text-decoration: none !important;
+		}
+
+		/* حفظ رنگ پیش‌فرض لینک‌ها */
+		a {
+		color: inherit;
+		}
+
+    @font-face {
+      font-family: "Google Sans Flex";
+      src: url(../fonts/GoogleSansFlex.ttf);
+    }
+
+    @font-face {
+      font-family: "Vazir-Bold";
+      src: url(../fonts/Vazir-Bold.ttf);
+    }
+
+
+    @font-face {
+      font-family: "Vazir-Light";
+      src: url(../fonts/Vazir-Light.ttf);
+    }
+
+    @font-face {
+      font-family: "Vazir-Meduim";
+      src: url(../fonts/Vazir-Medium.ttf);
+    }
+
+    @font-face {
+      font-family: "Vazir-Thin";
+      src: url(../fonts/Vazir-Thin.ttf);
+    }
+
+    @font-face {
+      font-family: "Vazir";
+      src: url(../fonts/Vazir.ttf);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Vazir";
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+      direction: rtl;
+      width: 100%;
+    }
+
+
+
+/* ناو بار */
+.navbar-wrapper {
+  width: 100%;
+  height: 88px;
+  position: fixed;
+  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
+  text-align: left;
+  font-size: 16px;
+  color: #ebebeb;
+  font-family: Rubik;
+  align-items: center;
+  justify-self: center;
+  z-index: 1000;
+}
+.rectangle-parent {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 526px;
+  height: 88px;
+  overflow: hidden;
+}
+.frame-child {
+  position: absolute;
+  top: 0px;
+  left: -18px;
+  width: 422px;
+  height: 106px;
+  flex-shrink: 0;
+}
+
+.frame-wrapper {
+  position: absolute;
+  top: 18px;
+  left: 64px;
+  width: 293px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.cta-button-parent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.cta-button {
+  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
+  border-radius: 12px;
+  background-color: #1d3363;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  gap: 8px;
+}
+.phone-call-3-1 {
+  height: 16px;
+  width: 16px;
+  position: relative;
+}
+.button-label {
+  position: relative;
+}
+.frame-inner {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  border-radius: 12px;
+}
+.frame-group {
+  position: absolute;
+  top: 16px;
+  border-radius: 16px;
+  width: 887px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  text-align: right;
+  font-size: 20px;
+  color: #fbf8f8;
+  font-family: "Google Sans Flex";
+}
+.parent {
+  display: flex;
+  align-items: center;
+  gap: 57px;
+}
+.div {
+  position: relative;
+  font-weight: 600;
+  cursor: pointer;
+}
+.div3 {
+  color:white;
+  width: 69px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.angle-small-down-2-2-parent,
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.angle-small-down-2-2-parent {
+  width: 97px;
+}
+
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  width: 110px;
+}
+
+.logo-icon {
+  height: 56px;
+  width: 56px;
+  position: relative;
+  right: 10px;
+}
+
+/* استایل‌های جدید برای دراپ‌منو */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  z-index: 1001;
+}
+
+.blog-dropdown {
+  right: 0;
+}
+
+.academy-dropdown {
+  right: 0;
+}
+
+.services-dropdown {
+  right: 0;
+}
+
+.services {
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 40px;
+}
+.component-44-parent {
+  height: 176px;
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component-44 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+.component-38:hover,
+.component-44:hover,
+.component-442:hover,
+.component-443:hover,
+.component-402:hover {
+  background-color: rgba(118, 130, 156, 0.6);
+}
+a.div{
+      color: white;
+      text-decoration: none;
+    }
+    a.div7{
+      color: white;
+      text-decoration: none;
+    }
+.div {
+  position: relative;
+  font-weight: 500;
+}
+
+.services-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+.component-38-parent {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.component-38-parent :last-child {
+  border-bottom-right-radius: 12px;
+}
+.component-38-parent :first-child {
+  border-top-right-radius: 12px;
+}
+.component-44-parent :first-child {
+  border-top-left-radius: 12px;
+}
+.component-38 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+.line-div {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+
+.academi {
+  width: 465px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 93%;
+  max-height: 90%;
+  overflow: hidden;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 110px;
+}
+.component-44-group {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.component-442 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+.div14 {
+  position: relative;
+  font-weight: 500;
+  white-space: pre-wrap;
+}
+.frame-child7 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+.div15 {
+  position: relative;
+  font-weight: 500;
+}
+.academi-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+  flex-shrink: 0;
+}
+.component-38-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.component-402 {
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px 16px;
+}
+
+.blog {
+  width: 409px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+}
+.component-44-container {
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component-443 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+.div20 {
+  position: relative;
+  font-weight: 500;
+}
+.frame-child13 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+.blog-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+.component-38-container {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
+.popup-overlay {
+  display: none;
+}
+
+    .word-press-hero-wrap {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 60px 24px 90px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      justify-self: center;
+      padding: 104px 74px;
+      gap: 37px;
+    }
+
+    .hero-img img {
+      width: 634px;
+      height: 478px;
+      border-radius: 100px;
+    }
+
+    .hero-content {
+      width: 609px;
+      height: 373px;
+      gap: 34px;
+    }
+
+    .hero-content h1 {
+      color: var(--navy);
+      font-size: 54px;
+      font-weight: 700;
+    }
+
+    .hero-content .discription {
+      width: 520px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #4B5563;
+      text-align: justify;
+      line-height: 32px;
+    }
+
+    /* CTA overlays at fixed position, doesn't add height */
+    .cta {
+      width: 247px;
+      height: 53px;
+      margin-top: 16px;
+      position: absolute;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: start;
+      padding: 16px 32px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease-out;
+
+      font-size: 16px;
+      font-weight: 700;
+      justify-content: space-around;
+      box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta:hover {
+      transform: translateY(-5px);
+    }
+
+    .cta::selection {
+      text-decoration: none;
+      border: none;
+    }
+
+
+
+    /* erfansection */
+        .services-section {
+        width: 1440px;
+        position: relative;
+        background-color: #f8f9fc;
+        display: flex;
+        justify-self: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 80px;
+        box-sizing: border-box;
+        gap: 60px;
+        text-align: left;
+        font-size: 36px;
+        color: #1d3363;
+        font-family: Gupter;
+    }
+    
+    .services-section .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    
+    .services-section .section-title {
+        position: relative;
+    }
+    
+    .services-section .title-divider {
+        width: 60px;
+        height: 4px;
+        position: relative;
+        border-radius: 2px;
+        background-color: #f0c040;
+    }
+    
+    .services-section .services-grid {
+      direction: ltr;
+        width: 1280px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        gap: 24px;
+        text-align: right;
+        font-size: 14px;
+        font-family: Geist;
+    }
+    
+    /* کارت سرویس - حالت عادی */
+    .services-section .service-card {
+        width: 410px;
+        border-radius: 20px;
+        background-color: #fff;
+        border: 1px solid #e8ebf0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 32px;
+        gap: 20px;
+        transition: all 0.3s ease;
+    }
+    
+    /* کارت سرویس - حالت هاور */
+    .services-section .service-card:hover {
+        background-color: #f0c040;
+        border: 1px solid #e8ebf0;
+    }
+    
+    /* آیکون کانتینر در حالت هاور */
+    .services-section .service-card:hover .service-icon-container {
+        background-color: #f8f9fc;
+    }
+    
+    /* عنوان در حالت هاور */
+    .services-section .service-card:hover .service-title {
+        color: #1d3363;
+    }
+    
+    /* توضیحات در حالت هاور */
+    .services-section .service-card:hover .service-description {
+        color: #4b5563;
+    }
+    
+    /* لینک در حالت هاور */
+    .services-section .service-card:hover .service-link {
+        color: #fff;
+    }
+    
+    /* استایل‌های عمومی آیکون */
+    .services-section .service-icon-container {
+        border-radius: 12px;
+        background-color: #f8f9fc;
+        display: flex;
+        align-items: flex-start;
+        padding: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .services-section .service-icon {
+        height: 32px;
+        width: 32px;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .services-section .globe-icon {
+        height: 32px;
+        width: 32px;
+        position: relative;
+    }
+    
+    .services-section .service-title {
+        align-self: stretch;
+        position: relative;
+        font-size: 20px;
+        transition: all 0.3s ease;
+    }
+    
+    .services-section .service-description {
+        align-self: stretch;
+        position: relative;
+        line-height: 24px;
+        color: #4b5563;
+        transition: all 0.3s ease;
+    }
+    
+    .services-section .service-link {
+        position: relative;
+        direction: rtl;
+        color: #f0c040;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+
+
+    
+
+
+/* salma - بخش چرا خدمات وردپرس ما */
+.why-wordpress-section {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 80px;
+    box-sizing: border-box;
+    gap: 60px;
+    text-align: right;
+    font-size: 20px;
+    color: #1d3363;
+    overflow: hidden;
+}
+
+.why-wordpress-section .section-header2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    font-size: 36px;
+    font-family: Gupter;
+    color: #1d3363;
+    position: relative;
+}
+
+.why-wordpress-section .rectangle {
+    width: 60px;
+    height: 4px;
+    position: relative;
+    border-radius: 2px;
+    background-color: #f0c040;
+}
+
+.why-wordpress-section .features-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.why-wordpress-section .feature-box {
+    position: relative;
+    right: 180px;
+    border-radius: 32px;
+    background-color: #f0c040;
+    border: 1px solid #e8ebf0;
+    box-sizing: border-box;
+    width: 642px;
+    max-width: 100%;
+    height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 24px;
+    gap: 16px;
+    transition: all 0.3s ease;
+    
+}
+.why-wordpress-section .feature-box1 {
+    position: relative;
+    left: 180px;
+    border-radius: 32px;
+    background-color: #f0c040;
+    border: 1px solid #e8ebf0;
+    box-sizing: border-box;
+    width: 642px;
+    max-width: 100%;
+    height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 24px;
+    gap: 16px;
+    transition: all 0.3s ease;
+}
+
+.why-wordpress-section .feature-box1:hover
+ {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 24px rgba(240, 192, 64, 0.3);
+}
+
+.why-wordpress-section .feature-box:hover
+ {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 24px rgba(240, 192, 64, 0.3);
+}
+
+.why-wordpress-section .feature-text {
+    width: 414px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.why-wordpress-section .feature-title {
+    align-self: stretch;
+    position: relative;
+    left: 140px;
+    color: #1d3363;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.why-wordpress-section .feature-desc {
+    align-self: stretch;
+    position: relative;
+    left: 140px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #4b5563;
+}
+
+.why-wordpress-section .feature-icon-base {
+    height: 48px;
+    width: 48px;
+    margin-left: 140px;
+    border-radius: 12px;
+    background-color: #fff8e0;
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.why-wordpress-section .feature-icon-inner {
+    height: 24px;
+    width: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.why-wordpress-section .feature-icon-img {
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+/* saghar */
+
+
+    /* ===================== همکاری: فرایند گام‌به‌گام ===================== */
+    .collaboration-journey {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 100px 80px;
+      gap: 60px;
+      max-width: 1440px;
+      width: 100%;
+      background: #EBEBEB;
+      margin: 0 auto;
+    }
+
+    .journey-header-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .journey-heading-title {
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 1.25;
+      color: #1D3363;
+      text-align: center;
+      letter-spacing: -0.3px;
+    }
+
+    .journey-accent-divider {
+      width: 60px;
+      height: 4px;
+      background: #F0C040;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .journey-header-block:hover .journey-accent-divider {
+      width: 80px;
+    }
+
+    .milestone-path-row {
+      direction: ltr;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 16px;
+      width: 1280px;
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .milestone-node {
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      flex: 1 1 0;
+      min-width: 130px;
+      transition: transform 0.25s ease;
+    }
+
+    .milestone-node:hover {
+      transform: translateY(-6px);
+    }
+
+    .milestone-badge-ring {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      background: #FFFFFF;
+      border: 2px solid #F0C040;
+      border-radius: 50%;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #1D3363;
+      transition: all 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .milestone-node:hover .milestone-badge-ring {
+      background: #F0C040;
+      color: #FFFFFF;
+      border-color: #F0C040;
+      box-shadow: 0 6px 18px rgba(240, 192, 64, 0.35);
+    }
+
+    .milestone-stage-name {
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1D3363;
+      transition: color 0.25s ease;
+    }
+
+    .milestone-node:hover .milestone-stage-name {
+      color: #0f1f3d;
+    }
+
+    .milestone-detail-text {
+      width: 100%;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      text-align: center;
+      color: #4B5563;
+      line-height: 1.7;
+      transition: color 0.25s ease;
+    }
+
+    .milestone-node:hover .milestone-detail-text {
+      color: #2d3748;
+    }
+
+    .pathway-connector-dash {
+      flex: none;
+      align-self: flex-start;
+      width: 40px;
+      height: 0;
+      border-top: 2px dashed #F0C040;
+      margin-top: 24px;
+      transition: border-color 0.3s ease;
+    }
+
+    /* ===================== فراخوان: پروژه وردپرس ===================== */
+    .wordpress-cta-showcase {
+      direction: ltr;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 100px 80px;
+      gap: 60px;
+      max-width: 1440px;
+      width: 100%;
+      background: #1D3363;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle decorative gradient overlay */
+    .wordpress-cta-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(240, 192, 64, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .wp-preview-frame {
+      order: 0;
+      position: relative;
+      z-index: 1;
+      flex: none;
+      width: 631px;
+      max-width: 100%;
+      height: 384px;
+      background: #FFFFFF;
+      border-radius: 32px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .wp-preview-frame:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    .wp-showcase-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 32px;
+      transition: transform 0.4s ease;
+    }
+
+    .wp-preview-frame:hover .wp-showcase-image {
+      transform: scale(1.03);
+    }
+
+    .wp-cta-content {
+      order: 1;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+      flex: 1 1 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .wp-cta-headline {
+      width: 100%;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 1.3;
+      text-align: right;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+    }
+
+    .wp-cta-description {
+      width: 500px;
+      max-width: 100%;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.9;
+      text-align: right;
+      color: #D1D5DB;
+      opacity: 0.92;
+    }
+
+    .wp-cta-action-button {
+      direction: ltr;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 16px 32px;
+      gap: 10px;
+      height: 53px;
+      background: #F0C040;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      align-self: flex-start;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      outline: none;
+    }
+
+    .wp-cta-action-button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 50px;
+    }
+
+    .wp-cta-action-button:hover {
+      background: #e5b330;
+      box-shadow: 0 10px 28px rgba(240, 192, 64, 0.45);
+      transform: translateY(-3px);
+    }
+
+    .wp-cta-action-button:hover::after {
+      opacity: 1;
+    }
+
+    .wp-cta-action-button:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(240, 192, 64, 0.5);
+      transition: all 0.1s ease;
+    }
+
+    .wp-cta-btn-icon-wrap {
+      order: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .wp-cta-action-button:hover .wp-cta-btn-icon-wrap {
+      transform: translateX(4px);
+    }
+
+    .wp-cta-btn-icon-wrap svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .wp-cta-btn-label {
+      order: 1;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #1D3363;
+      white-space: nowrap;
+    }
+
+   /*  سلما ریسپانسیو */
+   /* ============================================= */
+/* ریسپانسیو کامل - تمام سکشن‌ها */
+/* ============================================= */
+
+/* ============================================= */
+/* ریسپانسیو - بخش هیرو (سکشن ۱) */
+/* ============================================= */
+@media screen and (max-width: 1400px) {
+  .word-press-hero-wrap {
+    padding: 104px 50px;
+    gap: 30px;
+  }
+  
+  .hero-img img {
+    width: 550px;
+    height: 414px;
+  }
+  
+  .hero-content h1 {
+    font-size: 46px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .word-press-hero-wrap {
+    padding: 90px 40px;
+    gap: 25px;
+  }
+  
+  .hero-img img {
+    width: 480px;
+    height: 361px;
+    border-radius: 80px;
+  }
+  
+  .hero-content {
+    width: 500px;
+    height: auto;
+  }
+  
+  .hero-content h1 {
+    font-size: 40px;
+  }
+  
+  .hero-content .discription {
+    width: 100%;
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .word-press-hero-wrap {
+    padding: 120px 35px 70px;
+    gap: 30px;
+  }
+  
+  .hero-img img {
+    width: 420px;
+    height: 316px;
+    border-radius: 70px;
+  }
+  
+  .hero-content {
+    width: 450px;
+  }
+  
+  .hero-content h1 {
+    font-size: 36px;
+  }
+  
+  .hero-content .discription {
+    font-size: 15px;
+    line-height: 26px;
+  }
+  
+  .cta {
+    position: relative;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .word-press-hero-wrap {
+    flex-direction: column-reverse;
+    padding: 120px 30px 60px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-img img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    aspect-ratio: 634/478;
+    border-radius: 60px;
+  }
+  
+  .hero-content {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 34px;
+    text-align: center;
+  }
+  
+  .hero-content .discription {
+    text-align: center;
+  }
+  
+  .cta {
+    position: relative;
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .word-press-hero-wrap {
+    padding: 110px 25px 50px;
+  }
+  
+  .hero-img img {
+    border-radius: 50px;
+  }
+  
+  .hero-content h1 {
+    font-size: 30px;
+  }
+  
+  .hero-content .discription {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .word-press-hero-wrap {
+    padding: 100px 20px 45px;
+    gap: 20px;
+  }
+  
+  .hero-img img {
+    border-radius: 40px;
+  }
+  
+  .hero-content h1 {
+    font-size: 26px;
+  }
+  
+  .hero-content .discription {
+    font-size: 13px;
+    line-height: 22px;
+  }
+  
+  .cta {
+    width: 220px;
+    height: 48px;
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .word-press-hero-wrap {
+    padding: 90px 15px 35px;
+    gap: 15px;
+  }
+  
+  .hero-img img {
+    border-radius: 30px;
+  }
+  
+  .hero-content h1 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  
+  .hero-content .discription {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  
+  .cta {
+    width: 200px;
+    height: 44px;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 40px;
+  }
+  
+  .cta img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ============================================= */
+/* ریسپانسیو - بخش خدمات وردپرس (سکشن ۲) */
+/* ============================================= */
+@media screen and (max-width: 1400px) {
+  .services-section {
+    width: 100%;
+    padding: 80px 60px;
+    gap: 50px;
+  }
+  
+  .services-section .services-grid {
+    width: 100%;
+    max-width: 1280px;
+    justify-content: center;
+  }
+  
+  .services-section .service-card {
+    width: calc(33.333% - 24px);
+    min-width: 350px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .services-section {
+    padding: 70px 40px;
+    gap: 45px;
+  }
+  
+  .services-section .services-grid {
+    gap: 20px;
+  }
+  
+  .services-section .service-card {
+    width: calc(50% - 20px);
+    min-width: 300px;
+    padding: 28px;
+    gap: 16px;
+  }
+  
+  .services-section .section-title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .services-section {
+    padding: 60px 30px;
+    gap: 40px;
+  }
+  
+  .services-section .services-grid {
+    gap: 16px;
+  }
+  
+  .services-section .service-card {
+    width: calc(50% - 16px);
+    min-width: 280px;
+    padding: 24px;
+    gap: 14px;
+    border-radius: 16px;
+  }
+  
+  .services-section .section-title {
+    font-size: 28px;
+  }
+  
+  .services-section .service-title {
+    font-size: 18px;
+  }
+  
+  .services-section .service-description {
+    font-size: 13px;
+    line-height: 22px;
+  }
+  
+  .services-section .service-icon-container {
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .services-section .service-icon,
+  .services-section .globe-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services-section {
+    padding: 50px 25px;
+    gap: 35px;
+  }
+  
+  .services-section .services-grid {
+    gap: 14px;
+    direction: rtl;
+  }
+  
+  .services-section .service-card {
+    width: 100%;
+    max-width: 450px;
+    min-width: unset;
+    padding: 24px;
+    gap: 12px;
+    border-radius: 14px;
+    align-items: flex-start;
+  }
+  
+  .services-section .section-title {
+    font-size: 26px;
+  }
+  
+  .services-section .title-divider {
+    width: 50px;
+    height: 3px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .services-section {
+    padding: 40px 15px;
+    gap: 30px;
+  }
+  
+  .services-section .section-header {
+    gap: 10px;
+  }
+  
+  .services-section .section-title {
+    font-size: 22px;
+  }
+  
+  .services-section .title-divider {
+    width: 40px;
+    height: 3px;
+  }
+  
+  .services-section .service-card {
+    padding: 20px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+  
+  .services-section .service-title {
+    font-size: 16px;
+  }
+  
+  .services-section .service-description {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  
+  .services-section .service-icon-container {
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .services-section .service-icon,
+  .services-section .globe-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .services-section .service-link {
+    font-size: 13px;
+  }
+}
+
+/* ============================================= */
+/* ریسپانسیو - بخش چرا خدمات وردپرس (سکشن ۳) */
+/* ============================================= */
+@media screen and (max-width: 1400px) {
+  .why-wordpress-section {
+    padding: 80px 60px;
+    gap: 50px;
+  }
+  
+  .why-wordpress-section .features-container {
+    max-width: 850px;
+  }
+  
+  .why-wordpress-section .feature-box,
+  .why-wordpress-section .feature-box1 {
+    width: 580px;
+    height: 105px;
+    padding: 20px;
+    gap: 14px;
+  }
+  
+  .why-wordpress-section .feature-box {
+    right: 150px;
+  }
+  
+  .why-wordpress-section .feature-box1 {
+    left: 150px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .why-wordpress-section {
+    padding: 70px 40px;
+    gap: 45px;
+  }
+  
+  .why-wordpress-section .features-container {
+    max-width: 750px;
+    gap: 35px;
+  }
+  
+  .why-wordpress-section .feature-box,
+  .why-wordpress-section .feature-box1 {
+    width: 520px;
+    height: 100px;
+    padding: 18px;
+    gap: 12px;
+    border-radius: 28px;
+  }
+  
+  .why-wordpress-section .feature-box {
+    right: 120px;
+  }
+  
+  .why-wordpress-section .feature-box1 {
+    left: 120px;
+  }
+  
+  .why-wordpress-section .feature-text {
+    width: 350px;
+  }
+  
+  .why-wordpress-section .feature-title {
+    font-size: 18px;
+    left: 100px;
+  }
+  
+  .why-wordpress-section .feature-desc {
+    font-size: 13px;
+    left: 100px;
+    line-height: 20px;
+  }
+  
+  .why-wordpress-section .feature-icon-base {
+    width: 42px;
+    height: 42px;
+    margin-left: 100px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .why-wordpress-section .feature-icon-inner,
+  .why-wordpress-section .feature-icon-img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .why-wordpress-section {
+    padding: 65px 35px;
+    gap: 40px;
+  }
+  
+  .why-wordpress-section .section-header2 {
+    font-size: 32px;
+    gap: 12px;
+  }
+  
+  .why-wordpress-section .features-container {
+    max-width: 650px;
+    gap: 30px;
+  }
+  
+  .why-wordpress-section .feature-box,
+  .why-wordpress-section .feature-box1 {
+    width: 460px;
+    height: 95px;
+    padding: 16px;
+    gap: 10px;
+    border-radius: 24px;
+  }
+  
+  .why-wordpress-section .feature-box {
+    right: 100px;
+  }
+  
+  .why-wordpress-section .feature-box1 {
+    left: 100px;
+  }
+  
+  .why-wordpress-section .feature-text {
+    width: 300px;
+    gap: 8px;
+  }
+  
+  .why-wordpress-section .feature-title {
+    font-size: 16px;
+    left: 60px;
+  }
+  
+  .why-wordpress-section .feature-desc {
+    font-size: 12px;
+    left: 60px;
+    line-height: 18px;
+  }
+  
+  .why-wordpress-section .feature-icon-base {
+    width: 38px;
+    height: 38px;
+    margin-left: 60px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .why-wordpress-section .feature-icon-inner,
+  .why-wordpress-section .feature-icon-img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .why-wordpress-section {
+    padding: 55px 30px;
+    gap: 35px;
+  }
+  
+  .why-wordpress-section .section-header2 {
+    font-size: 28px;
+  }
+  
+  .why-wordpress-section .rectangle {
+    width: 50px;
+    height: 3px;
+  }
+  
+  .why-wordpress-section .features-container {
+    max-width: 550px;
+    gap: 25px;
+  }
+  
+  .why-wordpress-section .feature-box,
+  .why-wordpress-section .feature-box1 {
+    width: 420px;
+    height: 90px;
+    padding: 14px;
+    gap: 8px;
+    border-radius: 20px;
+  }
+  
+  .why-wordpress-section .feature-box {
+    right: 70px;
+  }
+  
+  .why-wordpress-section .feature-box1 {
+    left: 70px;
+  }
+  
+  .why-wordpress-section .feature-text {
+    width: 260px;
+  }
+  
+  .why-wordpress-section .feature-title {
+    font-size: 15px;
+    left: 40px;
+  }
+  
+  .why-wordpress-section .feature-desc {
+    font-size: 11px;
+    left: 40px;
+    line-height: 16px;
+  }
+  
+  .why-wordpress-section .feature-icon-base {
+    width: 34px;
+    height: 34px;
+    margin-left: 40px;
+    padding: 7px;
+    border-radius: 8px;
+  }
+  
+  .why-wordpress-section .feature-icon-inner,
+  .why-wordpress-section .feature-icon-img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .why-wordpress-section {
+    padding: 45px 25px;
+    gap: 30px;
+  }
+  
+  .why-wordpress-section .section-header2 {
+    font-size: 26px;
+  }
+  
+  .why-wordpress-section .features-container {
+    max-width: 100%;
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  .why-wordpress-section .feature-box,
+  .why-wordpress-section .feature-box1 {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    min-height: 80px;
+    padding: 16px;
+    gap: 12px;
+    border-radius: 18px;
+    position: relative;
+    right: auto;
+    left: auto;
+    justify-content: flex-end;
+    margin: 0 auto;
+  }
+  
+  .why-wordpress-section .feature-text {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .why-wordpress-section .feature-title {
+    font-size: 15px;
+    left: 0;
+    position: relative;
+  }
+  
+  .why-wordpress-section .feature-desc {
+    font-size: 12px;
+    left: 0;
+    position: relative;
+    line-height: 18px;
+  }
+  
+  .why-wordpress-section .feature-icon-base {
+    width: 36px;
+    height: 36px;
+    margin-left: 0;
+    padding: 8px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  
+  .why-wordpress-section .feature-icon-inner,
+  .why-wordpress-section .feature-icon-img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .why-wordpress-section {
+    padding: 35px 15px;
+    gap: 25px;
+  }
+  
+  .why-wordpress-section .section-header2 {
+    font-size: 22px;
+    gap: 8px;
+  }
+  
+  .why-wordpress-section .rectangle {
+    width: 40px;
+    height: 2px;
+  }
+  
+  .why-wordpress-section .features-container {
+    gap: 16px;
+    padding: 0 5px;
+  }
+  
+  .why-wordpress-section .feature-box,
+  .why-wordpress-section .feature-box1 {
+    padding: 14px;
+    gap: 10px;
+    border-radius: 16px;
+    min-height: 70px;
+  }
+  
+  .why-wordpress-section .feature-text {
+    max-width: 220px;
+    gap: 6px;
+  }
+  
+  .why-wordpress-section .feature-title {
+    font-size: 14px;
+  }
+  
+  .why-wordpress-section .feature-desc {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  
+  .why-wordpress-section .feature-icon-base {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    border-radius: 7px;
+  }
+  
+  .why-wordpress-section .feature-icon-inner,
+  .why-wordpress-section .feature-icon-img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .why-wordpress-section .feature-box,
+  .why-wordpress-section .feature-box1 {
+    padding: 12px;
+    gap: 8px;
+    border-radius: 14px;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .why-wordpress-section .feature-text {
+    max-width: 180px;
+  }
+  
+  .why-wordpress-section .feature-title {
+    font-size: 13px;
+  }
+  
+  .why-wordpress-section .feature-desc {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  
+  .why-wordpress-section .feature-icon-base {
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+    border-radius: 6px;
+  }
+  
+  .why-wordpress-section .feature-icon-inner,
+  .why-wordpress-section .feature-icon-img {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ============================================= */
+/* ریسپانسیو - بخش فرایند همکاری (سکشن ۴) */
+/* ============================================= */
+@media screen and (max-width: 1400px) {
+  .collaboration-journey {
+    max-width: 100%;
+    padding: 80px 40px;
+    gap: 50px;
+  }
+  
+  .milestone-path-row {
+    width: 100%;
+    max-width: 1100px;
+    gap: 6px;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  
+  .pathway-connector-dash {
+    width: 25px;
+  }
+  
+  .milestone-node {
+    min-width: auto;
+    flex: 1 1 0;
+    max-width: 160px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .collaboration-journey {
+    padding: 70px 30px;
+    gap: 40px;
+  }
+  
+  .milestone-path-row {
+    max-width: 950px;
+    gap: 4px;
+  }
+  
+  .pathway-connector-dash {
+    width: 18px;
+    margin-top: 20px;
+  }
+  
+  .journey-heading-title {
+    font-size: 32px;
+  }
+  
+  .milestone-badge-ring {
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+  }
+  
+  .milestone-stage-name {
+    font-size: 15px;
+  }
+  
+  .milestone-detail-text {
+    font-size: 11px;
+  }
+  
+  .milestone-node {
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .collaboration-journey {
+    padding: 60px 25px;
+    gap: 35px;
+  }
+  
+  .milestone-path-row {
+    max-width: 850px;
+    gap: 2px;
+    justify-content: space-between;
+  }
+  
+  .pathway-connector-dash {
+    width: 12px;
+    margin-top: 18px;
+  }
+  
+  .journey-heading-title {
+    font-size: 28px;
+  }
+  
+  .milestone-badge-ring {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+  
+  .milestone-stage-name {
+    font-size: 14px;
+  }
+  
+  .milestone-detail-text {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  
+  .milestone-node {
+    gap: 10px;
+    max-width: 130px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .collaboration-journey {
+    padding: 50px 20px;
+    gap: 30px;
+  }
+  
+  .milestone-path-row {
+    max-width: 750px;
+    gap: 0;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+  
+  .pathway-connector-dash {
+    width: 8px;
+    margin-top: 16px;
+  }
+  
+  .journey-heading-title {
+    font-size: 26px;
+  }
+  
+  .journey-accent-divider {
+    width: 50px;
+    height: 3px;
+  }
+  
+  .milestone-badge-ring {
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+    border-width: 1.5px;
+  }
+  
+  .milestone-stage-name {
+    font-size: 13px;
+  }
+  
+  .milestone-detail-text {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+  
+  .milestone-node {
+    gap: 8px;
+    max-width: 115px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .collaboration-journey {
+    padding: 45px 15px;
+    gap: 28px;
+  }
+  
+  .milestone-path-row {
+    max-width: 100%;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .pathway-connector-dash {
+    display: none;
+  }
+  
+  .journey-heading-title {
+    font-size: 24px;
+  }
+  
+  .journey-accent-divider {
+    width: 45px;
+  }
+  
+  .milestone-node {
+    flex: 0 0 auto;
+    width: calc(33.333% - 12px);
+    max-width: 130px;
+    min-width: 100px;
+    gap: 8px;
+  }
+  
+  .milestone-badge-ring {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .milestone-stage-name {
+    font-size: 12px;
+  }
+  
+  .milestone-detail-text {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .collaboration-journey {
+    padding: 40px 15px;
+    gap: 25px;
+  }
+  
+  .milestone-path-row {
+    gap: 8px;
+  }
+  
+  .journey-heading-title {
+    font-size: 22px;
+  }
+  
+  .journey-accent-divider {
+    width: 40px;
+    height: 2px;
+  }
+  
+  .milestone-node {
+    width: calc(33.333% - 12px);
+    max-width: 120px;
+    min-width: 85px;
+    gap: 6px;
+  }
+  
+  .milestone-badge-ring {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+  
+  .milestone-stage-name {
+    font-size: 11px;
+  }
+  
+  .milestone-detail-text {
+    font-size: 9px;
+    line-height: 1.3;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .collaboration-journey {
+    padding: 35px 12px;
+    gap: 22px;
+  }
+  
+  .journey-header-block {
+    gap: 8px;
+  }
+  
+  .journey-heading-title {
+    font-size: 20px;
+  }
+  
+  .journey-accent-divider {
+    width: 35px;
+  }
+  
+  .milestone-path-row {
+    gap: 6px;
+  }
+  
+  .milestone-node {
+    width: calc(33.333% - 10px);
+    max-width: 110px;
+    min-width: 75px;
+    gap: 5px;
+  }
+  
+  .milestone-badge-ring {
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+    border-width: 1.5px;
+  }
+  
+  .milestone-stage-name {
+    font-size: 10px;
+  }
+  
+  .milestone-detail-text {
+    font-size: 8px;
+    line-height: 1.3;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .collaboration-journey {
+    padding: 30px 8px;
+    gap: 18px;
+  }
+  
+  .journey-heading-title {
+    font-size: 18px;
+  }
+  
+  .journey-accent-divider {
+    width: 30px;
+    height: 2px;
+  }
+  
+  .milestone-path-row {
+    gap: 4px;
+  }
+  
+  .milestone-node {
+    width: calc(33.333% - 8px);
+    max-width: 100px;
+    min-width: 65px;
+    gap: 4px;
+  }
+  
+  .milestone-badge-ring {
+    width: 26px;
+    height: 26px;
+    font-size: 9px;
+  }
+  
+  .milestone-stage-name {
+    font-size: 9px;
+  }
+  
+  .milestone-detail-text {
+    font-size: 7px;
+    line-height: 1.2;
+  }
+}
+
+/* ============================================= */
+/* ریسپانسیو - بخش فراخوان وردپرس (سکشن ۵) */
+/* ============================================= */
+@media screen and (max-width: 1400px) {
+  .wordpress-cta-showcase {
+    max-width: 100%;
+    padding: 80px 60px;
+    gap: 50px;
+  }
+  
+  .wp-preview-frame {
+    width: 550px;
+    height: 340px;
+  }
+  
+  .wp-cta-headline {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wordpress-cta-showcase {
+    padding: 70px 40px;
+    gap: 40px;
+  }
+  
+  .wp-preview-frame {
+    width: 480px;
+    height: 300px;
+    border-radius: 28px;
+  }
+  
+  .wp-showcase-image {
+    border-radius: 28px;
+  }
+  
+  .wp-cta-headline {
+    font-size: 30px;
+  }
+  
+  .wp-cta-description {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wordpress-cta-showcase {
+    padding: 60px 35px;
+    gap: 35px;
+  }
+  
+  .wp-preview-frame {
+    width: 420px;
+    height: 270px;
+    border-radius: 24px;
+  }
+  
+  .wp-showcase-image {
+    border-radius: 24px;
+  }
+  
+  .wp-cta-headline {
+    font-size: 28px;
+  }
+  
+  .wp-cta-description {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  
+  .wp-cta-action-button {
+    padding: 14px 28px;
+    height: 48px;
+  }
+  
+  .wp-cta-btn-label {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wordpress-cta-showcase {
+    flex-direction: column;
+    padding: 55px 30px;
+    gap: 35px;
+    align-items: center;
+  }
+  
+  .wp-preview-frame {
+    width: 100%;
+    max-width: 550px;
+    height: 280px;
+    border-radius: 24px;
+    order: -1;
+  }
+  
+  .wp-showcase-image {
+    border-radius: 24px;
+  }
+  
+  .wp-cta-content {
+    align-items: center;
+    width: 100%;
+    max-width: 550px;
+  }
+  
+  .wp-cta-headline {
+    text-align: center;
+    font-size: 26px;
+  }
+  
+  .wp-cta-description {
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .wp-cta-action-button {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wordpress-cta-showcase {
+    padding: 45px 25px;
+    gap: 30px;
+  }
+  
+  .wp-preview-frame {
+    max-width: 480px;
+    height: 250px;
+    border-radius: 20px;
+  }
+  
+  .wp-showcase-image {
+    border-radius: 20px;
+  }
+  
+  .wp-cta-headline {
+    font-size: 24px;
+  }
+  
+  .wp-cta-description {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  
+  .wp-cta-action-button {
+    padding: 12px 24px;
+    height: 44px;
+    border-radius: 40px;
+  }
+  
+  .wp-cta-btn-label {
+    font-size: 14px;
+  }
+  
+  .wp-cta-btn-icon-wrap,
+  .wp-cta-btn-icon-wrap svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wordpress-cta-showcase {
+    padding: 40px 20px;
+    gap: 25px;
+  }
+  
+  .wp-preview-frame {
+    max-width: 100%;
+    height: 220px;
+    border-radius: 18px;
+  }
+  
+  .wp-showcase-image {
+    border-radius: 18px;
+  }
+  
+  .wp-cta-headline {
+    font-size: 22px;
+  }
+  
+  .wp-cta-description {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  .wp-cta-content {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wordpress-cta-showcase {
+    padding: 35px 15px;
+    gap: 22px;
+  }
+  
+  .wp-preview-frame {
+    height: 200px;
+    border-radius: 16px;
+  }
+  
+  .wp-showcase-image {
+    border-radius: 16px;
+  }
+  
+  .wp-cta-headline {
+    font-size: 20px;
+  }
+  
+  .wp-cta-description {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  
+  .wp-cta-action-button {
+    padding: 10px 20px;
+    height: 40px;
+    border-radius: 36px;
+    gap: 6px;
+  }
+  
+  .wp-cta-btn-label {
+    font-size: 13px;
+  }
+  
+  .wp-cta-btn-icon-wrap,
+  .wp-cta-btn-icon-wrap svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .wordpress-cta-showcase {
+    padding: 30px 10px;
+    gap: 18px;
+  }
+  
+  .wp-preview-frame {
+    height: 180px;
+    border-radius: 14px;
+  }
+  
+  .wp-showcase-image {
+    border-radius: 14px;
+  }
+  
+  .wp-cta-headline {
+    font-size: 18px;
+  }
+  
+  .wp-cta-description {
+    font-size: 11px;
+  }
+  
+  .wp-cta-action-button {
+    padding: 8px 18px;
+    height: 38px;
+  }
+  
+  .wp-cta-btn-label {
+    font-size: 12px;
+  }
+}
+
+  </style>
+    </head>
+
+    <body>
+
+        <!-- navbar -->
+        {% include "includes/navbar.html" %}
+
+        <div class="word-press-hero-wrap ">
+            <div class="hero-content">
+                <h1>خدمات تخصصی طراحی و توسعه وردپرس</h1>
+                <div class="discription">
+                    <p>آژانس دیجیتال ما با تکیه بر سال‌ها تجربه، اقدام به
+                        راه‌اندازی و
+                        توسعه وب‌سایت‌های وردپرسی فوق‌العاده سریع،
+                        امن، کاملاً بهینه‌شده برای موتورهای جستجو (سئو) و مطابق
+                        با
+                        استانداردهای بین‌المللی با ظاهری بی‌نظیر می‌نماید.
+                    </p>
+                </div>
+                <a href class="cta">دریافت مشاوره رایگان <img
+                        src="{% static 'asets/Cta-Icon.png' %}"
+                        alt="cta-icon"></a>
+            </div>
+            <div class="hero-img">
+                <img src="{% static 'asets/service-wordpress-hero-img.png' %}"
+                    alt="wordpress-hero-image">
+            </div>
+
+        </div>
+
+        <!-- erfansection -->
+        <div class="services-section">
+            <div class="section-header">
+                <b class="section-title">خدمات وردپرس ما</b>
+                <div class="title-divider"></div>
+            </div>
+            <div class="services-grid">
+                <!-- کارت 1 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <img class="globe-icon" src="{% static 'asets/globe.svg' %}" alt>
+                        </div>
+                    </div>
+                    <b class="service-title">طراحی سایت وردپرسی شرکتی</b>
+                    <div class="service-description">طراحی وب‌سایت‌های حرفه‌ای
+                        شرکتی با ظاهر مدرن، متناسب با هویت برند شما و با سرعت
+                        بالا.</div>
+                    <b class="service-link">مشاهده جزئیات ←</b>
+                </div>
+
+                <!-- کارت 2 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <img class="globe-icon"
+                                src="{% static 'asets/shopping-cart.png' %}" alt>
+                        </div>
+                    </div>
+                    <b class="service-title">طراحی سایت فروشگاهی با وردپرس</b>
+                    <div class="service-description">راه‌اندازی فروشگاه‌های
+                        آنلاین امن و مقیاس‌پذیر با استفاده از ووکامرس و اتصال به
+                        درگاه‌های پرداخت بانکی.</div>
+                    <b class="service-link">مشاهده جزئیات ←</b>
+                </div>
+
+                <!-- کارت 3 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <img class="globe-icon" src="{% static 'asets/settings.png' %}"
+                                alt>
+                        </div>
+                    </div>
+                    <b class="service-title">شخصی‌سازی قالب و افزونه‌ها</b>
+                    <div class="service-description">طراحی، شخصی‌سازی و
+                        برنامه‌نویسی قالب‌ها و افزونه‌های اختصاصی وردپرس متناسب
+                        با نیازهای خاص شما.</div>
+                    <b class="service-link">مشاهده جزئیات ←</b>
+                </div>
+
+                <!-- کارت 4 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <img class="globe-icon" src="{% static 'asets/gauge.png' %}" alt>
+                        </div>
+                    </div>
+                    <b class="service-title">بهینه‌سازی سرعت سایت</b>
+                    <div class="service-description">کاهش چشمگیر زمان بارگذاری
+                        صفحات، بهینه‌سازی تصاویر و دیتابیس برای کسب رتبه عالی در
+                        ابزارهای تست سرعت.</div>
+                    <b class="service-link">مشاهده جزئیات ←</b>
+                </div>
+
+                <!-- کارت 5 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <img class="globe-icon"
+                                src="{% static 'asets/shield-check.png' %}" alt>
+                        </div>
+                    </div>
+                    <b class="service-title">امنیت و نگهداری وردپرس</b>
+                    <div class="service-description">پیاده‌سازی دیوارهای امنیتی
+                        قدرتمند، پشتیبان‌گیری خودکار روزانه و مانیتورینگ مداوم
+                        برای حفاظت از داده‌های شما.</div>
+                    <b class="service-link">مشاهده جزئیات ←</b>
+                </div>
+
+                <!-- کارت 6 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <div class="service-icon">
+                            <img class="globe-icon" src="{% static 'asets/headset.svg' %}"
+                                alt>
+                        </div>
+                    </div>
+                    <b class="service-title">پشتیبانی و توسعه مداوم</b>
+                    <div class="service-description">حل مشکلات فنی سایت در
+                        کوتاه‌ترین زمان، به‌روزرسانی مداوم هسته و افزونه‌ها
+                        همراه با توسعه امکانات جدید.</div>
+                    <b class="service-link">مشاهده جزئیات ←</b>
+                </div>
+            </div>
+        </div>
+
+        <!-- salma - بخش چرا خدمات وردپرس ما -->
+        <div class="why-wordpress-section">
+            <div class="section-header2">
+                <b class="button-label">چرا خدمات وردپرس ما؟</b>
+                <div class="rectangle"></div>
+            </div>
+
+            <div class="features-container">
+                <!-- ویژگی 1 -->
+                 
+                <div class="feature-box1">
+                    <div class="feature-icon-base">
+                        <div class="feature-icon-inner">
+                            <img class="feature-icon-img"
+                                src="{% static 'asets/globetalayi.svg' %}" alt="آیکون طراحی">
+                        </div>
+                    </div>
+                    <div class="feature-text">
+                        <b class="feature-title">طراحی اختصاصی و تجربه
+                            کاربری</b>
+                        <div class="feature-desc">طراحی بصری یونیک متناسب با
+                            اهداف تجاری و پرستیژ برند شما.</div>
+                    </div>
+                    
+                </div>
+
+                <!-- ویژگی 2 -->
+                <div class="feature-box">
+                     <div class="feature-icon-base">
+                        <div class="feature-icon-inner">
+                            <img class="feature-icon-img"
+                                src="{% static 'asets/chart-line.svg' %}" alt="آیکون سئو">
+                        </div>
+                    </div>
+                    <div class="feature-text">
+                        <b class="feature-title">ساختار مناسب برای سئو گوگل</b>
+                        <div class="feature-desc">رعایت پیشرفته‌ترین اصول فنی
+                            سئو در لایه‌های کد برای رشد عالی در گوگل.</div>
+                    </div>
+                   
+                </div>
+
+                <!-- ویژگی 3 -->
+                <div class="feature-box1">
+                      <div class="feature-icon-base">
+                        <div class="feature-icon-inner">
+                            <img class="feature-icon-img"
+                                src="{% static 'asets/shield-checktalayi.svg' %}"
+                                alt="آیکون امنیت">
+                        </div>
+                    </div>
+                    <div class="feature-text">
+                        <b class="feature-title">امنیت و عملکرد بالا</b>
+                        <div class="feature-desc">بهینه‌ترین ساختار کدنویسی برای
+                            تضمین نهایت امنیت و بیشترین سرعت لود.</div>
+                    </div>
+                </div>
+
+                <!-- ویژگی 4 -->
+                <div class="feature-box">
+                     <div class="feature-icon-base">
+                        <div class="feature-icon-inner">
+                            <img class="feature-icon-img"
+                                src="{% static 'asets/headsettalayi.svg' %}"
+                                alt="آیکون پشتیبانی">
+                        </div>
+                    </div>
+                    <div class="feature-text">
+                        <b class="feature-title">پشتیبانی پس از تحویل</b>
+                        <div class="feature-desc">پشتیبانی مداوم فنی و
+                            مانیتورینگ عملکرد سایت پس از راه‌اندازی کامل.</div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- saghar -->
+         
+  <!-- ===================== سکشن اول: فرایند همکاری ===================== -->
+  <section class="collaboration-journey" aria-labelledby="journey-heading">
+    <div class="journey-header-block">
+      <h2 id="journey-heading" class="journey-heading-title">فرایند همکاری با ما</h2>
+      <div class="journey-accent-divider" aria-hidden="true"></div>
+    </div>
+
+    <div class="milestone-path-row" role="list">
+      
+      <div class="milestone-node" role="listitem">
+        <div class="milestone-badge-ring" aria-label="گام ششم">۶</div>
+        <div class="milestone-stage-name">راه‌اندازی</div>
+        <div class="milestone-detail-text">انتشار سایت و آموزش مشتری</div>
+      </div>
+      <div class="pathway-connector-dash" aria-hidden="true"></div>
+
+      <div class="milestone-node" role="listitem">
+        <div class="milestone-badge-ring" aria-label="گام پنجم">۵</div>
+        <div class="milestone-stage-name">تست</div>
+        <div class="milestone-detail-text">آزمایش فنی و رفع مشکلات</div>
+      </div>
+      <div class="pathway-connector-dash" aria-hidden="true"></div>
+
+      <div class="milestone-node" role="listitem">
+        <div class="milestone-badge-ring" aria-label="گام چهارم">۴</div>
+        <div class="milestone-stage-name">توسعه</div>
+        <div class="milestone-detail-text">کدنویسی و پیاده‌سازی فنی</div>
+      </div>
+      <div class="pathway-connector-dash" aria-hidden="true"></div>
+
+      <div class="milestone-node" role="listitem">
+        <div class="milestone-badge-ring" aria-label="گام سوم">۳</div>
+        <div class="milestone-stage-name">طراحی</div>
+        <div class="milestone-detail-text">طراحی UI و UX جذاب</div>
+      </div>
+      <div class="pathway-connector-dash" aria-hidden="true"></div>
+
+      <div class="milestone-node" role="listitem">
+        <div class="milestone-badge-ring" aria-label="گام دوم">۲</div>
+        <div class="milestone-stage-name">استراتژی</div>
+        <div class="milestone-detail-text">تدوین برنامه و ساختار سایت</div>
+      </div>
+      <div class="pathway-connector-dash" aria-hidden="true"></div>
+
+      <div class="milestone-node" role="listitem">
+        <div class="milestone-badge-ring" aria-label="گام نخست">۱</div>
+        <div class="milestone-stage-name">مشاوره</div>
+        <div class="milestone-detail-text">بررسی نیازها و اهداف پروژه</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== سکشن دوم: فراخوان وردپرس ===================== -->
+  <section class="wordpress-cta-showcase" aria-labelledby="wp-cta-heading">
+    
+    <div class="wp-preview-frame">
+      <img 
+        src="{% static 'asets/wp.png' %}" 
+        alt="نمونه کار وردپرس آذر یزدان - پروژه‌های تخصصی" 
+        class="wp-showcase-image"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="wp-cta-content">
+      <h2 id="wp-cta-heading" class="wp-cta-headline">پروژه وردپرسی خود را همین امروز شروع کنید</h2>
+      <p class="wp-cta-description">
+        با تیم ما در تماس باشید تا در یک جلسه هم‌اندیشی کاملاً رایگان، 
+        نقشه راهِ دقیق راه‌اندازی و توسعه پلتفرم دیجیتال شما را ترسیم کنیم.
+      </p>
+
+      <a href="{% url "users:contact_request" %}" class="wp-cta-action-button" type="button">
+        <span class="wp-cta-btn-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 8H3M3 8L7 4M3 8L7 12" stroke="#1D3363" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="wp-cta-btn-label">شروع همکاری با ما</span>
+      </a>
+    </div>
+
+  </section>
+
+
+        <!-- فوتر  -->
+        {% include "includes/footer.html" %}
+
+        <script>
+              		// تابع باز و بسته کردن دراپ‌منو
+    		function toggleDropdown(triggerId, dropdownId) {
+      			var trigger = document.getElementById(triggerId);
+      			var dropdown = document.getElementById(dropdownId);
+      			
+      			if(trigger && dropdown) {
+        				trigger.addEventListener("click", function(e) {
+          					e.stopPropagation();
+          					
+          					// بستن همه دراپ‌منوهای دیگر
+          					document.querySelectorAll('.dropdown-content').forEach(function(el) {
+            						if(el.id !== dropdownId) {
+              							el.style.display = 'none';
+            						}
+          					});
+          					
+          					// باز و بسته کردن دراپ‌منو فعلی
+          					if(dropdown.style.display === 'flex') {
+            						dropdown.style.display = 'none';
+          					} else {
+            						dropdown.style.display = 'flex';
+          					}
+        				});
+      			}
+    		}
+    		
+    		// بستن دراپ‌منو با کلیک خارج از آن
+    		document.addEventListener("click", function() {
+      			document.querySelectorAll('.dropdown-content').forEach(function(el) {
+        				el.style.display = 'none';
+      			});
+    		});
+    		
+    		// جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
+    		document.querySelectorAll('.dropdown-content').forEach(function(el) {
+      			el.addEventListener("click", function(e) {
+        				e.stopPropagation();
+      			});
+    		});
+    		
+    		// راه‌اندازی دراپ‌منوها
+    		toggleDropdown('frameContainer', 'blogDropdown');
+    		toggleDropdown('frameContainer1', 'academyDropdown');
+    		toggleDropdown('frameContainer2', 'servicesDropdown');
+
+        </script>
+
+    </body>
+
+</html>

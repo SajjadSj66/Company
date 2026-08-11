@@ -1,0 +1,3156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>خدمات بازاریابی دیجیتال آذر یزدان</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+        <style>
+    :root {
+      --az-navy-1: #1D3363;
+      --az-navy-2: #223260;
+      --az-navy-dark: #16264d;
+      --az-gold-1: #F0C040;
+      --az-gold-2: #E8C259;
+      --az-text-muted: #7C879C;
+      --az-bg-soft: #F7F8FB;
+      --az-border-soft: #E7EAF1;
+      --az-white: #FFFFFF;
+      --az-radius-lg: 20px;
+      --az-radius-md: 14px;
+      --az-radius-sm: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      color: var(--az-navy-1);
+      background: var(--az-white);
+      direction: rtl;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+    
+/* ناو بار */
+.navbar-wrapper {
+  width: 100%;
+  height: 88px;
+  position: fixed;
+  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
+  text-align: left;
+  font-size: 16px;
+  color: #ebebeb;
+  font-family: Rubik;
+  align-items: center;
+  justify-self: center;
+  z-index: 1000;
+}
+.rectangle-parent {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 526px;
+  height: 88px;
+  overflow: hidden;
+}
+.frame-child {
+  position: absolute;
+  top: 0px;
+  left: -18px;
+  width: 422px;
+  height: 106px;
+  flex-shrink: 0;
+}
+
+.frame-wrapper {
+  position: absolute;
+  top: 18px;
+  left: 64px;
+  width: 293px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.cta-button-parent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.cta-button {
+  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
+  border-radius: 12px;
+  background-color: #1d3363;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  gap: 8px;
+}
+.phone-call-3-1 {
+  height: 16px;
+  width: 16px;
+  position: relative;
+}
+.button-label {
+  position: relative;
+}
+.frame-inner {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  border-radius: 12px;
+}
+.frame-group {
+  position: absolute;
+  top: 16px;
+  border-radius: 16px;
+  width: 887px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  text-align: right;
+  font-size: 20px;
+  color: #fbf8f8;
+  font-family: "Google Sans Flex";
+}
+.parent {
+  display: flex;
+  align-items: center;
+  gap: 57px;
+}
+.div {
+  position: relative;
+  font-weight: 600;
+  cursor: pointer;
+}
+.div3 {
+  width: 69px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.angle-small-down-2-2-parent,
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.angle-small-down-2-2-parent {
+  width: 97px;
+}
+
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  width: 110px;
+}
+
+.logo-icon {
+  height: 56px;
+  width: 56px;
+  position: relative;
+  right: 10px;
+}
+
+/* استایل‌های جدید برای دراپ‌منو */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  z-index: 1001;
+}
+
+.blog-dropdown {
+  right: 0;
+}
+
+.academy-dropdown {
+  right: 0;
+}
+
+.services-dropdown {
+  right: 0;
+}
+
+.services {
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 40px;
+}
+.component-44-parent {
+  height: 176px;
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component-44 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+.component-38:hover,
+.component-44:hover,
+.component-442:hover,
+.component-443:hover,
+.component-402:hover {
+  background-color: rgba(118, 130, 156, 0.6);
+}
+.div {
+  position: relative;
+  font-weight: 500;
+}
+
+.services-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+.component-38-parent {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.component-38-parent :last-child {
+  border-bottom-right-radius: 12px;
+}
+.component-38-parent :first-child {
+  border-top-right-radius: 12px;
+}
+.component-44-parent :first-child {
+  border-top-left-radius: 12px;
+}
+.component-38 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+.line-div {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+
+.academi {
+  width: 465px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 93%;
+  max-height: 90%;
+  overflow: hidden;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 110px;
+}
+.component-44-group {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.component-442 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+.div14 {
+  position: relative;
+  font-weight: 500;
+  white-space: pre-wrap;
+}
+.frame-child7 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+.div15 {
+  position: relative;
+  font-weight: 500;
+}
+.academi-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+  flex-shrink: 0;
+}
+.component-38-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.component-402 {
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px 16px;
+}
+
+.blog {
+  width: 409px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+}
+.component-44-container {
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component-443 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+.div20 {
+  position: relative;
+  font-weight: 500;
+}
+.frame-child13 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+.blog-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+.component-38-container {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
+.popup-overlay {
+  display: none;
+}
+
+    .az-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+
+    .az-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FBF1DA;
+      color: #B8892C;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+
+    /* ===== Hero Section ===== */
+    .az-hero {
+        top: 60px;
+      max-width: 1440px;
+      justify-self: center;
+      width: 100%;
+      position: relative;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 80px 100px 100px;
+      box-sizing: border-box;
+      gap: 60px;
+      text-align: left;
+      font-size: 11px;
+      color: #888;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-hero-illustration {
+      height: 450px;
+      width: 600px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .az-hero-illustration-inner {
+      height: 450px;
+      width: 600px;
+      position: relative;
+    }
+
+    .az-hero-ellipse {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      filter: blur(80px);
+      border-radius: 50%;
+      width: 500px;
+      height: 350px;
+    }
+
+    .az-hero-grid {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 600px;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0px;
+      opacity: 0.1;
+    }
+
+    .az-hero-grid-line {
+      align-self: stretch;
+      height: 0px;
+      position: relative;
+      border-top: 1px solid #1d3363;
+      box-sizing: border-box;
+    }
+
+    .az-hero-dashboard {
+      position: absolute;
+      top: 80px;
+      left: 180px;
+      box-shadow: 0px 12px 24px rgba(29, 51, 99, 0.08);
+      border-radius: 16px;
+      background-color: #fff;
+      border: 1px solid #eaeaea;
+      box-sizing: border-box;
+      width: 260px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 12px;
+    }
+
+    .az-hero-dashboard-header {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .az-hero-dashboard-label {
+      position: relative;
+      font-weight: 600;
+    }
+
+    .az-hero-dashboard-badge {
+      border-radius: 6px;
+      background-color: #ebfbf5;
+      display: flex;
+      align-items: flex-start;
+      padding: 3px 8px;
+      font-size: 10px;
+      color: #000;
+    }
+
+    .az-hero-dashboard-number {
+      position: relative;
+      font-size: 28px;
+      color: #1d3363;
+      font-weight: 700;
+    }
+
+    .az-hero-dashboard-chart {
+      align-self: stretch;
+      height: 60px;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .az-hero-dashboard-bar {
+      width: 30px;
+      position: relative;
+      border-radius: 4px 4px 0px 0px;
+      background-color: #1d3363;
+    }
+
+    .az-hero-dashboard-bar--short {
+      height: 20px;
+      opacity: 0.3;
+    }
+
+    .az-hero-dashboard-bar--med {
+      height: 35px;
+      opacity: 0.5;
+    }
+
+    .az-hero-dashboard-bar--gold {
+      height: 30px;
+      background-color: #f0c040;
+      opacity: 1;
+    }
+
+    .az-hero-dashboard-bar--tall {
+      height: 45px;
+      opacity: 1;
+    }
+
+    .az-hero-dashboard-bar--tallest {
+      height: 55px;
+      opacity: 1;
+    }
+
+    .az-hero-strategy-circle {
+      position: absolute;
+      top: 140px;
+      left: 60px;
+      box-shadow: 0px 8px 16px rgba(240, 192, 64, 0.3);
+      border-radius: 40px;
+      background-color: #f0c040;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .az-hero-strategy-icon {
+      width: 32px;
+      height: 32px;
+      position: relative;
+    }
+
+    .az-hero-google-ads {
+      position: absolute;
+      top: 290px;
+      left: 120px;
+      border-radius: 12px;
+      background-color: #1d3363;
+      display: flex;
+      align-items: center;
+      padding: 8px 14px;
+      gap: 8px;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .az-hero-google-ads-icon {
+      height: 26px;
+      width: 26px;
+      position: relative;
+    }
+
+    .az-hero-growth-box {
+      position: absolute;
+      top: 280px;
+      left: 300px;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 14px;
+      background-color: #fff;
+      border: 1px solid #eaeaea;
+      display: flex;
+      align-items: center;
+      padding: 14px;
+      gap: 12px;
+      font-size: 14px;
+      color: #1d3363;
+    }
+
+    .az-hero-growth-box-icon {
+      height: 36px;
+      width: 36px;
+      border-radius: 18px;
+      background-color: #f0f5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .az-hero-growth-box-icon-img {
+      height: 18px;
+      width: 18px;
+      position: relative;
+    }
+
+    .az-hero-growth-box-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .az-hero-growth-box-text-sub {
+      position: relative;
+      font-size: 11px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .az-hero-connector-line-1 {
+      position: absolute;
+      top: 180px;
+      left: 140px;
+      width: 45.3px;
+      height: 21.1px;
+      object-fit: contain;
+    }
+
+    .az-hero-connector-line-2 {
+      position: absolute;
+      top: 255.43px;
+      left: 196px;
+      width: 56.6px;
+      height: 56.6px;
+      object-fit: contain;
+    }
+
+    .az-hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 24px;
+      font-size: 18px;
+      color: #1d3363;
+    }
+
+    .az-hero-pill {
+      margin-left: 358px;
+      border-radius: 100px;
+      background-color: rgba(240, 192, 64, 0.08);
+      border: 1px solid #f0c040;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: #d89e28;
+    }
+
+    .az-hero-headline {
+      align-self: stretch;
+      position: relative;
+      font-size: 48px;
+      line-height: 130%;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .az-hero-description {
+      align-self: stretch;
+      position: relative;
+      line-height: 170%;
+      color: #555;
+      text-align: right;
+    }
+
+    .az-hero-cta-group {
+      position: relative;
+      left: 241px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 15px;
+    }
+
+    .az-btn {
+      border-radius: 12px;
+      border: 1.5px solid #1d3363;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .az-btn:hover {
+      background-color: #1d3363;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0px 8px 20px rgba(29, 51, 99, 0.2);
+    }
+
+    .az-btn-primary {
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      background-color: #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .az-btn-primary:hover {
+      background-color: #e6b020;
+      transform: translateY(-2px);
+      box-shadow: 0px 10px 24px rgba(240, 192, 64, 0.4);
+    }
+
+    .az-hero-trust {
+      position: relative;
+      left: 420px;
+      display: flex;
+      align-items: center;
+      padding: 20px 0px 0px;
+      gap: 24px;
+    }
+
+    .az-hero-trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .az-hero-trust-item-label {
+      position: relative;
+      font-size: 12px;
+      font-weight: 500;
+      color: #888;
+    }
+
+    .az-hero-trust-divider {
+      height: 40px;
+      width: 0px;
+      position: relative;
+      border-right: 1px solid #eaeaea;
+      box-sizing: border-box;
+    }
+
+    /* ===== WHY US Section ===== */
+    .az-why-us {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 100px;
+      gap: 50px;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      background: #F7F7F7;
+      border-width: 1px 0px;
+      border-style: solid;
+      border-color: #EAEAEA;
+    }
+
+    .az-why-us-header {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 0px;
+      gap: 12px;
+      width: 100%;
+      max-width: 1240px;
+    }
+
+    .az-why-us-badge {
+      position: relative;
+      left: 1140px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      padding: 6px 16px;
+      width: 101px;
+      height: 27px;
+      background: rgba(240, 192, 64, 0.0823529);
+      border: 1px solid #F0C040;
+      border-radius: 100px;
+    }
+
+    .az-why-us-badge-text {
+      width: 69px;
+      height: 15px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+      color: #D89E28;
+    }
+
+    .az-why-us-title {
+      width: 100%;
+      max-width: 1240px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      text-align: right;
+      color: #1D3363;
+    }
+
+    .az-why-us-subtitle {
+      width: 100%;
+      max-width: 1240px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      text-align: right;
+      color: #555555;
+    }
+
+    .az-why-us-grid {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 24px;
+      width: 100%;
+      max-width: 1240px;
+    }
+
+    .az-why-card {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 24px;
+      gap: 16px;
+      width: 292px;
+      height: 216px;
+      background: #FFFFFF;
+      border: 1px solid #EAEAEA;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.02);
+      border-radius: 16px;
+      flex: 1 1 292px;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .az-why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0%;
+      background: linear-gradient(to top, #F0C040, #F7D97E, transparent);
+      border-radius: 0 0 16px 16px;
+      transition: height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      z-index: -1;
+    }
+
+    .az-why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(240, 192, 64, 0.25), 0 0 0 1px var(--az-gold-1);
+      border-color: transparent;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .az-why-card:hover::after {
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    .az-why-card > * {
+      position: relative;
+      z-index: 2;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .az-why-card-icon {
+      margin-left: 200px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      width: 48px;
+      height: 48px;
+      background: rgba(240, 192, 64, 0.12549);
+      border-radius: 12px;
+      flex: none;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .az-why-card:hover .az-why-card-icon {
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 8px 20px rgba(29, 51, 99, 0.3);
+    }
+
+    .az-why-card-icon svg {
+      width: 22px;
+      height: 22px;
+      flex: none;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .az-why-card-icon svg line,
+    .az-why-card-icon svg path,
+    .az-why-card-icon svg circle,
+    .az-why-card-icon svg polygon,
+    .az-why-card-icon svg rect {
+      stroke: #1D3363;
+      transition: stroke 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .az-why-card-title {
+      width: 100%;
+      max-width: 244px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: right;
+      color: #1D3363;
+      align-self: stretch;
+      transition: color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      margin: 0;
+    }
+
+    .az-why-card-text {
+      width: 100%;
+      max-width: 244px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 160%;
+      text-align: right;
+      color: #555555;
+      align-self: stretch;
+      transition: color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      margin: 0;
+    }
+
+    .az-why-card:hover .az-why-card-title {
+      color: var(--az-navy-dark);
+      transform: translateX(-2px);
+    }
+
+    .az-why-card:hover .az-why-card-text {
+      color: #3a3a3a;
+      transform: translateX(-2px);
+    }
+
+    /* ===== SERVICES Section ===== */
+    .az-services {
+      max-width: 1440px;
+      justify-self: center;
+      width: 100%;
+      height: 956px;
+      position: relative;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px;
+      box-sizing: border-box;
+      gap: 50px;
+      text-align: right;
+      font-size: 12px;
+      color: #d89e28;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-services-header {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .az-services-badge {
+      position: relative;
+      left: 1125px;
+      border-radius: 100px;
+      background-color: rgba(240, 192, 64, 0.08);
+      border: 1px solid #f0c040;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+      text-align: center;
+    }
+
+    .az-services-title {
+      align-self: stretch;
+      position: relative;
+      font-size: 32px;
+      color: #1d3363;
+      font-weight: 700;
+    }
+
+    .az-services-subtitle {
+      align-self: stretch;
+      position: relative;
+      font-size: 16px;
+      line-height: 160%;
+      color: #555;
+    }
+
+    .az-services-grid {
+      align-self: stretch;
+      height: 670px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      font-size: 20px;
+      color: #1d3363;
+    }
+
+    .az-services-row {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .az-services-row--top {
+      height: 272px;
+    }
+
+    .az-services-row--bottom {
+      height: 298px;
+    }
+
+    .az-service-card {
+      width: 397.3px;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.03);
+      border-radius: 16px;
+      background-color: #fff;
+      border: 1px solid #eaeaea;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 28px;
+      gap: 16px;
+      position: relative;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      overflow: hidden;
+    }
+
+    .az-service-card:hover {
+      border: 2px solid #F0C040;
+      transform: translateY(-6px);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .az-service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0%;
+      background-color: rgba(240, 192, 64, 0.2);
+      border-radius: 0 0 16px 16px;
+      transition: height 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+      z-index: -1;
+    }
+
+    .az-service-card:hover::after {
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    .az-service-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background-color: #1d3363;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      flex-shrink: 0;
+    }
+
+    .az-service-card:hover .az-service-card-icon {
+      background-color: #F0C040;
+      transform: rotate(5deg) scale(1.05);
+      box-shadow: 0 8px 20px rgba(240, 192, 64, 0.3);
+    }
+
+    .az-service-card-icon-img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .az-service-card:hover .az-service-card-icon-img {
+      filter: brightness(0) saturate(100%) invert(15%) sepia(20%) saturate(2000%) hue-rotate(200deg) brightness(95%) contrast(90%);
+    }
+
+    .az-service-card-title {
+      align-self: stretch;
+      position: relative;
+      font-weight: 700;
+      color: #1d3363;
+    }
+
+    .az-service-card-desc {
+      align-self: stretch;
+      position: relative;
+      font-size: 14px;
+      line-height: 160%;
+      color: #555;
+    }
+
+    .az-service-card-link {
+      display: flex;
+      align-items: center;
+      padding: 8px 0px 0px;
+      gap: 6px;
+      text-align: right;
+      font-size: 13px;
+      color: #d89e28;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    .az-service-card-link:hover {
+      color: #b87a1a;
+    }
+
+    .az-service-card-link-icon {
+      height: 14px;
+      width: 14px;
+      position: relative;
+    }
+
+    /* ===== PROCESS Section ===== */
+    .az-process {
+      max-width: 1440px;
+      justify-self: center;
+      width: 100%;
+      position: relative;
+      background-color: #f7f7f7;
+      border-top: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeaea;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px;
+      gap: 60px;
+      text-align: right;
+      font-size: 12px;
+      color: #d89e28;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-process-header {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .az-process-badge {
+      margin-left: 1120px;
+      border-radius: 100px;
+      background-color: rgba(240, 192, 64, 0.08);
+      border: 1px solid #f0c040;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+      text-align: center;
+    }
+
+    .az-process-title {
+      align-self: stretch;
+      position: relative;
+      font-size: 32px;
+      color: #1d3363;
+      font-weight: 700;
+    }
+
+    .az-process-subtitle {
+      align-self: stretch;
+      position: relative;
+      font-size: 16px;
+      line-height: 160%;
+      color: #555;
+    }
+
+    .az-process-timeline {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-size: 20px;
+    }
+
+    .az-process-step-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .az-process-card {
+      width: 200px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.02);
+      border-radius: 16px;
+      background-color: #fff;
+      border: 1px solid #eaeaea;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 20px;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .az-process-card-header {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .az-process-card-icon {
+      height: 32px;
+      width: 32px;
+      border-radius: 8px;
+      background-color: rgba(29, 51, 99, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .az-process-card-icon-img {
+      height: 16px;
+      width: 16px;
+      position: relative;
+    }
+
+    .az-process-card-step {
+      position: relative;
+      font-weight: 800;
+    }
+
+    .az-process-card-title {
+      align-self: stretch;
+      position: relative;
+      font-size: 16px;
+      color: #1d3363;
+      font-weight: 700;
+    }
+
+    .az-process-card-desc {
+      align-self: stretch;
+      position: relative;
+      font-size: 12px;
+      line-height: 150%;
+      color: #555;
+    }
+
+    .az-process-connector {
+      height: 2px;
+      flex: 1;
+      background-color: #1d3363;
+      display: flex;
+      align-items: flex-start;
+      opacity: 0.2;
+      margin: 0 8px;
+    }
+
+    /* ===== METRICS Section ===== */
+    .az-metrics {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px 100px;
+      gap: 48px;
+      width: 1440px;
+      max-width: 100%;
+      background: #1d3363;
+      margin: 0 auto;
+    }
+
+    .az-metrics-top {
+      direction: ltr;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 1240px;
+      max-width: 100%;
+    }
+
+    .az-metrics-btn {
+      order: 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 28px;
+      gap: 8px;
+      height: 46px;
+      border: 1.5px solid #f0c040;
+      border-radius: 12px;
+      background: transparent;
+      color: #f0c040;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 18px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: 'Vazirmatn', sans-serif;
+      transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    }
+
+    .az-metrics-btn:hover {
+      background: #f0c040;
+      color: #1d3363;
+      box-shadow: 0px 6px 16px rgba(240, 192, 64, 0.35);
+    }
+
+    .az-metrics-header {
+      order: 1;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .az-metrics-eyebrow {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.02em;
+      color: #f0c040;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-metrics-title {
+      font-weight: 700;
+      font-size: clamp(22px, 2vw, 28px);
+      line-height: 34px;
+      color: #ffffff;
+      text-align: right;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-metrics-grid {
+      direction: ltr;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 24px;
+      width: 1240px;
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .az-metric-card {
+      direction: rtl;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+      gap: 12px;
+      flex: 1 1 220px;
+      min-width: 220px;
+      background: #2e4b82;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      overflow: hidden;
+      cursor: default;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .az-metric-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: #f0c040;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .az-metric-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.25);
+      border-color: rgba(240, 192, 64, 0.4);
+      background: #33528f;
+    }
+
+    .az-metric-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .az-metric-value {
+      width: 100%;
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 44px;
+      text-align: right;
+      color: #f0c040;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-metric-title {
+      width: 100%;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: right;
+      color: #ffffff;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-metric-sub {
+      width: 100%;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 16px;
+      text-align: right;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    /* ===== BENEFITS Section ===== */
+    .az-benefits {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 100px;
+      gap: 50px;
+      width: 1440px;
+      max-width: 100%;
+      background: #ffffff;
+      margin: 0 auto;
+    }
+
+    .az-benefits-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      width: 1240px;
+      max-width: 100%;
+    }
+
+    .az-benefits-badge {
+      box-sizing: border-box;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+      background: rgba(240, 192, 64, 0.0823529);
+      border: 1px solid #f0c040;
+      border-radius: 100px;
+    }
+
+    .az-benefits-badge-text {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.02em;
+      text-align: center;
+      color: #d89e28;
+      white-space: nowrap;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-benefits-title {
+      width: 100%;
+      font-weight: 700;
+      font-size: clamp(24px, 2.4vw, 32px);
+      line-height: 1.25;
+      text-align: right;
+      color: #1d3363;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-benefits-subtitle {
+      width: 100%;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      text-align: right;
+      color: #555555;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-benefits-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 1240px;
+      max-width: 100%;
+    }
+
+    .az-benefits-row {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 24px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .az-benefit-card {
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+      gap: 12px;
+      flex: 1 1 300px;
+      min-width: 260px;
+      background: #fcfcfc;
+      border: 1px solid #eaeaea;
+      border-radius: 16px;
+      cursor: default;
+      transition: background 0.35s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+    }
+
+    .az-benefit-card:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(180deg, #fcfcfc 0%, #f0c654 100%);
+      border-color: transparent;
+      box-shadow: 0px 14px 28px rgba(29, 51, 99, 0.12);
+    }
+
+    .az-benefit-card-check {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+      background: rgba(240, 192, 64, 0.12549);
+      border-radius: 12px;
+    }
+
+    .az-benefit-card-check svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .az-benefit-card-title {
+      width: 100%;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: right;
+      color: #1d3363;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-benefit-card-desc {
+      width: 100%;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 160%;
+      text-align: right;
+      color: #555555;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    /* ===== CONSULTATION Section ===== */
+    .az-consult {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 80px 100px;
+      gap: 48px;
+      width: 1440px;
+      max-width: 100%;
+      background: #f7f7f7;
+      border-width: 1px 0px;
+      border-style: solid;
+      border-color: #eaeaea;
+      margin: 0 auto;
+      direction: ltr;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .az-consult-graphics {
+      order: 0;
+      position: relative;
+      flex: none;
+      width: 520px;
+      height: 440px;
+      min-width: 300px;
+    }
+
+ 
+
+    @keyframes azPulseGlow {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+
+    .az-consult-graphics-grid {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0.1;
+    }
+
+    .az-consult-graphics-grid-line {
+      width: 100%;
+      height: 0;
+      border-top: 1px solid #1d3363;
+    }
+
+    .az-consult-dashboard {
+      direction: rtl;
+      box-sizing: border-box;
+      position: absolute;
+      width: 240px;
+      height: 165px;
+      left: 160px;
+      top: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 18px;
+      gap: 10px;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      box-shadow: 0px 12px 24px rgba(29, 51, 99, 0.08);
+      border-radius: 16px;
+      cursor: default;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .az-consult-dashboard:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 20px 36px rgba(29, 51, 99, 0.16);
+    }
+
+    .az-consult-dashboard-top {
+      direction: ltr;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .az-consult-dashboard-label {
+      font-weight: 600;
+      font-size: 10px;
+      line-height: 12px;
+      color: #5a5a5a;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-consult-dashboard-badge {
+      display: flex;
+      align-items: flex-start;
+      padding: 3px 8px;
+      background: #ebfbf5;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 12px;
+      color: #0b4635;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-consult-dashboard-number {
+      position: relative;
+      right: 136px;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 32px;
+      color: #1d3363;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-consult-dashboard-bars {
+      direction: ltr;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 7px;
+      width: 100%;
+    }
+
+    .az-consult-dashboard-bar {
+      width: 26px;
+      border-radius: 4px 4px 0 0;
+      background: #1d3363;
+      transition: transform 0.35s ease;
+      transform-origin: bottom;
+    }
+
+    .az-consult-strategy-circle {
+      position: absolute;
+      left: 50px;
+      top: 130px;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0c040;
+      box-shadow: 0px 8px 16px rgba(240, 192, 64, 0.3);
+      border-radius: 35px;
+      cursor: default;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .az-consult-strategy-circle:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0px 14px 26px rgba(240, 192, 64, 0.45);
+    }
+
+    .az-consult-strategy-circle img {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.5s ease;
+    }
+
+    .az-consult-google-ads {
+      direction: rtl;
+      position: absolute;
+      left: 110px;
+      top: 270px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 7px 12px;
+      gap: 7px;
+      background: #1d3363;
+      border-radius: 10px;
+      width: max-content;
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .az-consult-google-ads:hover {
+      transform: translateY(-3px);
+      box-shadow: 0px 10px 20px rgba(29, 51, 99, 0.3);
+    }
+
+    .az-consult-google-ads span {
+      font-weight: 700;
+      font-size: 11px;
+      line-height: 14px;
+      color: #ffffff;
+      white-space: nowrap;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-consult-growth {
+      direction: rtl;
+      box-sizing: border-box;
+      position: absolute;
+      left: 280px;
+      top: 260px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 12px;
+      gap: 10px;
+      width: 150px;
+      height: 58px;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .az-consult-growth:hover {
+      transform: translateY(-4px);
+      border-color: #f0c040;
+      box-shadow: 0px 14px 24px rgba(29, 51, 99, 0.12);
+    }
+
+    .az-consult-growth-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      background: #f0f5ff;
+      border-radius: 16px;
+      flex: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .az-consult-growth:hover .az-consult-growth-icon {
+      background: #f0c040;
+      transform: rotate(8deg);
+    }
+
+    .az-consult-growth-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .az-consult-growth-text-main {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 16px;
+      color: #1d3363;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-consult-growth-text-sub {
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 12px;
+      color: #555555;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-consult-connector {
+      box-sizing: border-box;
+      position: absolute;
+      height: 0px;
+      border-top: 1px dashed #1d3363;
+    }
+
+    /* ===== FORM Section ===== */
+    .az-form {
+      order: 1;
+      direction: rtl;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px 36px;
+      gap: 20px;
+      flex: 1 1 500px;
+      max-width: 680px;
+      width: 680px;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.04);
+      border-radius: 24px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .az-form:hover {
+      box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .az-form-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .az-form-title {
+      width: 100%;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.3;
+      text-align: right;
+      color: #1d3363;
+      margin: 0;
+    }
+
+    .az-form-subtitle {
+      width: 100%;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 160%;
+      text-align: right;
+      color: #555555;
+      margin: 0;
+    }
+
+    .az-form-fields {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .az-form-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 14px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .az-form-field {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 6px;
+      flex: 1 1 220px;
+      min-width: 180px;
+    }
+
+    .az-form-field--full {
+      width: 100%;
+    }
+
+    .az-form-label {
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 16px;
+      color: #1d3363;
+      margin: 0;
+    }
+
+    .az-form-input,
+    .az-form-select,
+    .az-form-textarea {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 10px 14px;
+      width: 100%;
+      height: 40px;
+      background: #fcfcfc;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 14px;
+      color: #111111;
+      text-align: right;
+      direction: rtl;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .az-form-input::placeholder,
+    .az-form-textarea::placeholder {
+      color: #888888;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .az-form-input:hover,
+    .az-form-select:hover,
+    .az-form-textarea:hover {
+      border-color: #d6d6d6;
+      background: #ffffff;
+    }
+
+    .az-form-input:focus,
+    .az-form-select:focus,
+    .az-form-textarea:focus {
+      border-color: #f0c040;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.28);
+    }
+
+    .az-form-select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'><path d='M3.5 5.25L7 8.75L10.5 5.25' stroke='%23555555' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+      background-repeat: no-repeat;
+      background-position: left 14px center;
+      padding-left: 32px;
+    }
+
+    .az-form-textarea {
+      height: 85px;
+      align-items: flex-start;
+      resize: none;
+    }
+
+    .az-form-submit-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 0px;
+      width: 100%;
+    }
+
+    .az-form-submit-btn {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 26px;
+      gap: 8px;
+      width: auto;
+      min-width: 240px;
+      height: 44px;
+      background: #f0c040;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.0509804);
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Vazirmatn', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      color: #1d3363;
+      transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    }
+
+    .az-form-submit-btn:hover {
+      background: #e8b62f;
+      box-shadow: 0px 10px 22px rgba(240, 192, 64, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FINAL CTA Section ===== */
+    .az-cta {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 100px;
+      gap: 24px;
+      isolation: isolate;
+      width: 1440px;
+      max-width: 100%;
+      min-height: 320px;
+      background: #1d3363;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .az-cta-title {
+      position: relative;
+      z-index: 1;
+      width: 1240px;
+      max-width: 100%;
+      font-weight: 800;
+      font-size: clamp(24px, 2.8vw, 34px);
+      line-height: 1.25;
+      text-align: center;
+      color: #ffffff;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-cta-subtitle {
+      position: relative;
+      z-index: 2;
+      width: 720px;
+      max-width: 100%;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    .az-cta-btn {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 40px;
+      width: auto;
+      min-width: 200px;
+      height: 58px;
+      background: #f0c040;
+      box-shadow: 0px 10px 20px rgba(240, 192, 64, 0.25098);
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 17px;
+      line-height: 22px;
+      color: #1d3363;
+      font-family: 'Vazirmatn', sans-serif;
+      transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .az-cta-btn:hover {
+      background: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.25);
+      color: #0a1a3a;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1300px) {
+      .az-consult { padding: 60px 48px; gap: 40px; }
+      .az-form { max-width: 620px; width: 100%; }
+    }
+
+    @media (max-width: 1100px) {
+      .az-metrics { padding: 60px 40px; }
+      .az-metrics-top { flex-direction: column-reverse; align-items: flex-start; gap: 20px; width: 100%; }
+      .az-benefits { padding: 60px 40px; }
+      .az-benefits-row { flex-direction: column; }
+      .az-consult-graphics { display: none; }
+      .az-form { flex: 1 1 100%; max-width: 680px; width: 100%; padding: 28px 32px; }
+    }
+
+    @media (max-width: 640px) {
+      .az-metrics { padding: 48px 24px; gap: 32px; }
+      .az-metric-card { flex: 1 1 100%; }
+      .az-benefits { padding: 48px 24px; gap: 32px; }
+      .az-benefits-title { font-size: 24px; }
+      .az-consult { padding: 40px 20px; }
+      .az-cta { padding: 60px 24px; }
+      .az-form-row { flex-direction: column; gap: 14px; }
+      .az-form-field { flex: 1 1 100%; width: 100%; }
+      .az-form-submit-btn { width: 100%; min-width: auto; }
+      .az-cta-btn { width: 100%; max-width: 280px; }
+      .az-form-title { font-size: 22px; }
+      .az-form { padding: 24px 20px; gap: 16px; }
+    }
+
+
+
+    
+
+  </style>
+    </head>
+    <body>
+
+
+        <!-- navbar -->
+		{% include "includes/navbar.html" %}
+
+        <!-- ===== HERO ===== -->
+        <div class="az-hero">
+            <div class="az-hero-content">
+                <div class="az-hero-pill">
+                    <b>رتبه ۱ مشاوره بازاریابی دیجیتال کشور</b>
+                </div>
+                <div class="az-hero-headline">تحول دیجیتال و رشد بی‌سابقه فروش
+                    با مشاوره مارکتینگ اختصاصی</div>
+                <div class="az-hero-description">ما در کنار شما هستیم تا با
+                    تحلیل دقیق داده‌ها، تدوین استراتژی‌های مدرن، و بهینه‌سازی
+                    کانال‌های جذب مشتری، کسب‌وکار شما را به یک رهبر بازار تبدیل
+                    کنیم.</div>
+                <div class="az-hero-cta-group">
+                    <div class="az-btn-primary"><b>دریافت مشاوره
+                            رایگان</b></div>
+                    <div class="az-btn"><b>رزرو جلسه مشاوره</b></div>
+                </div>
+                <div class="az-hero-trust">
+                    <div class="az-hero-trust-item">
+                        <b>+۲۵۰</b>
+                        <div class="az-hero-trust-item-label">کمپین موفق</div>
+                    </div>
+                    <div class="az-hero-trust-divider"></div>
+                    <div class="az-hero-trust-item">
+                        <b>٪۹۸+</b>
+                        <div class="az-hero-trust-item-label">رضایت
+                            کلاینت‌ها</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="az-hero-illustration">
+                <div class="az-hero-illustration-inner">
+                    <div class="az-hero-ellipse"></div>
+                    <div class="az-hero-grid">
+                        <div class="az-hero-grid-line"></div>
+                        <div class="az-hero-grid-line"></div>
+                        <div class="az-hero-grid-line"></div>
+                        <div class="az-hero-grid-line"></div>
+                        <div class="az-hero-grid-line"></div>
+                        <div class="az-hero-grid-line"></div>
+                    </div>
+                    <div class="az-hero-dashboard">
+                        <div class="az-hero-dashboard-header">
+                            <div
+                                class="az-hero-dashboard-badge"><b>+18.4%</b></div>
+                            <div class="az-hero-dashboard-label">Conversion
+                                Rate</div>
+                        </div>
+                        <b class="az-hero-dashboard-number">٪۳.۴۵</b>
+                        <div class="az-hero-dashboard-chart">
+                            <div
+                                class="az-hero-dashboard-bar az-hero-dashboard-bar--tallest"></div>
+                            <div
+                                class="az-hero-dashboard-bar az-hero-dashboard-bar--tall"></div>
+                            <div
+                                class="az-hero-dashboard-bar az-hero-dashboard-bar--gold"></div>
+                            <div
+                                class="az-hero-dashboard-bar az-hero-dashboard-bar--med"></div>
+                            <div
+                                class="az-hero-dashboard-bar az-hero-dashboard-bar--short"></div>
+                        </div>
+                    </div>
+                    <div class="az-hero-strategy-circle">
+                        <img class="az-hero-strategy-icon"
+                            src="{% static 'asets/pie-chart.svg' %}" alt>
+                    </div>
+                    <div class="az-hero-google-ads">
+                        <b>Google Ads</b>
+                        <img class="az-hero-google-ads-icon"
+                            src="{% static 'asets/target.png' %}" alt>
+                    </div>
+                    <div class="az-hero-growth-box">
+                        <div class="az-hero-growth-box-text">
+                            <b>رشد ارگانیک</b>
+                            <div class="az-hero-growth-box-text-sub">+۳۲۰٪ ورودی
+                                گوگل</div>
+                        </div>
+                        <div class="az-hero-growth-box-icon">
+                            <img class="az-hero-growth-box-icon-img"
+                                src="{% static 'asets/arrow-up-right.svg' %}" alt>
+                        </div>
+                    </div>
+                    <img class="az-hero-connector-line-1"
+                        src="{% static 'asets/Line%20(1).png' %}" alt>
+                    <img class="az-hero-connector-line-2" src="{% static 'asets/Line.png' %}"
+                        alt>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== WHY US ===== -->
+        <div class="az-why-us">
+            <div class="az-why-us-header">
+                <div class="az-why-us-badge">
+                    <span class="az-why-us-badge-text">مزایای رقابتی</span>
+                </div>
+                <h2 class="az-why-us-title">چرا آذر یزدان بهترین انتخاب
+                    است؟</h2>
+                <p class="az-why-us-subtitle">وجه تمایز ما در نگرش علمی و
+                    استراتژیک به ابزارهای مارکتینگ مدرن است.</p>
+            </div>
+            <div class="az-why-us-grid">
+                <div class="az-why-card">
+                    <div class="az-why-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"><path
+                                d="M4 21v-7"></path><path
+                                d="M4 10V3"></path><path
+                                d="M12 21v-9"></path><path
+                                d="M12 8V3"></path><path
+                                d="M20 21v-5"></path><path
+                                d="M20 12V3"></path><path
+                                d="M1 14h6"></path><path d="M9 8h6"></path><path
+                                d="M17 16h6"></path></svg>
+                    </div>
+                    <h3 class="az-why-card-title">استراتژی شخصی سازی شده
+                        (personalized)</h3>
+                    <p class="az-why-card-text">تدوین نقشه راه اختصاصی مناسب
+                        ابعاد بودجه و اهداف ویژه برند شما.</p>
+                </div>
+                <div class="az-why-card">
+                    <div class="az-why-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"><circle cx="12" cy="12"
+                                r="10"></circle><path
+                                d="M12 2v10l7 4"></path></svg>
+                    </div>
+                    <h3 class="az-why-card-title">تصمیم‌گیری مبتنی بر داده
+                        (Data-Driven)</h3>
+                    <p class="az-why-card-text">بدون گمانه‌زنی؛ تمامی تصمیمات و
+                        استراتژی‌ها براساس تحلیل زنده بازار است.</p>
+                </div>
+                <div class="az-why-card">
+                    <div class="az-why-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"><path
+                                d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <h3 class="az-why-card-title">رشد کسب‌وکار (Business
+                        Growth)</h3>
+                    <p class="az-why-card-text">تمرکز بر مقیاس‌پذیری پایدار و
+                        مداوم به جای نتایج موقت و زودگذر.</p>
+                </div>
+                <div class="az-why-card">
+                    <div class="az-why-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"><path
+                                d="M23 6l-9.5 9.5-5-5L1 18"></path><path
+                                d="M17 6h6v6"></path></svg>
+                    </div>
+                    <h3 class="az-why-card-title">بازگشت سرمایه بالاترین (Higher
+                        ROI)</h3>
+                    <p class="az-why-card-text">بودجه مارکتینگ شما را با حساسیت
+                        و هدفمند برای بالاترین بازدهی هزینه می‌کنیم.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SERVICES ===== -->
+        <div class="az-services">
+            <div class="az-services-header">
+                <div class="az-services-badge"><b>خدمات تخصصی</b></div>
+                <b class="az-services-title">خدمات تخصصی مشاوره بازاریابی
+                    دیجیتال</b>
+                <div class="az-services-subtitle">ترکیبی هم‌افزا از استراتژی‌های
+                    خلاقانه و تکنولوژی روز برای تحول برند شما</div>
+            </div>
+            <div class="az-services-grid">
+                <div class="az-services-row az-services-row--top">
+                    <div class="az-service-card">
+                        <div class="az-service-card-icon"><img
+                                class="az-service-card-icon-img"
+                                src="{% static 'asets/share-2.svg' %}" alt></div>
+                        <b class="az-service-card-title">استراتژی شبکه‌های
+                            اجتماعی</b>
+                        <div class="az-service-card-desc">ساخت برند ارجح مشتریان
+                            با روایت هویت منحصربه‌فرد شما در لینکدین، اینستاگرام
+                            و پلتفرم‌های کلیدی.</div>
+                        <div class="az-service-card-link"><b>مشاهده جزییات
+                                خدمت</b> <img class="az-service-card-link-icon"
+                                src="{% static 'asets/arrow-left.svg' %}" alt></div>
+                    </div>
+                    <div class="az-service-card">
+                        <div class="az-service-card-icon"><img
+                                class="az-service-card-icon-img"
+                                src="{% static 'asets/target.png' %}" alt></div>
+                        <b class="az-service-card-title">مشاوره گوگل ادز (Google
+                            Ads)</b>
+                        <div class="az-service-card-desc">طراحی و مدیریت
+                            کمپین‌های تبلیغاتی پربازده، کاهش هزینه هر کلیک و
+                            افزایش شگفت‌انگیز لید و فروش.</div>
+                        <div class="az-service-card-link"><b>مشاهده جزییات
+                                خدمت</b> <img class="az-service-card-link-icon"
+                                src="{% static 'asets/arrow-left.svg' %}" alt></div>
+                    </div>
+                    <div class="az-service-card">
+                        <div class="az-service-card-icon"><img
+                                class="az-service-card-icon-img"
+                                src="{% static 'asets/search.svg' %}" alt></div>
+                        <b class="az-service-card-title">استراتژی سئو (SEO
+                            Strategy)</b>
+                        <div class="az-service-card-desc">افزایش ترافیک ارگانیک
+                            هدفمند با تحقیق کلیدواژه‌های حیاتی و بهینه‌سازی
+                            همه‌جانبه ساختار وب‌سایت.</div>
+                        <div class="az-service-card-link"><b>مشاهده جزییات
+                                خدمت</b> <img class="az-service-card-link-icon"
+                                src="{% static 'asets/arrow-left.svg' %}" alt></div>
+                    </div>
+                </div>
+                <div class="az-services-row az-services-row--bottom">
+                    <div class="az-service-card">
+                        <div class="az-service-card-icon"><img
+                                class="az-service-card-icon-img"
+                                src="{% static 'asets/edit-3.svg' %}" alt></div>
+                        <b class="az-service-card-title">بازاریابی محتوا
+                            (Content)</b>
+                        <div class="az-service-card-desc">تولید دارایی‌های
+                            محتوایی باارزش و جذاب که کاربران هدف را به خریداران
+                            وفادار تبدیل می‌کند.</div>
+                        <div class="az-service-card-link"><b>مشاهده جزییات
+                                خدمت</b> <img class="az-service-card-link-icon"
+                                src="{% static 'asets/arrow-left.svg' %}" alt></div>
+                    </div>
+                    <div class="az-service-card">
+                        <div class="az-service-card-icon"><img
+                                class="az-service-card-icon-img"
+                                src="{% static 'asets/pie-chart%20(1).svg' %}" alt></div>
+                        <b class="az-service-card-title">تحلیل عملکرد
+                            (Analytics)</b>
+                        <div class="az-service-card-desc">راه‌اندازی داشبوردهای
+                            پیشرفته و آنالیز مستمر رفتار مصرف‌کننده با تکیه بر
+                            GA4 و متدهای نوین.</div>
+                        <div class="az-service-card-link"><b>مشاهده جزییات
+                                خدمت</b> <img class="az-service-card-link-icon"
+                                src="{% static 'asets/arrow-left.svg' %}" alt></div>
+                    </div>
+                    <div class="az-service-card">
+                        <div class="az-service-card-icon"><img
+                                class="az-service-card-icon-img"
+                                src="{% static 'asets/zap.svg' %}" alt></div>
+                        <b class="az-service-card-title">بهینه‌سازی نرخ تبدیل
+                            (CRO)</b>
+                        <div class="az-service-card-desc">تبدیل بازدیدکنندگان
+                            فعلی وب‌سایت به خریدار از طریق تست‌های A/B و اصلاح
+                            دقیق تجربه کاربری (UX).</div>
+                        <div class="az-service-card-link"><b>مشاهده جزییات
+                                خدمت</b> <img class="az-service-card-link-icon"
+                                src="{% static 'asets/arrow-left.svg' %}" alt></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PROCESS ===== -->
+        <div class="az-process">
+            <div class="az-process-header">
+                <div class="az-process-badge"><b>نقشه راه همکاری</b></div>
+                <b class="az-process-title">مسیر هموار رشد و همکاری با ما</b>
+                <div class="az-process-subtitle">فرآیندی شفاف، گام‌به‌گام و علمی
+                    برای پیشبرد اهداف دیجیتال مارکتینگ شما</div>
+            </div>
+            <div class="az-process-timeline">
+                <div class="az-process-step-wrap">
+                    <div class="az-process-card">
+                        <div class="az-process-card-header">
+                            <div class="az-process-card-step">۰۱</div>
+                            <div class="az-process-card-icon"><img
+                                    class="az-process-card-icon-img"
+                                    src="{% static 'asets/bar-chart-2.svg' %}" alt></div>
+                        </div>
+                        <b class="az-process-card-title">تحلیل کسب‌وکار</b>
+                        <div class="az-process-card-desc">بررسی وضعیت فعلی و
+                            نیازهای مخاطبان.</div>
+                    </div>
+                </div>
+                <div class="az-process-step-wrap"><div
+                        class="az-process-connector"></div><div
+                        class="az-process-card">
+                        <div class="az-process-card-header">
+                            <div class="az-process-card-step">۰۲</div>
+                            <div class="az-process-card-icon"><img
+                                    class="az-process-card-icon-img"
+                                    src="{% static 'asets/search.png' %}" alt></div>
+                        </div>
+                        <b class="az-process-card-title">تحقیق رقبا</b>
+                        <div class="az-process-card-desc">شناسایی نقاط ضعف و قوت
+                            رقیبان شما.</div>
+                    </div></div>
+                <div class="az-process-step-wrap"><div
+                        class="az-process-connector"></div><div
+                        class="az-process-card">
+                        <div class="az-process-card-header">
+                            <div class="az-process-card-step">۰۳</div>
+                            <div class="az-process-card-icon"><img
+                                    class="az-process-card-icon-img"
+                                    src="{% static 'asets/usersabi.svg' %}" alt></div>
+                        </div>
+                        <b class="az-process-card-title">جلسه استراتژی</b>
+                        <div class="az-process-card-desc">تدوین نهایی نقشه راه
+                            اختصاصی برند شما.</div>
+                    </div></div>
+                <div class="az-process-step-wrap"><div
+                        class="az-process-connector"></div><div
+                        class="az-process-card">
+                        <div class="az-process-card-header">
+                            <div class="az-process-card-step">۰۴</div>
+                            <div class="az-process-card-icon"><img
+                                    class="az-process-card-icon-img"
+                                    src="{% static 'asets/play.svg' %}" alt></div>
+                        </div>
+                        <b class="az-process-card-title">برنامه اقدام</b>
+                        <div class="az-process-card-desc">پیاده‌سازی دقیق
+                            کمپین‌ها و کانال‌های مارکتینگ.</div>
+                    </div></div>
+                <div class="az-process-step-wrap"><div
+                        class="az-process-connector"></div><div
+                        class="az-process-card">
+                        <div class="az-process-card-header">
+                            <div class="az-process-card-step">۰۵</div>
+                            <div class="az-process-card-icon"><img
+                                    class="az-process-card-icon-img"
+                                    src="{% static 'asets/refresh-cw.svg' %}" alt></div>
+                        </div>
+                        <b class="az-process-card-title">بهینه‌سازی رشد</b>
+                        <div class="az-process-card-desc">تحلیل بازخورد و بهبود
+                            مستمر نتایج حاصله.</div>
+                    </div></div>
+            </div>
+        </div>
+
+        <!-- ===== METRICS ===== -->
+        <div class="az-metrics">
+            <div class="az-metrics-top">
+                <button class="az-metrics-btn">مشاهده مستندات رشد</button>
+                <div class="az-metrics-header">
+                    <span class="az-metrics-eyebrow">آمارهای طلایی ما</span>
+                    <h2 class="az-metrics-title">ارقام گویای حقیقت هستند</h2>
+                </div>
+            </div>
+            <div class="az-metrics-grid">
+                <div class="az-metric-card">
+                    <div class="az-metric-value">+۲۵۰</div>
+                    <div class="az-metric-title">پروژه موفق مارکتینگ</div>
+                    <div class="az-metric-sub">در صنایع گوناگون داخلی و
+                        بین‌المللی</div>
+                </div>
+                <div class="az-metric-card">
+                    <div class="az-metric-value">٪۳۲۰</div>
+                    <div class="az-metric-title">میانگین رشد سالانه
+                        کلاینت‌ها</div>
+                    <div class="az-metric-sub">براساس بازدهی مستند در درآمد
+                        خالص</div>
+                </div>
+                <div class="az-metric-card">
+                    <div class="az-metric-value">+۱۸۰</div>
+                    <div class="az-metric-title">همکاری مستمر و مشتری راضی</div>
+                    <div class="az-metric-sub">با نرخ حفظ ۹۴ درصدی سالانه
+                        مشتریان</div>
+                </div>
+                <div class="az-metric-card">
+                    <div class="az-metric-value">+۸ سال</div>
+                    <div class="az-metric-title">سابقه تخصصی مشاوره ارشد</div>
+                    <div class="az-metric-sub">هدایت هوشمندانه در بحران‌های
+                        اقتصادی</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== BENEFITS ===== -->
+        <div class="az-benefits">
+            <div class="az-benefits-header">
+                <div class="az-benefits-badge"><span
+                        class="az-benefits-badge-text">ارزش‌های بنیادی
+                        ما</span></div>
+                <h2 class="az-benefits-title">تعهد ما؛ همراهی صادقانه برای
+                    اوج‌گیری برند شما</h2>
+                <p class="az-benefits-subtitle">با تکیه بر اصول نوین و متعهدانه،
+                    تجربه‌ای نو از مشاوره آژانس بازاریابی دیجیتال خلق
+                    می‌کنیم</p>
+            </div>
+            <div class="az-benefits-grid">
+                <div class="az-benefits-row">
+                    <div class="az-benefit-card">
+                        <div class="az-benefit-card-check"><svg
+                                viewBox="0 0 14 14" fill="none"><path
+                                    d="M2 7L5.5 10.5L12 3.5" stroke="#D89E28"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" /></svg></div>
+                        <h3 class="az-benefit-card-title">استراتژی بازاریابی
+                            اختصاصی</h3>
+                        <p class="az-benefit-card-desc">ما راه‌حل‌های کپی‌برداری
+                            شده ارائه نمی‌دهیم؛ هر کسب‌وکار فرمول موفقیت متمایز
+                            خود را دارد.</p>
+                    </div>
+                    <div class="az-benefit-card">
+                        <div class="az-benefit-card-check"><svg
+                                viewBox="0 0 14 14" fill="none"><path
+                                    d="M2 7L5.5 10.5L12 3.5" stroke="#D89E28"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" /></svg></div>
+                        <h3 class="az-benefit-card-title">گزارش‌دهی کاملاً
+                            شفاف</h3>
+                        <p class="az-benefit-card-desc">دسترسی مستقیم و همیشگی
+                            به تمام داشبوردهای تحلیلی بدون ابهام در ارقام
+                            بودجه.</p>
+                    </div>
+                    <div class="az-benefit-card">
+                        <div class="az-benefit-card-check"><svg
+                                viewBox="0 0 14 14" fill="none"><path
+                                    d="M2 7L5.5 10.5L12 3.5" stroke="#D89E28"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" /></svg></div>
+                        <h3 class="az-benefit-card-title">تیم با تجربه و
+                            متخصص</h3>
+                        <p class="az-benefit-card-desc">همکاری مستقیم با مشاوران
+                            رده‌بالا با تجربه عملی، نه دستیاران تازه‌کار.</p>
+                    </div>
+                </div>
+                <div class="az-benefits-row">
+                    <div class="az-benefit-card">
+                        <div class="az-benefit-card-check"><svg
+                                viewBox="0 0 14 14" fill="none"><path
+                                    d="M2 7L5.5 10.5L12 3.5" stroke="#D89E28"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" /></svg></div>
+                        <h3 class="az-benefit-card-title">نتایج قابل
+                            اندازه‌گیری</h3>
+                        <p class="az-benefit-card-desc">تمرکز مطلق بر سنجه‌های
+                            حیاتی مانند لیدها و فروش، فراتر از معیارهای کاذب
+                            لایک و بازدید.</p>
+                    </div>
+                    <div class="az-benefit-card">
+                        <div class="az-benefit-card-check"><svg
+                                viewBox="0 0 14 14" fill="none"><path
+                                    d="M2 7L5.5 10.5L12 3.5" stroke="#D89E28"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" /></svg></div>
+                        <h3 class="az-benefit-card-title">بهینه‌سازی مستمر
+                            کمپین</h3>
+                        <p class="az-benefit-card-desc">پایش روزانه بازار برای
+                            کشف فرصت‌های کاهش هزینه و به حداکثر رساندن
+                            سودآوری.</p>
+                    </div>
+                    <div class="az-benefit-card">
+                        <div class="az-benefit-card-check"><svg
+                                viewBox="0 0 14 14" fill="none"><path
+                                    d="M2 7L5.5 10.5L12 3.5" stroke="#D89E28"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" /></svg></div>
+                        <h3 class="az-benefit-card-title">مشارکت راهبردی
+                            بلندمدت</h3>
+                        <p class="az-benefit-card-desc">اهداف شما را به عنوان
+                            اهداف حقیقی خود دانسته و تا زمان تسخیر بازار کنارتان
+                            می‌مانیم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CONSULTATION FORM ===== -->
+        <div class="az-consult">
+            <div class="az-consult-graphics">
+              
+                <div class="az-consult-graphics-grid">
+                    <div class="az-consult-graphics-grid-line"></div>
+                    <div class="az-consult-graphics-grid-line"></div>
+                    <div class="az-consult-graphics-grid-line"></div>
+                    <div class="az-consult-graphics-grid-line"></div>
+                    <div class="az-consult-graphics-grid-line"></div>
+                    <div class="az-consult-graphics-grid-line"></div>
+                </div>
+                <div class="az-consult-dashboard">
+                    <div class="az-consult-dashboard-top">
+                        <span class="az-consult-dashboard-label">Conversion
+                            Rate</span>
+                        <span class="az-consult-dashboard-badge">+18.4%</span>
+                    </div>
+                    <div class="az-consult-dashboard-number">٪۳.۴۵</div>
+                    <div class="az-consult-dashboard-bars">
+                        <div class="az-consult-dashboard-bar"
+                            style="height: 18px; background: #1d3363; opacity: 0.3"></div>
+                        <div class="az-consult-dashboard-bar"
+                            style="height: 32px; background: #1d3363; opacity: 0.5"></div>
+                        <div class="az-consult-dashboard-bar"
+                            style="height: 28px; background: #f0c040"></div>
+                        <div class="az-consult-dashboard-bar"
+                            style="height: 42px; background: #1d3363"></div>
+                        <div class="az-consult-dashboard-bar"
+                            style="height: 50px; background: #1d3363"></div>
+                    </div>
+                </div>
+                <div class="az-consult-strategy-circle"><img
+                        src="{% static 'asets/pie-chart.svg' %}" alt></div>
+                <div class="az-consult-google-ads"><span>Google Ads</span> <img
+                        src="{% static 'asets/target.png' %}" alt></div>
+                <div class="az-consult-growth">
+                    <div class="az-consult-growth-text">
+                        <span class="az-consult-growth-text-main">رشد
+                            ارگانیک</span>
+                        <span class="az-consult-growth-text-sub">+۳۲۰٪ ورودی
+                            گوگل</span>
+                    </div>
+                    <div class="az-consult-growth-icon"><img
+                            src="{% static 'asets/arrow-up-right.svg' %}" alt></div>
+                </div>
+                <div class="az-consult-connector"
+                    style="width: 45px; left: 118px; top: 173px; transform: rotate(25deg)"></div>
+                <div class="az-consult-connector"
+                    style="width: 70px; left: 149px; top: 259px; transform: rotate(-40deg)"></div>
+            </div>
+
+            
+              <div class="az-form">
+                <form action="{% url "shop:services_digital" %}" method="post">
+                {% csrf_token %}
+                <div class="az-form-header">
+                    <h2 class="az-form-title">شروع مسیر رشد؛ هم‌اکنون مشاوره
+                        بگیرید</h2>
+                    <p class="az-form-subtitle">فرم زیر را تکمیل کنید تا
+                        کارشناسان ما ظرف ۲۴ ساعت برای تنظیم قرار اولیه با شما
+                        تماس بگیرند.</p>
+                </div>
+                <div class="az-form-fields">
+                    <div class="az-form-row">
+                        <div class="az-form-field">
+                            <label class="az-form-label" for="az-fullname">نام و
+                                نام‌خانوادگی</label>
+                            <input class="az-form-input" id="az-fullname" name="full_name"
+                                type="text" placeholder="مثال: محمد امینی">
+                        </div>
+                        <div class="az-form-field">
+                            <label class="az-form-label" for="az-phone">تلفن
+                                همراه</label>
+                            <input class="az-form-input" id="az-phone" name="phone"
+                                type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+                        </div>
+                    </div>
+                    <div class="az-form-row">
+                        <div class="az-form-field">
+                            <label class="az-form-label" for="az-business">نام
+                                کسب‌وکار / وب‌سایت</label>
+                            <input class="az-form-input" id="az-business" name="work_name"
+                                type="text"
+                                placeholder="مثال: digimarketing.ir">
+                        </div>
+                        <div class="az-form-field">
+                            <label class="az-form-label" for="az-service">خدمت
+                                مورد نیاز</label>
+                            <select class="az-form-select" id="az-service" name="service_choices">
+                                <option value="seo">سئو و گوگل ادز</option>
+                                <option value="web">طراحی سایت</option>
+                                <option value="management">مدیریت شبکه‌های اجتماعی</option>
+                                <option value="consult">مشاوره برندینگ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="az-form-field az-form-field--full">
+                        <label class="az-form-label" for="az-desc">توضیحات کوتاه
+                            پروژه</label>
+                        <textarea class="az-form-textarea" id="az-desc" name="message"
+                            placeholder="مختصری از چالش‌ها و اهدافتان بنویسید..."></textarea>
+                    </div>
+                </div>
+                <div class="az-form-submit-wrap">
+                    <button type="submit" class="az-form-submit-btn">ارسال اطلاعات و دریافت
+                        نوبت</button>
+                </div>
+                </form>
+              </div>
+            
+        </div>
+
+        <!-- ===== FINAL CTA ===== -->
+        <div class="az-cta">
+            <h2 class="az-cta-title">آماده رشد پایدار و علمی کسب‌وکار خود
+                هستید؟</h2>
+            <p class="az-cta-subtitle">پیش از پرداخت هرگونه بودجه مارکتینگ، با
+                مشاوران ما گفت‌وگو کنید تا بهترین مسیر تخصیص منابع را شناسایی
+                کنید. اولین جلسه ارزیابی کماکان کاملاً رایگان است.</p>
+            <a href="{% url "users:contact_request" %}" class="az-cta-btn">شروع پروژه جدید</a>
+        </div>
+
+
+
+	<!-- فوتر  -->
+		{% include "includes/footer.html" %}
+
+<script>
+    
+    // اعتبارسنجی فرم مشاوره بازاریابی دیجیتال
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.az-form form');
+        if (!form) {
+            console.log('فرم پیدا نشد!');
+            return;
+        }
+
+        console.log('✅ فرم پیدا شد');
+
+        // تابع اعتبارسنجی شماره تلفن
+        function isValidPhoneNumber(value) {
+            const clean = value.replace(/\s/g, '').replace(/-/g, '');
+            const patterns = [
+                /^09\d{9}$/,
+                /^989\d{9}$/,
+                /^\+989\d{9}$/,
+                /^9\d{9}$/
+            ];
+            return patterns.some(pattern => pattern.test(clean));
+        }
+
+        // تابع اعتبارسنجی URL با بررسی دقیق
+        function isValidUrl(string) {
+            if (!string || string.trim() === '') return true; // خالی بودن مجاز است
+            
+            const url = string.trim();
+            
+            // 1. بررسی با Regex دقیق
+            // این الگو فقط آدرس‌های معتبر را قبول می‌کند
+            const urlPattern = new RegExp(
+                '^' +
+                // پروتکل (اختیاری)
+                '(https?:\\/\\/)?' +
+                // www (اختیاری)
+                '(www\\.)?' +
+                // نام دامنه - حداقل یک حرف، نقطه، سپس حداقل 2 حرف برای پسوند
+                '[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}' +
+                // پورت (اختیاری)
+                '(:[0-9]{1,5})?' +
+                // مسیر و پارامترها (اختیاری)
+                '(\\/[a-zA-Z0-9-._~:?#@!$&\'()*+,;=]*)*' +
+                '$'
+            );
+            
+            if (urlPattern.test(url)) {
+                return true;
+            }
+            
+            // 2. بررسی با new URL
+            try {
+                let urlToCheck = url;
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    urlToCheck = 'http://' + url;
+                }
+                const urlObj = new URL(urlToCheck);
+                const hostname = urlObj.hostname;
+                
+                // بررسی اینکه hostname حداقل یک نقطه دارد و پسوند معتبر دارد
+                if (hostname.includes('.')) {
+                    const parts = hostname.split('.');
+                    const lastPart = parts[parts.length - 1];
+                    // پسوند باید حداقل 2 کاراکتر باشد و فقط حروف داشته باشد
+                    if (lastPart.length >= 2 && /^[a-zA-Z]+$/.test(lastPart)) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (_) {
+                return false;
+            }
+        }
+
+        // تابع نمایش خطا
+        function showError(input, message) {
+            const oldError = input.parentElement.querySelector('.validation-error');
+            if (oldError) oldError.remove();
+            
+            const errorEl = document.createElement('div');
+            errorEl.className = 'validation-error';
+            errorEl.style.cssText = `
+                color: #E2543D;
+                font-size: 12px;
+                margin-top: 4px;
+                padding-right: 12px;
+            `;
+            errorEl.textContent = '⚠ ' + message;
+            input.parentElement.appendChild(errorEl);
+            
+            input.style.borderColor = '#E2543D';
+            input.style.border = '2px solid #E2543D';
+        }
+
+        // تابع پاک کردن خطاها
+        function clearErrors() {
+            form.querySelectorAll('.validation-error').forEach(el => el.remove());
+            form.querySelectorAll('input, select, textarea').forEach(el => {
+                el.style.borderColor = '';
+                el.style.border = '';
+            });
+            const container = form.querySelector('.form-error-container');
+            if (container) container.remove();
+        }
+
+        // اعتبارسنجی فرم
+        form.addEventListener('submit', function(e) {
+            // اگر فرم توسط Django ارسال شده و خطا دارد، اجازه ارسال بده
+            const hasServerErrors = form.querySelectorAll('.errorlist').length > 0;
+            if (hasServerErrors) {
+                return true;
+            }
+            
+            clearErrors();
+            
+            const fullName = form.querySelector('input[name="full_name"]');
+            const phone = form.querySelector('input[name="phone"]');
+            const workName = form.querySelector('input[name="work_name"]');
+            const serviceType = form.querySelector('select[name="service_choices"]');
+            const message = form.querySelector('textarea[name="message"]');
+            
+            let hasError = false;
+            let errors = [];
+            
+            // 1. اعتبارسنجی نام و نام خانوادگی
+            if (!fullName.value.trim() || fullName.value.trim().length < 3) {
+                hasError = true;
+                errors.push('نام و نام خانوادگی الزامی است (حداقل ۳ کاراکتر)');
+                showError(fullName, 'نام و نام خانوادگی الزامی است');
+            }
+            
+            // 2. اعتبارسنجی تلفن همراه
+            const phoneValue = phone.value.trim();
+            if (!phoneValue) {
+                hasError = true;
+                errors.push('شماره تلفن همراه الزامی است');
+                showError(phone, 'شماره تلفن همراه الزامی است');
+            } else if (!isValidPhoneNumber(phoneValue)) {
+                hasError = true;
+                errors.push('فرمت شماره تلفن همراه صحیح نیست (مثال: ۰۹۱۲۳۴۵۶۷۸۹)');
+                showError(phone, 'فرمت شماره تلفن صحیح نیست');
+            }
+            
+            // 3. اعتبارسنجی URL (اختیاری اما اگر وارد شود باید معتبر باشد)
+            const workNameValue = workName.value.trim();
+            if (workNameValue && !isValidUrl(workNameValue)) {
+                hasError = true;
+                errors.push('فرمت آدرس وب‌سایت صحیح نیست (مثال: example.com یا https://example.com)');
+                showError(workName, 'فرمت آدرس وب‌سایت صحیح نیست');
+            }
+            
+            // 4. اعتبارسنجی نوع خدمت
+            if (!serviceType.value) {
+                hasError = true;
+                errors.push('لطفاً خدمت مورد نیاز خود را انتخاب کنید');
+                showError(serviceType, 'انتخاب خدمت الزامی است');
+            }
+            
+            // 5. اعتبارسنجی توضیحات پروژه
+            if (!message.value.trim() || message.value.trim().length < 10) {
+                hasError = true;
+                errors.push('توضیحات پروژه الزامی است (حداقل ۱۰ کاراکتر)');
+                showError(message, 'توضیحات پروژه الزامی است');
+            }
+            
+            if (hasError) {
+                e.preventDefault();
+                console.log('❌ فرم معتبر نیست، ارسال متوقف شد');
+                
+                // نمایش خطاهای جمع‌بندی شده
+                const errorContainer = document.createElement('div');
+                errorContainer.className = 'form-error-container';
+                errorContainer.style.cssText = `
+                    background-color: #FFF0ED;
+                    border-right: 4px solid #E2543D;
+                    padding: 16px 20px;
+                    border-radius: 12px;
+                    margin-bottom: 16px;
+                    color: #8B2B1A;
+                    font-size: 14px;
+                    line-height: 1.8;
+                    text-align: right;
+                    width: 100%;
+                `;
+                errorContainer.innerHTML = `
+                    <div style="font-weight: 700; margin-bottom: 4px;">⚠️ لطفاً موارد زیر را بررسی کنید:</div>
+                    ${errors.map(err => `<div>• ${err}</div>`).join('')}
+                `;
+                form.insertBefore(errorContainer, form.firstChild);
+                errorContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+            }
+            
+            console.log('✅ فرم معتبر است، در حال ارسال...');
+            return true;
+        });
+        
+        // حذف خطاها هنگام تایپ و اعتبارسنجی بلادرنگ
+        form.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('input', function() {
+                // پاک کردن خطای این فیلد
+                const error = this.parentElement.querySelector('.validation-error');
+                if (error) error.remove();
+                this.style.borderColor = '';
+                this.style.border = '';
+                
+                // اعتبارسنجی بلادرنگ شماره تلفن
+                if (this.name === 'phone' && this.value.trim()) {
+                    if (isValidPhoneNumber(this.value)) {
+                        this.style.borderColor = '#4CAF50';
+                        this.style.border = '2px solid #4CAF50';
+                    } else {
+                        this.style.borderColor = '';
+                        this.style.border = '';
+                    }
+                }
+                
+                // اعتبارسنجی بلادرنگ URL
+                if (this.name === 'work_name' && this.value.trim()) {
+                    if (isValidUrl(this.value)) {
+                        this.style.borderColor = '#4CAF50';
+                        this.style.border = '2px solid #4CAF50';
+                    } else {
+                        this.style.borderColor = '';
+                        this.style.border = '';
+                    }
+                }
+                
+                // حذف خطای کلی اگر همه فیلدها صحیح باشند
+                const errorContainer = form.querySelector('.form-error-container');
+                if (errorContainer) {
+                    const fullName = form.querySelector('input[name="full_name"]');
+                    const phone = form.querySelector('input[name="phone"]');
+                    const workName = form.querySelector('input[name="work_name"]');
+                    const serviceType = form.querySelector('select[name="service_choices"]');
+                    const message = form.querySelector('textarea[name="message"]');
+                    
+                    let allValid = true;
+                    if (!fullName.value.trim() || fullName.value.trim().length < 3) allValid = false;
+                    if (!phone.value.trim() || !isValidPhoneNumber(phone.value)) allValid = false;
+                    if (workName.value.trim() && !isValidUrl(workName.value)) allValid = false;
+                    if (!serviceType.value) allValid = false;
+                    if (!message.value.trim() || message.value.trim().length < 10) allValid = false;
+                    
+                    if (allValid) {
+                        errorContainer.remove();
+                        form.querySelectorAll('input, select, textarea').forEach(f => {
+                            if (f.style.borderColor === 'rgb(76, 175, 80)' || f.style.borderColor === '#4CAF50') {
+                                f.style.borderColor = '';
+                                f.style.border = '';
+                            }
+                        });
+                    }
+                }
+            });
+            
+            field.addEventListener('change', function() {
+                this.dispatchEvent(new Event('input'));
+            });
+            
+            // اعتبارسنجی بلادرنگ برای URL در هنگام ترک فیلد
+            if (field.name === 'work_name') {
+                field.addEventListener('blur', function() {
+                    const value = this.value.trim();
+                    if (value && !isValidUrl(value)) {
+                        this.style.borderColor = '#E2543D';
+                        this.style.border = '2px solid #E2543D';
+                        showError(this, 'فرمت آدرس وب‌سایت صحیح نیست (مثال: example.com یا https://example.com)');
+                    }
+                });
+            }
+        });
+    });
+    		
+    		      		// تابع باز و بسته کردن دراپ‌منو
+    		function toggleDropdown(triggerId, dropdownId) {
+      			var trigger = document.getElementById(triggerId);
+      			var dropdown = document.getElementById(dropdownId);
+      			
+      			if(trigger && dropdown) {
+        				trigger.addEventListener("click", function(e) {
+          					e.stopPropagation();
+          					
+          					// بستن همه دراپ‌منوهای دیگر
+          					document.querySelectorAll('.dropdown-content').forEach(function(el) {
+            						if(el.id !== dropdownId) {
+              							el.style.display = 'none';
+            						}
+          					});
+          					
+          					// باز و بسته کردن دراپ‌منو فعلی
+          					if(dropdown.style.display === 'flex') {
+            						dropdown.style.display = 'none';
+          					} else {
+            						dropdown.style.display = 'flex';
+          					}
+        				});
+      			}
+    		}
+    		
+    		// بستن دراپ‌منو با کلیک خارج از آن
+    		document.addEventListener("click", function() {
+      			document.querySelectorAll('.dropdown-content').forEach(function(el) {
+        				el.style.display = 'none';
+      			});
+    		});
+    		
+    		// جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
+    		document.querySelectorAll('.dropdown-content').forEach(function(el) {
+      			el.addEventListener("click", function(e) {
+        				e.stopPropagation();
+      			});
+    		});
+    		
+    		// راه‌اندازی دراپ‌منوها
+    		toggleDropdown('frameContainer', 'blogDropdown');
+    		toggleDropdown('frameContainer1', 'academyDropdown');
+    		toggleDropdown('frameContainer2', 'servicesDropdown');
+
+
+</script>
+    </body>
+</html>

@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+{% load static %}
+{% load jformat %}
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>مقاله‌ها </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap">
+  <style>
+    body {
+      margin: 0;
+      line-height: normal;
+      background-color: #f9fafc;
+      box-sizing: border-box;
+    }
+    /* حذف خط زیر همه لینک‌ها */
+a {
+  text-decoration: none !important;
+}
+
+/* حفظ رنگ پیش‌فرض لینک‌ها */
+a {
+  color: inherit;
+}
+
+/* استایل مخصوص لینک‌های ادامه مطلب */
+.continue-btn,
+.read-more {
+  text-decoration: none !important;
+}
+
+.continue-btn span,
+.read-more span {
+  text-decoration: none !important;
+}
+
+/* استایل لینک‌های داخل تایتل‌ها */
+.frame3 .div a,
+.text-block a,
+.article-card .div a,
+.article-card2 .div a,
+.article-card3 .div a,
+.article-card6 .div a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.frame3 .div a:hover,
+.text-block a:hover {
+  color: #0f2447;
+}
+
+
+/* ناو بار */
+.navbar-wrapper {
+  width: 100%;
+  height: 88px;
+  position: fixed;
+  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
+  text-align: left;
+  font-size: 16px;
+  color: #ebebeb;
+  font-family: Rubik;
+  align-items: center;
+  justify-self: center;
+  z-index: 1000;
+}
+.rectangle-parent {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 526px;
+  height: 88px;
+  overflow: hidden;
+}
+.frame-child {
+  position: absolute;
+  top: 0px;
+  left: -18px;
+  width: 422px;
+  height: 106px;
+  flex-shrink: 0;
+}
+
+.frame-wrapper {
+  position: absolute;
+  top: 18px;
+  left: 64px;
+  width: 293px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.cta-button-parent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.cta-button {
+  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
+  border-radius: 12px;
+  background-color: #1d3363;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  gap: 8px;
+}
+.phone-call-3-1 {
+  height: 16px;
+  width: 16px;
+  position: relative;
+}
+.button-label {
+  position: relative;
+}
+.frame-inner {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  border-radius: 12px;
+}
+.frame-group {
+  position: absolute;
+  top: 16px;
+  border-radius: 16px;
+  width: 887px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  text-align: right;
+  font-size: 20px;
+  color: #fbf8f8;
+  font-family: "Google Sans Flex";
+}
+.parent {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+.div {
+  position: relative;
+  font-weight: 600;
+  cursor: pointer;
+}
+a.div{
+  color: white;
+  text-decoration: none;
+}
+.div3 {
+  color: white;
+  text-decoration: none;
+  width: 69px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.angle-small-down-2-2-parent,
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.angle-small-down-2-2-parent {
+  width: 97px;
+}
+
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  width: 110px;
+}
+
+.logo-icon {
+  height: 56px;
+  width: 56px;
+  position: relative;
+  right: 10px;
+}
+
+/* استایل‌های جدید برای دراپ‌منو */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  z-index: 1001;
+}
+
+.blog-dropdown {
+  right: 0;
+}
+
+.academy-dropdown {
+  right: 0;
+}
+
+.services-dropdown {
+  right: 0;
+}
+
+.services {
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 40px;
+}
+.component-44-parent {
+  height: 176px;
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component-44 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+.component-38:hover,
+.component-44:hover,
+.component-442:hover,
+.component-443:hover,
+.component-402:hover {
+  background-color: rgba(118, 130, 156, 0.6);
+}
+.div {
+  position: relative;
+  font-weight: 500;
+}
+
+.services-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+.component-38-parent {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.component-38-parent :last-child {
+  border-bottom-right-radius: 12px;
+}
+.component-38-parent :first-child {
+  border-top-right-radius: 12px;
+}
+.component-44-parent :first-child {
+  border-top-left-radius: 12px;
+}
+.component-38 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+.line-div {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+
+.academi {
+  width: 465px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 93%;
+  max-height: 90%;
+  overflow: hidden;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 110px;
+}
+.component-44-group {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.component-442 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+.div14 {
+  position: relative;
+  font-weight: 500;
+  white-space: pre-wrap;
+}
+.frame-child7 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+.div15 {
+  position: relative;
+  font-weight: 500;
+}
+.academi-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+  flex-shrink: 0;
+}
+.component-38-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.component-402 {
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px 16px;
+}
+
+.blog {
+  width: 409px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+}
+.component-44-container {
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.component-443 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+.div20 {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+}
+.frame-child13 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+.blog-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+.component-38-container {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
+.popup-overlay {
+  display: none;
+}
+
+
+
+    /* ===== Hero Section (اصلاح‌شده برای 1920) ===== */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1920px;
+      min-height: 585px;
+      height: 585px;
+      padding: 120px 120px 100px;
+      margin: 0 auto;
+      gap: 40px;
+      isolation: isolate;
+      position: relative;
+      background: #18284C;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    /* ===== Dot Mesh (الگوی پس‌زمینه) ===== */
+    .dot-mesh {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0px;
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      opacity: 0.04;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .dot-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0px;
+      width: 100%;
+      height: 2px;
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+
+    .dot {
+      width: 2px;
+      height: 2px;
+      background: #1D3363;
+      border-radius: 1px;
+      flex: none;
+      flex-grow: 0;
+    }
+
+    /* ===== Content ===== */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      gap: 16px;
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .hero-title {
+      width: 100%;
+      max-width: 430px;
+      height: auto;
+      font-family: 'Outfit', 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 81px;
+      text-align: center;
+      color: #EBEBEB;
+      margin: 0 auto;
+    }
+
+    .hero-subtitle {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      font-family: 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      text-align: center;
+      color: #FFFFFF;
+      margin: 0 auto;
+    }
+
+    /* ===== Search Bar ===== */
+    .search-bar {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px 24px 0px 16px;
+      width: 560px;
+      max-width: 100%;
+      height: 64px;
+      background: #FFFFFF;
+      border: 1.5px solid #F0C040;
+      box-shadow: 0px 10px 30px rgba(29, 51, 99, 0.0784314);
+      border-radius: 32px;
+      flex: none;
+      order: 2;
+      flex-grow: 0;
+      z-index: 2;
+    }
+
+    .search-action {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 12px;
+      width: 84px;
+      height: 39px;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    .search-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      width: 84px;
+      height: 39px;
+      background: #1D3363;
+      border-radius: 20px;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .search-btn:hover {
+      background: #26457a;
+    }
+
+    .search-btn span {
+      width: 44px;
+      height: 19px;
+      font-family: 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 19px;
+      color: #FFFFFF;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 12px;
+      width: auto;
+      height: 22px;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+
+    .input-field input {
+      width: 400px;
+      height: 22px;
+      font-family: 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      text-align: right;
+      color: #1D3363;
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+
+    .input-field input::placeholder {
+      color: #718096;
+    }
+
+    .search-icon {
+      width: 20px;
+      height: 20px;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ===== Hero Responsive ===== */
+    @media (max-width: 1480px) {
+      .hero {
+        height: auto;
+        min-height: 485px;
+        padding: 80px 24px 60px;
+        margin-top: 0;
+      }
+      .hero-content {
+        width: 100%;
+        height: auto;
+        padding: 0 16px;
+      }
+      .hero-title {
+        width: 100%;
+        font-size: 48px;
+        line-height: 1.3;
+        height: auto;
+      }
+      .hero-subtitle {
+        width: 100%;
+        font-size: 18px;
+        height: auto;
+      }
+      .search-bar {
+        width: 100%;
+        max-width: 560px;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px 16px;
+        gap: 12px;
+        justify-content: center;
+        flex-direction: row;
+      }
+      .search-action {
+        width: auto;
+      }
+      .input-field {
+        width: auto;
+        flex: 1;
+        min-width: 150px;
+      }
+      .input-field input {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 36px;
+      }
+      .hero-subtitle {
+        font-size: 16px;
+      }
+    }
+
+    /* ===== Featured Section (اصلاح‌شده برای 1920) ===== */
+    .featured-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 0;
+      gap: 32px;
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      box-sizing: border-box;
+    }
+
+    .featured-section h2 {
+      width: 392px;
+      max-width: 100%;
+      font-family: 'Vazirmatn', 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 81px;
+      text-align: center;
+      color: #1D3363;
+      margin: 0;
+    }
+
+    .card-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 1300px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .featured-card {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      width: 100%;
+      max-width: 1200px;
+      height: 520px;
+      background: #FFFFFF;
+      border: 1px solid #E8ECF0;
+      box-shadow: 0px 10px 30px rgba(29, 51, 99, 0.0784314);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, transform 0.2s ease;
+    }
+
+    .featured-card:hover {
+      box-shadow: 0 20px 40px rgba(29, 51, 99, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .featured-cover {
+      width: 620px;
+      height: 520px;
+      flex: 1 1 auto;
+      background: url(/asets/Cover.png);
+      background-size: cover;
+      background-position: center;
+      background-color: #e2e8f0;
+    }
+
+    .featured-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 48px;
+      gap: 24px;
+      width: 580px;
+      height: auto;
+      min-height: 379px;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0px;
+      width: 100%;
+      height: 34px;
+    }
+
+    .tag-badge {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 2px 8px;
+      width: auto;
+      height: 34px;
+      background: #F0C040;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .tag-badge:hover {
+      background: #e6b830;
+    }
+
+    .tag-badge span {
+      font-family: 'Vazirmatn', 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 18px;
+      color: #1D3363;
+      white-space: nowrap;
+    }
+
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 16px;
+      width: 100%;
+      align-self: stretch;
+    }
+
+    .text-block a {
+      text-decoration: none;
+      width: 100%;
+      align-self: stretch;
+      font-family: 'Vazirmatn', 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 130%;
+      text-align: right;
+      color: #1D3363;
+      margin: 0;
+      transition: color 0.2s;
+    }
+
+    .text-block a:hover {
+      color: #0f2447;
+    }
+
+    .text-block p {
+      width: 100%;
+      align-self: stretch;
+      font-family: 'Vazirmatn', 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 170%;
+      text-align: right;
+      color: #4A5568;
+      margin: 0;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px;
+      width: 100%;
+      height: 20px;
+      align-self: stretch;
+    }
+
+    .meta-left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 16px;
+      height: 19px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 6px;
+      height: 19px;
+    }
+
+    .meta-item span {
+      text-decoration: none;
+      font-family: 'Vazirmatn', 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: #718096;
+      white-space: nowrap;
+    }
+
+    .meta-item svg {
+      width: 16px;
+      height: 16px;
+      flex: none;
+    }
+
+    .read-more {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 8px;
+      height: 20px;
+      cursor: pointer;
+      transition: gap 0.2s;
+    }
+
+    .read-more:hover {
+      gap: 12px;
+    }
+
+    .read-more svg {
+      width: 16px;
+      height: 16px;
+      flex: none;
+      transform: rotate(180deg);
+      transition: transform 0.2s;
+    }
+
+    .read-more:hover svg {
+      transform: rotate(180deg) translateX(-3px);
+    }
+
+    .read-more span {
+      text-decoration: none;
+      font-family: 'Vazirmatn', 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 20px;
+      color: #1D3363;
+      white-space: nowrap;
+    }
+
+    /* دکمه فلش سمت راست کارت */
+    .nav-arrow-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: #f0c040;
+      border-radius: 5px;
+      box-shadow: 0 4px 12px rgba(240, 192, 64, 0.4);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-arrow-btn:hover {
+      box-shadow: 0 8px 18px rgba(240, 192, 64, 0.6);
+      transform: scale(1.06);
+      background: #e6b830;
+    }
+
+    .nav-arrow-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: #1D3363;
+      transition: stroke 0.2s, transform 0.2s;
+    }
+
+    .nav-arrow-btn:hover svg {
+      stroke: #1a1a1a;
+      transform: translateX(2px);
+    }
+
+    /* ===== Featured Responsive ===== */
+    @media (max-width: 1024px) {
+      .featured-section {
+        padding: 40px 16px;
+      }
+      .card-wrapper {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .featured-card {
+        flex-direction: column-reverse;
+        height: auto;
+        width: 100%;
+      }
+      .featured-cover {
+        width: 100%;
+        height: 260px;
+      }
+      .featured-content {
+        width: 100%;
+        padding: 24px;
+        gap: 18px;
+      }
+      .text-block h3 {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+      }
+      .nav-arrow-btn {
+        width: 44px;
+        height: 44px;
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .featured-section h2 {
+        font-size: 40px;
+        line-height: 52px;
+      }
+      .meta-left {
+        gap: 12px;
+      }
+    }
+
+    /* ===== بخش دسته‌بندی‌ها ===== */
+    .categories-section {
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px;
+      box-sizing: border-box;
+      text-align: left;
+      background-color: #FFFFFF;
+      font-size: 15px;
+      color: #1d3363;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .category-chips-grid {
+      width: 100%;
+      max-width: 1300px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 16px;
+    }
+
+    /* استایل پایه دکمه‌های دسته‌بندی */
+    .category-btn {
+      border-radius: 99px;
+      background-color: #fff;
+      border: 1px solid #1d3363;
+      display: flex;
+      align-items: center;
+      padding: 12px 24px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1d3363;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: normal;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* حالت هاور برای دکمه‌های معمولی */
+    .category-btn:hover {
+      background-color: #f0c040;
+      border-color: #f0c040;
+      color: #1d3363;
+    }
+
+    /* حالت فعال (کلیک) */
+    .category-btn:active {
+      background-color: #e0b030;
+      border-color: #e0b030;
+    }
+
+    /* دکمه اول (زرد/فعال پیش‌فرض) */
+    .category-btn.active-btn {
+      background-color: #f0c040;
+      border-color: #f0c040;
+      color: #1d3363;
+    }
+
+    /* حذف افکت هاور برای دکمه فعال */
+    .category-btn.active-btn:hover {
+      background-color: #f0c040;
+      border-color: #f0c040;
+    }
+
+    .category-btn.active-btn:active {
+      background-color: #f0c040;
+      border-color: #f0c040;
+    }
+
+    /* ===== بخش شبکه مقالات ===== */
+    .article-grid-section {
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      box-sizing: border-box;
+      gap: 40px;
+      background-color: #FFFFFF;
+      text-align: left;
+      font-size: 12px;
+      color: #1d3363;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .frame {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .frame2 {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .article-card {
+      align-self: stretch;
+      width: 400px;
+      height: 575px;
+      box-shadow: 0px 10px 30px rgba(29, 51, 99, 0.08);
+      border-radius: 20px;
+      background-color: #fff;
+      border: 1px solid #e8ecf0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card-cover-icon {
+      align-self: stretch;
+      height: 335px;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+
+    .tag-alignment {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .tag {
+      border-radius: 6px;
+      background-color: #f0c040;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 12px;
+    }
+
+    .uiux {
+      position: relative;
+      font-weight: 700;
+      color: #1d3363;
+    }
+
+    .frame3 {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      text-align: right;
+      font-size: 20px;
+    }
+
+    .div {
+      align-self: stretch;
+      position: relative;
+      line-height: 140%;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .div2 {
+      align-self: stretch;
+      position: relative;
+      font-size: 14px;
+      line-height: 160%;
+      color: #4a5568;
+      display: -webkit-inline-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      margin: 0;
+    }
+
+    .line {
+      align-self: stretch;
+      height: 0px;
+      position: relative;
+      border-top: 1px solid #e8ecf0;
+      box-sizing: border-box;
+    }
+
+    .frame4 {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 15px;
+    }
+
+    /* === دکمه "ادامه مطلب" === */
+    .continue-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1d3363;
+      transition: all 0.2s ease;
+      line-height: normal;
+    }
+
+    .continue-btn .arrow-left-icon {
+      height: 16px;
+      width: 16px;
+      position: relative;
+      transition: transform 0.2s ease;
+      display: block;
+    }
+
+    /* هاور نرم برای دکمه ادامه مطلب */
+    .continue-btn:hover {
+      color: #0f2440;
+    }
+
+    .continue-btn:hover .arrow-left-icon {
+      transform: translateX(-4px);
+    }
+
+    .frame6 {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #718096;
+    }
+
+    .calendar-icon {
+      height: 14px;
+      width: 14px;
+      position: relative;
+      display: block;
+    }
+
+    .frame7 {
+      height: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .article-card2 {
+      align-self: stretch;
+      height: auto;
+      min-height: 518px;
+      box-shadow: 0px 10px 30px rgba(29, 51, 99, 0.08);
+      border-radius: 20px;
+      background-color: #fff;
+      border: 1px solid #e8ecf0;
+      box-sizing: border-box;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* کاور عکس کارت دوم مثل کارت اول */
+    .article-card2 .card-cover-icon {
+      align-self: stretch;
+      height: 335px;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* محتوای داخلی کارت دوم مثل کارت اول */
+    .article-card2 .card-content {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+
+    /* تگ کارت دوم مثل کارت اول */
+    .article-card2 .tag-alignment {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .article-card3 {
+    flex: 1;
+    min-height: 525px;
+    box-shadow: 0px 10px 30px rgba(29, 51, 99, 0.08);
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid #e8ecf0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.article-card3 .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .card-cover-icon3 {
+      align-self: stretch;
+      height: 260px;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-card6 {
+      height: auto;
+      min-height: 456px;
+      flex: 1;
+      box-shadow: 0px 10px 30px rgba(29, 51, 99, 0.08);
+      border-radius: 20px;
+      background-color: #fff;
+      border: 1px solid #e8ecf0;
+      box-sizing: border-box;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card-cover-icon6 {
+      align-self: stretch;
+      height: 300px;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      flex-shrink: 0;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* === دکمه زرد انتهای صفحه === */
+    .submit-button {
+      width: 536px;
+      max-width: 100%;
+      border-radius: 12px;
+      background-color: #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      box-sizing: border-box;
+      gap: 8px;
+      font-size: 24px;
+      font-family: 'Inter', 'Manrope', sans-serif;
+      border: none;
+      cursor: pointer;
+      color: #1d3363;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      line-height: normal;
+    }
+
+    /* هاور نرم برای دکمه زرد */
+    .submit-button:hover {
+      background-color: #e6b830;
+    }
+
+    .submit-button:active {
+      background-color: #d4a820;
+      transform: scale(0.99);
+    }
+
+    .arrow-left {
+      height: 24px;
+      width: 24px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .arrow-left-icon8 {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      display: block;
+    }
+
+    .uiux8 {
+      position: relative;
+      font-weight: 800;
+      font-family: 'Inter', 'Manrope', sans-serif;
+    }
+
+    /* تنظیمات واکنش‌گرایی */
+    @media (max-width: 1100px) {
+      .categories-section,
+      .article-grid-section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .submit-button {
+        width: 100%;
+        max-width: 536px;
+      }
+      .frame {
+        flex-wrap: wrap;
+      }
+      .frame2,
+      .frame7 {
+        width: 100%;
+        flex: auto;
+      }
+      .article-card2 {
+        height: auto;
+        min-height: auto;
+      }
+      .article-card6 {
+        height: auto;
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .categories-section,
+      .article-grid-section {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+
+
+    
+
+  </style>
+</head>
+<body>
+	<!-- navbar -->
+		{% include "includes/navbar.html" %}
+	
+  <!-- Hero Section -->
+  <div class="hero">
+    <!-- Dot Mesh (8 ردیف با 24 نقطه) -->
+    <div class="dot-mesh">
+      <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <h1 class="hero-title">وبلاگ آذر یزدان</h1>
+      <p class="hero-subtitle">
+        آخرین مقالات، بینش‌ها و راهنماهای تخصصی در حوزه توسعه نرم‌افزار، طراحی محصول و بازاریابی دیجیتال
+      </p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+     
+      <div class="input-field">
+        <input type="text" id="searchInput" placeholder="جستجو در میان مقالات..." aria-label="عبارت جستجو" />
+        <span class="search-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="6" stroke="#1D3363" stroke-width="2" />
+            <line x1="13.5" y1="13.5" x2="18" y2="18" stroke="#1D3363" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
+      </div>
+ <div class="search-action">
+        <button class="search-btn" aria-label="جستجو" onclick="searchArticles()">
+          <span>جستجو</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Featured Section -->
+  <div class="featured-section">
+    <h2>آخرین مقالات</h2>
+
+    <div class="card-wrapper">
+      {% if featured_article %}
+      <div class="featured-card">
+        <div class="featured-content">
+          <div class="tag-row">
+            <div class="tag-badge">
+              <span>{{ featured_article.category.get_name_display|default:"توسعه وب" }}</span>
+            </div>
+          </div>
+
+          <div class="text-block">
+            <a href="{% url 'users:article_detail' featured_article.slug %} ">{{ featured_article.title }}</a>
+            <p>{{ featured_article.excerpt}}</p>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-left">
+              <div class="meta-item"> 
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="8" cy="8" r="6" stroke="#718096" stroke-width="1.4"/>
+                  <path d="M8 5V8L10 9.5" stroke="#718096" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>{{ featured_article.read_time|default:"۸" }} دقیقه مطالعه</span>
+              </div>
+              <div class="meta-item">
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="#718096" stroke-width="1.4"/>
+                  <path d="M2 6.5H14" stroke="#718096" stroke-width="1.4"/>
+                  <path d="M5 1.5V4M11 1.5V4" stroke="#718096" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+                <span>{{ featured_article.published_at|jformat:"%Y/%m/%d"|default:"۲۵ تیر ۱۴۰۵" }}</span>
+              </div>
+            </div>
+
+            <a href="{% url 'users:article_detail' featured_article.slug %}" class="read-more">
+              <span>ادامه مطلب</span>
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="#1D3363" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="featured-cover" style="background-image: url('{{ featured_article.image_url }}');" aria-label="تصویر شاخص مقاله"></div>
+      </div>
+      {% else %}
+      <div class="no-articles">
+        <h3>هیچ مقاله ویژه‌ای یافت نشد</h3>
+        <p>به زودی مقالات جدید منتشر می‌شوند.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- بخش دسته‌بندی‌ها -->
+  <div class="categories-section">
+    <div class="category-chips-grid">
+      <button class="category-btn active-btn" data-category="all" onclick="filterArticles('all', this)">همه</button>
+      {% for category in categories %}
+      <button class="category-btn" data-category="{{ category.slug }}" onclick="filterArticles('{{ category.slug }}', this)">
+        {{ category.get_name_display }}
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- بخش مقالات -->
+  <div class="article-grid-section" id="articlesContainer">
+    {% if articles %}
+      <!-- ردیف اول - 2 مقاله -->
+      <div class="frame">
+        {% for article in articles|slice:":2" %}
+        <div class="{% if forloop.first %}frame7{% else %}frame2{% endif %}">
+          <div class="{% if forloop.first %}article-card2{% else %}article-card{% endif %}">
+            <img class="card-cover-icon" src="{{ article.image_url }}" alt="{{ article.title }}">
+            <div class="card-content">
+              <div class="tag-alignment">
+                <div class="tag"><span class="uiux">{{ article.category.get_name_display|default:"طراحی UI/UX" }}</span></div>
+              </div>
+              <div class="frame3">
+                <div class="div"><a href="{% url 'users:article_detail' article.slug %}">{{ article.title }}</a></div>
+                <div class="div2">{{ article.excerpt}}</div>
+              </div>
+              <div class="line"></div>
+              <div class="frame4">
+                <div class="frame6">
+                  <img class="calendar-icon" src="{% static 'asets/calendar.svg' %}" alt="">
+                  <span class="uiux">{{ article.published_at|jformat:"%Y/%m/%d" }}</span>
+                </div>
+                <a href="{% url 'users:article_detail' article.slug %}" class="continue-btn">
+                  <span class="uiux">ادامه مطلب</span>
+                  <img class="arrow-left-icon" src="{% static 'asets/arrow-left.svg' %}" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- ردیف دوم - 3 مقاله -->
+      {% if articles|slice:"2:5" %}
+      <div class="frame">
+        {% for article in articles|slice:"2:5" %}
+        <div class="article-card3">
+          <img class="card-cover-icon3" src="{{ article.image_url }}" alt="{{ article.title }}">
+          <div class="card-content">
+            <div class="tag-alignment">
+              <div class="tag"><span class="uiux">{{ article.category.get_name_display|default:"طراحی UI/UX" }}</span></div>
+            </div>
+            <div class="frame3">
+              <div class="div"><a href="{% url 'users:article_detail' article.slug %}">{{ article.title|truncatechars:50 }}</a></div>
+              <div class="div2">{{ article.excerpt }}</div>
+            </div>
+            <div class="line"></div>
+            <div class="frame4">
+              <div class="frame6">
+                <img class="calendar-icon" src="{% static 'asets/calendar.svg' %}" alt="">
+                <span class="uiux">{{ article.published_at|jformat:"%Y/%m/%d" }}</span>
+              </div>
+              <a href="{% url 'users:article_detail' article.slug %}" class="continue-btn">
+                <span class="uiux">ادامه مطلب</span>
+                <img class="arrow-left-icon" src="{% static 'asets/arrow-left.svg' %}" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- ردیف سوم - 2 مقاله -->
+      {% if articles|slice:"5:7" %}
+      <div class="frame">
+        {% for article in articles|slice:"5:7" %}
+        <div class="{% if forloop.first %}article-card3{% else %}article-card6{% endif %}">
+          <img class="{% if forloop.first %}card-cover-icon6{% else %}card-cover-icon6{% endif %}" src="{{ article.image_url }}" alt="{{ article.title }}">
+          <div class="card-content">
+            <div class="tag-alignment">
+              <div class="tag"><span class="uiux">{{ article.category.get_name_display|default:"طراحی UI/UX" }}</span></div>
+            </div>
+            <div class="frame3">
+              <div class="div"><a href="{% url 'users:article_detail' article.slug %}">{{ article.title|truncatechars:50 }}</a></div>
+              <div class="div2">{{ article.excerpt }}</div>
+            </div>
+            <div class="line"></div>
+            <div class="frame4">
+              <div class="frame6">
+                <img class="calendar-icon" src="{% static 'asets/calendar.svg' %}" alt="">
+                <span class="uiux">{{ article.published_at|jformat:"%Y/%m/%d" }}</span>
+              </div>
+              <a href="{% url 'users:article_detail' article.slug %}" class="continue-btn">
+                <span class="uiux">ادامه مطلب</span>
+                <img class="arrow-left-icon" src="{% static 'asets/arrow-left.svg' %}" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    {% else %}
+      <div class="no-articles">
+        <h3>هیچ مقاله‌ای یافت نشد</h3>
+        <p>هنوز مقاله‌ای منتشر نشده است.</p>
+      </div>
+    {% endif %}
+
+    <!-- دکمه مشاهده بیشتر -->
+    <button class="submit-button" onclick="loadMoreArticles()" id="loadMoreBtn" {% if not has_more %}style="display:none;"{% endif %}>
+      <span class="uiux8">مشاهده بیشتر مقالات</span>
+      <div class="arrow-left">
+        <img class="arrow-left-icon8" src="{% static 'asets/arrow-left.svg' %}" alt="">
+      </div>
+    </button>
+  </div>
+
+
+		<!-- فوتر  -->
+		\{% include "includes/footer.html" %}
+
+  <!-- اسکریپت مدیریت حالت فعال دکمه‌های دسته‌بندی -->
+  <script>
+    function toggleDropdown(triggerId, dropdownId) {
+      var trigger = document.getElementById(triggerId);
+      var dropdown = document.getElementById(dropdownId);
+      
+      if(trigger && dropdown) {
+        trigger.addEventListener("click", function(e) {
+          e.stopPropagation();
+          
+          document.querySelectorAll('.dropdown-content').forEach(function(el) {
+            if(el.id !== dropdownId) {
+              el.style.display = 'none';
+            }
+          });
+          
+          if(dropdown.style.display === 'flex') {
+            dropdown.style.display = 'none';
+          } else {
+            dropdown.style.display = 'flex';
+          }
+        });
+      }
+    }
+    
+    document.addEventListener("click", function() {
+      document.querySelectorAll('.dropdown-content').forEach(function(el) {
+        el.style.display = 'none';
+      });
+    });
+    
+    document.querySelectorAll('.dropdown-content').forEach(function(el) {
+      el.addEventListener("click", function(e) {
+        e.stopPropagation();
+      });
+    });
+    
+    toggleDropdown('frameContainer', 'blogDropdown');
+    toggleDropdown('frameContainer1', 'academyDropdown');
+    toggleDropdown('frameContainer2', 'servicesDropdown');
+
+    // ===== مدیریت دسته‌بندی‌ها =====
+    let currentCategory = 'all';
+    let currentPage = 1;
+    const articlesPerPage = 7;
+
+    function filterArticles(categorySlug, buttonElement) {
+      currentCategory = categorySlug;
+      currentPage = 1;
+      
+      // حذف کلاس active از همه دکمه‌ها
+      document.querySelectorAll('.category-btn').forEach(function(btn) {
+        btn.classList.remove('active-btn');
+      });
+      
+      // اضافه کردن کلاس active به دکمه انتخاب شده
+      if(buttonElement) {
+        buttonElement.classList.add('active-btn');
+      } else {
+        // اگر buttonElement وجود نداشت، دکمه مناسب را پیدا کن
+        document.querySelectorAll('.category-btn').forEach(function(btn) {
+          if(btn.dataset.category === categorySlug) {
+            btn.classList.add('active-btn');
+          }
+        });
+      }
+      
+      // ارسال درخواست به سرور
+      fetchArticles(categorySlug, 1);
+    }
+
+    function fetchArticles(category, page) {
+      let url = '/users/blog/filter/?page=' + page + '&per_page=' + articlesPerPage;
+      if(category !== 'all') {
+        url += '&category=' + category;
+      }
+      
+      window.location.href = url;
+    }
+
+    function searchArticles() {
+      const query = document.getElementById('searchInput').value.trim();
+      if(query.length < 2) {
+        alert('لطفاً حداقل ۲ کاراکتر وارد کنید.');
+        return;
+      }
+      
+      window.location.href = '/users/blog/search/?q=' + encodeURIComponent(query);
+    }
+
+    function loadMoreArticles() {
+      currentPage++;
+      fetchArticles(currentCategory, currentPage);
+    }
+
+    // ===== جستجو با Enter =====
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+      if(e.key === 'Enter') {
+        searchArticles();
+      }
+    });
+
+    // ===== تنظیم دکمه فعال بر اساس دسته‌بندی فعلی =====
+    document.addEventListener('DOMContentLoaded', function() {
+      // دریافت دسته‌بندی فعلی از URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoryParam = urlParams.get('category');
+      
+      if(categoryParam) {
+        // اگر دسته‌بندی در URL وجود داشت، آن را فعال کن
+        document.querySelectorAll('.category-btn').forEach(function(btn) {
+          btn.classList.remove('active-btn');
+          if(btn.dataset.category === categoryParam) {
+            btn.classList.add('active-btn');
+          }
+        });
+        currentCategory = categoryParam;
+      } else {
+        // اگر هیچ دسته‌بندی در URL نبود، "همه" را فعال کن
+        document.querySelectorAll('.category-btn').forEach(function(btn) {
+          btn.classList.remove('active-btn');
+          if(btn.dataset.category === 'all') {
+            btn.classList.add('active-btn');
+          }
+        });
+      }
+    });
+
+  </script>
+
+</body>
+</html>

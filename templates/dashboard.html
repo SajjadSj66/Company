@@ -1,0 +1,1045 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>داشبورد هوشمند | پنل کاربری</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f0f4ff;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #3b82f6;
+      --accent-dark: #1e40af;
+      --gold: #eab308;
+      --gold-dim: rgba(234, 179, 8, 0.12);
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius: 14px;
+      --transition: 0.25s ease;
+      --sidebar-bg: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+      --sidebar-text: #334155;
+      --sidebar-hover: #eef2ff;
+      --card-hover-border: #b9d0f0;
+      --pastel-gradient: linear-gradient(135deg, #f9fafb 0%, #eef2ff 100%);
+      --stat-gradient: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #f0f4ff 0%, #f8fafc 50%, #ede9fe 100%);
+      color: var(--text);
+      direction: rtl;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+      max-width: 1440px;
+      margin: 0 auto;
+      background: transparent;
+    }
+
+    .sidebar {
+      background: var(--sidebar-bg);
+      border-left: 1px solid var(--border);
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 20;
+      box-shadow: 2px 0 15px rgba(59, 130, 246, 0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-area {
+      padding: 0 20px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #818cf8);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .nav-menu {
+      padding: 14px 12px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-category {
+      font-size: 10px;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 1px;
+      padding: 10px 12px 6px;
+      text-transform: uppercase;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--sidebar-text);
+      cursor: pointer;
+      transition: all var(--transition);
+      background: transparent;
+      border: 1px solid transparent;
+    }
+
+    .nav-item:hover {
+      background: var(--sidebar-hover);
+      color: #0f172a;
+      border-color: #dbeafe;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    }
+
+    .nav-item.active {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
+      color: var(--accent);
+      border-right: 3px solid var(--accent);
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 18px 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .user-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #0f172a;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .main {
+      padding: 24px 28px;
+      overflow-y: auto;
+      background: transparent;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+      padding: 12px 18px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #1e293b;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 6px;
+      line-height: 1;
+    }
+
+    .page-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      background: linear-gradient(135deg, #1e293b, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .welcome-banner {
+      background: linear-gradient(105deg, #e0e7ff 0%, #f9fafb 40%, #ffffff 100%);
+      border-radius: var(--radius-xl);
+      padding: 28px 32px;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #dbeafe;
+      box-shadow: 0 8px 30px rgba(59, 130, 246, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .greeting-text h2 {
+      font-size: 28px;
+      color: #1e293b;
+    }
+
+    .badge-gold {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 1px solid rgba(234, 179, 8, 0.5);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      color: #b45309;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(234, 179, 8, 0.15);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--stat-gradient);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 16px;
+      transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .stat-card:hover {
+      border-color: var(--card-hover-border);
+      box-shadow: 0 12px 28px rgba(59, 130, 246, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0f172a;
+      position: relative;
+      z-index: 1;
+    }
+
+    .content-panel {
+      background: var(--pastel-gradient);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.05);
+      transition: all var(--transition);
+    }
+
+    .content-panel:hover {
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+      border-color: var(--card-hover-border);
+    }
+
+    .panel-header {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      color: #1e293b;
+      align-items: center;
+    }
+
+    .flex-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+      transition: all var(--transition);
+    }
+
+    .flex-row:hover {
+      background: rgba(59, 130, 246, 0.03);
+      border-radius: 8px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .flex-row:last-child {
+      border-bottom: none;
+    }
+
+    .progress-bg {
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 6px;
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .progress-fill {
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #60a5fa, #3b82f6, #818cf8);
+      width: 0%;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+      color: #2563eb;
+      font-weight: 600;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
+
+    .mobile-sidebar {
+      width: 280px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+      height: 100%;
+      padding: 20px;
+      overflow-y: auto;
+      border-left: 1px solid #e2e8f0;
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon-svg {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+
+    .text-blue {
+      color: #2563eb;
+    }
+
+    .text-amber {
+      color: #d97706;
+    }
+
+    .text-emerald {
+      color: #059669;
+    }
+
+    @media (max-width: 1000px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .main {
+        padding: 16px;
+      }
+      .welcome-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+    }
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir.woff2" %}') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - Medium */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - Bold */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - thin */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+</head>
+<body>
+  {% if messages %}
+  <div style="max-width: 1440px; margin: 15px auto 0; padding: 0 28px; direction: rtl;">
+      {% for message in messages %}
+      <div class="alert-message alert-{{ message.tags }}" style="
+          padding: 14px 20px;
+          border-radius: 12px;
+          margin-bottom: 12px;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+          border-right: 4px solid;
+          {% if message.tags == 'success' %}
+              background-color: #ecfdf5;
+              color: #065f46;
+              border-right-color: #10b981;
+          {% elif message.tags == 'error' %}
+              background-color: #fef2f2;
+              color: #991b1b;
+              border-right-color: #ef4444;
+          {% elif message.tags == 'info' %}
+              background-color: #eff6ff;
+              color: #1e40af;
+              border-right-color: #3b82f6;
+          {% elif message.tags == 'warning' %}
+              background-color: #fffbeb;
+              color: #92400e;
+              border-right-color: #f59e0b;
+          {% else %}
+              background-color: #f8fafc;
+              color: #334155;
+              border-right-color: #94a3b8;
+          {% endif %}
+      ">
+          <span style="font-size: 20px;">
+              {% if message.tags == 'success' %}✅
+              {% elif message.tags == 'error' %}❌
+              {% elif message.tags == 'info' %}ℹ️
+              {% elif message.tags == 'warning' %}⚠️
+              {% else %}📌
+              {% endif %}
+          </span>
+          <span style="flex:1;">{{ message }}</span>
+          <button onclick="this.parentElement.style.display='none'" style="
+              background: none;
+              border: none;
+              font-size: 18px;
+              cursor: pointer;
+              color: inherit;
+              opacity: 0.6;
+              padding: 0 8px;
+          ">✕</button>
+      </div>
+      {% endfor %}
+  </div>
+  {% endif %}
+  <div class="dashboard" id="app">
+    <aside class="sidebar" id="desktopSidebar">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+          </svg>
+        </div>
+        <div><strong>آذریزدان</strong><br><small style="color:#64748b;">پنل کاربری</small></div>
+      </div>
+      <nav class="nav-menu">
+        <div class="nav-category">اصلی</div>
+        <div class="nav-item active" data-view="dashboard">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          داشبورد
+        </div>
+        <div class="nav-item" data-view="profile">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          پروفایل
+        </div>
+        <div class="nav-item" data-view="courses">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          دوره‌ها
+        </div>
+        <div class="nav-category">خدمات</div>
+        <div class="nav-item" data-view="services">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+          </svg>
+          طراحی سایت
+        </div>
+        <div class="nav-item" data-view="tickets">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2 2 2 0 0 1-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 1-2-2 2 2 0 0 1 2-2z"></path>
+          </svg>
+          تیکت‌ها
+        </div>
+        <div class="nav-item" data-view="reviews">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          نظرات
+        </div>
+        <div class="nav-category">مالی</div>
+        <div class="nav-item" data-view="transactions">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          تراکنش‌ها
+        </div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-avatar">{{ user_info.full_name|slice:":1"|default:"ع" }}</div>
+        <div><strong>{{ user_info.full_name|default:"کاربر" }}</strong><br><small style="color:#64748b;">{{ user_info.membership_badge.label }}</small></div>
+      </div>
+    </aside>
+
+    <main class="main" id="mainContent">
+      <div class="top-bar">
+        <button class="hamburger" id="menuToggle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1e293b" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="page-title">داشبورد <span style="color:#3b82f6;">کاربری</span></div>
+        <div style="color:#475569; display: flex; align-items: center; gap: 6px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {{ user_info.joined_date }}
+        </div>
+      </div>
+
+      <div id="dynamicView">
+        <!-- ===== DASHBOARD ===== -->
+        <div id="view-dashboard" class="view-content">
+          <div class="welcome-banner">
+            <div class="greeting-text">
+              <h2>سلام {{ user_info.full_name|default:"کاربر عزیز" }}</h2>
+              <p style="opacity:0.9; color:#475569;">
+                  آخرین ورود: {{ user_info.last_login }}
+              </p>
+              <div class="badge-gold" style="margin-top:8px; display:inline-flex; align-items:center; gap:6px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#eab308" stroke="none">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                {{ user_info.membership_badge.label }}
+              </div>
+            </div>
+            <div style="font-size:42px; opacity:0.9; position:relative; z-index:1;">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.5">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value">{{ stats.courses_count|default:"۰" }}</div>
+              <small style="color:#475569;">دوره فعال</small>
+              <div class="text-blue" style="font-size:13px; margin-top:6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:3px;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                {{ stats.courses_active|default:"۰" }} در حال یادگیری
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">{{ stats.tickets_count|default:"۰" }}</div>
+              <small style="color:#475569;">تیکت</small>
+              <div class="text-amber" style="font-size:13px; margin-top:6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:3px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                {{ stats.open_tickets|default:"۰" }} باز
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">{{ stats.projects_count|default:"۰" }}</div>
+              <small style="color:#475569;">پروژه کامل</small>
+              <div class="text-emerald" style="font-size:13px; margin-top:6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                +۰
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">{{ stats.wallet_balance|floatformat:0|default:"۰" }}</div>
+              <small style="color:#475569;">موجودی کیف پول</small>
+              <div class="text-blue" style="font-size:13px; margin-top:6px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:3px;">
+                      <line x1="12" y1="1" x2="12" y2="23"/>
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                  واریزی: {{ stats.total_deposits|floatformat:0|default:"۰" }} | برداشت: {{ stats.total_withdraws|floatformat:0|default:"۰" }}
+              </div>
+              <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+                  <a href="#" onclick="alert('در حال توسعه...')" style="background:#3b82f6; color:white; padding:5px 14px; border-radius:20px; font-size:12px; text-decoration:none; font-weight:500;">
+                      شارژ کیف پول
+                  </a>
+                  <a href="#" onclick="alert('در حال توسعه...')" style="background:#e2e8f0; color:#475569; padding:5px 14px; border-radius:20px; font-size:12px; text-decoration:none; font-weight:500;">
+                      مشاهده تراکنش‌ها
+                  </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <!-- dashboard.html - بخش دوره‌های من -->
+
+            <div class="content-panel">
+                <div class="panel-header">
+                    <span>
+                        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        دوره‌های من
+                    </span>
+                    <span class="tag">{{ courses|length }} دوره</span>
+                </div>
+                {% for course in courses %}
+                <div class="flex-row">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ course.color|default:'#6366f1' }}" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                    <div style="flex:1">
+                        {{ course.title|default:"دوره بدون عنوان" }}
+                        <div style="font-size:11px; color:#64748b;">
+                            تاریخ خرید: {{ course.paid_at }}
+                        </div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width:{{ course.progress|default:0 }}%;background:{{ course.color|default:'#6366f1' }};"></div>
+                        </div>
+                    </div>
+                    <span class="tag">{{ course.progress|default:0 }}%</span>
+                </div>
+                {% empty %}
+                <div class="flex-row" style="color: #64748b;">
+                    هنوز دوره‌ای خریداری نکرده‌اید.
+                    <a href="{% url 'courses:course_list' %}" style="color:#3b82f6; text-decoration:none; margin-right:10px;">
+                        مشاهده دوره‌ها →
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="content-panel">
+              <div class="panel-header">
+                <span>
+                  <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2 2 2 0 0 1-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 1-2-2 2 2 0 0 1 2-2z"/></svg>
+                  تیکت‌های اخیر
+                </span>
+              </div>
+              {% for ticket in tickets %}
+              <div class="flex-row">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="{{ ticket.color|default:'#10b981' }}" stroke="none"><circle cx="12" cy="12" r="6"/></svg>
+                {{ ticket.title|default:"بدون عنوان" }}
+                <span class="tag" style="background:{{ ticket.color|default:'#10b981' }}20; color:{{ ticket.color|default:'#10b981' }};">
+                  {{ ticket.status_display|default:"باز" }}
+                </span>
+              </div>
+              {% empty %}
+              <div class="flex-row" style="color: #64748b;">تیکتی وجود ندارد.</div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="content-panel">
+              <div class="panel-header">
+                <span>
+                  <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  نظرات من
+                </span>
+              </div>
+              {% for review in reviews %}
+              <div class="flex-row">
+                <span style="font-size:16px; letter-spacing:2px;">{{ review.stars|default:"⭐⭐⭐⭐⭐" }}</span>
+                <span style="flex:1;">{{ review.course|default:"دوره" }}</span>
+                <span class="tag" style="background:#eef2ff; color:#475569;">{{ review.comment|truncatechars:20|default:"نظر" }}</span>
+              </div>
+              {% empty %}
+              <div class="flex-row" style="color: #64748b;">هنوز نظری ثبت نکرده‌اید.</div>
+              {% endfor %}
+            </div>
+            <!-- dashboard.html - بخش تراکنش‌ها -->
+
+            <div class="content-panel">
+                <div class="panel-header">
+                    <span>
+                        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                        تراکنش‌ها
+                    </span>
+                    <span class="tag">{{ transactions|length }} مورد</span>
+                </div>
+                {% for tr in transactions %}
+                <div class="flex-row">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ tr.color|default:'#94a3b8' }}" stroke-width="2">
+                        {% if tr.type == 'deposit' %}
+                        <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                        {% elif tr.type == 'payment' %}
+                        <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                        {% else %}
+                        <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+                        {% endif %}
+                    </svg>
+                    <div style="flex:1;">
+                        {{ tr.label|default:"تراکنش" }}
+                        <div style="font-size:11px; color:#64748b;">{{ tr.created_at }}</div>
+                    </div>
+                    <strong style="color:{{ tr.color|default:'#94a3b8' }};">
+                        {% if tr.type == 'deposit' %}+{% elif tr.type == 'payment' %}-{% endif %}
+                        {{ tr.amount|floatformat:0|default:"۰" }}
+                    </strong>
+                </div>
+                {% empty %}
+                <div class="flex-row" style="color: #64748b;">هیچ تراکنشی ثبت نشده است.</div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== PROFILE ===== -->
+        <div id="view-profile" class="view-content" style="display:none;">
+          <div class="content-panel" style="text-align:center; background:linear-gradient(135deg,#ffffff 0%,#eef2ff 100%);">
+            <div style="margin-bottom:12px;">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h2>{{ user_info.full_name|default:"کاربر" }}</h2>
+            <p style="color:#475569;">{{ user.email|default:"ایمیل ثبت نشده" }}</p>
+            <div class="badge-gold" style="display:inline-flex; align-items:center; gap:6px; margin:12px 0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#eab308" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              {{ user_info.membership_badge.label }}
+            </div>
+            <div style="margin-top:20px;">
+              <strong>{{ stats.courses_count|default:"۰" }} دوره</strong> | 
+              <strong>{% if stats.courses_count > 0 %}{{ stats.courses_active|default:"۰" }}{% else %}۰{% endif %}٪ پیشرفت</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== COURSES ===== -->
+        <div id="view-courses" class="view-content" style="display:none;">
+          <div class="content-panel">
+            <div class="panel-header">
+              <span>
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                دوره‌های ثبت‌نام شده
+              </span>
+            </div>
+            {% for course in courses %}
+            <div class="flex-row">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ course.color|default:'#6366f1' }}" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <div style="flex:1">{{ course.title|default:"دوره بدون عنوان" }}
+                <div class="progress-bg"><div class="progress-fill" style="width:{{ course.progress|default:0 }}%;background:{{ course.color|default:'#6366f1' }};"></div></div>
+              </div>
+              <span class="tag">{{ course.progress|default:0 }}%</span>
+            </div>
+            {% empty %}
+            <div class="flex-row" style="color: #64748b;">هیچ دوره‌ای ثبت‌نام نکرده‌اید.</div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- ===== SERVICES ===== -->
+        <div id="view-services" class="view-content" style="display:none;">
+            <div class="content-panel">
+                <div class="panel-header">
+                    <span>
+                        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
+                        همه سفارش‌ها
+                    </span>
+                    <span class="tag">{{ services|length }} مورد</span>
+                </div>
+                
+                {% for service in services %}
+                <div class="flex-row">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="{{ service.color }}" stroke="none">
+                        <circle cx="12" cy="12" r="6"/>
+                    </svg>
+                    <div style="flex:1;">
+                        {{ service.title }}
+                        <div style="font-size:11px; color:#64748b;">
+                            {{ service.created_at }}
+                            {% if service.type == 'plan' or service.type == 'course' %}
+                                | مبلغ: {{ service.amount|floatformat:0 }} تومان
+                            {% endif %}
+                            {% if service.transaction_id %}
+                                | کد پیگیری: {{ service.transaction_id }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <span class="tag" style="background:{{ service.color }}20; color:{{ service.color }};">
+                        {{ service.status }}
+                    </span>
+                </div>
+                {% empty %}
+                <div class="flex-row" style="color: #64748b;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#94a3b8" stroke="none">
+                        <circle cx="12" cy="12" r="6"/>
+                    </svg>
+                    هنوز هیچ سفارشی ثبت نکرده‌اید.
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- ===== TICKETS ===== -->
+        <div id="view-tickets" class="view-content" style="display:none;">
+          <div class="content-panel">
+            <div class="panel-header">
+              <span>
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2 2 2 0 0 1-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 1-2-2 2 2 0 0 1 2-2z"/></svg>
+                تیکت‌ها
+              </span>
+            </div>
+            {% for ticket in tickets %}
+            <div class="flex-row">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="{{ ticket.color|default:'#10b981' }}" stroke="none"><circle cx="12" cy="12" r="6"/></svg>
+              {{ ticket.title|default:"بدون عنوان" }}
+              <span class="tag" style="background:{{ ticket.color|default:'#10b981' }}20; color:{{ ticket.color|default:'#10b981' }};">
+                {{ ticket.status_display|default:"باز" }}
+              </span>
+            </div>
+            {% empty %}
+            <div class="flex-row" style="color: #64748b;">هیچ تیکتی ثبت نکرده‌اید.</div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- ===== REVIEWS ===== -->
+        <div id="view-reviews" class="view-content" style="display:none;">
+          <div class="content-panel">
+            <div class="panel-header">
+              <span>
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                نظرات من
+              </span>
+            </div>
+            {% for review in reviews %}
+            <div class="flex-row">
+              <span style="font-size:16px; letter-spacing:2px;">{{ review.stars|default:"⭐⭐⭐⭐⭐" }}</span>
+              <span style="flex:1;">{{ review.course|default:"دوره" }}</span>
+            </div>
+            {% empty %}
+            <div class="flex-row" style="color: #64748b;">هیچ نظری ثبت نکرده‌اید.</div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- ===== TRANSACTIONS ===== -->
+        <div id="view-transactions" class="view-content" style="display:none;">
+          <div class="content-panel">
+            <div class="panel-header">
+              <span>
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                تراکنش‌ها
+              </span>
+            </div>
+            {% for tr in transactions %}
+            <div class="flex-row">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ tr.color|default:'#94a3b8' }}" stroke-width="2">
+                {% if tr.type == 'deposit' %}
+                <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                {% elif tr.type == 'payment' %}
+                <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                {% else %}
+                <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+                {% endif %}
+              </svg>
+              {{ tr.label|default:"تراکنش" }}
+              <strong style="color:{{ tr.color|default:'#94a3b8' }};">{% if tr.type == 'deposit' %}+{% elif tr.type == 'payment' %}-{% endif %}{{ tr.amount|floatformat:0|default:"۰" }}</strong>
+            </div>
+            {% empty %}
+            <div class="flex-row" style="color: #64748b;">هیچ تراکنشی ثبت نشده است.</div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="mobile-nav" id="mobileOverlay">
+    <div class="mobile-sidebar" id="mobileSidebar"></div>
+  </div>
+
+  <script>
+    (function () {
+      const navItems = document.querySelectorAll('.nav-item');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+      const menuToggle = document.getElementById('menuToggle');
+
+      function setActiveView(viewId) {
+        document.querySelectorAll('.view-content').forEach(el => {
+          el.style.display = 'none';
+        });
+        const targetView = document.getElementById('view-' + viewId);
+        if (targetView) {
+          targetView.style.display = 'block';
+        }
+        navItems.forEach(item => {
+          item.classList.remove('active');
+          if (item.dataset.view === viewId) item.classList.add('active');
+        });
+        if (mobileOverlay) mobileOverlay.style.display = 'none';
+      }
+
+      navItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const view = this.dataset.view;
+          if (view) setActiveView(view);
+        });
+      });
+
+      function cloneSidebarForMobile() {
+        const mobileSidebar = document.getElementById('mobileSidebar');
+        if (!mobileSidebar) return;
+        const original = document.getElementById('desktopSidebar');
+        if (original) {
+          mobileSidebar.innerHTML = original.innerHTML;
+          mobileSidebar.querySelectorAll('.nav-item').forEach(btn => {
+            btn.addEventListener('click', function() {
+              const view = this.dataset.view;
+              if (view) setActiveView(view);
+            });
+          });
+        }
+      }
+
+      menuToggle?.addEventListener('click', () => {
+        if (mobileOverlay) {
+          cloneSidebarForMobile();
+          mobileOverlay.style.display = 'block';
+        }
+      });
+
+      mobileOverlay?.addEventListener('click', (e) => {
+        if (e.target === mobileOverlay) mobileOverlay.style.display = 'none';
+      });
+
+      setActiveView('dashboard');
+    })();
+  </script>
+</body>
+</html>
