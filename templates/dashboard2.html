@@ -1,0 +1,991 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .persian-rtl-dashboard {
+        width: 100%;
+        position: relative;
+        background-color: #fcfcfc;
+        overflow-x: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        min-height: 100vh;
+        text-align: right;
+        font-size: 22px;
+        color: #1d3363;
+        font-family: Vazir;
+      }
+      .maincontent {
+        min-width: 320px;
+        flex: 1 1 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 40px 40px;
+        box-sizing: border-box;
+        gap: 80px;
+      }
+      .headerbar {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-shrink: 0;
+      }
+      .usercontrols {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .notificationbell {
+        height: 40px;
+        width: 40px;
+        border-radius: 100px;
+        background-color: #f8f9fa;
+        border: 1px solid #e8ecf0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        isolation: isolate;
+      }
+      .bell-icon {
+        height: 20px;
+        width: 20px;
+        position: relative;
+        z-index: 0;
+      }
+      .ellipse {
+        height: 8px;
+        width: 8px;
+        position: absolute;
+        margin: 0 !important;
+        top: 11px;
+        right: 11px;
+        border-radius: 50%;
+        background-color: #ff6b6b;
+        z-index: 1;
+      }
+      .greetingsection {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+      }
+      .div {
+        position: relative;
+        font-weight: 800;
+      }
+      .div2 {
+        position: relative;
+        font-size: 13px;
+        color: #7e848c;
+      }
+      .content {
+        align-self: stretch;
+        min-height: 578px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 48px 48px;
+        box-sizing: border-box;
+        position: relative;
+        isolation: isolate;
+        gap: 32px;
+        flex-shrink: 0;
+        text-align: left;
+        font-size: 36px;
+        font-family: Vazir;
+      }
+      .stats-row {
+        width: 100%;
+        margin: 0 !important;
+        position: absolute;
+        top: -32px;
+        right: 0px;
+        left: 0px;
+        display: flex;
+        align-items: flex-start;
+        padding: 0px 48px;
+        box-sizing: border-box;
+        gap: 20px;
+        z-index: 0;
+        flex-shrink: 0;
+      }
+      .stat-card-0 {
+        flex: 1;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.02);
+        border-radius: 20px;
+        background-color: #fff;
+        border: 1px solid #e8ebf0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        gap: 20px;
+      }
+      .stat-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .frame {
+        height: 48px;
+        width: 48px;
+        border-radius: 12px;
+        background-color: #f5f6fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .activity-icon {
+        height: 24px;
+        width: 24px;
+        position: relative;
+      }
+      .b {
+        position: relative;
+      }
+      .stat-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-align: right;
+        font-size: 15px;
+        color: #1e2229;
+      }
+      .div3 {
+        position: relative;
+        font-weight: 600;
+      }
+      .ellipse2 {
+        height: 8px;
+        width: 8px;
+        position: relative;
+        border-radius: 50%;
+        background-color: #3b82f6;
+      }
+      .ellipse3 {
+        height: 8px;
+        width: 8px;
+        position: relative;
+        border-radius: 50%;
+        background-color: #10b981;
+      }
+      .ellipse4 {
+        height: 8px;
+        width: 8px;
+        position: relative;
+        border-radius: 50%;
+        background-color: #f59e0b;
+      }
+      .spacer {
+        align-self: stretch;
+        height: 40px;
+        display: flex;
+        align-items: flex-start;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+      .list-section {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        z-index: 2;
+        flex-shrink: 0;
+        font-size: 13px;
+        color: #626c7a;
+      }
+      .list-header {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .b4 {
+        position: relative;
+        font-size: 18px;
+        color: #1d3363;
+      }
+      .project-items {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 12px;
+        color: #1d3363;
+      }
+      .project-row-1 {
+        align-self: stretch;
+        border-radius: 16px;
+        background-color: #fff;
+        border: 1px solid #e8ebf0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        gap: 20px;
+      }
+      .col-action {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+      }
+      .view-button {
+        border-radius: 8px;
+        background-color: #f5f6fa;
+        border: 1px solid #e8ebf0;
+        display: flex;
+        align-items: flex-start;
+        padding: 8px 16px;
+      }
+      .col-dates {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        text-align: right;
+        font-size: 11px;
+        color: #a5b1c2;
+      }
+      .frame4 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .div9 {
+        position: relative;
+        font-size: 13px;
+        color: #626c7a;
+      }
+      .col-progress {
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .frame6 {
+        align-self: stretch;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .div12 {
+        position: relative;
+        font-size: 11px;
+        color: #626c7a;
+      }
+      .bar-track {
+        align-self: stretch;
+        height: 6px;
+        border-radius: 3px;
+        background-color: #f5f6fa;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: flex-start;
+      }
+      .rectangle {
+        align-self: stretch;
+        width: 117px;
+        position: relative;
+        background-color: #f0c040;
+      }
+      .col-status {
+        width: 120px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        color: #3b82f6;
+      }
+      .badge {
+        border-radius: 999px;
+        background-color: rgba(59, 130, 246, 0.1);
+        display: flex;
+        align-items: flex-start;
+        padding: 6px 12px;
+      }
+      .col-info {
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        text-align: right;
+        font-size: 16px;
+      }
+      .b6 {
+        align-self: stretch;
+        position: relative;
+      }
+      .div14 {
+        align-self: stretch;
+        position: relative;
+        font-size: 13px;
+        color: #626c7a;
+      }
+      .rectangle2 {
+        align-self: stretch;
+        width: 72px;
+        position: relative;
+        background-color: #f0c040;
+      }
+      .col-status2 {
+        width: 120px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        color: #10b981;
+      }
+      .badge2 {
+        border-radius: 999px;
+        background-color: rgba(16, 185, 129, 0.1);
+        display: flex;
+        align-items: flex-start;
+        padding: 6px 12px;
+      }
+      .rectangle3 {
+        align-self: stretch;
+        width: 180px;
+        position: relative;
+        background-color: #f0c040;
+      }
+      .col-status3 {
+        width: 120px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      .badge3 {
+        border-radius: 999px;
+        background-color: rgba(29, 51, 99, 0.1);
+        display: flex;
+        align-items: flex-start;
+        padding: 6px 12px;
+      }
+      .rectangle4 {
+        align-self: stretch;
+        width: 0px;
+        position: relative;
+        background-color: #f0c040;
+      }
+      .col-status4 {
+        width: 120px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        color: #f59e0b;
+      }
+      .badge4 {
+        border-radius: 999px;
+        background-color: rgba(245, 158, 11, 0.1);
+        display: flex;
+        align-items: flex-start;
+        padding: 6px 12px;
+      }
+      .rightsidebarrail {
+        align-self: stretch;
+        width: 260px;
+        flex-shrink: 0;
+        background-color: #1d3363;
+        border-left: 1px solid rgba(232, 236, 240, 0.1);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 40px 16px;
+        gap: 0px;
+        font-size: 16px;
+        color: #fff;
+        font-family: Vazir;
+      }
+      .menucontainer {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 40px;
+      }
+      .frame-parent {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+      .parent {
+        width: 86px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .azaryazdan {
+        align-self: stretch;
+        position: relative;
+        text-align: left;
+      }
+      .logo-icon {
+        height: 56px;
+        width: 56px;
+        position: relative;
+      }
+      .navitems {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+        font-size: 14px;
+        font-family: Vazir;
+      }
+      .sidebaritem {
+        align-self: stretch;
+        border-radius: 12px;
+        background-color: rgba(240, 192, 64, 0.13);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 12px 16px;
+        position: relative;
+        isolation: isolate;
+        gap: 12px;
+        color: #f0c040;
+      }
+      .b14 {
+        flex: 1;
+        position: relative;
+        z-index: 0;
+        flex-shrink: 0;
+      }
+      .layout-dashboard-icon {
+        height: 18px;
+        width: 18px;
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+      .rectangle5 {
+        height: calc(100% - 16px);
+        width: 4px;
+        position: absolute;
+        margin: 0 !important;
+        top: 8px;
+        right: 0px;
+        bottom: 8px;
+        border-radius: 2px;
+        background-color: #f0c040;
+        z-index: 2;
+        flex-shrink: 0;
+      }
+      .sidebaritem2 {
+        align-self: stretch;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 12px 16px;
+        gap: 12px;
+      }
+      .div39 {
+        flex: 1;
+        position: relative;
+        font-weight: 500;
+      }
+      .briefcase-icon {
+        height: 18px;
+        width: 18px;
+        position: relative;
+        opacity: 0.7;
+      }
+      .profilecontainer {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        font-size: 13px;
+        font-family: Vazir;
+      }
+      .line {
+        align-self: stretch;
+        height: 0px;
+        position: relative;
+        border-top: 1px solid rgba(255, 255, 255, 0.13);
+        box-sizing: border-box;
+      }
+      .userprofile {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+      }
+      .profiledetails {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+      }
+      .div44 {
+        position: relative;
+        font-size: 11px;
+        color: #7e848c;
+      }
+      .useravatarsmall-icon {
+        height: 38px;
+        width: 38px;
+        position: relative;
+        border-radius: 100px;
+        object-fit: cover;
+      }
+      .logoutbutton {
+        align-self: stretch;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.19);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        gap: 8px;
+        text-align: left;
+      }
+      .log-out-icon {
+        height: 14px;
+        width: 14px;
+        position: relative;
+      }
+
+      /* ===== Responsive ===== */
+
+      @media (max-width: 1024px) {
+        .rightsidebarrail {
+          width: 220px;
+        }
+        .maincontent {
+          padding: 28px 24px 32px;
+          gap: 56px;
+        }
+        .content {
+          padding: 0 24px 32px;
+        }
+        .col-info {
+          width: 180px;
+        }
+      }
+
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background-color: #f8f9fa;
+        border: 1px solid #e8ecf0;
+        cursor: pointer;
+        padding: 0;
+      }
+      .hamburger-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #1d3363;
+      }
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(17, 24, 39, 0.45);
+        z-index: 999;
+      }
+      .sidebar-overlay.active {
+        display: block;
+      }
+
+      @media (max-width: 900px) {
+        .hamburger-btn {
+          display: flex;
+        }
+        .rightsidebarrail {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 280px;
+          max-width: 82%;
+          height: 100vh;
+          box-sizing: border-box;
+          overflow-y: auto;
+          transform: translateX(100%);
+          transition: transform 0.28s ease;
+          z-index: 1000;
+        }
+        .rightsidebarrail.sidebar-open {
+          transform: translateX(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .persian-rtl-dashboard {
+          font-size: 18px;
+        }
+        .maincontent {
+          padding: 20px 16px 24px;
+          gap: 32px;
+        }
+        .content {
+          padding: 0 8px 24px;
+          gap: 24px;
+          font-size: 24px;
+        }
+        .stats-row {
+          position: static;
+          margin-top: 0;
+          flex-wrap: wrap;
+          padding: 0;
+        }
+        .stat-card-0 {
+          flex: 1 1 45%;
+          min-width: 160px;
+        }
+        .spacer {
+          height: 16px;
+        }
+        .project-row-1 {
+          flex-wrap: wrap;
+          gap: 16px;
+          padding: 20px;
+        }
+        .col-info {
+          width: 100%;
+          order: -1;
+        }
+        .col-dates {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .col-progress {
+          width: 100%;
+        }
+        .col-status,
+        .col-status2,
+        .col-status3,
+        .col-status4 {
+          width: auto;
+          justify-content: flex-start;
+        }
+        .col-action {
+          width: 100%;
+          justify-content: flex-end;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .persian-rtl-dashboard {
+          font-size: 15px;
+        }
+        .headerbar {
+          gap: 12px;
+          direction: rtl;
+        }
+        .greetingsection {
+          align-items: flex-start;
+          width: 100%;
+        }
+        .content {
+          font-size: 18px;
+        }
+        .stat-card-0 {
+          flex: 1 1 100%;
+        }
+        .list-header {
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+      }
+
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir.woff2" %}') format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - Medium */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Medium.woff2" %}') format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - Bold */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Bold.woff2" %}') format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - thin */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Thin.woff2" %}') format("woff2");
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="persian-rtl-dashboard">
+      <div class="maincontent">
+
+
+      {% include "includes/dashboard_headerbar.html" %}
+
+        
+
+        <div class="content">
+          <!-- بخش بالای لیست -->
+          <div class="stats-row">
+            <div class="stat-card-0">
+              <div class="stat-left">
+                <div class="frame">
+                  <img
+                    class="activity-icon"
+                    alt=""
+                    src="{% static 'asets/icon/activity.svg' %}"
+                  />
+                </div>
+                <b class="b">۳</b>
+              </div>
+              <div class="stat-right">
+                <div class="div3">پروژه‌های فعال</div>
+                <div class="ellipse2"></div>
+              </div>
+            </div>
+            <div class="stat-card-0">
+              <div class="stat-left">
+                <div class="frame">
+                  <img
+                    class="activity-icon"
+                    alt=""
+                    src="{% static 'asets/icon/check-circle.svg' %}"
+                  />
+                </div>
+                <b class="b">۸</b>
+              </div>
+              <div class="stat-right">
+                <div class="div3">پروژه‌های تکمیل‌شده</div>
+                <div class="ellipse3"></div>
+              </div>
+            </div>
+            <div class="stat-card-0">
+              <div class="stat-left">
+                <div class="frame">
+                  <img
+                    class="activity-icon"
+                    alt=""
+                    src="{% static 'asets/icon/clock.svg' %}"
+                  />
+                </div>
+                <b class="b">۲</b>
+              </div>
+              <div class="stat-right">
+                <div class="div3">پروژه‌های در انتظار شروع</div>
+                <div class="ellipse4"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spacer"></div>
+          <div class="list-section">
+            <div class="list-header">
+              <div class="b">نمایش ۴ پروژه</div>
+              <b class="b4">لیست پروژه‌ها</b>
+            </div>
+            <div class="project-items">
+              <div class="project-row-1">
+                <div class="col-action">
+                  <div class="view-button">
+                    <div class="div3">مشاهده پروژه</div>
+                  </div>
+                </div>
+                <div class="col-dates">
+                  <div class="frame4">
+                    <div class="b">تحویل</div>
+                    <div class="div9">۱۴۰۳/۰۵/۱۵</div>
+                  </div>
+                  <div class="frame4">
+                    <div class="b">شروع</div>
+                    <div class="div9">۱۴۰۳/۰۲/۱۵</div>
+                  </div>
+                </div>
+                <div class="col-progress">
+                  <div class="frame6">
+                    <b class="b">۶۵٪</b>
+                    <div class="div12">پیشرفت پروژه</div>
+                  </div>
+                  <div class="bar-track">
+                    <div class="rectangle"></div>
+                  </div>
+                </div>
+                <div class="col-status">
+                  <div class="badge">
+                    <div class="div3">در حال طراحی</div>
+                  </div>
+                </div>
+                <div class="col-info">
+                  <b class="b6">طراحی سایت فروشگاهی</b>
+                  <div class="div14">طراحی و توسعه وب‌سایت</div>
+                </div>
+              </div>
+              <div class="project-row-1">
+                <div class="col-action">
+                  <div class="view-button">
+                    <div class="div3">مشاهده پروژه</div>
+                  </div>
+                </div>
+                <div class="col-dates">
+                  <div class="frame4">
+                    <div class="b">تحویل</div>
+                    <div class="div9">۱۴۰۳/۰۷/۰۱</div>
+                  </div>
+                  <div class="frame4">
+                    <div class="b">شروع</div>
+                    <div class="div9">۱۴۰۳/۰۳/۰۱</div>
+                  </div>
+                </div>
+                <div class="col-progress">
+                  <div class="frame6">
+                    <b class="b">۴۰٪</b>
+                    <div class="div12">پیشرفت پروژه</div>
+                  </div>
+                  <div class="bar-track">
+                    <div class="rectangle2"></div>
+                  </div>
+                </div>
+                <div class="col-status2">
+                  <div class="badge2">
+                    <div class="div3">در حال توسعه</div>
+                  </div>
+                </div>
+                <div class="col-info">
+                  <b class="b6">اپلیکیشن موبایل</b>
+                  <div class="div14">توسعه اپلیکیشن</div>
+                </div>
+              </div>
+              <div class="project-row-1">
+                <div class="col-action">
+                  <div class="view-button">
+                    <div class="div3">مشاهده پروژه</div>
+                  </div>
+                </div>
+                <div class="col-dates">
+                  <div class="frame4">
+                    <div class="b">تحویل</div>
+                    <div class="div9">۱۴۰۳/۰۱/۱۵</div>
+                  </div>
+                  <div class="frame4">
+                    <div class="b">شروع</div>
+                    <div class="div9">۱۴۰۲/۱۱/۰۱</div>
+                  </div>
+                </div>
+                <div class="col-progress">
+                  <div class="frame6">
+                    <b class="b">۱۰۰٪</b>
+                    <div class="div12">پیشرفت پروژه</div>
+                  </div>
+                  <div class="bar-track">
+                    <div class="rectangle3"></div>
+                  </div>
+                </div>
+                <div class="col-status3">
+                  <div class="badge3">
+                    <div class="div3">تکمیل شده</div>
+                  </div>
+                </div>
+                <div class="col-info">
+                  <b class="b6">بازطراحی هویت بصری</b>
+                  <div class="div14">طراحی گرافیک</div>
+                </div>
+              </div>
+              <div class="project-row-1">
+                <div class="col-action">
+                  <div class="view-button">
+                    <div class="div3">مشاهده پروژه</div>
+                  </div>
+                </div>
+                <div class="col-dates">
+                  <div class="frame4">
+                    <div class="b">تحویل</div>
+                    <div class="div9">۱۴۰۳/۰۹/۰۱</div>
+                  </div>
+                  <div class="frame4">
+                    <div class="b">شروع</div>
+                    <div class="div9">۱۴۰۳/۰۶/۰۱</div>
+                  </div>
+                </div>
+                <div class="col-progress">
+                  <div class="frame6">
+                    <b class="b">۰٪</b>
+                    <div class="div12">پیشرفت پروژه</div>
+                  </div>
+                  <div class="bar-track">
+                    <div class="rectangle4"></div>
+                  </div>
+                </div>
+                <div class="col-status4">
+                  <div class="badge4">
+                    <div class="div3">در انتظار شروع</div>
+                  </div>
+                </div>
+                <div class="col-info">
+                  <b class="b6">سئو و بازاریابی محتوا</b>
+                  <div class="div14">دیجیتال مارکتینگ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+      {% include "includes/dashboard_rightsidebarrail.html" %}
+
+    </div>
+
+  </body>
+</html>

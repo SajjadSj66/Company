@@ -1,0 +1,1015 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دستیار هوشمند آذریزدان</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: transparent;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        /* =========================================
+           FLOATING BUTTON
+        ========================================= */
+        .chat-floating {
+            position: fixed;
+            right: 32px;
+            bottom: 32px;
+            width: 65px;
+            height: 65px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #21396f 0%, #1a2d5a 100%);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 35px rgba(33, 57, 111, 0.4);
+            z-index: 9999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .chat-floating:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 18px 45px rgba(33, 57, 111, 0.5);
+        }
+        .chat-floating .icon {
+            font-size: 32px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chat-floating .icon img{
+            width: 55px;
+            height: 45px;
+        }
+        .chat-floating .notification {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4147;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+
+        /* =========================================
+           CHATBOT WRAPPER
+        ========================================= */
+        .chatbot-wrapper {
+            position: fixed;
+            right: 30px;
+            bottom: 25px;
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(30px) scale(0.92);
+            transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+        }
+        .chatbot-wrapper.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        /* =========================================
+           PHONE
+        ========================================= */
+        .phone {
+            position: relative;
+            width: 380px;
+            height: 700px;
+            background: #ffffff;
+            border-radius: 48px;
+            border: 9px solid #28344e;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dynamic-island {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 105px;
+            height: 28px;
+            border-radius: 20px;
+            background: #111827;
+            z-index: 10;
+        }
+
+        /* =========================================
+           STATUS BAR
+        ========================================= */
+        .status-bar {
+            height: 48px;
+            padding: 13px 22px 0 22px;
+            background: #21396f;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            direction: ltr;
+        }
+        .status-bar .time { font-size: 16px; font-weight: bold; }
+        .status-icons { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+        .status-icons .battery {
+            position: relative;
+            width: 26px;
+            height: 13px;
+            border: 1.5px solid white;
+            border-radius: 4px;
+        }
+        .status-icons .battery::after {
+            content: "";
+            position: absolute;
+            right: -4px;
+            top: 3px;
+            width: 3px;
+            height: 6px;
+            background: white;
+            border-radius: 0 2px 2px 0;
+        }
+        .status-icons .battery span {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 19px;
+            height: 7px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+        .chat-header {
+            height: 90px;
+            background: #21396f;
+            color: white;
+            padding: 8px 18px 15px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .bot-avatar {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f5c33d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #21396f;
+            font-size: 30px;
+            flex-shrink: 0;
+        }
+        .bot-avatar i {
+            position: absolute;
+            right: 1px;
+            bottom: 2px;
+            width: 12px;
+            height: 12px;
+            background: #13c985;
+            border: 2px solid #21396f;
+            border-radius: 50%;
+        }
+        .bot-title h1 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+        .bot-title p { font-size: 11px; color: rgba(255,255,255,0.72); }
+
+        .close-chat {
+            width: 35px;
+            height: 35px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s ease;
+        }
+        .close-chat:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        /* =========================================
+           CHAT CONTENT
+        ========================================= */
+        .chat-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 16px 16px;
+            background: #f7f8fa;
+            direction: rtl;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-content::-webkit-scrollbar { width: 4px; }
+        .chat-content::-webkit-scrollbar-thumb { background: #d7dce5; border-radius: 10px; }
+
+        .message-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            animation: messageAppear 0.35s ease;
+        }
+        .ai-row { justify-content: flex-start; }
+        .user-row { justify-content: flex-end; }
+
+        .small-avatar {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            border-radius: 50%;
+            background: #21396f;
+            color: #f5c33d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(33,57,111,0.15);
+        }
+
+        .message {
+            max-width: fit-content;
+            padding: 12px 16px;
+            line-height: 1.9;
+            font-size: 13px;
+            word-break: break-word;
+            border-radius: 16px;
+        }
+        .ai-message {
+            background: white;
+            color: #202b3c;
+            border-radius: 16px 16px 16px 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .user-message {
+            background: linear-gradient(135deg, #21396f, #1a2d5a);
+            color: white;
+            border-radius: 16px 16px 4px 16px;
+            box-shadow: 0 2px 10px rgba(33,57,111,0.2);
+        }
+
+        .message-time {
+            display: block;
+            margin-top: 4px;
+            color: #98a1af;
+            font-size: 9px;
+            padding: 0 5px;
+        }
+        .user-message .message-time { color: rgba(255,255,255,0.6); }
+
+        /* =========================================
+           FILE ATTACHMENT
+        ========================================= */
+        .file-attachment {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f2f5;
+            padding: 6px 12px;
+            border-radius: 8px;
+            margin-top: 6px;
+            font-size: 12px;
+            color: #21396f;
+        }
+        .file-attachment .file-icon { font-size: 18px; }
+        .file-attachment .file-name { 
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .file-attachment .file-size { color: #98a1af; font-size: 10px; }
+
+        /* =========================================
+           QUICK REPLIES
+        ========================================= */
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 6px;
+            margin: 6px 0 16px 32px;
+        }
+        .quick-btn {
+            border: 1.5px solid #21396f;
+            background: white;
+            color: #21396f;
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-family: inherit;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .quick-btn:hover {
+            background: #21396f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        .chat-footer {
+            background: white;
+            padding: 10px 12px 8px;
+            border-top: 1px solid #edf0f4;
+        }
+
+        .input-area {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f5f5f6;
+            border-radius: 28px;
+            padding: 4px 6px;
+            direction: ltr;
+        }
+        .input-area input {
+            flex: 1;
+            height: 40px;
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 0 12px;
+            font-family: inherit;
+            font-size: 12px;
+            color: #26344d;
+            direction: rtl;
+        }
+        .input-area input::placeholder { color: #9ca3af; }
+
+        .input-area .attach-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: transparent;
+            color: #9ca3af;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .input-area .attach-btn:hover {
+            background: #e8ecf4;
+            color: #21396f;
+        }
+
+        .input-area .send-button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: #f5c33d;
+            color: #21396f;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .input-area .send-button:hover {
+            background: #eab72f;
+            transform: scale(1.05);
+        }
+        .input-area .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .input-area .send-button span { font-size: 18px; transform: rotate(180deg); }
+
+        /* Hidden file input */
+        #fileInput { display: none; }
+
+        .powered {
+            text-align: center;
+            color: #9ca6b5;
+            font-size: 9px;
+            margin-top: 6px;
+        }
+        .powered strong { color: #7d899c; }
+
+        .home-indicator {
+            width: 105px;
+            height: 4px;
+            background: #111827;
+            border-radius: 10px;
+            margin: 6px auto 0;
+        }
+
+        /* =========================================
+           TYPING INDICATOR
+        ========================================= */
+        .typing-indicator {
+            display: none;
+            padding: 10px 16px;
+            background: white;
+            border-radius: 16px 16px 16px 4px;
+            max-width: 60px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .typing-indicator.active { display: block; }
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #21396f;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typingBounce 1.4s infinite;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-8px); opacity: 1; }
+        }
+
+        @keyframes messageAppear {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .chat-floating { right: 16px; bottom: 20px; width: 56px; height: 56px; }
+            .chat-floating .icon { font-size: 26px; }
+            .chatbot-wrapper { inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(10,18,35,0.6); backdrop-filter: blur(8px); }
+            .phone { width: 94vw; max-width: 390px; height: 90vh; max-height: 780px; border-radius: 36px; border-width: 6px; }
+            .chat-header { height: 75px; padding: 6px 14px 10px 14px; }
+            .bot-avatar { width: 40px; height: 40px; font-size: 24px; }
+            .bot-title h1 { font-size: 14px; }
+            .bot-title p { font-size: 10px; }
+            .chat-content { padding: 14px 10px 12px; }
+            .message { font-size: 12px; padding: 10px 14px; max-width: 90%; }
+            .quick-replies { margin: 4px 0 12px 16px; gap: 4px; }
+            .quick-btn { padding: 5px 10px; font-size: 9px; }
+            .input-area input { font-size: 11px; height: 36px; }
+            .input-area .send-button { width: 36px; height: 36px; }
+            .input-area .send-button span { font-size: 16px; }
+            .input-area .attach-btn { width: 32px; height: 32px; font-size: 16px; }
+        }
+        @media (max-width: 380px) {
+            .phone { width: 96vw; height: 92vh; border-radius: 32px; border-width: 5px; }
+            .chat-header { height: 65px; }
+            .bot-avatar { width: 34px; height: 34px; font-size: 20px; }
+            .bot-title h1 { font-size: 12px; }
+            .message { font-size: 11px; padding: 8px 12px; }
+        }
+        @media (max-height: 700px) {
+            .phone { height: 95vh; }
+            .chat-header { height: 65px; }
+            .chat-content { padding: 10px 10px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- =========================
+     FLOATING CHAT BUTTON
+========================== -->
+<button class="chat-floating" id="chatFloating" aria-label="باز کردن چت‌بات">
+    <span class="icon"><img src="{% static 'img/bot.png' %}"></span>
+    <span class="notification">1</span>
+</button>
+
+<!-- =========================
+     CHATBOT
+========================== -->
+<div class="chatbot-wrapper" id="chatbotWrapper">
+    <div class="phone">
+        <!-- Dynamic Island -->
+        <div class="dynamic-island"></div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="status-icons">
+                <span>●●●●</span>
+                <span>◔</span>
+                <div class="battery"><span></span></div>
+            </div>
+        </div>
+
+        <!-- Chat Header -->
+        <header class="chat-header">
+            <div class="header-info">
+                <div class="bot-avatar">
+                    <span>✦</span>
+                    <i></i>
+                </div>
+                <div class="bot-title">
+                    <h1>دستیار هوشمند آذریزدان</h1>
+                    <p>همیشه آماده پاسخگویی</p>
+                </div>
+            </div>
+            <button class="close-chat" id="closeChat">×</button>
+        </header>
+
+        <!-- Chat Content -->
+        <main class="chat-content" id="chatContent">
+            <!-- Welcome Message -->
+            <div class="message-row ai-row" id="welcomeRow">
+                <div class="small-avatar">✦</div>
+                <div>
+                    <div class="message ai-message">
+                        <p id="welcomeMessage">
+                            سلام 👋 به آذریزدان خوش اومدی.<br>
+                            من دستیار هوشمند هستم. می‌تونم توی هر سوالی در مورد<br>
+                            برنامه‌نویسی، هوش مصنوعی، طراحی وب‌سایت یا دوره‌های آموزشی‌مون کمکت کنم.<br>
+                            بپرس، راستش رو می‌گم 😊
+                        </p>
+                    </div>
+                    <span class="message-time">اکنون</span>
+                </div>
+            </div>
+
+            <!-- Quick Replies -->
+            <div class="quick-replies" id="quickReplies">
+                <button class="quick-btn" data-action="active">💡 سوال فروشگاهی</button>
+                <button class="quick-btn" data-action="academy">🎓 دوره‌های آموزشی</button>
+                <button class="quick-btn" data-action="technical">⚙️ سوال فنی</button>
+                <button class="quick-btn" data-action="contact">📋 فرم تماس</button>
+            </div>
+        </main>
+
+        <!-- Chat Footer -->
+        <footer class="chat-footer">
+            <div class="input-area">
+                <button class="attach-btn" id="attachBtn" title="آپلود فایل">📎</button>
+                <input type="file" id="fileInput" multiple />
+                <input type="text" id="messageInput" placeholder="پیام خود را بنویسید..." autocomplete="off" />
+                <button class="send-button" id="sendButton" disabled>
+                    <span>➤</span>
+                </button>
+            </div>
+            <div class="powered">Powered by <strong>آذریزدان AI</strong></div>
+            <div class="home-indicator"></div>
+        </footer>
+    </div>
+</div>
+
+<!-- =========================
+     SCRIPT
+========================== -->
+<script>
+    // =========================================
+    // ELEMENTS
+    // =========================================
+    const chatFloating = document.getElementById('chatFloating');
+    const chatbotWrapper = document.getElementById('chatbotWrapper');
+    const closeChat = document.getElementById('closeChat');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const attachBtn = document.getElementById('attachBtn');
+    const fileInput = document.getElementById('fileInput');
+    const chatContent = document.getElementById('chatContent');
+    const quickRepliesEl = document.getElementById('quickReplies');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+
+    let currentUserName = null;
+    let uploadedFiles = [];
+
+    // =========================================
+    // GET USER NAME
+    // =========================================
+    async function getUserName() {
+        try {
+            const response = await fetch('/chatbot/api/user/');
+            const data = await response.json();
+            if (data.is_logged_in && data.name) {
+                currentUserName = data.name;
+                return data.name;
+            }
+            return null;
+        } catch (error) {
+            console.error('خطا:', error);
+            return null;
+        }
+    }
+
+    // =========================================
+    // UPDATE WELCOME
+    // =========================================
+    async function updateWelcome() {
+        const name = await getUserName();
+        if (name) {
+            welcomeMessage.innerHTML = `
+                سلام ${name} جان! 👋 به آذریزدان خوش اومدی.<br>
+                من دستیار هوشمند هستم. می‌تونم توی هر سوالی در مورد<br>
+                برنامه‌نویسی، هوش مصنوعی، طراحی وب‌سایت یا دوره‌های آموزشی‌مون کمکت کنم.<br>
+                بپرس، راستش رو می‌گم 😊
+            `;
+        }
+    }
+
+    // =========================================
+    // OPEN / CLOSE
+    // =========================================
+    chatFloating.addEventListener('click', () => {
+        chatbotWrapper.classList.add('active');
+        chatFloating.style.opacity = '0';
+        chatFloating.style.pointerEvents = 'none';
+        setTimeout(() => messageInput.focus(), 350);
+    });
+
+    closeChat.addEventListener('click', () => {
+        chatbotWrapper.classList.remove('active');
+        chatFloating.style.opacity = '1';
+        chatFloating.style.pointerEvents = 'auto';
+    });
+
+    // =========================================
+    // ADD MESSAGE
+    // =========================================
+    function addMessage(text, sender, time, fileData) {
+        const row = document.createElement('div');
+        row.className = `message-row ${sender === 'user' ? 'user-row' : 'ai-row'}`;
+
+        const timeStr = time || new Date().toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' });
+
+        let fileHtml = '';
+        if (fileData) {
+            fileHtml = `
+                <div class="file-attachment">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">${fileData.name}</span>
+                    <span class="file-size">(${fileData.size})</span>
+                </div>
+            `;
+        }
+
+        // تبدیل \n به <br> برای نمایش درست خطوط جدید
+        const formattedText = text.replace(/\n/g, '<br>');
+
+        if (sender === 'bot') {
+            row.innerHTML = `
+                <div class="small-avatar">✦</div>
+                <div>
+                    <div class="message ai-message"><p>${formattedText}</p></div>
+                    <span class="message-time">${timeStr}</span>
+                </div>
+            `;
+        } else {
+            row.innerHTML = `
+                <div>
+                    <div class="message user-message">
+                        <p>${formattedText}</p>
+                        ${fileHtml}
+                    </div>
+                    <span class="message-time">${timeStr}</span>
+                </div>
+            `;
+        }
+
+        chatContent.insertBefore(row, quickRepliesEl);
+        scrollToBottom();
+    }
+
+    // =========================================
+    // TYPING
+    // =========================================
+    let typingElement = null;
+
+    function showTyping() {
+        hideTyping();
+        typingElement = document.createElement('div');
+        typingElement.className = 'typing-indicator active';
+        typingElement.id = 'typingIndicator';
+        typingElement.innerHTML = `<span></span><span></span><span></span>`;
+        chatContent.insertBefore(typingElement, quickRepliesEl);
+        scrollToBottom();
+    }
+
+    function hideTyping() {
+        if (typingElement) {
+            typingElement.remove();
+            typingElement = null;
+        }
+    }
+
+    // =========================================
+    // CLEAR MESSAGES
+    // =========================================
+    function clearMessages() {
+        const rows = chatContent.querySelectorAll('.message-row:not(#welcomeRow)');
+        rows.forEach(row => row.remove());
+        const ctas = chatContent.querySelectorAll('.cta-buttons-container');
+        ctas.forEach(cta => cta.remove());
+        const forms = chatContent.querySelectorAll('.contact-form-card, .success-message');
+        forms.forEach(form => form.remove());
+    }
+
+    // =========================================
+    // ADD CTA BUTTONS
+    // =========================================
+    function addCTAButton(text, onClick) {
+        const container = document.createElement('div');
+        container.className = 'cta-buttons-container';
+        container.style.cssText = 'display:flex; gap:10px; width:100%; margin-bottom:14px;';
+        const btn = document.createElement('button');
+        btn.style.cssText = 'flex:1; height:40px; background:#f5c33d; border:none; border-radius:10px; font-weight:700; font-size:12px; color:#21396f; cursor:pointer; font-family:inherit; transition:all 0.3s ease;';
+        btn.textContent = text;
+        btn.addEventListener('click', onClick);
+        btn.addEventListener('mouseenter', () => { btn.style.background = '#eab72f'; btn.style.transform = 'translateY(-1px)'; });
+        btn.addEventListener('mouseleave', () => { btn.style.background = '#f5c33d'; btn.style.transform = 'none'; });
+        container.appendChild(btn);
+        chatContent.insertBefore(container, quickRepliesEl);
+        scrollToBottom();
+    }
+
+    function addCTAButtons(buttons) {
+        const container = document.createElement('div');
+        container.className = 'cta-buttons-container';
+        container.style.cssText = 'display:flex; gap:10px; width:100%; margin-bottom:14px;';
+        buttons.forEach((btnData) => {
+            const btn = document.createElement('button');
+            btn.style.cssText = 'flex:1; height:40px; background:#f5c33d; border:none; border-radius:10px; font-weight:700; font-size:12px; color:#21396f; cursor:pointer; font-family:inherit; transition:all 0.3s ease;';
+            btn.textContent = btnData.text;
+            btn.addEventListener('click', btnData.onClick);
+            btn.addEventListener('mouseenter', () => { btn.style.background = '#eab72f'; btn.style.transform = 'translateY(-1px)'; });
+            btn.addEventListener('mouseleave', () => { btn.style.background = '#f5c33d'; btn.style.transform = 'none'; });
+            container.appendChild(btn);
+        });
+        chatContent.insertBefore(container, quickRepliesEl);
+        scrollToBottom();
+    }
+
+    // =========================================
+    // QUICK STATES
+    // =========================================
+    function showActiveState() {
+        clearMessages();
+        const namePrefix = currentUserName ? `${currentUserName} جان، ` : '';
+        addMessage('چقدر طول میکشه یه سایت فروشگاهی طراحی کنید؟', 'user');
+        setTimeout(() => {
+            addMessage(`${namePrefix}بستگی به پیچیدگی پروژه داره ولی معمولاً سایت‌های فروشگاهی بین ۳ تا ۶ هفته زمان می‌بره. اگر قالب آماده استفاده کنید سریع‌تر تموم میشه، ولی اگر سفارشی‌سازی کامل بدید، زمان بیشتری نیازه.\n\n📌 پیشنهاد من: بیا یه مشاوره رایگان با تیممون هماهنگ کنم تا دقیقاً نیازت رو بررسی کنیم. موافقی؟`, 'bot');
+            addCTAButton('دریافت مشاوره رایگان', showContactForm);
+        }, 700);
+    }
+
+    function showAcademyState() {
+        clearMessages();
+        const namePrefix = currentUserName ? `${currentUserName} جان، ` : '';
+        addMessage('دوره پایتون دارید؟', 'user');
+        setTimeout(() => {
+            addMessage(`${namePrefix}چشم! 🐍 ما دوره‌های پایتون رو در سه سطح برگزار می‌کنیم:\n\n1. مقدماتی — مناسب افراد بدون سابقه کدنویسی\n2. متوسط — با تمرکز بر پروژه‌محوری و جنگو\n3. پیشرفته — همراه با هوش مصنوعی و یادگیری ماشین\n\nدوره بعدی ۱۵ شهریور شروع میشه. می‌خوای برات ثبت‌نام کنم یا لینک اطلاعات کامل رو بفرستم؟`, 'bot');
+            addCTAButtons([
+                { text: 'مشاهده اطلاعات دوره', onClick: () => sendMessage('می‌خوام اطلاعات دوره پایتون رو ببینم') },
+                { text: 'ثبت‌نام دوره', onClick: showContactForm }
+            ]);
+        }, 700);
+    }
+
+    function showTechnicalState() {
+        clearMessages();
+        const namePrefix = currentUserName ? `${currentUserName} جان، ` : '';
+        addMessage('برای پروژه‌ای که قراره روزانه ۱۰ هزار کاربر داشته باشه، چه معماری پیشنهاد می‌دید؟', 'user');
+        setTimeout(() => {
+            addMessage(`${namePrefix}سوال خیلی خوبی پرسیدی! 👌 برای این حجم کاربری، این معماری رو پیشنهاد می‌کنم:\n\n- Backend: Django یا FastAPI (با معماری میکروسرویس)\n- Database: PostgreSQL به همراه Redis برای کش\n- Load Balancer: Nginx برای توزیع ترافیک\n- Deployment: روی Docker و Kubernetes\n\nتیم ما دقیقاً همین رو برای چندین پروژه بزرگ پیاده کرده. اگر نیاز به مشاوره تخصصی داری، خوشحال میشیم کمکت کنیم.`, 'bot');
+            addCTAButton('مشاوره تخصصی', showContactForm);
+            setTimeout(() => {
+                addMessage('ممنون. بعداً بیشتر صحبت می‌کنم', 'user');
+                setTimeout(() => {
+                    const namePrefix2 = currentUserName ? `${currentUserName} جان، ` : '';
+                    addMessage(`${namePrefix2}خواهش می‌کنم! 🌟 هر وقت سوالی داشتی، من اینجام تا کمکت کنم.\n\nاگر خواستی تیم فروش با شما تماس بگیره، شماره یا ایمیلت رو برام بفرست. یا می‌تونی از همین الان یه وقت مشاوره رایگان رزرو کنی. موفق باشی! 👋`, 'bot');
+                    addCTAButtons([
+                        { text: 'ارسال اطلاعات تماس', onClick: showContactForm },
+                        { text: 'رزرو مشاوره', onClick: showContactForm }
+                    ]);
+                }, 600);
+            }, 1200);
+        }, 700);
+    }
+
+    // =========================================
+    // CONTACT FORM
+    // =========================================
+    function showContactForm() {
+        clearMessages();
+
+        addMessage('لطفاً اطلاعات تماس خود را وارد کنید تا کارشناسان ما با شما ارتباط بگیرند 📝', 'bot');
+
+        const formCard = document.createElement('div');
+        formCard.className = 'contact-form-card';
+        formCard.id = 'contactFormCard';
+        formCard.style.cssText = 'display:flex; flex-direction:column; gap:12px; width:100%; background:white; padding:18px; border-radius:16px; margin-bottom:14px; box-shadow:0 2px 10px rgba(0,0,0,0.06);';
+        formCard.innerHTML = `
+            <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
+                <h3 style="font-weight:700; font-size:16px; color:#1d3363; margin:0;">اطلاعات تماس</h3>
+                <p style="font-weight:400; font-size:12px; color:#64748b; margin:0;">لطفاً اطلاعات خود را وارد کنید</p>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
+                <label style="font-weight:600; font-size:12px; color:#1d3363;">نام</label>
+                <input type="text" id="formName" placeholder="نام و نام خانوادگی" style="width:100%; height:38px; padding:8px 12px; background:#f8fafc; border:1px solid #dedede; border-radius:8px; font-size:13px; text-align:right; outline:none; transition:all 0.3s ease;" />
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
+                <label style="font-weight:600; font-size:12px; color:#1d3363;">شماره تماس</label>
+                <input type="tel" id="formPhone" placeholder="۰۹۱۲XXXXXXX" inputmode="numeric" style="width:100%; height:38px; padding:8px 12px; background:#f8fafc; border:1px solid #dedede; border-radius:8px; font-size:13px; text-align:right; outline:none; transition:all 0.3s ease;" />
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
+                <label style="font-weight:600; font-size:12px; color:#1d3363;">ایمیل</label>
+                <input type="email" id="formEmail" placeholder="example@email.com" style="width:100%; height:38px; padding:8px 12px; background:#f8fafc; border:1px solid #dedede; border-radius:8px; font-size:13px; text-align:right; outline:none; transition:all 0.3s ease;" />
+            </div>
+            <button class="cta-button" id="submitContact" style="width:100%; height:40px; background:#f5c33d; border:none; border-radius:10px; font-weight:700; font-size:12px; color:#21396f; cursor:pointer; transition:all 0.3s ease;">ارسال درخواست</button>
+            <div style="font-size:11px; color:#64748b; text-align:center;">🔒 اطلاعات شما محفوظ است</div>
+        `;
+        chatContent.insertBefore(formCard, quickRepliesEl);
+        scrollToBottom();
+
+        document.getElementById('submitContact').addEventListener('click', () => {
+            const name = document.getElementById('formName').value.trim();
+            const phone = document.getElementById('formPhone').value.trim();
+            const email = document.getElementById('formEmail').value.trim();
+
+            if (!name || !phone) {
+                alert('لطفاً نام و شماره تماس را وارد کنید');
+                return;
+            }
+
+            formCard.remove();
+
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.style.cssText = 'display:flex; align-items:center; gap:8px; padding:12px 16px; background:#ecfdf5; border:1px solid #a7f3d0; border-radius:12px; color:#065f46; font-size:13px; font-weight:500; width:100%; margin-bottom:14px;';
+            successDiv.innerHTML = '✅ درخواست شما با موفقیت ثبت شد. کارشناسان ما به زودی با شما تماس می‌گیرند.';
+            chatContent.insertBefore(successDiv, quickRepliesEl);
+
+            setTimeout(() => {
+                addMessage(`ممنون ${name} عزیز! 😊 کارشناسان ما در اولین فرصت با شماره ${phone} تماس می‌گیرند.`, 'bot');
+                quickRepliesEl.style.display = 'flex';
+            }, 500);
+
+            scrollToBottom();
+        });
+    }
+
+    // =========================================
+    // SEND MESSAGE (با آپلود فایل)
+    // =========================================
+    async function sendMessage(text, fileData) {
+        const msgText = text || messageInput.value.trim();
+        if (!msgText && !fileData) return;
+
+        let displayText = msgText || '📎 فایل ارسال شد';
+        let fileInfo = null;
+        if (fileData) {
+            fileInfo = { name: fileData.name, size: (fileData.size / 1024).toFixed(1) + 'KB' };
+        }
+
+        addMessage(displayText, 'user', null, fileInfo);
+        if (!text) messageInput.value = '';
+        uploadedFiles = [];
+
+        messageInput.disabled = true;
+        sendButton.disabled = true;
+
+        showTyping();
+
+        try {
+            let message = msgText || '';
+            if (fileData) {
+                const formData = new FormData();
+                formData.append('file', fileData);
+
+                const uploadRes = await fetch('/chatbot/api/upload/', {
+                    method: 'POST',
+                    body: formData
+                });
+                const uploadData = await uploadRes.json();
+
+                if (uploadData.success) {
+                    message += `\n📎 فایل: ${uploadData.file_name}`;
+                } else {
+                    message += `\n❌ خطا در آپلود فایل: ${uploadData.error}`;
+                }
+            }
+
+            const response = await fetch('/chatbot/api/chat/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: message })
+            });
+            const data = await response.json();
+            hideTyping();
+            addMessage(data.reply, 'bot', data.timestamp);
+        } catch (error) {
+            console.error('خطا:', error);
+            hideTyping();
+            addMessage('❌ متاسفانه مشکلی پیش اومد. لطفاً دوباره تلاش کن!', 'bot');
+        }
+
+        messageInput.disabled = false;
+        sendButton.disabled = false;
+        messageInput.focus();
+    }
+
+    // =========================================
+    // FILE ATTACHMENT
+    // =========================================
+    attachBtn.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', (e) => {
+        const files = e.target.files;
+        if (files.length > 0) {
+            const file = files[0];
+            const maxSize = 10 * 1024 * 1024; // 10MB
+            if (file.size > maxSize) {
+                alert('حجم فایل باید کمتر از ۱۰ مگابایت باشد');
+                fileInput.value = '';
+                return;
+            }
+            sendMessage('', file);
+        }
+        fileInput.value = '';
+    });
+
+    // =========================================
+    // QUICK BUTTONS
+    // =========================================
+    document.querySelectorAll('.quick-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+            const action = button.dataset.action;
+            if (action === 'contact') showContactForm();
+            else if (action === 'active') showActiveState();
+            else if (action === 'academy') showAcademyState();
+            else if (action === 'technical') showTechnicalState();
+        });
+    });
+
+    // =========================================
+    // SCROLL
+    // =========================================
+    function scrollToBottom() {
+        setTimeout(() => {
+            chatContent.scrollTo({ top: chatContent.scrollHeight, behavior: 'smooth' });
+        }, 50);
+    }
+
+    // =========================================
+    // EVENT LISTENERS
+    // =========================================
+    sendButton.addEventListener('click', () => {
+        const text = messageInput.value.trim();
+        if (text) sendMessage(text);
+    });
+
+    messageInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            const text = messageInput.value.trim();
+            if (text) sendMessage(text);
+        }
+    });
+
+    messageInput.addEventListener('input', () => {
+        sendButton.disabled = !messageInput.value.trim();
+    });
+
+    // =========================================
+    // INIT
+    // =========================================
+    updateWelcome();
+    sendButton.disabled = true;
+</script>
+</body>
+</html>

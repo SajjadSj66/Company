@@ -1,0 +1,1109 @@
+[
+  {
+    "model": "educate.course",
+    "pk": 1,
+    "fields": {
+      "is_paid": true,
+      "title": "وردپرس",
+      "slug": "virtual-wordpress",
+      "category": null,
+      "short_description": "طراحی سایت با وردپرس و توسعه قالب‌های سفارشی و مدیریت محتوا حرفه‌ای.",
+      "description": "",
+      "practical_percentage": 70,
+      "image": "courses/wordpress.jpg",
+      "price": "9900000",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:19:06.497Z",
+      "teacher": "پریسا پرنیان فرد",
+      "discount_percent": 0
+    }
+  },
+  {
+    "model": "educate.course",
+    "pk": 2,
+    "fields": {
+      "is_paid": true,
+      "title": "بک‌اند پیشرفته",
+      "slug": "virtual-backend-advanced",
+      "category": "fullstack",
+      "short_description": "توسعه حرفه‌ای با PHP و فریم‌ورک Laravel، کار با MySQL و دیزاین پترن‌ها.",
+      "description": "",
+      "practical_percentage": 70,
+      "image": "courses/backadvanced.jpg",
+      "price": "13900000",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:19:06.543Z",
+      "teacher": "شایان رضایی",
+      "discount_percent": 0
+    }
+  },
+  {
+    "model": "educate.course",
+    "pk": 3,
+    "fields": {
+      "is_paid": true,
+      "title": "هوش مصنوعی",
+      "slug": "virtual-ai",
+      "category": null,
+      "short_description": "یادگیری ماشین، شبکه‌های عصبی، پردازش زبان طبیعی و کار با کتابخانه‌های AI.",
+      "description": "",
+      "practical_percentage": 70,
+      "image": "courses/ai.jpg",
+      "price": "19900000",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:19:06.551Z",
+      "teacher": "طاها فرامرزی",
+      "discount_percent": 0
+    }
+  },
+  {
+    "model": "educate.course",
+    "pk": 4,
+    "fields": {
+      "is_paid": true,
+      "title": "بک‌اند",
+      "slug": "virtual-backend",
+      "category": "fullstack",
+      "short_description": "توسعه سمت سرور با Python و Django، ساخت API و امنیت.",
+      "description": "",
+      "practical_percentage": 70,
+      "image": "courses/back.jpg",
+      "price": "13900000",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:19:06.561Z",
+      "teacher": "سجاد جدیدی",
+      "discount_percent": 0
+    }
+  },
+  {
+    "model": "educate.course",
+    "pk": 5,
+    "fields": {
+      "is_paid": true,
+      "title": "سئو و بهینه‌سازی",
+      "slug": "virtual-seo",
+      "category": null,
+      "short_description": "بهینه‌سازی سایت برای موتورهای جستجو، افزایش رتبه گوگل و جذب ترافیک ارگانیک.",
+      "description": "",
+      "practical_percentage": 70,
+      "image": "courses/seo_Blik9wS.jpg",
+      "price": "14900000",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:19:06.570Z",
+      "teacher": "امین ذریه",
+      "discount_percent": 0
+    }
+  },
+  {
+    "model": "educate.course",
+    "pk": 6,
+    "fields": {
+      "is_paid": true,
+      "title": "فرانت‌اند",
+      "slug": "virtual-frontend",
+      "category": "ui_ux",
+      "short_description": "طراحی رابط کاربری مدرن با HTML، CSS و JavaScript، پروژه محور و بازارکار.",
+      "description": "",
+      "practical_percentage": 70,
+      "image": "courses/front.jpg",
+      "price": "11900000",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:19:06.579Z",
+      "teacher": "عرفان قهرمانی",
+      "discount_percent": 0
+    }
+  },
+  {
+    "model": "educate.courseorder",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "course": 5,
+      "status": "pending",
+      "amount": "14900000",
+      "transaction_id": null,
+      "paid_at": null,
+      "created_at": "2026-06-29T08:40:49.613Z",
+      "updated_at": "2026-06-29T08:40:49.613Z"
+    }
+  },
+  {
+    "model": "educate.courseorder",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "course": 5,
+      "status": "paid",
+      "amount": "14900000",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T08:41:53.359Z",
+      "created_at": "2026-06-29T08:41:50.396Z",
+      "updated_at": "2026-06-29T08:41:53.359Z"
+    }
+  },
+  {
+    "model": "educate.courseorder",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "course": 3,
+      "status": "paid",
+      "amount": "19900000",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T18:45:28.322Z",
+      "created_at": "2026-06-29T18:45:19.854Z",
+      "updated_at": "2026-06-29T18:45:28.322Z"
+    }
+  },
+  {
+    "model": "educate.courseorder",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "course": 3,
+      "status": "paid",
+      "amount": "19900000",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T18:51:52.411Z",
+      "created_at": "2026-06-29T18:51:43.739Z",
+      "updated_at": "2026-06-29T18:51:52.411Z"
+    }
+  },
+  {
+    "model": "users.userprofile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "wallet_balance": "0",
+      "phone": "",
+      "first_name": "",
+      "last_name": "",
+      "is_phone_verified": false,
+      "membership": "free",
+      "courses_count": 0,
+      "tickets_count": 0,
+      "projects_count": 0,
+      "total_payments": "0",
+      "last_login_display": null,
+      "created_at": "2026-06-29T08:40:53.264Z",
+      "updated_at": "2026-06-29T08:40:53.264Z"
+    }
+  },
+  {
+    "model": "users.userprofile",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "wallet_balance": "0",
+      "phone": "09777777777",
+      "first_name": "",
+      "last_name": "",
+      "is_phone_verified": true,
+      "membership": "free",
+      "courses_count": 0,
+      "tickets_count": 0,
+      "projects_count": 0,
+      "total_payments": "0",
+      "last_login_display": null,
+      "created_at": "2026-06-29T08:41:22.662Z",
+      "updated_at": "2026-06-29T08:41:33.277Z"
+    }
+  },
+  {
+    "model": "users.userprofile",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "wallet_balance": "0",
+      "phone": "09900032800",
+      "first_name": "",
+      "last_name": "",
+      "is_phone_verified": true,
+      "membership": "free",
+      "courses_count": 0,
+      "tickets_count": 0,
+      "projects_count": 0,
+      "total_payments": "0",
+      "last_login_display": null,
+      "created_at": "2026-06-29T18:35:16.243Z",
+      "updated_at": "2026-06-29T18:35:25.112Z"
+    }
+  },
+  {
+    "model": "users.userprofile",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "wallet_balance": "0",
+      "phone": "09357788565",
+      "first_name": "",
+      "last_name": "",
+      "is_phone_verified": true,
+      "membership": "free",
+      "courses_count": 0,
+      "tickets_count": 0,
+      "projects_count": 0,
+      "total_payments": "0",
+      "last_login_display": null,
+      "created_at": "2026-06-29T18:36:01.059Z",
+      "updated_at": "2026-06-29T18:36:09.981Z"
+    }
+  },
+  {
+    "model": "users.category",
+    "pk": 1,
+    "fields": {
+      "name": "ai",
+      "slug": "ai",
+      "icon": "",
+      "description": "مقالات تخصصی هوش مصنوعی، یادگیری ماشین و علم داده",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2026-06-29T07:20:41.408Z"
+    }
+  },
+  {
+    "model": "users.category",
+    "pk": 2,
+    "fields": {
+      "name": "web",
+      "slug": "web",
+      "icon": "",
+      "description": "مقالات طراحی سایت، توسعه وب و فریم‌ورک‌های محبوب",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2026-06-29T07:20:41.455Z"
+    }
+  },
+  {
+    "model": "users.category",
+    "pk": 3,
+    "fields": {
+      "name": "seo",
+      "slug": "seo",
+      "icon": "",
+      "description": "مقالات سئو، بهینه‌سازی موتورهای جستجو و دیجیتال مارکتینگ",
+      "order": 3,
+      "is_active": true,
+      "created_at": "2026-06-29T07:20:41.465Z"
+    }
+  },
+  {
+    "model": "users.usercourse",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "course": 5,
+      "progress": 0,
+      "registered_at": "2026-06-29T08:40:49.622Z",
+      "is_completed": false,
+      "order": 1,
+      "payment_status": "pending",
+      "transaction_id": null,
+      "paid_at": null
+    }
+  },
+  {
+    "model": "users.usercourse",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "course": 5,
+      "progress": 0,
+      "registered_at": "2026-06-29T08:41:50.439Z",
+      "is_completed": false,
+      "order": 2,
+      "payment_status": "paid",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T08:41:53.368Z"
+    }
+  },
+  {
+    "model": "users.usercourse",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "course": 3,
+      "progress": 0,
+      "registered_at": "2026-06-29T18:45:19.873Z",
+      "is_completed": false,
+      "order": 4,
+      "payment_status": "paid",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T18:51:52.419Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "amount": "14900000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 14,900,000 تومان",
+      "created_at": "2026-06-29T08:41:53.341Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "amount": "14900000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 14,900,000 تومان",
+      "created_at": "2026-06-29T08:41:53.353Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 3,
+    "fields": {
+      "user": 2,
+      "amount": "18800000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 18,800,000 تومان",
+      "created_at": "2026-06-29T13:24:44.509Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 4,
+    "fields": {
+      "user": 2,
+      "amount": "18800000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 18,800,000 تومان",
+      "created_at": "2026-06-29T13:24:44.516Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "amount": "28800000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 28,800,000 تومان",
+      "created_at": "2026-06-29T14:17:30.049Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 6,
+    "fields": {
+      "user": 1,
+      "amount": "28800000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 28,800,000 تومان",
+      "created_at": "2026-06-29T14:17:30.055Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 7,
+    "fields": {
+      "user": 4,
+      "amount": "48800000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 48,800,000 تومان",
+      "created_at": "2026-06-29T18:36:16.264Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 8,
+    "fields": {
+      "user": 4,
+      "amount": "48800000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 48,800,000 تومان",
+      "created_at": "2026-06-29T18:36:16.278Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 9,
+    "fields": {
+      "user": 4,
+      "amount": "288000000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 288,000,000 تومان",
+      "created_at": "2026-06-29T18:44:37.321Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 10,
+    "fields": {
+      "user": 4,
+      "amount": "288000000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 288,000,000 تومان",
+      "created_at": "2026-06-29T18:44:37.333Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 11,
+    "fields": {
+      "user": 4,
+      "amount": "19900000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 19,900,000 تومان",
+      "created_at": "2026-06-29T18:45:28.305Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 12,
+    "fields": {
+      "user": 4,
+      "amount": "19900000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 19,900,000 تومان",
+      "created_at": "2026-06-29T18:45:28.316Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 13,
+    "fields": {
+      "user": 4,
+      "amount": "19900000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 19,900,000 تومان",
+      "created_at": "2026-06-29T18:51:52.392Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 14,
+    "fields": {
+      "user": 4,
+      "amount": "19900000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 19,900,000 تومان",
+      "created_at": "2026-06-29T18:51:52.404Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 15,
+    "fields": {
+      "user": 4,
+      "amount": "18800000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 18,800,000 تومان",
+      "created_at": "2026-06-29T18:52:29.065Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 16,
+    "fields": {
+      "user": 4,
+      "amount": "18800000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 18,800,000 تومان",
+      "created_at": "2026-06-29T18:52:29.075Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 17,
+    "fields": {
+      "user": 4,
+      "amount": "48800000",
+      "type": "deposit",
+      "description": "شارژ کیف پول - مبلغ 48,800,000 تومان",
+      "created_at": "2026-06-30T06:46:40.126Z"
+    }
+  },
+  {
+    "model": "users.usertransaction",
+    "pk": 18,
+    "fields": {
+      "user": 4,
+      "amount": "48800000",
+      "type": "payment",
+      "description": "پرداخت - مبلغ 48,800,000 تومان",
+      "created_at": "2026-06-30T06:46:40.143Z"
+    }
+  },
+  {
+    "model": "users.otpcode",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "phone": "09777777777",
+      "code": "733647",
+      "created_at": "2026-06-29T08:41:22.669Z",
+      "expires_at": "2026-06-29T08:46:22.669Z",
+      "is_used": true
+    }
+  },
+  {
+    "model": "users.otpcode",
+    "pk": 2,
+    "fields": {
+      "user": 3,
+      "phone": "09900032800",
+      "code": "334841",
+      "created_at": "2026-06-29T18:35:16.250Z",
+      "expires_at": "2026-06-29T18:40:16.250Z",
+      "is_used": true
+    }
+  },
+  {
+    "model": "users.otpcode",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "phone": "09357788565",
+      "code": "207773",
+      "created_at": "2026-06-29T18:36:01.077Z",
+      "expires_at": "2026-06-29T18:41:01.077Z",
+      "is_used": true
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 1,
+    "fields": {
+      "title": "تابلو و فرش",
+      "slug": "تابلو-و-فرش",
+      "description": "",
+      "image": "templates/screencapture-127-0-0-1-5500-template-index-html-2026-06-27-17_23_34.png",
+      "desktop_image": "templates/desktop/screencapture-127-0-0-1-5500-template-index-html-2026-06-27-17_23_34.png",
+      "tablet_image": "templates/tablet/screencapture-127-0-0-1-5500-template-index-html-2026-06-27-17_32_59.png",
+      "mobile_image": "templates/mobile/screencapture-127-0-0-1-5500-template-index-html-2026-06-27-17_29_01.png",
+      "desktop_home": "templates/desktop/sections/screencapture-127-0-0-1-5500-template-index-html-2026-06-27-17_23_34.png",
+      "desktop_store": "templates/desktop/sections/screencapture-127-0-0-1-5500-template-products-html-2026-06-27-17_24_53.png",
+      "desktop_about": "templates/desktop/sections/screencapture-127-0-0-1-5500-template-about-html-2026-06-27-17_24_41.png",
+      "desktop_blog": "templates/desktop/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_25_08.png",
+      "desktop_cart": "templates/desktop/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_26_58.png",
+      "desktop_login": "templates/desktop/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_26_25.png",
+      "desktop_dash": "templates/desktop/sections/screencapture-127-0-0-1-5500-template-user-panel-html-2026-06-27-17_27_36.png",
+      "tablet_home": "templates/tablet/sections/screencapture-127-0-0-1-5500-template-index-html-2026-06-27-17_32_59.png",
+      "tablet_store": "templates/tablet/sections/screencapture-127-0-0-1-5500-template-products-html-2026-06-27-17_32_36.png",
+      "tablet_about": "templates/tablet/sections/screencapture-127-0-0-1-5500-template-about-html-2026-06-27-17_32_47.png",
+      "tablet_blog": "templates/tablet/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_32_24.png",
+      "tablet_cart": "templates/tablet/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_34_17.png",
+      "tablet_login": "templates/tablet/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_33_33.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-127-0-0-1-5500-template-user-panel-html-2026-06-27-17_32_10.png",
+      "mobile_home": "templates/mobile/sections/screencapture-127-0-0-1-5500-template-index-html-2026-06-27-17_29_01.png",
+      "mobile_store": "templates/mobile/sections/screencapture-127-0-0-1-5500-template-products-html-2026-06-27-17_28_22.png",
+      "mobile_about": "templates/mobile/sections/screencapture-127-0-0-1-5500-template-about-html-2026-06-27-17_28_49.png",
+      "mobile_blog": "templates/mobile/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_28_11.png",
+      "mobile_cart": "templates/mobile/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_30_50.png",
+      "mobile_login": "templates/mobile/sections/screencapture-127-0-0-1-5500-template-blog-html-2026-06-27-17_29_59.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-127-0-0-1-5500-template-user-panel-html-2026-06-27-17_27_54.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:33:53.422Z",
+      "updated_at": "2026-06-29T07:33:53.422Z"
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 2,
+    "fields": {
+      "title": "دنداپزشکی",
+      "slug": "دنداپزشکی",
+      "description": "",
+      "image": "templates/screencapture-127-0-0-1-5500-templates-index-html-2026-06-28-17_12_35.png",
+      "desktop_image": "templates/desktop/screencapture-127-0-0-1-5500-templates-index-html-2026-06-28-17_12_35.png",
+      "tablet_image": "templates/tablet/screencapture-127-0-0-1-5500-templates-index-html-2026-06-28-17_14_59.png",
+      "mobile_image": "templates/mobile/screencapture-127-0-0-1-5500-templates-index-html-2026-06-28-17_18_46.png",
+      "desktop_home": "templates/desktop/sections/screencapture-127-0-0-1-5500-templates-index-html-2026-06-28-17_12_35.png",
+      "desktop_store": "templates/desktop/sections/screencapture-127-0-0-1-5500-templates-services-html-2026-06-28-17_13_45.png",
+      "desktop_about": "templates/desktop/sections/screencapture-127-0-0-1-5500-templates-aboutus-html-2026-06-28-17_13_31.png",
+      "desktop_blog": "",
+      "desktop_cart": "templates/desktop/sections/screencapture-127-0-0-1-5500-templates-appointment-html-2026-06-28-17_12_22.png",
+      "desktop_login": "templates/desktop/sections/screencapture-127-0-0-1-5500-templates-login-html-2026-06-28-17_13_19.png",
+      "desktop_dash": "templates/desktop/sections/screencapture-127-0-0-1-5500-templates-user-dashbord-html-2026-06-28-17_12_51.png",
+      "tablet_home": "templates/tablet/sections/screencapture-127-0-0-1-5500-templates-index-html-2026-06-28-17_14_59.png",
+      "tablet_store": "templates/tablet/sections/screencapture-127-0-0-1-5500-templates-services-html-2026-06-28-17_16_06.png",
+      "tablet_about": "templates/tablet/sections/screencapture-127-0-0-1-5500-templates-aboutus-html-2026-06-28-17_15_53.png",
+      "tablet_blog": "",
+      "tablet_cart": "templates/tablet/sections/screencapture-127-0-0-1-5500-templates-appointment-html-2026-06-28-17_14_44.png",
+      "tablet_login": "templates/tablet/sections/screencapture-127-0-0-1-5500-templates-login-html-2026-06-28-17_15_40.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-127-0-0-1-5500-templates-user-dashbord-html-2026-06-28-17_15_15.png",
+      "mobile_home": "templates/mobile/sections/screencapture-127-0-0-1-5500-templates-index-html-2026-06-28-17_18_46.png",
+      "mobile_store": "templates/mobile/sections/screencapture-127-0-0-1-5500-templates-services-html-2026-06-28-17_19_57.png",
+      "mobile_about": "templates/mobile/sections/screencapture-127-0-0-1-5500-templates-aboutus-html-2026-06-28-17_19_41.png",
+      "mobile_blog": "",
+      "mobile_cart": "templates/mobile/sections/screencapture-127-0-0-1-5500-templates-appointment-html-2026-06-28-17_18_27.png",
+      "mobile_login": "templates/mobile/sections/screencapture-127-0-0-1-5500-templates-login-html-2026-06-28-17_19_28.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-127-0-0-1-5500-templates-user-dashbord-html-2026-06-28-17_19_02.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:39:31.585Z",
+      "updated_at": "2026-06-29T08:11:39.483Z"
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 3,
+    "fields": {
+      "title": "دوچرخه",
+      "slug": "دوچرخه",
+      "description": "",
+      "image": "templates/screencapture-127-0-0-1-8000-2026-06-18-15_39_05.png",
+      "desktop_image": "templates/desktop/screencapture-127-0-0-1-8000-2026-06-18-15_39_05.png",
+      "tablet_image": "templates/tablet/screencapture-127-0-0-1-8000-2026-06-18-17_37_15.png",
+      "mobile_image": "templates/mobile/screencapture-127-0-0-1-8000-2026-06-18-17_45_01.png",
+      "desktop_home": "templates/desktop/sections/screencapture-127-0-0-1-8000-2026-06-18-15_39_05.png",
+      "desktop_store": "templates/desktop/sections/screencapture-127-0-0-1-8000-bikes-category-2026-06-18-15_40_06.png",
+      "desktop_about": "",
+      "desktop_blog": "templates/desktop/sections/screencapture-127-0-0-1-8000-bikes-blog-2026-06-18-15_43_00.png",
+      "desktop_cart": "templates/desktop/sections/screencapture-127-0-0-1-8000-orders-cart-2026-06-18-15_41_16.png",
+      "desktop_login": "templates/desktop/sections/screencapture-127-0-0-1-8000-accounts-login-2026-06-18-15_47_42.png",
+      "desktop_dash": "templates/desktop/sections/screencapture-127-0-0-1-8000-accounts-profile-2026-06-18-15_42_01.png",
+      "tablet_home": "templates/tablet/sections/screencapture-127-0-0-1-8000-2026-06-18-17_37_15.png",
+      "tablet_store": "templates/tablet/sections/screencapture-127-0-0-1-8000-bikes-category-2026-06-18-17_37_40.png",
+      "tablet_about": "",
+      "tablet_blog": "templates/tablet/sections/screencapture-127-0-0-1-8000-bikes-blog-2026-06-18-17_37_52.png",
+      "tablet_cart": "templates/tablet/sections/screencapture-127-0-0-1-8000-orders-cart-2026-06-18-17_42_42.png",
+      "tablet_login": "templates/tablet/sections/screencapture-127-0-0-1-8000-accounts-login-2026-06-28-16_27_24.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-127-0-0-1-8000-accounts-profile-2026-06-18-17_43_22.png",
+      "mobile_home": "templates/mobile/sections/screencapture-127-0-0-1-8000-2026-06-18-17_45_01.png",
+      "mobile_store": "templates/mobile/sections/screencapture-127-0-0-1-8000-bikes-category-2026-06-18-17_45_29.png",
+      "mobile_about": "",
+      "mobile_blog": "templates/mobile/sections/screencapture-127-0-0-1-8000-bikes-blog-2026-06-18-17_45_54.png",
+      "mobile_cart": "templates/mobile/sections/screencapture-127-0-0-1-8000-orders-cart-2026-06-18-17_48_23.png",
+      "mobile_login": "templates/mobile/sections/screencapture-127-0-0-1-8000-accounts-login-2026-06-28-16_29_53.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-127-0-0-1-8000-accounts-profile-2026-06-18-17_48_34.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:43:42.415Z",
+      "updated_at": "2026-06-29T08:12:15.125Z"
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 4,
+    "fields": {
+      "title": "قطعات خوردو",
+      "slug": "قطعات-خوردو",
+      "description": "",
+      "image": "templates/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-index1-html-2026-06-22-16_41_20.png",
+      "desktop_image": "templates/desktop/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-index1-html-2026-06-22-16_41_20.png",
+      "tablet_image": "templates/tablet/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-index1-html-2026-06-22-16_47_21.png",
+      "mobile_image": "templates/mobile/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-index1-html-2026-06-22-16_44_39.png",
+      "desktop_home": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-index1-html-2026-06-22-16_41_20.png",
+      "desktop_store": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-plan-html-2026-06-22-16_44_00.png",
+      "desktop_about": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-about-us-html-2026-06-22-16_42_37.png",
+      "desktop_blog": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-blog1-html-2026-06-22-16_43_21.png",
+      "desktop_cart": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-cart-html-2026-06-22-16_42_29.png",
+      "desktop_login": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-login-html-2026-06-22-16_41_08.png",
+      "desktop_dash": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-dashboard-karbar-html-2026-06-22-16_42_15.png",
+      "tablet_home": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-index1-html-2026-06-22-16_47_21.png",
+      "tablet_store": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-plan-html-2026-06-22-16_49_11.png",
+      "tablet_about": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-about-us-html-2026-06-22-16_48_11.png",
+      "tablet_blog": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-blog1-html-2026-06-22-16_49_01.png",
+      "tablet_cart": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-cart-html-2026-06-22-16_48_03.png",
+      "tablet_login": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-login-html-2026-06-22-16_47_13.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-dashboard-karbar-html-2026-06-22-16_47_53.png",
+      "mobile_home": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-index1-html-2026-06-22-16_44_39.png",
+      "mobile_store": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-plan-html-2026-06-22-16_45_57.png",
+      "mobile_about": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-about-us-html-2026-06-22-16_45_18.png",
+      "mobile_blog": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-blog1-html-2026-06-22-16_45_45_1.png",
+      "mobile_cart": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-cart-html-2026-06-22-16_45_09.png",
+      "mobile_login": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-login-html-2026-06-22-16_44_30.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-part-x-part-x-dashboard-karbar-html-2026-06-22-16_44_58.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:45:58.743Z",
+      "updated_at": "2026-06-29T07:48:41.644Z"
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 5,
+    "fields": {
+      "title": "لپتاپ",
+      "slug": "لپتاپ",
+      "description": "",
+      "image": "templates/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-index-html-2026-06-21-12_07_42.png",
+      "desktop_image": "templates/desktop/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-index-html-2026-06-21-12_07_42.png",
+      "tablet_image": "templates/tablet/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-index-html-2026-06-21-12_11_26.png",
+      "mobile_image": "templates/mobile/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-index-html-2026-06-21-12_09_25.png",
+      "desktop_home": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-index-html-2026-06-21-12_07_42.png",
+      "desktop_store": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-category-html-2026-06-21-12_08_39.png",
+      "desktop_about": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-about-html-2026-06-21-12_08_29.png",
+      "desktop_blog": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-blog-list-html-2026-06-21-12_08_51.png",
+      "desktop_cart": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-cart-html-2026-06-21-12_08_18.png",
+      "desktop_login": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-login-html-2026-06-21-12_08_10.png",
+      "desktop_dash": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-user-dashboard-html-2026-06-21-12_09_00.png",
+      "tablet_home": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-index-html-2026-06-21-12_11_26.png",
+      "tablet_store": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-category-html-2026-06-21-12_12_09.png",
+      "tablet_about": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-about-html-2026-06-21-12_11_58.png",
+      "tablet_blog": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-blog-list-html-2026-06-21-12_12_19.png",
+      "tablet_cart": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-cart-html-2026-06-21-12_11_48.png",
+      "tablet_login": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-login-html-2026-06-21-12_11_39.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-user-dashboard-html-2026-06-21-12_12_30.png",
+      "mobile_home": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-index-html-2026-06-21-12_09_25.png",
+      "mobile_store": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-category-html-2026-06-21-12_10_09.png",
+      "mobile_about": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-about-html-2026-06-21-12_09_57.png",
+      "mobile_blog": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-blog-list-html-2026-06-21-12_10_23.png",
+      "mobile_cart": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-cart-html-2026-06-21-12_09_46.png",
+      "mobile_login": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-login-html-2026-06-21-12_09_38.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-laptopShop-WebTemplate-Template-user-dashboard-html-2026-06-21-12_10_34.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:52:43.471Z",
+      "updated_at": "2026-06-29T07:52:43.471Z"
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 6,
+    "fields": {
+      "title": "زیورآلات",
+      "slug": "زیورآلات",
+      "description": "",
+      "image": "templates/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-landing-html-2026-06-20-15_44_27.png",
+      "desktop_image": "templates/desktop/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-landing-html-2026-06-20-15_44_27.png",
+      "tablet_image": "templates/tablet/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-landing-html-2026-06-20-15_51_17.png",
+      "mobile_image": "templates/mobile/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-landing-html-2026-06-20-15_52_52.png",
+      "desktop_home": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-landing-html-2026-06-20-15_44_27.png",
+      "desktop_store": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-shop-html-2026-06-20-15_44_43.png",
+      "desktop_about": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-about-html-2026-06-20-15_45_00.png",
+      "desktop_blog": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-blog-html-2026-06-20-15_45_12.png",
+      "desktop_cart": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-shoppingcart-html-2026-06-20-15_49_09.png",
+      "desktop_login": "templates/desktop/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-login-html-2026-06-20-15_48_57.png",
+      "desktop_dash": "templates/desktop/sections/Screenshot_2026-06-20_154736.png",
+      "tablet_home": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-landing-html-2026-06-20-15_51_17.png",
+      "tablet_store": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-shop-html-2026-06-20-15_51_03.png",
+      "tablet_about": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-about-html-2026-06-20-15_50_43.png",
+      "tablet_blog": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-blog-html-2026-06-20-15_50_28.png",
+      "tablet_cart": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-shoppingcart-html-2026-06-20-15_49_55.png",
+      "tablet_login": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-login-html-2026-06-20-15_50_06.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-dashboard-html-2026-06-20-15_50_17.png",
+      "mobile_home": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-landing-html-2026-06-20-15_52_52.png",
+      "mobile_store": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-template-shop-html-2026-06-20-15_53_09.png",
+      "mobile_about": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-about-html-2026-06-20-15_53_24.png",
+      "mobile_blog": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-blog-html-2026-06-20-15_53_37.png",
+      "mobile_cart": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-shoppingcart-html-2026-06-20-15_54_13.png",
+      "mobile_login": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-login-html-2026-06-20-15_54_02.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-file-C-Users-Win-Desktop-site-lar-luxora-dashboard-html-2026-06-20-15_53_53.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:56:24.954Z",
+      "updated_at": "2026-06-29T07:56:24.954Z"
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 7,
+    "fields": {
+      "title": "سیسمونی",
+      "slug": "سیسمونی",
+      "description": "",
+      "image": "templates/screencapture-127-0-0-1-5501-template-landingg-html-2026-06-21-11_39_06.png",
+      "desktop_image": "templates/desktop/screencapture-127-0-0-1-5501-template-landingg-html-2026-06-21-11_39_06.png",
+      "tablet_image": "templates/tablet/screencapture-127-0-0-1-5501-template-landingg-html-2026-06-21-11_43_48.png",
+      "mobile_image": "templates/mobile/screencapture-127-0-0-1-5501-template-landingg-html-2026-06-21-11_41_59.png",
+      "desktop_home": "templates/desktop/sections/screencapture-127-0-0-1-5501-template-landingg-html-2026-06-21-11_39_06.png",
+      "desktop_store": "templates/desktop/sections/screencapture-127-0-0-1-5501-template-shopping-html-2026-06-21-11_38_28.png",
+      "desktop_about": "templates/desktop/sections/screencapture-127-0-0-1-5501-template-darbare-html-2026-06-21-11_39_42.png",
+      "desktop_blog": "templates/desktop/sections/screencapture-127-0-0-1-5501-template-weblog-html-2026-06-21-11_38_42.png",
+      "desktop_cart": "templates/desktop/sections/screencapture-127-0-0-1-5501-template-sabadkharid-html-2026-06-21-11_39_25.png",
+      "desktop_login": "templates/desktop/sections/screencapture-127-0-0-1-5501-template-login-html-2026-06-21-11_38_20.png",
+      "desktop_dash": "templates/desktop/sections/screencapture-127-0-0-1-5501-template-dashbord-html-2026-06-21-11_38_54.png",
+      "tablet_home": "templates/tablet/sections/screencapture-127-0-0-1-5501-template-landingg-html-2026-06-21-11_43_48.png",
+      "tablet_store": "templates/tablet/sections/screencapture-127-0-0-1-5501-template-shopping-html-2026-06-21-11_44_46.png",
+      "tablet_about": "templates/tablet/sections/screencapture-127-0-0-1-5501-template-dashbord-html-2026-06-21-11_43_59.png",
+      "tablet_blog": "templates/tablet/sections/screencapture-127-0-0-1-5501-template-weblog-html-2026-06-21-11_44_10.png",
+      "tablet_cart": "templates/tablet/sections/screencapture-127-0-0-1-5501-template-sabadkharid-html-2026-06-21-11_43_36.png",
+      "tablet_login": "templates/tablet/sections/screencapture-127-0-0-1-5501-template-login-html-2026-06-21-11_44_56.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-127-0-0-1-5501-template-dashbord-html-2026-06-21-11_43_59_KElVNcy.png",
+      "mobile_home": "templates/mobile/sections/screencapture-127-0-0-1-5501-template-landingg-html-2026-06-21-11_41_59.png",
+      "mobile_store": "templates/mobile/sections/screencapture-127-0-0-1-5501-template-shopping-html-2026-06-21-11_42_39.png",
+      "mobile_about": "templates/mobile/sections/screencapture-127-0-0-1-5501-template-darbare-html-2026-06-21-11_40_23.png",
+      "mobile_blog": "templates/mobile/sections/screencapture-127-0-0-1-5501-template-weblog-html-2026-06-21-11_42_28.png",
+      "mobile_cart": "templates/mobile/sections/screencapture-127-0-0-1-5501-template-sabadkharid-html-2026-06-21-11_40_37.png",
+      "mobile_login": "templates/mobile/sections/screencapture-127-0-0-1-5501-template-login-html-2026-06-21-11_42_54.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-127-0-0-1-5501-template-dashbord-html-2026-06-21-11_42_16.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T07:59:40.044Z",
+      "updated_at": "2026-06-29T07:59:40.044Z"
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 8,
+    "fields": {
+      "title": "ساعت",
+      "slug": "ساعت",
+      "description": "",
+      "image": "templates/screencapture-127-0-0-1-8000-2026-06-28-18_13_53.png",
+      "desktop_image": "templates/desktop/screencapture-127-0-0-1-8000-2026-06-28-18_13_53.png",
+      "tablet_image": "templates/tablet/screencapture-127-0-0-1-8000-2026-06-28-18_16_31.png",
+      "mobile_image": "templates/mobile/screencapture-127-0-0-1-8000-2026-06-28-18_15_34.png",
+      "desktop_home": "templates/desktop/sections/screencapture-127-0-0-1-8000-2026-06-28-18_13_53.png",
+      "desktop_store": "templates/desktop/sections/screencapture-127-0-0-1-8000-products-2026-06-22-12_06_13.png",
+      "desktop_about": "",
+      "desktop_blog": "templates/desktop/sections/screencapture-127-0-0-1-8000-users-blogs-2026-06-22-12_05_48.png",
+      "desktop_cart": "templates/desktop/sections/screencapture-127-0-0-1-8000-cart-2026-06-22-12_06_00.png",
+      "desktop_login": "templates/desktop/sections/screencapture-127-0-0-1-8000-users-register-2026-06-22-12_05_34.png",
+      "desktop_dash": "templates/desktop/sections/screencapture-127-0-0-1-8000-users-dashboard-2026-06-22-12_07_01.png",
+      "tablet_home": "templates/tablet/sections/screencapture-127-0-0-1-8000-2026-06-28-18_16_31.png",
+      "tablet_store": "templates/tablet/sections/screencapture-127-0-0-1-8000-products-2026-06-22-12_09_05.png",
+      "tablet_about": "",
+      "tablet_blog": "templates/tablet/sections/screencapture-127-0-0-1-8000-users-blogs-2026-06-22-12_09_30.png",
+      "tablet_cart": "templates/tablet/sections/screencapture-127-0-0-1-8000-cart-2026-06-22-12_09_14.png",
+      "tablet_login": "templates/tablet/sections/screencapture-127-0-0-1-8000-users-register-2026-06-22-12_09_46.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-127-0-0-1-8000-users-dashboard-2026-06-22-12_08_44.png",
+      "mobile_home": "templates/mobile/sections/screencapture-127-0-0-1-8000-2026-06-28-18_15_34.png",
+      "mobile_store": "templates/mobile/sections/screencapture-127-0-0-1-8000-products-2026-06-22-12_17_15.png",
+      "mobile_about": "",
+      "mobile_blog": "templates/mobile/sections/screencapture-127-0-0-1-8000-users-blogs-2026-06-22-12_16_53.png",
+      "mobile_cart": "templates/mobile/sections/screencapture-127-0-0-1-8000-cart-2026-06-22-12_17_04.png",
+      "mobile_login": "templates/mobile/sections/Screenshot_2026-06-22_121631.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-127-0-0-1-8000-users-dashboard-2026-06-22-12_17_38.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T08:05:54.804Z",
+      "updated_at": "2026-06-29T08:05:54.804Z"
+    }
+  },
+  {
+    "model": "shop.template",
+    "pk": 9,
+    "fields": {
+      "title": "اسباب بازی",
+      "slug": "اسباب-بازی",
+      "description": "",
+      "image": "templates/screencapture-127-0-0-1-5500-Template-index-html-2026-06-28-18_23_47.png",
+      "desktop_image": "templates/desktop/screencapture-127-0-0-1-5500-Template-index-html-2026-06-28-18_23_47.png",
+      "tablet_image": "templates/tablet/screencapture-127-0-0-1-5500-Template-index-html-2026-06-28-18_45_38.png",
+      "mobile_image": "templates/mobile/screencapture-127-0-0-1-5500-Template-index-html-2026-06-28-18_57_51.png",
+      "desktop_home": "templates/desktop/sections/screencapture-127-0-0-1-5500-Template-index-html-2026-06-28-18_23_47.png",
+      "desktop_store": "templates/desktop/sections/screencapture-127-0-0-1-5500-Template-category-html-2026-06-28-18_35_16.png",
+      "desktop_about": "",
+      "desktop_blog": "templates/desktop/sections/screencapture-127-0-0-1-5500-Template-blog-list-html-2026-06-28-18_34_25.png",
+      "desktop_cart": "templates/desktop/sections/screencapture-127-0-0-1-5500-Template-cart-html-2026-06-28-18_26_06.png",
+      "desktop_login": "templates/desktop/sections/screencapture-127-0-0-1-5500-Template-login-html-2026-06-21-11_51_07.png",
+      "desktop_dash": "templates/desktop/sections/screencapture-127-0-0-1-5500-Template-user-dashboard-html-2026-06-21-11_51_25.png",
+      "tablet_home": "templates/tablet/sections/screencapture-127-0-0-1-5500-Template-index-html-2026-06-28-18_45_38.png",
+      "tablet_store": "templates/tablet/sections/screencapture-127-0-0-1-5500-Template-category-html-2026-06-28-18_43_52.png",
+      "tablet_about": "",
+      "tablet_blog": "templates/tablet/sections/screencapture-127-0-0-1-5500-Template-blog-list-html-2026-06-28-18_44_26.png",
+      "tablet_cart": "templates/tablet/sections/screencapture-127-0-0-1-5500-Template-cart-html-2026-06-28-18_44_57.png",
+      "tablet_login": "templates/tablet/sections/screencapture-127-0-0-1-5500-Template-login-html-2026-06-21-11_57_29.png",
+      "tablet_dash": "templates/tablet/sections/screencapture-127-0-0-1-5500-Template-user-dashboard-html-2026-06-21-11_57_22.png",
+      "mobile_home": "templates/mobile/sections/screencapture-127-0-0-1-5500-Template-index-html-2026-06-28-18_57_51.png",
+      "mobile_store": "templates/mobile/sections/screencapture-127-0-0-1-5500-Template-category-html-2026-06-28-18_56_06.png",
+      "mobile_about": "",
+      "mobile_blog": "templates/mobile/sections/screencapture-127-0-0-1-5500-Template-blog-list-html-2026-06-28-18_56_47.png",
+      "mobile_cart": "templates/mobile/sections/screencapture-127-0-0-1-5500-Template-cart-html-2026-06-28-18_57_10.png",
+      "mobile_login": "templates/mobile/sections/screencapture-127-0-0-1-5500-Template-login-html-2026-06-21-11_54_35.png",
+      "mobile_dash": "templates/mobile/sections/screencapture-127-0-0-1-5500-Template-user-dashboard-html-2026-06-21-11_54_50.png",
+      "is_popular": true,
+      "is_active": true,
+      "created_at": "2026-06-29T08:09:08.175Z",
+      "updated_at": "2026-06-29T08:09:08.175Z"
+    }
+  },
+  {
+    "model": "shop.websiteplan",
+    "pk": 1,
+    "fields": {
+      "name": "طرح استاندارد",
+      "plan_type": "standard",
+      "price": "18800000",
+      "description": "طرح پایه و اقتصادی برای شروع کسب و کار",
+      "features": [
+        "کد نویسی",
+        "تحویل ۳ روزه",
+        "اینماد و مجوزها",
+        "درگاه پرداخت"
+      ],
+      "is_active": true,
+      "created_at": "2026-06-29T13:24:12.964Z"
+    }
+  },
+  {
+    "model": "shop.websiteplan",
+    "pk": 2,
+    "fields": {
+      "name": "طرح پیشرفته",
+      "plan_type": "premium",
+      "price": "28800000",
+      "description": "طرح کامل برای فروشگاه‌های اینترنتی",
+      "features": [
+        "کد نویسی",
+        "تحویل ۷ روزه",
+        "دامنه رایگان",
+        "هاست ۶ ماهه",
+        "اینماد و مجوزها",
+        "درگاه پرداخت",
+        "گزارشات فروش"
+      ],
+      "is_active": true,
+      "created_at": "2026-06-29T13:24:12.972Z"
+    }
+  },
+  {
+    "model": "shop.websiteplan",
+    "pk": 3,
+    "fields": {
+      "name": "طرح حرفه‌ای",
+      "plan_type": "professional",
+      "price": "48800000",
+      "description": "طرح جامع با تمام امکانات و هوش مصنوعی",
+      "features": [
+        "کد نویسی",
+        "تحویل ۱۵ روزه",
+        "دامنه رایگان",
+        "هاست ۱ ساله",
+        "اینماد و مجوزها",
+        "درگاه پرداخت",
+        "چت بات هوش مصنوعی",
+        "اتصال به ترب و ایمالز",
+        "گزارشات فروش",
+        "آموزش رایگان"
+      ],
+      "is_active": true,
+      "created_at": "2026-06-29T13:24:12.978Z"
+    }
+  },
+  {
+    "model": "shop.websiteplanorder",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "plan": 1,
+      "status": "paid",
+      "amount": "18800000",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T13:24:44.520Z",
+      "domain": "",
+      "description": "",
+      "created_at": "2026-06-29T13:24:42.019Z",
+      "updated_at": "2026-06-29T13:24:44.520Z"
+    }
+  },
+  {
+    "model": "shop.websiteplanorder",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "plan": 2,
+      "status": "paid",
+      "amount": "28800000",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T14:17:30.058Z",
+      "domain": "",
+      "description": "",
+      "created_at": "2026-06-29T14:17:26.164Z",
+      "updated_at": "2026-06-29T14:17:30.058Z"
+    }
+  },
+  {
+    "model": "shop.websiteplanorder",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "plan": 3,
+      "status": "paid",
+      "amount": "48800000",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T18:36:16.283Z",
+      "domain": "",
+      "description": "",
+      "created_at": "2026-06-29T18:36:11.587Z",
+      "updated_at": "2026-06-29T18:36:16.284Z"
+    }
+  },
+  {
+    "model": "shop.websiteplanorder",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "plan": 2,
+      "status": "pending",
+      "amount": "28800000",
+      "transaction_id": null,
+      "paid_at": null,
+      "domain": "",
+      "description": "",
+      "created_at": "2026-06-29T18:37:08.025Z",
+      "updated_at": "2026-06-29T18:37:08.025Z"
+    }
+  },
+  {
+    "model": "shop.websiteplanorder",
+    "pk": 5,
+    "fields": {
+      "user": 4,
+      "plan": 2,
+      "status": "pending",
+      "amount": "28800000",
+      "transaction_id": null,
+      "paid_at": null,
+      "domain": "",
+      "description": "",
+      "created_at": "2026-06-29T18:44:25.667Z",
+      "updated_at": "2026-06-29T18:44:25.667Z"
+    }
+  },
+  {
+    "model": "shop.websiteplanorder",
+    "pk": 6,
+    "fields": {
+      "user": 4,
+      "plan": 2,
+      "status": "paid",
+      "amount": "28800000",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T18:44:37.338Z",
+      "domain": "",
+      "description": "",
+      "created_at": "2026-06-29T18:44:29.282Z",
+      "updated_at": "2026-06-29T18:44:37.338Z"
+    }
+  },
+  {
+    "model": "shop.websiteplanorder",
+    "pk": 7,
+    "fields": {
+      "user": 4,
+      "plan": 1,
+      "status": "paid",
+      "amount": "18800000",
+      "transaction_id": null,
+      "paid_at": "2026-06-29T18:52:29.081Z",
+      "domain": "",
+      "description": "",
+      "created_at": "2026-06-29T18:52:25.516Z",
+      "updated_at": "2026-06-29T18:52:29.081Z"
+    }
+  },
+  {
+    "model": "shop.websiteplanorder",
+    "pk": 8,
+    "fields": {
+      "user": 4,
+      "plan": 3,
+      "status": "paid",
+      "amount": "48800000",
+      "transaction_id": null,
+      "paid_at": "2026-06-30T06:46:40.149Z",
+      "domain": "",
+      "description": "",
+      "created_at": "2026-06-30T06:46:27.688Z",
+      "updated_at": "2026-06-30T06:46:40.149Z"
+    }
+  }
+]

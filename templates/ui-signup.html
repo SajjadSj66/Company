@@ -1,398 +1,34 @@
 {% load static %}
+{% load jformat %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, width=device-width">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@600&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" />
-  
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
   <style>
     a {
-		text-decoration: none !important;
-		}
+      text-decoration: none !important;
+    }
 
-		/* حفظ رنگ پیش‌فرض لینک‌ها */
-		a {
-		color: inherit;
-		}
+    /* حفظ رنگ پیش‌فرض لینک‌ها */
+    a {
+      color: inherit;
+    }
+
+    * {
+      font-family: Vazir !important;
+    }
+
     body {
       margin: 0;
       padding: 0;
+      width: 100%;
       box-sizing: border-box;
-      background-color: #f5f5f5;
-   
     }
- body{
-  margin: 0;
-  padding: 0;
- width: 100%;
-  box-sizing: border-box;
- }
-    
-/* ناو بار */
-.navbar-wrapper {
-  width: 100%;
-  height: 88px;
-  position: fixed;
-  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
-  text-align: left;
-  font-size: 16px;
-  color: #ebebeb;
-  font-family: Rubik;
-  align-items: center;
-  justify-self: center;
-  z-index: 1000;
-}
-.rectangle-parent {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 526px;
-  height: 88px;
-  overflow: hidden;
-}
-.frame-child {
-  position: absolute;
-  top: 0px;
-  left: -18px;
-  width: 422px;
-  height: 106px;
-  flex-shrink: 0;
-}
 
-.frame-wrapper {
-  position: absolute;
-  top: 18px;
-  left: 64px;
-  width: 293px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.cta-button-parent {
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.cta-button {
-  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
-  border-radius: 12px;
-  background-color: #1d3363;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 36px;
-  gap: 8px;
-}
-.phone-call-3-1 {
-  height: 16px;
-  width: 16px;
-  position: relative;
-}
-.button-label {
-  position: relative;
-}
-.frame-inner {
-  height: 48px;
-  width: 48px;
-  position: relative;
-  border-radius: 12px;
-}
-.frame-group {
-  position: absolute;
-  top: 16px;
-  border-radius: 16px;
-  width: 887px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 32px;
-  text-align: right;
-  font-size: 20px;
-  color: #fbf8f8;
-  font-family: "Google Sans Flex";
-}
-.parent {
-  display: flex;
-  align-items: center;
-  gap: 57px;
-}
-.div {
-  position: relative;
-  font-weight: 600;
-  cursor: pointer;
-}
-.div3 {
-  width: 69px;
-  position: relative;
-  font-weight: 600;
-  display: inline-block;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-.angle-small-down-2-2-parent,
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  cursor: pointer;
-  position: relative;
-}
 
-.angle-small-down-2-2-parent {
-  width: 97px;
-}
-
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  width: 110px;
-}
-
-.logo-icon {
-  height: 56px;
-  width: 56px;
-  position: relative;
-  right: 10px;
-}
-
-/* استایل‌های جدید برای دراپ‌منو */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 8px;
-  z-index: 1001;
-}
-
-.blog-dropdown {
-  right: 0;
-}
-
-.academy-dropdown {
-  right: 0;
-}
-
-.services-dropdown {
-  right: 0;
-}
-
-.services {
-  width: 100%;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 40px;
-}
-.component-44-parent {
-  height: 176px;
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-44 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.component-38:hover,
-.component-44:hover,
-.component-442:hover,
-.component-443:hover,
-.component-402:hover {
-  background-color: rgba(118, 130, 156, 0.6);
-}
-.div {
-  position: relative;
-  font-weight: 500;
-}
-
-.services-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-parent {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.component-38-parent :last-child {
-  border-bottom-right-radius: 12px;
-}
-.component-38-parent :first-child {
-  border-top-right-radius: 12px;
-}
-.component-44-parent :first-child {
-  border-top-left-radius: 12px;
-}
-.component-38 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.line-div {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-
-.academi {
-  width: 465px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 93%;
-  max-height: 90%;
-  overflow: hidden;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 110px;
-}
-.component-44-group {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.component-442 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div14 {
-  position: relative;
-  font-weight: 500;
-  white-space: pre-wrap;
-}
-.frame-child7 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.div15 {
-  position: relative;
-  font-weight: 500;
-}
-.academi-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-  flex-shrink: 0;
-}
-.component-38-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  flex-shrink: 0;
-}
-.component-402 {
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 24px 16px;
-}
-
-.blog {
-  width: 409px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-}
-.component-44-container {
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-443 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div20 {
-  position: relative;
-  font-weight: 500;
-}
-.frame-child13 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.blog-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-container {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
-.popup-overlay {
-  display: none;
-}
 
     .seo-course-page {
       justify-self: center;
@@ -407,8 +43,8 @@
       text-align: center;
       font-size: 14px;
       color: #ebebeb;
-      font-family: Poppins;
-      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+      font-family: Vazir;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
     }
 
     /* ========== BEM: About Section ========== */
@@ -493,12 +129,12 @@
       object-fit: cover;
       flex-shrink: 0;
       transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1), box-shadow 0.4s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
     .about-section__image:hover {
       transform: scale(1.02) translateY(-6px);
-      box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
     }
 
     /* ========== BEM: Course Features Section ========== */
@@ -536,7 +172,7 @@
     .course-features-section__grid {
       align-self: stretch;
       display: flex;
-      align-items: flex-start;
+
       gap: 24px;
       text-align: right;
       font-size: 18px;
@@ -566,12 +202,11 @@
       border: 2px solid #f0c040;
       background-color: #2a457e;
       transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
     }
 
     .feature-card__icon {
       position: relative;
-      left: 205px;
       width: 40px;
       height: 40px;
       border-radius: 20px;
@@ -633,7 +268,7 @@
     }
 
     .instructor-card:hover {
-      box-shadow: 0 20px 35px rgba(240, 192, 64, 0.18), 0 10px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 35px rgba(240, 192, 64, 0.18), 0 10px 20px rgba(0, 0, 0, 0.1);
       border-color: rgba(240, 192, 64, 0.4);
       transform: translateY(-4px);
       background-color: #ffffff;
@@ -673,7 +308,7 @@
 
     .instructor-card__title {
       position: relative;
-      left: 350px;
+      align-self: flex-start;
       font-size: 14px;
       font-weight: 600;
     }
@@ -710,133 +345,148 @@
       display: block;
     }
 
+
     /* ========== BEM: Registration Form ========== */
-.registration-form {
-  width: 500px;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.03);
-  border-radius: 20px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 40px;
-  box-sizing: border-box;
-  gap: 24px;
-  text-align: right;
-  color: #1d3363;
-}
+    .registration-form {
+      width: 500px;
+      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.03);
+      border-radius: 20px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 40px;
+      box-sizing: border-box;
+      gap: 24px;
+      text-align: right;
+      color: #1d3363;
+    }
 
-.registration-form__group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+    .registration-form__group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
-.registration-form__label {
-  font-weight: 600;
-  color: #1d3363;
-  font-size: 14px;
-  display: block;
-  cursor: pointer;
-}
+    .registration-form__label {
+      font-weight: 600;
+      color: #1d3363;
+      font-size: 14px;
+      display: block;
+      cursor: pointer;
+    }
 
-.registration-form__field {
-  width: 100%;
-  border-radius: 12px;
-  background-color: #fff;
-  border: 1px solid #e2e8f0;
-  display: flex;
-  align-items: flex-start;
-  transition: all 0.25s ease;
-}
+    .registration-form__field {
+      width: 100%;
+      border-radius: 12px;
+      background-color: #fff;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: flex-start;
+      transition: all 0.25s ease;
+    }
 
-/* Focus effect for input fields */
-.registration-form__field:focus-within {
-  border-color: #f0c040;
-  box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.2);
-}
+    /* Focus effect for input fields */
+    .registration-form__field:focus-within {
+      border-color: #f0c040;
+      box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.2);
+    }
 
-/* Input styling */
-.registration-form__input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  padding: 14px;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  text-align: right;
-  direction: rtl;
-  color: #1d3363;
-  box-sizing: border-box;
-  border-radius: 12px;
-}
+    /* Input styling */
+    .registration-form__input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 14px;
+      font-family: Vazir, sans-serif;
+      font-size: 14px;
+      text-align: right;
+      direction: rtl;
+      color: #1d3363;
+      box-sizing: border-box;
+      border-radius: 12px;
+    }
 
-.registration-form__input::placeholder {
-  color: #9ca3af;
-  font-family: Poppins, sans-serif;
-  text-align: right;
-}
+    .registration-form__input::placeholder {
+      color: #9ca3af;
+      font-family: Vazir, sans-serif;
+      text-align: right;
+    }
 
-/* Validation styles */
-.registration-form__input:invalid:not(:placeholder-shown) {
-  border-color: #ff4444;
-}
+    /* Validation styles */
+    .registration-form__input:invalid:not(:placeholder-shown) {
+      border-color: #ff4444;
+    }
 
-.registration-form__input:valid:not(:placeholder-shown) {
-  border-color: #4CAF50;
-}
+    .registration-form__input:valid:not(:placeholder-shown) {
+      border-color: #4CAF50;
+    }
 
-.registration-form__button-wrapper {
-  width: 100%;
-  padding: 8px 0px 0px;
-}
+    .registration-form__button-wrapper {
+      width: 100%;
+      padding: 8px 0px 0px;
+    }
 
-.registration-form__button {
-  width: 100%;
-  border-radius: 12px;
-  background-color: #f0c040;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: Poppins, sans-serif;
-  color: #1d3363;
-  font-weight: 700;
-  font-size: 16px;
-  box-shadow: 0 4px 10px rgba(240, 192, 64, 0.3);
-}
+    .registration-form__button {
+      width: 100%;
+      border-radius: 12px;
+      background-color: #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: Vazir, sans-serif;
+      color: #1d3363;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 10px rgba(240, 192, 64, 0.3);
+    }
 
-/* Button hover effect */
-.registration-form__button:hover {
-  background-color: #e5b030;
-  box-shadow: 0 8px 18px rgba(240, 192, 64, 0.5);
-  transform: translateY(-2px);
-}
+    /* Button hover effect */
+    .registration-form__button:hover {
+      background-color: #e5b030;
+      box-shadow: 0 8px 18px rgba(240, 192, 64, 0.5);
+      transform: translateY(-2px);
+    }
 
-.registration-form__button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(240, 192, 64, 0.4);
-}
+    .registration-form__button:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 8px rgba(240, 192, 64, 0.4);
+    }
 
-/* Loading state for button */
-.registration-form__button--loading {
-  opacity: 0.7;
-  cursor: not-allowed;
-  pointer-events: none;
-}
+    /* Loading state for button */
+    .registration-form__button--loading {
+      opacity: 0.7;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .registration-form {
-    width: 90%;
-    padding: 24px;
-  }
-}
+    /* Responsive */
+    @media (max-width: 600px) {
+      .registration-form {
+        width: 90%;
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 1380px) {
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-section__image {
+        width: 100%;
+      }
+
+      .about-section__content {
+        width: 100%;
+      }
+    }
 
     /* Responsive fallback for smaller screens */
     @media (max-width: 900px) {
@@ -844,722 +494,608 @@
         flex-direction: column;
         padding: 40px 20px;
       }
+
       .instructor-card {
         width: 100%;
         flex-direction: column;
       }
-      .instructor-card__name-row, 
-      .instructor-card__name, 
+
+      .instructor-card__name-row,
+      .instructor-card__name,
       .instructor-card__title {
         left: 0;
         text-align: center;
       }
+
       .instructor-card__badge {
         left: 0;
       }
     }
 
-    
-  /* ============================================= */
-/*     RESPONSIVE 390×844 - UI/UX PROFESSIONAL   */
-/* ============================================= */
-@media only screen and (max-width: 480px) {
-  
-  /* ===== HERO SECTION ===== */
-  .about-section {
-    flex-direction: column;
-    padding: 40px 20px 50px;
-    gap: 28px;
-  }
-  
-  .about-section__image {
-    width: 100%;
-    height: auto;
-    max-height: 280px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  }
-  
-  .about-section__content {
-    width: 100%;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  
-  .about-section__header {
-    align-items: flex-start;
-    gap: 8px;
-  }
-  
-  .about-section__header b {
-    font-size: 26px;
-    line-height: 1.3;
-  }
-  
-  .about-section__divider {
-    width: 60px;
-    height: 3px;
-  }
-  
-  .about-section__description {
-    font-size: 15px;
-    line-height: 1.8;
-  }
-  
-  .about-section__details {
-    gap: 16px;
-  }
-  
-  .about-section__item b {
-    font-size: 17px;
-  }
-  
-  .about-section__item-text {
-    font-size: 14px;
-    line-height: 1.75;
-  }
 
-  /* ===== FEATURES SECTION ===== */
-  .course-features-section {
-    padding: 60px 20px;
-    gap: 36px;
-  }
-  
-  .course-features-section__title {
-    gap: 8px;
-  }
-  
-  .course-features-section__subheading {
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-  
-  .course-features-section__heading {
-    font-size: 24px;
-    line-height: 1.4;
-  }
-  
-  .course-features-section__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    width: 100%;
-  }
-  
-  .feature-card {
-    width: 100%;
-    min-height: auto;
-    padding: 28px 18px 22px;
-    gap: 14px;
-    border-radius: 18px;
-    align-items: flex-start;
-  }
-  
-  .feature-card__icon {
-    left: auto;
-    align-self: flex-end;
-    width: 44px;
-    height: 44px;
-    margin-bottom: 4px;
-  }
-  
-  .feature-card__icon-img {
-    width: 22px;
-    height: 22px;
-  }
-  
-  .feature-card .about-section__item b {
-    font-size: 16px;
-    margin-bottom: 2px;
-  }
-  
-  .feature-card__text {
-    font-size: 13px;
-    line-height: 1.6;
-  }
+    /* ============================================= */
+    /*     RESPONSIVE 390×844 - UI/UX PROFESSIONAL   */
+    /* ============================================= */
+    @media only screen and (max-width: 480px) {
 
-  /* ===== INSTRUCTOR SECTION ===== */
-  .instructor-section {
-    padding: 60px 20px;
-    gap: 36px;
-    background-color: #f8f9fa;
-  }
-  
-  .instructor-section__heading {
-    font-size: 24px;
-  }
-  
-  .instructor-card {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding: 28px 22px;
-    gap: 18px;
-    border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  }
-  
-  /* ردیف بالا: عکس | نام + بج + تخصص (همه در سمت راست) */
-  .instructor-card__top-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    width: 100%;
-  }
-  
-  /* عکس دایره‌ای و شیک */
-  .instructor-card__photo {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    border: 3px solid rgba(240, 192, 64, 0.3);
-    box-shadow: 0 8px 20px rgba(240, 192, 64, 0.2);
-    order: 1;
-  }
-  
-  /* کانتینر اطلاعات کنار عکس */
-  .instructor-card__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    min-width: 0;
-    order: 2;
-    flex: unset;
-  }
-  
-  /* ردیف نام + بج */
-  .instructor-card__name-row {
-    position: static !important;
-    left: auto !important;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    flex-wrap: wrap;
-    text-align: right;
-  }
-  
-  .instructor-card__name {
-    position: static !important;
-    left: auto !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    color: #1d3363 !important;
-    white-space: nowrap;
-  }
-  
-  .instructor-card__badge {
-    position: static !important;
-    left: auto !important;
-    background: rgba(240, 192, 64, 0.12) !important;
-    border-radius: 20px !important;
-    padding: 4px 10px !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    white-space: nowrap;
-  }
-  
-  .instructor-card__badge b {
-    font-size: 11px !important;
-    color: #f0c040 !important;
-  }
-  
-  /* عنوان شغلی */
-  .instructor-card__title {
-    position: static !important;
-    left: auto !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    color: #6f6f6f !important;
-    text-align: right;
-  }
-  
-  /* بیوگرافی - زیر عکس میاد */
-  .instructor-card__bio {
-    width: 100%;
-    font-size: 14px !important;
-    line-height: 1.75 !important;
-    color: #6f6f6f !important;
-    text-align: right;
-    margin-top: 2px;
-  }
+      /* ===== HERO SECTION ===== */
+      .about-section {
+        flex-direction: column;
+        padding: 40px 20px 50px;
+        gap: 28px;
+      }
 
-  /* ===== REGISTRATION FORM ===== */
-  .registration-form {
-    width: 100%;
-    padding: 28px 20px;
-    gap: 20px;
-    border-radius: 20px;
-  }
-  
-  .registration-form__group {
-    gap: 6px;
-  }
-  
-  .registration-form__label {
-    font-size: 13px;
-  }
-  
-  .registration-form__field {
-    border-radius: 14px;
-  }
-  
-  .registration-form__input {
-    padding: 16px;
-    font-size: 14px;
-  }
-  
-  .registration-form__button {
-    padding: 16px 32px;
-    font-size: 16px;
-    border-radius: 14px;
-  }
-  /* ===== FOOTER ===== */
-  .site-footer-wrapper {
-    padding: 50px 20px 30px;
-    gap: 40px;
-    top: 0;
-  }
-  
-  .footer-grid-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 36px;
-    text-align: center;
-  }
-  
-  .quick-links-column,
-  .contact-info-column,
-  .brand-info-column {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .footer-heading-title {
-    text-align: center;
-  }
-  
-  .footer-heading-title::after {
-    right: 50%;
-    transform: translateX(50%);
-  }
-  
-  .footer-link-item:hover {
-    transform: translateX(0) scale(1.05);
-  }
-  
-  .brand-logo-wrapper {
-    justify-content: center;
-  }
-  
-  .brand-description-text,
-  .contact-address-text {
-    text-align: center;
-  }
-  
-  .copyright-bottom-bar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-    padding-top: 24px;
-  }
-  
-  .social-icons-group {
-    justify-content: center;
-  }
+      .about-section__image {
+        width: 100%;
+        height: auto;
+        max-height: 280px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
 
-  /* ===== UTILITY ===== */
-  body, 
-  .seo-course-page {
-    overflow-x: hidden;
-  }
-  
-  /* اصلاح بخش ثبت‌نام (حذف padding اضافی از course-features-section که توش هست) */
-  .course-features-section .registration-form {
-    margin: 0 auto;
-  }
-}
-/* ============================================= */
-/*  RESPONSIVE TABLET & IPAD (481px - 1024px)    */
-/* ============================================= */
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
-  
-  /* ===== HERO SECTION ===== */
-  .about-section {
-    flex-direction: column;
-    padding: 70px 40px 80px;
-    gap: 36px;
-  }
-  
-  .about-section__image {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    border-radius: 24px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  }
-  
-  .about-section__content {
-    width: 100%;
-    align-items: flex-start;
-    gap: 28px;
-  }
-  
-  .about-section__header {
-    align-items: flex-start;
-    gap: 12px;
-  }
-  
-  .about-section__header b {
-    font-size: 32px;
-    line-height: 1.3;
-  }
-  
-  .about-section__divider {
-    width: 80px;
-    height: 4px;
-  }
-  
-  .about-section__description {
-    font-size: 17px;
-    line-height: 1.85;
-    text-align: right;
-  }
-  
-  .about-section__details {
-    gap: 20px;
-  }
-  
-  .about-section__item {
-    align-items: flex-start;
-  }
-  
-  .about-section__item b {
-    font-size: 19px;
-    text-align: right;
-    width: 100%;
-  }
-  
-  .about-section__item-text {
-    font-size: 16px;
-    line-height: 1.75;
-    text-align: right;
-  }
+      .about-section__content {
+        width: 100%;
+        align-items: flex-end;
+        gap: 20px;
+      }
 
-  /* ===== FEATURES SECTION (۲ ستون - عین موبایل) ===== */
-  .course-features-section {
-    padding: 80px 40px;
-    gap: 48px;
-  }
-  
-  .course-features-section__title {
-    gap: 12px;
-  }
-  
-  .course-features-section__subheading {
-    font-size: 15px;
-    letter-spacing: 2px;
-  }
-  
-  .course-features-section__heading {
-    font-size: 30px;
-    line-height: 1.4;
-  }
-  
-  .course-features-section__grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 24px;
-    width: 100%;
-    align-items: stretch !important;
-  }
-  
-  .feature-card {
-    width: 100% !important;
-    height: 100% !important;
-    min-height: 240px;
-    padding: 36px 28px;
-    gap: 20px;
-    border-radius: 20px;
-    align-items: flex-start;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    flex: unset !important;
-  }
-  
-  .feature-card__icon {
-    left: auto !important;
-    align-self: flex-end;
-    width: 52px;
-    height: 52px;
-    margin-bottom: 6px;
-    flex-shrink: 0;
-  }
-  
-  .feature-card__icon-img {
-    width: 26px;
-    height: 26px;
-  }
-  
-  .feature-card .about-section__item {
-    align-items: flex-start;
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .feature-card .about-section__item b {
-    font-size: 18px;
-    margin-bottom: 4px;
-    text-align: right;
-  }
-  
-  .feature-card__text {
-    font-size: 15px;
-    line-height: 1.7;
-    text-align: right;
-  }
+      .about-section__header {
+        align-items: flex-start;
+        gap: 8px;
+      }
 
-  /* ===== INSTRUCTOR SECTION (عکس + نام + بج + تخصص راست‌چین - عین موبایل) ===== */
-  .instructor-section {
-    padding: 80px 40px;
-    gap: 48px;
-    background-color: #f8f9fa;
-  }
-  
-  .instructor-section__heading {
-    font-size: 30px;
-  }
-  
-  .instructor-card {
-    width: 100%;
-    max-width: 700px;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 32px;
-    gap: 24px;
-    border-radius: 24px;
-    background: #fff;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-    text-align: right;
-    margin: 0 auto;
-  }
-  
-  /* ردیف بالا: عکس | نام + بج + تخصص */
-  .instructor-card__top-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    width: 100%;
-  }
-  
-  /* عکس دایره‌ای */
-  .instructor-card__photo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    border: 3px solid rgba(240, 192, 64, 0.3);
-    box-shadow: 0 8px 20px rgba(240, 192, 64, 0.2);
-    order: 1;
-  }
-  
-  /* کانتینر اطلاعات کنار عکس */
-  .instructor-card__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    min-width: 0;
-    order: 2;
-    flex: unset;
-  }
-  
-  /* ردیف نام + بج */
-  .instructor-card__name-row {
-    position: static !important;
-    left: auto !important;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-    flex-wrap: wrap;
-    text-align: right;
-  }
-  
-  .instructor-card__name {
-    position: static !important;
-    left: auto !important;
-    font-size: 22px !important;
-    font-weight: 700 !important;
-    color: #1d3363 !important;
-    white-space: nowrap;
-  }
-  
-  .instructor-card__badge {
-    position: static !important;
-    left: auto !important;
-    background: rgba(240, 192, 64, 0.12) !important;
-    border-radius: 20px !important;
-    padding: 5px 14px !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    white-space: nowrap;
-  }
-  
-  .instructor-card__badge b {
-    font-size: 13px !important;
-    color: #f0c040 !important;
-  }
-  
-  /* عنوان شغلی */
-  .instructor-card__title {
-    position: static !important;
-    left: auto !important;
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    color: #6f6f6f !important;
-    text-align: right;
-  }
-  
-  /* بیوگرافی - زیر عکس */
-  .instructor-card__bio {
-    width: 100%;
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-    color: #6f6f6f !important;
-    text-align: right;
-    margin-top: 4px;
-  }
+      .about-section__header b {
+        font-size: 26px;
+        line-height: 1.3;
+      }
 
-  /* ===== REGISTRATION FORM ===== */
-  .registration-form {
-    width: 100%;
-    max-width: 600px;
-    padding: 40px 32px;
-    gap: 28px;
-    border-radius: 24px;
-    margin: 0 auto;
-  }
-  
-  .registration-form__group {
-    gap: 10px;
-  }
-  
-  .registration-form__label {
-    font-size: 16px;
-  }
-  
-  .registration-form__field {
-    border-radius: 16px;
-  }
-  
-  .registration-form__input {
-    padding: 18px 20px;
-    font-size: 16px;
-  }
-  
-  .registration-form__button {
-    padding: 18px 36px;
-    font-size: 18px;
-    border-radius: 16px;
-  }
+      .about-section__divider {
+        width: 60px;
+        height: 3px;
+      }
 
-  /* ===== FOOTER (کاملاً وسط‌چین - عین موبایل) ===== */
-  .site-footer-wrapper {
-    padding: 80px 40px 50px;
-    gap: 56px;
-    top: 0;
-  }
-  
-  .footer-grid-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 48px;
-    text-align: center;
-  }
-  
-  .quick-links-column,
-  .contact-info-column,
-  .brand-info-column {
-    width: 100%;
-    max-width: 550px;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .footer-heading-title {
-    text-align: center;
-    font-size: 20px;
-  }
-  
-  .footer-heading-title::after {
-    right: 50%;
-    transform: translateX(50%);
-  }
-  
-  .footer-link-item {
-    font-size: 16px;
-  }
-  
-  .footer-link-item:hover {
-    transform: translateX(0) scale(1.05);
-  }
-  
-  .brand-logo-wrapper {
-    justify-content: center;
-  }
-  
-  .brand-description-text,
-  .contact-address-text {
-    text-align: center;
-    font-size: 15px;
-  }
-  
-  .copyright-bottom-bar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 28px;
-    padding-top: 32px;
-    font-size: 14px;
-  }
-  
-  .social-icons-group {
-    justify-content: center;
-    gap: 16px;
-  }
-  
-  .social-icon-circle {
-    width: 48px;
-    height: 48px;
-  }
+      .about-section__description {
+        font-size: 15px;
+        line-height: 1.8;
+      }
 
-  /* ===== UTILITY ===== */
-  body, 
-  .seo-course-page {
-    overflow-x: hidden;
-  }
-  
-  /* اصلاح بخش ثبت‌نام */
-  .course-features-section .registration-form {
-    margin: 0 auto;
-  }
-}
+      .about-section__details {
+        gap: 16px;
+      }
 
+      .about-section__item b {
+        font-size: 17px;
+      }
+
+      .about-section__item-text {
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      /* ===== FEATURES SECTION ===== */
+      .course-features-section {
+        padding: 60px 20px;
+        gap: 36px;
+      }
+
+      .course-features-section__title {
+        gap: 8px;
+      }
+
+      .course-features-section__subheading {
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+
+      .course-features-section__heading {
+        font-size: 24px;
+        line-height: 1.4;
+      }
+
+      .course-features-section__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        width: 100%;
+      }
+
+      .feature-card {
+        width: 100%;
+        min-height: auto;
+        padding: 28px 18px 22px;
+        gap: 14px;
+        border-radius: 18px;
+        align-items: flex-end;
+      }
+
+      .feature-card__icon {
+        left: auto;
+        align-self: flex-end;
+        width: 44px;
+        height: 44px;
+        margin-bottom: 4px;
+      }
+
+      .feature-card__icon-img {
+        width: 22px;
+        height: 22px;
+      }
+
+      .feature-card .about-section__item b {
+        font-size: 16px;
+        margin-bottom: 2px;
+      }
+
+      .feature-card__text {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      /* ===== INSTRUCTOR SECTION ===== */
+      .instructor-section {
+        padding: 60px 20px;
+        gap: 36px;
+        background-color: #f8f9fa;
+      }
+
+      .instructor-section__heading {
+        font-size: 24px;
+      }
+
+      .instructor-card {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 28px 22px;
+        gap: 18px;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      }
+
+      /* ردیف بالا: همه در سمت راست */
+      .instructor-card__top-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        width: 100%;
+      }
+
+      /* عکس دایره‌ای در سمت راست */
+      .instructor-card__photo {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        border: 3px solid rgba(240, 192, 64, 0.3);
+        box-shadow: 0 8px 20px rgba(240, 192, 64, 0.2);
+        order: 1;
+      }
+
+      /* کانتینر اطلاعات: نام + بج + تخصص */
+      .instructor-card__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
+        order: 2;
+      }
+
+      /* ردیف نام + بج */
+      .instructor-card__name-row {
+        position: static !important;
+        left: auto !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .instructor-card__name {
+        position: static !important;
+        left: auto !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #1d3363 !important;
+        white-space: nowrap;
+      }
+
+      .instructor-card__badge {
+        position: static !important;
+        left: auto !important;
+        background: rgba(240, 192, 64, 0.12) !important;
+        border-radius: 20px !important;
+        padding: 4px 10px !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        white-space: nowrap;
+      }
+
+      .instructor-card__badge b {
+        font-size: 11px !important;
+        color: #f0c040 !important;
+      }
+
+      /* عنوان شغلی - سمت راست */
+      .instructor-card__title {
+        position: static !important;
+        left: auto !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        color: #6f6f6f !important;
+        text-align: right;
+      }
+
+      /* بیوگرافی - زیر همه موارد بالا */
+      .instructor-card__bio {
+        width: 100%;
+        font-size: 14px !important;
+        line-height: 1.75 !important;
+        color: #6f6f6f !important;
+        text-align: right;
+        margin-top: 2px;
+      }
+
+      /* ===== REGISTRATION FORM ===== */
+      .registration-form {
+        width: 100%;
+        padding: 28px 20px;
+        gap: 20px;
+        border-radius: 20px;
+      }
+
+      .registration-form__group {
+        gap: 6px;
+      }
+
+      .registration-form__label {
+        font-size: 13px;
+      }
+
+      .registration-form__field {
+        border-radius: 14px;
+      }
+
+      .registration-form__input {
+        padding: 16px;
+        font-size: 14px;
+      }
+
+      .registration-form__button {
+        padding: 16px 32px;
+        font-size: 16px;
+        border-radius: 14px;
+      }
+
+
+      /* ===== UTILITY ===== */
+      body,
+      .seo-course-page {
+        overflow-x: hidden;
+      }
+    }
+
+    /* ============================================= */
+    /*  RESPONSIVE TABLET & IPAD (481px - 1024px)    */
+    /* ============================================= */
+    @media only screen and (min-width: 481px) and (max-width: 1024px) {
+
+      /* ===== HERO SECTION ===== */
+      .about-section {
+        flex-direction: column;
+        padding: 70px 40px 80px;
+        gap: 36px;
+      }
+
+      .about-section__image {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-section__content {
+        width: 100%;
+        align-items: flex-start;
+        gap: 28px;
+      }
+
+      .about-section__header {
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .about-section__header b {
+        font-size: 32px;
+        line-height: 1.3;
+      }
+
+      .about-section__divider {
+        width: 80px;
+        height: 4px;
+      }
+
+      .about-section__description {
+        font-size: 17px;
+        line-height: 1.85;
+        text-align: right;
+      }
+
+      .about-section__details {
+        gap: 20px;
+      }
+
+      .about-section__item {
+        align-items: flex-start;
+      }
+
+      .about-section__item b {
+        font-size: 19px;
+        text-align: right;
+        width: 100%;
+      }
+
+      .about-section__item-text {
+        font-size: 16px;
+        line-height: 1.75;
+        text-align: right;
+      }
+
+      /* ===== FEATURES SECTION (۲ ستون - عین موبایل) ===== */
+      .course-features-section {
+        padding: 80px 40px;
+        gap: 48px;
+      }
+
+      .course-features-section__title {
+        gap: 12px;
+      }
+
+      .course-features-section__subheading {
+        font-size: 15px;
+        letter-spacing: 2px;
+      }
+
+      .course-features-section__heading {
+        font-size: 30px;
+        line-height: 1.4;
+      }
+
+      .course-features-section__grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 24px;
+        width: 100%;
+        align-items: stretch !important;
+      }
+
+      .feature-card {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 240px;
+        padding: 36px 28px;
+        gap: 20px;
+        border-radius: 20px;
+        align-items: flex-end;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        flex: unset !important;
+      }
+
+      .feature-card__icon {
+        left: auto !important;
+        align-self: flex-end;
+        width: 52px;
+        height: 52px;
+        margin-bottom: 6px;
+        flex-shrink: 0;
+      }
+
+      .feature-card__icon-img {
+        width: 26px;
+        height: 26px;
+      }
+
+      .feature-card .about-section__item {
+        align-items: flex-end;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .feature-card .about-section__item b {
+        font-size: 18px;
+        margin-bottom: 4px;
+        text-align: right;
+      }
+
+      .feature-card__text {
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: right;
+      }
+
+      /* ===== INSTRUCTOR SECTION (عکس + نام وسط‌چین - عین موبایل) ===== */
+      .instructor-section {
+        padding: 80px 40px;
+        gap: 48px;
+        background-color: #f8f9fa;
+      }
+
+      .instructor-section__heading {
+        font-size: 30px;
+      }
+
+      .instructor-card {
+        width: 100%;
+        max-width: 700px;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 32px;
+        gap: 24px;
+        border-radius: 24px;
+        background: #fff;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      /* عکس دایره‌ای وسط */
+      .instructor-card__photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        border: 3px solid rgba(240, 192, 64, 0.3);
+        box-shadow: 0 8px 20px rgba(240, 192, 64, 0.2);
+        margin: 0 auto;
+      }
+
+      /* کانتینر اطلاعات - وسط‌چین */
+      .instructor-card__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        flex: unset;
+        width: 100%;
+      }
+
+      /* ردیف نام + بج - وسط‌چین */
+      .instructor-card__name-row {
+        position: static !important;
+        left: auto !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+
+      .instructor-card__name {
+        position: static !important;
+        left: auto !important;
+        font-size: 26px !important;
+        font-weight: 700 !important;
+        color: #1d3363 !important;
+        white-space: nowrap;
+      }
+
+      .instructor-card__badge {
+        position: static !important;
+        left: auto !important;
+        background: rgba(240, 192, 64, 0.12) !important;
+        border-radius: 20px !important;
+        padding: 6px 16px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        white-space: nowrap;
+      }
+
+      .instructor-card__badge b {
+        font-size: 14px !important;
+        color: #f0c040 !important;
+      }
+
+      /* عنوان شغلی - وسط‌چین */
+      .instructor-card__title {
+        position: static !important;
+        left: auto !important;
+        font-size: 18px !important;
+        font-weight: 500 !important;
+        color: #6f6f6f !important;
+        text-align: center;
+      }
+
+      /* بیوگرافی - وسط‌چین */
+      .instructor-card__bio {
+        width: 100%;
+        max-width: 550px;
+        font-size: 16px !important;
+        line-height: 1.8 !important;
+        color: #6f6f6f !important;
+        text-align: center;
+        margin-top: 6px;
+      }
+
+      /* ===== REGISTRATION FORM ===== */
+      .registration-form {
+        width: 100%;
+        max-width: 600px;
+        padding: 40px 32px;
+        gap: 28px;
+        border-radius: 24px;
+        margin: 0 auto;
+      }
+
+      .registration-form__group {
+        gap: 10px;
+      }
+
+      .registration-form__label {
+        font-size: 16px;
+      }
+
+      .registration-form__field {
+        border-radius: 16px;
+      }
+
+      .registration-form__input {
+        padding: 18px 20px;
+        font-size: 16px;
+      }
+
+      .registration-form__button {
+        padding: 18px 36px;
+        font-size: 18px;
+        border-radius: 16px;
+      }
+
+
+      /* ===== UTILITY ===== */
+      body,
+      .seo-course-page {
+        overflow-x: hidden;
+      }
+    }
+
+    /* Vazir - Medium */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - Bold */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - thin */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
   </style>
 </head>
 <body>
@@ -1571,7 +1107,7 @@
   <div class="seo-course-page">
     <!-- About / Hero Section -->
     <div class="about-section">
-      <img class="about-section__image" src="{% static "img/uimain.png" %}" alt="تصویر دوره سئو">
+      <img class="about-section__image" src="{% static 'img/uimain.png' %}" alt="تصویر دوره سئو">
       <div class="about-section__content">
         <div class="about-section__header">
           <b class="u-text-highlight"> آموزش UI/UX </b>
@@ -1671,7 +1207,7 @@
     </div>
     <!-- Registration Form Section (Real form with focus & right-aligned text) -->
     <!-- فرم واقعی با متد POST -->
-    <form class="registration-form" action="{% url "courses:ui_signup" %}" method="POST" id="registrationForm">
+    <form class="registration-form" action="{% url 'courses:ui_signup' %}" method="POST" id="registrationForm">
       {% csrf_token %}
         <!-- Field 1 -->
         <div class="registration-form__group">
@@ -1729,58 +1265,10 @@
         </div>
     </form>
   </div>
+  </div>
 
-
-
-  	<!-- فوتر  -->
-		{% include "includes/footer.html" %}
-  <script>
-        		// تابع باز و بسته کردن دراپ‌منو
-    		function toggleDropdown(triggerId, dropdownId) {
-      			var trigger = document.getElementById(triggerId);
-      			var dropdown = document.getElementById(dropdownId);
-      			
-      			if(trigger && dropdown) {
-        				trigger.addEventListener("click", function(e) {
-          					e.stopPropagation();
-          					
-          					// بستن همه دراپ‌منوهای دیگر
-          					document.querySelectorAll('.dropdown-content').forEach(function(el) {
-            						if(el.id !== dropdownId) {
-              							el.style.display = 'none';
-            						}
-          					});
-          					
-          					// باز و بسته کردن دراپ‌منو فعلی
-          					if(dropdown.style.display === 'flex') {
-            						dropdown.style.display = 'none';
-          					} else {
-            						dropdown.style.display = 'flex';
-          					}
-        				});
-      			}
-    		}
-    		
-    		// بستن دراپ‌منو با کلیک خارج از آن
-    		document.addEventListener("click", function() {
-      			document.querySelectorAll('.dropdown-content').forEach(function(el) {
-        				el.style.display = 'none';
-      			});
-    		});
-    		
-    		// جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
-    		document.querySelectorAll('.dropdown-content').forEach(function(el) {
-      			el.addEventListener("click", function(e) {
-        				e.stopPropagation();
-      			});
-    		});
-    		
-    		// راه‌اندازی دراپ‌منوها
-    		toggleDropdown('frameContainer', 'blogDropdown');
-    		toggleDropdown('frameContainer1', 'academyDropdown');
-    		toggleDropdown('frameContainer2', 'servicesDropdown');
-
-
-  </script>
+  	 <!-- فوتر  -->
+  {% include "includes/footer.html" %}
+  <script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>

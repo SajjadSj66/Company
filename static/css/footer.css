@@ -1,0 +1,459 @@
+ /* === کلاس‌های اصلی فوتر === */
+ .site-footer {
+     width: 100vw;
+     /* به جای 100% از 100vw استفاده کن */
+     max-width: none;
+     /* حتماً none کن */
+     background-color: #16264a;
+     padding: 64px 48px 32px;
+     color: #ebebeb;
+     display: flex;
+     flex-direction: column;
+     gap: 48px;
+     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+     direction: rtl;
+     text-align: right;
+     margin: 0;
+     margin-top: 75px;
+     position: relative;
+     box-sizing: border-box;
+     margin-top: 200px;
+ }
+
+ * {
+     font-family: Vazir;
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ /* === بخش ستون‌ها === */
+ .footer-grid {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: flex-start;
+     gap: 28px;
+ }
+
+ /* ستون درباره شرکت */
+ .about-col {
+     flex: 1 1 280px;
+     min-width: 230px;
+ }
+
+ .brand-header {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     margin-bottom: 20px;
+ }
+
+ .brand-name {
+     font-size: 24px;
+     font-weight: 800;
+     color: #ffffff;
+     letter-spacing: -0.3px;
+ }
+
+ .brand-logo {
+     width: 52px;
+     height: 52px;
+     background-color: #f0c040;
+     border-radius: 12px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     justify-items: center;
+
+
+ }
+
+ .logo-inner {
+     width: 40px;
+     height: 40px;
+ }
+
+
+ .logo-inner img {
+     width: 40px;
+     height: 40px;
+
+ }
+
+ .about-desc {
+     font-size: 14px;
+     line-height: 2;
+     color: #cfd4de;
+     max-width: 380px;
+ }
+
+ /* ستون‌های لینک (دو بخش) */
+ .links-col {
+     flex: 1 1 160px;
+     min-width: 250px;
+ }
+
+ .links-col a {
+     text-decoration: none;
+ }
+
+ .col-heading {
+     font-size: 16px;
+     font-weight: 700;
+     color: #ffffff;
+     margin-bottom: 18px;
+     display: block;
+     white-space: nowrap;
+ }
+
+ .footer-links {
+     display: flex;
+     flex-direction: column;
+     gap: 13px;
+ }
+
+ .footer-links a {
+     color: #cfd4de;
+     text-decoration: none;
+     font-size: 14px;
+     transition: color 0.2s;
+     cursor: pointer;
+ }
+
+ .footer-links a:hover {
+     color: #f0c040;
+ }
+
+ /* ستون ارتباط با ما */
+ .contact-col {
+     flex: 0 1 260px;
+     min-width: 220px;
+ }
+
+ .contact-items {
+     display: flex;
+     flex-direction: column;
+     gap: 14px;
+     margin-bottom: 22px;
+ }
+
+ .contact-line {
+     color: #cfd4de;
+     font-size: 14px;
+     line-height: 1.7;
+ }
+
+ .certs-box {
+     margin-top: 6px;
+ }
+
+ .certs-label {
+     font-size: 15px;
+     font-weight: 700;
+     color: #ffffff;
+     margin-bottom: 12px;
+ }
+
+ .cert-thumbnails {
+     display: flex;
+     gap: 14px;
+ }
+
+ .cert-thumb {
+     width: 64px;
+     height: 64px;
+     border-radius: 8px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+     position: relative;
+ }
+
+ .cert-thumb img {
+     border-radius: 8px;
+     width: 64px;
+     height: 64px;
+
+ }
+
+
+ .cert-thumb::after {
+     content: "";
+     width: 32px;
+     height: 32px;
+     border-radius: 4px;
+ }
+
+ /* === بخش پایینی === */
+ .footer-strip {
+     direction: ltr;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: space-between;
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+     padding-top: 28px;
+     gap: 20px;
+     font-size: 13px;
+     color: #9ca3af;
+ }
+
+
+ .social-icons {
+     display: flex;
+     gap: 14px;
+ }
+
+ .social-circle {
+     width: 44px;
+     height: 44px;
+     background-color: #f0c040;
+     border-radius: 12px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0 6px 14px rgba(240, 192, 64, 0.35);
+     cursor: pointer;
+     transition: 0.2s;
+ }
+
+ .social-circle:hover {
+     background-color: #d4a82e;
+ }
+
+ .social-dot {
+     display: flex;
+     justify-content: center;
+ }
+
+ .social-dot img {
+     width: 24px;
+     height: 24px;
+
+
+ }
+
+ .copyright-text {
+     direction: rtl;
+     text-align: right;
+ }
+
+ @media(max-width:1024px) {
+     .site-footer {
+         padding: 40px 20px 24px;
+         text-align: center;
+     }
+
+     .about-col {
+         flex: 1 1 100%;
+         text-align: center;
+     }
+
+     .about-col .brand-header {
+         justify-content: center;
+     }
+
+     .about-desc {
+         text-align: center;
+         max-width: 100%;
+     }
+
+     .links-col {
+         flex: 1 1 100%;
+         text-align: center;
+     }
+
+     .links-col .footer-links {
+         align-items: center;
+     }
+
+     .contact-col {
+         flex: 1 1 100%;
+         text-align: center;
+     }
+
+     .contact-col .cert-thumbnails {
+         justify-content: center;
+     }
+
+     .footer-strip {
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+     }
+
+     .copyright-text {
+         text-align: center;
+         width: 100%;
+     }
+ }
+
+ /* === واکنش‌گرایی === */
+ @media (max-width: 950px) {
+     .footer-grid {
+         gap: 24px;
+     }
+
+     .about-col {
+         flex: 1 1 100%;
+         text-align: center;
+     }
+
+     .about-col .brand-header {
+         justify-content: center;
+     }
+
+     .about-desc {
+         max-width: 100%;
+         text-align: center;
+     }
+
+     .links-col {
+         flex: 1 1 40%;
+         text-align: center;
+     }
+
+     .links-col .footer-links {
+         align-items: center;
+     }
+
+     .contact-col {
+         flex: 1 1 45%;
+         text-align: center;
+     }
+
+     .contact-col .cert-thumbnails {
+         justify-content: center;
+     }
+
+     .footer-strip {
+         justify-content: center;
+         text-align: center;
+     }
+
+     .copyright-text {
+         text-align: center;
+         width: 100%;
+     }
+ }
+
+ @media (max-width: 600px) {
+
+     .site-footer {
+         padding: 40px 20px 24px;
+         text-align: center;
+     }
+
+     .about-col {
+         flex: 1 1 100%;
+         text-align: center;
+     }
+
+     .about-col .brand-header {
+         justify-content: center;
+     }
+
+     .about-desc {
+         text-align: center;
+         max-width: 100%;
+     }
+
+     .links-col {
+         flex: 1 1 100%;
+         text-align: center;
+     }
+
+     .links-col .footer-links {
+         align-items: center;
+     }
+
+     .contact-col {
+         flex: 1 1 100%;
+         text-align: center;
+     }
+
+     .contact-col .cert-thumbnails {
+         justify-content: center;
+     }
+
+     .footer-strip {
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+     }
+
+     .copyright-text {
+         text-align: center;
+         width: 100%;
+     }
+ }
+
+ @media (max-width: 1024px) {
+     .site-footer {
+         padding: 40px 30px 24px;
+     }
+
+     .footer-grid {
+         gap: 24px;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .site-footer {
+         padding: 30px 20px 20px;
+     }
+
+     .footer-grid {
+         gap: 20px;
+     }
+
+     .footer-links {
+         align-items: center;
+     }
+
+     .footer-strip {
+         flex-direction: column;
+         align-items: center;
+         gap: 16px;
+     }
+ }
+
+ @media (max-width: 480px) {
+     .site-footer {
+         padding: 24px 16px 16px;
+     }
+
+     .footer-links a,
+     .contact-line {
+         font-size: 12px;
+     }
+ }
+
+ /* Vazir - Medium */
+ @font-face {
+     font-family: 'Vazir';
+     src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+     font-weight: 500;
+     font-style: normal;
+     font-display: swap;
+ }
+
+ /* Vazir - Bold */
+ @font-face {
+     font-family: 'Vazir';
+     src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+     font-weight: 700;
+     font-style: normal;
+     font-display: swap;
+ }
+
+ /* Vazir - thin */
+ @font-face {
+     font-family: 'Vazir';
+     src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+     font-weight: 900;
+     font-style: normal;
+     font-display: swap;
+ }

@@ -435,11 +435,14 @@ def seo_signup(request):
 
 def ai_signup(request):
     if request.method == 'POST':
+        print("ok")
+
         form = AiSignUpForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect("index")
     else:
-        form = SeoSignUpForm()
+        form = AiSignUpForm()
     return render(request, 'ai-signup.html')
 
 

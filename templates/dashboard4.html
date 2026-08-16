@@ -1,0 +1,1477 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .persian-rtl-dashboard {
+        width: 100%;
+        position: relative;
+        background-color: #fcfcfc;
+        overflow-x: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        min-height: 100vh;
+        text-align: right;
+        font-size: 22px;
+        color: #1d3363;
+        font-family: Vazir;
+      }
+      .maincontent {
+        min-width: 320px;
+        flex: 1 1 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 40px 40px;
+        box-sizing: border-box;
+        gap: 80px;
+      }
+      .headerbar {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-shrink: 0;
+      }
+      .usercontrols {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .notificationbell {
+        height: 40px;
+        width: 40px;
+        border-radius: 100px;
+        background-color: #f8f9fa;
+        border: 1px solid #e8ecf0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        isolation: isolate;
+      }
+      .bell-icon {
+        height: 20px;
+        width: 20px;
+        position: relative;
+        z-index: 0;
+      }
+      .ellipse {
+        height: 8px;
+        width: 8px;
+        position: absolute;
+        margin: 0 !important;
+        top: 11px;
+        right: 11px;
+        border-radius: 50%;
+        background-color: #ff6b6b;
+        z-index: 1;
+      }
+      .greetingsection {
+        display: flex;
+        flex-direction: column;
+        align-items: flex;
+        gap: 4px;
+      }
+      .div {
+        position: relative;
+        font-weight: 800;
+      }
+      .div2 {
+        position: relative;
+        font-size: 13px;
+        color: #7e848c;
+      }
+      .page-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 0px 80px;
+        box-sizing: border-box;
+        gap: 32px;
+        flex-shrink: 0;
+        font-size: 18px;
+      }
+      .course-overview-card {
+        align-self: stretch;
+        border-radius: 20px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px;
+        gap: 24px;
+        font-size: 20px;
+        color: #4a5568;
+      }
+      .overview-split {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+      .illustration-frame-icon {
+        height: 200px;
+        width: 340px;
+        max-width: 100%;
+        border-radius: 16px;
+        object-fit: cover;
+      }
+      .overview-text-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .seo {
+        align-self: stretch;
+        position: relative;
+        font-weight: 800;
+        color: #1d3363;
+      }
+      .div3 {
+        align-self: stretch;
+        position: relative;
+        font-size: 15px;
+        line-height: 160%;
+      }
+      .stats-row {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        text-align: left;
+        font-size: 14px;
+      }
+      .stats-spacer {
+        height: 100px;
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+      }
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .icon-wrapper {
+        height: 16px;
+        width: 16px;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .bar-chart-icon {
+        width: 16px;
+        height: 16px;
+        position: relative;
+      }
+      .large-progress {
+        align-self: stretch;
+        border-top: 1px solid #f5f6fa;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 0px 0px;
+        gap: 12px;
+        text-align: left;
+        font-size: 14px;
+        color: #1d3363;
+      }
+      .large-progress-labels {
+        align-self: stretch;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .b {
+        position: relative;
+      }
+      .large-track {
+        align-self: stretch;
+        height: 12px;
+        border-radius: 6px;
+        background-color: #f5f6fa;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: flex-start;
+      }
+      .large-fill {
+        align-self: stretch;
+        width: 686px;
+        position: relative;
+        background-color: #f0c040;
+      }
+      .current-lesson-focus {
+        align-self: stretch;
+        box-shadow: 0px 4px 20px rgba(29, 51, 99, 0.06);
+        border-radius: 20px;
+        background-color: rgba(240, 192, 64, 0.03);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px;
+        gap: 24px;
+        text-align: center;
+        font-size: 13px;
+      }
+      .focus-header {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .status-badge {
+        border-radius: 8px;
+        background-color: rgba(240, 192, 64, 0.13);
+        display: flex;
+        align-items: center;
+        padding: 6px 12px;
+      }
+      .focus-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-align: left;
+        font-size: 18px;
+      }
+      .icon-wrapper5 {
+        height: 24px;
+        width: 24px;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .play-circle-icon {
+        width: 24px;
+        height: 24px;
+        position: relative;
+      }
+      .focus-split {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        text-align: right;
+        font-size: 22px;
+      }
+      .video-placeholder {
+        height: 220px;
+        width: 400px;
+        max-width: 100%;
+        border-radius: 16px;
+        background-color: #1d3363;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        isolation: isolate;
+      }
+      .video-thumbnail-icon {
+        height: 220px;
+        width: 100%;
+        position: relative;
+        object-fit: cover;
+        opacity: 0.6;
+        z-index: 0;
+      }
+      .play-btn {
+        height: 64px;
+        width: 64px;
+        margin: 0 !important;
+        position: absolute;
+        top: calc(50% - 32px);
+        left: calc(50% - 32px);
+        border-radius: 32px;
+        background-color: #f0c040;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+      }
+      .icon-wrapper6 {
+        height: 28px;
+        width: 28px;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .play-icon {
+        width: 28px;
+        height: 28px;
+        position: relative;
+      }
+      .keyword-mapping {
+        align-self: stretch;
+        position: relative;
+        font-weight: 800;
+      }
+      .duration-tag {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-align: left;
+        font-size: 14px;
+        color: #4a5568;
+      }
+      .spacer {
+        height: 100px;
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        flex-shrink: 0;
+      }
+      .div9 {
+        position: relative;
+        flex-shrink: 0;
+      }
+      .keyword-cannibalization {
+        align-self: stretch;
+        position: relative;
+        font-size: 15px;
+        line-height: 160%;
+        color: #4a5568;
+      }
+      .continue-button-cta {
+        align-self: stretch;
+        border-radius: 12px;
+        background-color: #f0c040;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 36px;
+        text-align: left;
+        font-size: 16px;
+      }
+      .icon-wrapper8 {
+        height: 18px;
+        width: 18px;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .arrow-left-icon {
+        width: 18px;
+        height: 18px;
+        position: relative;
+      }
+      .frame {
+        height: 1px;
+        width: 8px;
+        display: flex;
+        align-items: flex-start;
+      }
+      .course-curriculum {
+        align-self: stretch;
+        border-radius: 20px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px;
+        gap: 24px;
+        text-align: left;
+        font-size: 15px;
+      }
+      .div11 {
+        align-self: stretch;
+        position: relative;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: right;
+      }
+      .chapter-1 {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .chapter-header {
+        align-self: stretch;
+        border-radius: 8px;
+        background-color: #f5f6fa;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 12px;
+        gap: 20px;
+      }
+      .lessons-list {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 12px 0px 0px;
+        gap: 8px;
+        font-size: 14px;
+        color: #7a869a;
+      }
+      .lesson-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .lesson-row-active {
+        align-self: stretch;
+        border-radius: 8px;
+        background-color: rgba(240, 192, 64, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        gap: 20px;
+        color: #1d3363;
+      }
+      .circle-marker {
+        height: 16px;
+        width: 16px;
+        border-radius: 8px;
+        background-color: #f0c040;
+        display: flex;
+        align-items: flex-start;
+      }
+      .chapter-3 {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        opacity: 0.6;
+        color: #7a869a;
+      }
+      .split-progress-resources {
+        align-self: stretch;
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .resources-section {
+        align-self: stretch;
+        flex: 1;
+        border-radius: 20px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px;
+        gap: 20px;
+      }
+      .resources-grid {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 14px;
+      }
+      .resource-card {
+        align-self: stretch;
+        border-radius: 12px;
+        background-color: #fff;
+        border: 1px solid #dedede;
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        gap: 12px;
+      }
+      .resource-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+      .b6 {
+        align-self: stretch;
+        position: relative;
+      }
+      .div21 {
+        align-self: stretch;
+        position: relative;
+        font-size: 12px;
+        color: #7a869a;
+      }
+      .file-icon-bg {
+        height: 40px;
+        width: 40px;
+        border-radius: 8px;
+        background-color: #f5f6fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-wrapper18 {
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .file-text-icon {
+        width: 20px;
+        height: 20px;
+        position: relative;
+      }
+      .compact-progress-section {
+        width: 450px;
+        max-width: 100%;
+        border-radius: 20px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px;
+        box-sizing: border-box;
+        gap: 20px;
+        text-align: left;
+      }
+      .div25 {
+        align-self: stretch;
+        position: relative;
+        font-weight: 800;
+        text-align: right;
+      }
+      .circular-progress-visual {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12px 0px;
+        gap: 16px;
+        font-size: 24px;
+      }
+      .circular-sim {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background-color: #f5f6fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .div27 {
+        position: relative;
+        font-size: 14px;
+        color: #4a5568;
+        text-align: center;
+      }
+      .progress-details {
+        align-self: stretch;
+        border-top: 1px solid #f5f6fa;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0px 0px;
+        gap: 10px;
+        font-size: 14px;
+        color: #10b981;
+      }
+      .div28 {
+        position: relative;
+        color: #4a5568;
+      }
+      .progress-detail-row2 {
+        align-self: stretch;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+        color: #7a869a;
+      }
+      .instructor-section {
+        align-self: stretch;
+        border-radius: 20px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 32px;
+        gap: 24px;
+      }
+      .instructor-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .div31 {
+        align-self: stretch;
+        position: relative;
+        font-size: 14px;
+        color: #7a869a;
+      }
+      .tags-row {
+        align-self: stretch;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        text-align: center;
+        font-size: 13px;
+      }
+      .status-badge2 {
+        border-radius: 8px;
+        background-color: #f5f6fa;
+        display: flex;
+        align-items: center;
+        padding: 6px 12px;
+      }
+      .avatar-frame-icon {
+        height: 80px;
+        width: 80px;
+        border-radius: 40px;
+        object-fit: cover;
+      }
+      .certificate-section {
+        align-self: stretch;
+        border-radius: 20px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 32px;
+        gap: 32px;
+        color: #7a869a;
+      }
+      .cert-art {
+        height: 160px;
+        width: 280px;
+        border-radius: 12px;
+        background-color: #f5f6fa;
+        border: 1px solid #dedede;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        isolation: isolate;
+      }
+      .icon-wrapper25 {
+        height: 48px;
+        width: 48px;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 0;
+      }
+      .award-icon {
+        width: 48px;
+        height: 48px;
+        position: relative;
+      }
+      .lock-indicator {
+        height: 32px;
+        width: 32px;
+        margin: 0 !important;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        border-radius: 16px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+      }
+      .div33 {
+        align-self: stretch;
+        position: relative;
+        font-size: 14px;
+      }
+      .cert-action-row {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
+        font-size: 13px;
+      }
+      .muted-button {
+        border-radius: 8px;
+        background-color: #f5f6fa;
+        border: 1px solid #dedede;
+        display: flex;
+        align-items: flex-start;
+        padding: 10px 24px;
+        font-size: 14px;
+      }
+      .support-section {
+        align-self: stretch;
+        border-radius: 16px;
+        background-color: rgba(29, 51, 99, 0.03);
+        border: 1px solid rgba(29, 51, 99, 0.13);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px;
+        gap: 20px;
+        text-align: left;
+        font-size: 14px;
+      }
+      .support-button {
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #1d3363;
+        display: flex;
+        align-items: flex-start;
+        padding: 12px 28px;
+      }
+      .support-text {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 15px;
+      }
+      .rightsidebarrail {
+        align-self: stretch;
+        width: 260px;
+        flex-shrink: 0;
+        background-color: #1d3363;
+        border-left: 1px solid rgba(232, 236, 240, 0.1);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 40px 16px;
+        gap: 0px;
+        font-size: 16px;
+        color: #fff;
+        font-family: Vazir;
+      }
+      .menucontainer {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 40px;
+      }
+      .frame-parent {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+      .parent {
+        width: 86px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .azaryazdan {
+        align-self: stretch;
+        position: relative;
+        text-align: left;
+      }
+      .logo-icon {
+        height: 56px;
+        width: 56px;
+        position: relative;
+      }
+      .navitems {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+        font-size: 14px;
+        font-family: Vazir;
+      }
+      .sidebaritem {
+        align-self: stretch;
+        border-radius: 12px;
+        background-color: rgba(240, 192, 64, 0.13);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 12px 16px;
+        position: relative;
+        isolation: isolate;
+        gap: 12px;
+        color: #f0c040;
+      }
+      .b15 {
+        flex: 1;
+        position: relative;
+        z-index: 0;
+        flex-shrink: 0;
+      }
+      .layout-dashboard-icon {
+        height: 18px;
+        width: 18px;
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+      .rectangle {
+        height: calc(100% - 16px);
+        width: 4px;
+        position: absolute;
+        margin: 0 !important;
+        top: 8px;
+        right: 0px;
+        bottom: 8px;
+        border-radius: 2px;
+        background-color: #f0c040;
+        z-index: 2;
+        flex-shrink: 0;
+      }
+      .sidebaritem2 {
+        align-self: stretch;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 12px 16px;
+        gap: 12px;
+      }
+      .div36 {
+        flex: 1;
+        position: relative;
+        font-weight: 500;
+      }
+      .briefcase-icon {
+        height: 18px;
+        width: 18px;
+        position: relative;
+        opacity: 0.7;
+      }
+      .profilecontainer {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        font-size: 13px;
+        font-family: Vazir;
+      }
+      .line {
+        align-self: stretch;
+        height: 0px;
+        position: relative;
+        border-top: 1px solid rgba(255, 255, 255, 0.13);
+        box-sizing: border-box;
+      }
+      .userprofile {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+      }
+      .profiledetails {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+      }
+      .div41 {
+        position: relative;
+        font-size: 11px;
+        color: #7e848c;
+      }
+      .useravatarsmall-icon {
+        height: 38px;
+        width: 38px;
+        position: relative;
+        border-radius: 100px;
+        object-fit: cover;
+      }
+      .logoutbutton {
+        align-self: stretch;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.19);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        gap: 8px;
+        text-align: left;
+      }
+      .log-out-icon {
+        height: 14px;
+        width: 14px;
+        position: relative;
+      }
+
+      /* ===== Responsive ===== */
+
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background-color: #f8f9fa;
+        border: 1px solid #e8ecf0;
+        cursor: pointer;
+        padding: 0;
+      }
+      .hamburger-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #1d3363;
+      }
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(17, 24, 39, 0.45);
+        z-index: 999;
+      }
+      .sidebar-overlay.active {
+        display: block;
+      }
+
+      @media (max-width: 1024px) {
+        .rightsidebarrail {
+          width: 220px;
+        }
+        .maincontent {
+          padding: 28px 24px 32px;
+          gap: 56px;
+        }
+        .compact-progress-section {
+          width: 320px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hamburger-btn {
+          display: flex;
+        }
+        .rightsidebarrail {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 280px;
+          max-width: 82%;
+          height: 100vh;
+          overflow-y: auto;
+          transform: translateX(100%);
+          transition: transform 0.28s ease;
+          z-index: 1000;
+        }
+        .rightsidebarrail.sidebar-open {
+          transform: translateX(0);
+        }
+        .overview-split {
+          flex-wrap: wrap;
+        }
+        .illustration-frame-icon {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 340 / 200;
+        }
+        .overview-text-section {
+          flex: 1 1 100%;
+        }
+        .stats-row {
+          flex-wrap: wrap;
+          gap: 12px 24px;
+        }
+        .stats-row .stats-spacer {
+          display: none;
+        }
+        .focus-split {
+          flex-wrap: wrap;
+        }
+        .video-placeholder {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 400 / 220;
+        }
+        .split-progress-resources {
+          flex-wrap: wrap;
+        }
+        .resources-section {
+          flex: 1 1 100%;
+        }
+        .compact-progress-section {
+          width: 100%;
+        }
+        .instructor-section {
+          flex-wrap: wrap;
+        }
+        .tags-row {
+          flex-wrap: wrap;
+        }
+        .tags-row .stats-spacer {
+          display: none;
+        }
+        .certificate-section {
+          flex-wrap: wrap;
+        }
+        .cert-art {
+          width: 100%;
+        }
+        .support-section {
+          flex-wrap: wrap;
+        }
+        .cert-action-row {
+          flex-wrap: wrap;
+        }
+        .cert-action-row .stats-spacer {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .persian-rtl-dashboard {
+          font-size: 18px;
+        }
+        .maincontent {
+          padding: 20px 16px 24px;
+          gap: 32px;
+        }
+        .page-container {
+          padding: 24px 0 48px;
+          gap: 24px;
+        }
+        .course-overview-card,
+        .current-lesson-focus,
+        .course-curriculum,
+        .instructor-section,
+        .certificate-section,
+        .support-section {
+          padding: 20px;
+        }
+        .focus-header {
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .lessons-list .focus-header {
+          background-color: #f5f6fa;
+          border-radius: 8px;
+          padding: 10px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .headerbar {
+          gap: 12px;
+          direction: rtl;
+        }
+        .greetingsection {
+          font-size: 14px;
+        }
+      }
+
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir.woff2" %}') format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - Medium */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Medium.woff2" %}') format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - Bold */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Bold.woff2" %}') format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - thin */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Thin.woff2" %}') format("woff2");
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="persian-rtl-dashboard">
+      <div class="maincontent">
+        {% include "includes/dashboard_headerbar.html" %}
+
+        <div class="page-container">
+          <div class="course-overview-card">
+            <div class="overview-split">
+              <img class="illustration-frame-icon" alt="" src="{% static 'asets/icon/dash_img/dash_img.png' %}"/>
+
+              <div class="overview-text-section">
+                <div class="seo">دوره جامع آموزش SEO</div>
+                <div class="div3">
+                  در این دوره آموزشی از پایه‌ترین مفاهیم بهینه‌سازی موتورهای
+                  جستجو تا تکنیک‌های پیشرفته سئو تکنیکال، تحقیق کلمات کلیدی، و
+                  بهینه‌سازی محتوا را فرا خواهید گرفت تا بتوانید رتبه وب‌سایت
+                  خود را در نتایج گوگل ارتقا دهید.
+                </div>
+                <div class="stats-row">
+                  <div class="stats-spacer"></div>
+                  <div class="stat-item">
+                    <div class="b">متوسط</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-anten.svg' %}"/>
+                    </div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="b">۴ ساعت باقی‌مانده</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-clock.svg' %}"/>
+                    </div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="b">۱۳ تکمیل شده</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-tick.svg' %}"/>
+                    </div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="b">۲۰ درس</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-ketab.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="large-progress">
+              <div class="large-progress-labels">
+                <b class="b">۳۵٪ باقی‌مانده</b>
+                <b class="b">۶۵٪ تکمیل شده</b>
+              </div>
+              <div class="large-track">
+                <div class="large-fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="current-lesson-focus">
+            <div class="focus-header">
+              <div class="status-badge">
+                <b class="b">درس فعلی</b>
+              </div>
+              <div class="focus-title">
+                <div class="div">ادامه یادگیری</div>
+                <div class="icon-wrapper5">
+                  <img class="play-circle-icon" alt="" src="{% static 'asets/icon/play-circle.png' %}"/>
+                </div>
+              </div>
+            </div>
+            <div class="focus-split">
+              <div class="video-placeholder">
+                <img class="video-thumbnail-icon" alt="" />
+
+                <div class="play-btn">
+                  <div class="icon-wrapper6">
+                    <img class="play-icon" alt="" src="{% static 'asets/icon/icon-play.svg' %}"/>
+                  </div>
+                </div>
+              </div>
+              <div class="overview-text-section">
+                <div class="keyword-mapping">Keyword Mapping</div>
+                <div class="duration-tag">
+                  <div class="spacer"></div>
+                  <div class="div9">مدت زمان: ۴۵ دقیقه</div>
+                  <div class="icon-wrapper">
+                    <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/clock.svg' %}"/>
+                  </div>
+                </div>
+                <div class="keyword-cannibalization">
+                  در این درس یاد می‌گیرید که چگونه کلمات کلیدی تحقیق شده را به
+                  ساختار آدرس‌دهی و صفحات اصلی سایت خود متصل کنید تا از تداخل
+                  سئو (Keyword Cannibalization) جلوگیری کنید.
+                </div>
+                <div class="continue-button-cta">
+                  <div class="icon-wrapper8">
+                    <img class="arrow-left-icon" alt="" src="{% static 'asets/icon/arrow-left (2).svg' %}"/>
+                  </div>
+                  <div class="frame"></div>
+                  <div class="div">ادامه درس</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="course-curriculum">
+            <div class="div11">برنامه آموزشی دوره</div>
+            <div class="chapter-1">
+              <div class="chapter-header">
+                <div class="icon-wrapper8">
+                  <img class="arrow-left-icon" alt="" src="{% static 'asets/icon/chevron-down.svg' %}"/>
+                </div>
+                <b class="b">فصل ۱ — مبانی سئو</b>
+              </div>
+              <div class="lessons-list">
+                <div class="focus-header">
+                  <div class="b">۱۰ دقیقه</div>
+                  <div class="lesson-right">
+                    <div class="b">مقدمه سئو</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-green-tick.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="focus-header">
+                  <div class="b">۲۵ دقیقه</div>
+                  <div class="lesson-right">
+                    <div class="b">موتورهای جستجو چگونه کار می‌کنند؟</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-green-tick.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="focus-header">
+                  <div class="b">۱۵ دقیقه</div>
+                  <div class="lesson-right">
+                    <div class="b">مفاهیم پایه SEO</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-green-tick.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chapter-1">
+              <div class="chapter-header">
+                <div class="icon-wrapper8">
+                  <img class="arrow-left-icon" alt="" src="{% static 'asets/icon/chevron-down.svg' %}"/>
+                </div>
+                <b class="b">فصل ۲ — Keyword Research</b>
+              </div>
+              <div class="lessons-list">
+                <div class="focus-header">
+                  <div class="b">۳۰ دقیقه</div>
+                  <div class="lesson-right">
+                    <div class="b">تحقیق کلمات کلیدی</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-green-tick.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="focus-header">
+                  <div class="b">۲۰ دقیقه</div>
+                  <div class="lesson-right">
+                    <div class="b">Search Intent</div>
+                    <div class="icon-wrapper">
+                      <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/icon-green-tick.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="lesson-row-active">
+                  <b class="b">۴۵ دقیقه (در حال یادگیری)</b>
+                  <div class="lesson-right">
+                    <div class="div">Keyword Mapping</div>
+                    <div class="circle-marker"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chapter-3">
+              <div class="chapter-header">
+                <div class="icon-wrapper8">
+                  <img class="arrow-left-icon" alt="" src="{% static 'asets/icon/lock.svg' %}"/>
+                </div>
+                <b class="b">فصل ۳ — On-Page SEO (قفل شده)</b>
+              </div>
+            </div>
+          </div>
+          <div class="split-progress-resources">
+            <div class="resources-section">
+              <div class="keyword-mapping">منابع دوره</div>
+              <div class="resources-grid">
+                <div class="resource-card">
+                  <div class="icon-wrapper8">
+                    <img class="arrow-left-icon" alt="" src="{% static 'asets/icon/icon-dwnlod.svg' %}"/>
+                  </div>
+                  <div class="resource-info">
+                    <b class="b6">فایل‌های آموزشی</b>
+                    <div class="div21">۴.۸ مگابایت</div>
+                  </div>
+                  <div class="file-icon-bg">
+                    <div class="icon-wrapper18">
+                      <img class="file-text-icon" alt="" src="{% static 'asets/icon/file-text.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="resource-card">
+                  <div class="icon-wrapper8">
+                    <img class="arrow-left-icon" alt="" src="{% static 'asets/icon/icon-dwnlod.svg' %}"/>
+                  </div>
+                  <div class="resource-info">
+                    <b class="b6">تمرین‌ها</b>
+                    <div class="div21">۱.۲ مگابایت</div>
+                  </div>
+                  <div class="file-icon-bg">
+                    <div class="icon-wrapper18">
+                      <img class="file-text-icon" alt="" src="{% static 'asets/icon/file-text.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="resource-card">
+                  <div class="icon-wrapper8">
+                    <img class="arrow-left-icon" alt="" src="{% static 'asets/icon/icon-dwnlod.svg' %}"/>
+                  </div>
+                  <div class="resource-info">
+                    <b class="b6">پروژه‌های دوره</b>
+                    <div class="div21">۱۲.۵ مگابایت</div>
+                  </div>
+                  <div class="file-icon-bg">
+                    <div class="icon-wrapper18">
+                      <img class="file-text-icon" alt="" src="{% static 'asets/icon/file-text.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="resource-card">
+                  <div class="icon-wrapper8">
+                    <img class="arrow-left-icon" alt="" src="{% static 'asets/icon/icon-dwnlod.svg' %}"/>
+                  </div>
+                  <div class="resource-info">
+                    <b class="b6">منابع تکمیلی</b>
+                    <div class="div21">۳.۰ مگابایت</div>
+                  </div>
+                  <div class="file-icon-bg">
+                    <div class="icon-wrapper18">
+                      <img class="file-text-icon" alt="" src="{% static 'asets/icon/file-text.svg' %}"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="compact-progress-section">
+              <div class="div25">پیشرفت شما</div>
+              <div class="circular-progress-visual">
+                <div class="circular-sim">
+                  <div class="div">۶۵٪</div>
+                </div>
+                <div class="div27">تکمیل شده</div>
+              </div>
+              <div class="progress-details">
+                <div class="large-progress-labels">
+                  <b class="b">۱۳ درس</b>
+                  <div class="div28">تکمیل شده</div>
+                </div>
+                <div class="progress-detail-row2">
+                  <b class="b">۷ درس</b>
+                  <div class="div28">باقی‌مانده</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="instructor-section">
+            <div class="instructor-info">
+              <div class="keyword-mapping">طاها فرامرزی</div>
+              <div class="div31">
+                مدرس و مشاور ارشد سئو با بیش از ۸ سال تجربه در بهینه‌سازی
+                وب‌سایت‌های بزرگ فروشگاهی و شرکتی.
+              </div>
+              <div class="tags-row">
+                <div class="stats-spacer"></div>
+                <div class="status-badge2">
+                  <b class="b">Technical SEO</b>
+                </div>
+                <div class="status-badge2">
+                  <b class="b">Keyword Expert</b>
+                </div>
+                <div class="status-badge2">
+                  <b class="b">Google Analytics</b>
+                </div>
+              </div>
+            </div>
+            <img class="avatar-frame-icon" alt="" src="{% static 'asets/icon/logo 1 [Vectorized].svg' %}"/>
+          </div>
+          <div class="certificate-section">
+            <div class="cert-art">
+              <div class="icon-wrapper25">
+                <img class="award-icon" alt="" src="{% static 'asets/icon/award.svg' %}"/>
+              </div>
+              <div class="lock-indicator">
+                <div class="icon-wrapper">
+                  <img class="bar-chart-icon" alt="" src="{% static 'asets/icon/lock.svg' %}"/>
+                </div>
+              </div>
+            </div>
+            <div class="overview-text-section">
+              <div class="seo">گواهی پایان دوره</div>
+              <div class="div33">
+                گواهی دوره پس از تکمیل در دسترس خواهد بود. برای دریافت گواهی
+                باید ۱۰۰٪ دروس را با موفقیت پشت سر بگذارید.
+              </div>
+              <div class="cert-action-row">
+                <div class="stats-spacer"></div>
+                <div class="b">۳۵٪ مانده تا دریافت گواهی</div>
+                <div class="muted-button">
+                  <b class="b">دریافت گواهی</b>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="support-section">
+            <div class="support-button">
+              <div class="div">ارتباط با پشتیبانی</div>
+            </div>
+            <div class="support-text">
+              <b class="b"
+                >سوالی درباره دوره دارید؟ مربیان ما همیشه آماده پاسخگویی
+                هستند.</b
+              >
+              <div class="icon-wrapper5">
+                <img class="play-circle-icon" alt="" src="{% static 'asets/icon/icon-msj.svg' %}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include "includes/dashboard_rightsidebarrail.html" %}
+    </div>
+  </body>
+</html>

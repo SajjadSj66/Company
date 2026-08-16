@@ -2,7 +2,7 @@ import os
 from django import forms
 from .models import ContactMessage
 from django.core.validators import RegexValidator
-from .models import ContactMessage, CourseRegistration, ContactRequest,Collaboration
+from .models import *
 
 class CollaborationForm(forms.ModelForm):
     """
@@ -43,6 +43,18 @@ class ContactRequestForm(forms.ModelForm):
             'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'پیام خود را بنویسید'})
         }
 
+
+class StudyRequestForm(forms.ModelForm):
+    class Meta:
+        model = StudyRequest
+        fields = ['full_name', 'phone_or_email', 'grade', 'study_choices', 'message']
+        widgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone_or_email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '09123456789'}),
+            'grade': forms.TextInput(attrs={'class': 'form-control'}),
+            'study_choices': forms.Select(attrs={'class': 'form-control'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'پیام خود را بنویسید'})
+        }
 
 class CourseRegistrationForm(forms.ModelForm):
     """

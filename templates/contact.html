@@ -1,16 +1,13 @@
 {% load static %}
+{% load jformat %}
 <!doctype html>
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <title>تماس با ما</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Vazirmatn:wght@400;700;800&display=swap"
-      rel="stylesheet" />
     <style>
       :root {
         --navy: #1d3363;
@@ -21,14 +18,6 @@
         --dark-text: #1a1a1a;
         --white: #ffffff;
       }
-      a {
-		text-decoration: none !important;
-		}
-
-		/* حفظ رنگ پیش‌فرض لینک‌ها */
-		a {
-		color: inherit;
-		}
       * {
         box-sizing: border-box;
         margin: 0;
@@ -37,381 +26,16 @@
       body {
         background: var(--white);
         font-family: "Inter", "Vazirmatn", sans-serif;
+        overflow-x: hidden;
       }
       svg {
         overflow: visible;
       }
 
+   
 
-      /* navbar */
-      
-
-/* ناو بار */
-.navbar-wrapper {
-  width: 100%;
-  height: 88px;
-  position: fixed;
-  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
-  text-align: left;
-  font-size: 16px;
-  color: #ebebeb;
-  font-family: Rubik;
-  align-items: center;
-  justify-self: center;
-  z-index: 1000;
-}
-.rectangle-parent {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 526px;
-  height: 88px;
-  overflow: hidden;
-}
-.frame-child {
-  position: absolute;
-  top: 0px;
-  left: -18px;
-  width: 422px;
-  height: 106px;
-  flex-shrink: 0;
-}
-
-.frame-wrapper {
-  position: absolute;
-  top: 18px;
-  left: 64px;
-  width: 293px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.cta-button-parent {
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.cta-button {
-  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
-  border-radius: 12px;
-  background-color: #1d3363;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 36px;
-  gap: 8px;
-}
-.phone-call-3-1 {
-  height: 16px;
-  width: 16px;
-  position: relative;
-}
-.button-label {
-  position: relative;
-}
-.frame-inner {
-  height: 48px;
-  width: 48px;
-  position: relative;
-  border-radius: 12px;
-}
-.frame-group {
-  position: absolute;
-  top: 16px;
-  border-radius: 16px;
-  width: 887px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 32px;
-  text-align: right;
-  font-size: 20px;
-  color: #fbf8f8;
-  font-family: "Google Sans Flex";
-}
-.parent {
-  display: flex;
-  align-items: center;
-  gap: 57px;
-}
-.div {
-  position: relative;
-  font-weight: 600;
-  cursor: pointer;
-}
-.div3 {
-  color:white;
-  width: 69px;
-  position: relative;
-  font-weight: 600;
-  display: inline-block;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-.angle-small-down-2-2-parent,
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  cursor: pointer;
-  position: relative;
-}
-
-.angle-small-down-2-2-parent {
-  width: 97px;
-}
-
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  width: 110px;
-}
-
-.logo-icon {
-  height: 56px;
-  width: 56px;
-  position: relative;
-  right: 10px;
-}
-
-/* استایل‌های جدید برای دراپ‌منو */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 8px;
-  z-index: 1001;
-}
-
-.blog-dropdown {
-  right: 0;
-}
-
-.academy-dropdown {
-  right: 0;
-}
-
-.services-dropdown {
-  right: 0;
-}
-
-.services {
-  width: 100%;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 40px;
-}
-.component-44-parent {
-  height: 176px;
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-44 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.component-38:hover,
-.component-44:hover,
-.component-442:hover,
-.component-443:hover,
-.component-402:hover {
-  background-color: rgba(118, 130, 156, 0.6);
-}
-.div {
-  position: relative;
-  font-weight: 500;
-}
-
-.services-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-parent {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.component-38-parent :last-child {
-  border-bottom-right-radius: 12px;
-}
-.component-38-parent :first-child {
-  border-top-right-radius: 12px;
-}
-.component-44-parent :first-child {
-  border-top-left-radius: 12px;
-}
-.component-38 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.line-div {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-
-.academi {
-  width: 465px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 93%;
-  max-height: 90%;
-  overflow: hidden;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 110px;
-}
-.component-44-group {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.component-442 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div14 {
-  position: relative;
-  font-weight: 500;
-  white-space: pre-wrap;
-}
-.frame-child7 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.div15 {
-  position: relative;
-  font-weight: 500;
-}
-.academi-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-  flex-shrink: 0;
-}
-.component-38-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  flex-shrink: 0;
-}
-.component-402 {
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 24px 16px;
-}
-
-.blog {
-  width: 409px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-}
-.component-44-container {
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-443 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div20 {
-  position: relative;
-  font-weight: 500;
-}
-.frame-child13 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.blog-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-container {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
-.popup-overlay {
-  display: none;
-}
-
-/* hero contact saghar */
-.hero-section {
+      /* hero contact saghar */
+      .hero-section {
         position: relative;
         top: 88px;
         display: flex;
@@ -735,6 +359,7 @@
         padding: 12px 26px;
         gap: 10px;
         background: #f0c040;
+        text-decoration: none;
         box-shadow: 0px 8px 20px rgba(240, 192, 64, 0.25);
         border-radius: 12px;
         border: none;
@@ -745,6 +370,7 @@
         position: relative;
         overflow: hidden;
       }
+      
 
       .resume-btn::before {
         content: '';
@@ -806,53 +432,7 @@
         z-index: 1;
       }
 
-      @media (max-width: 768px) {
-        .hero-section {
-          padding: 40px 24px;
-          gap: 22px;
-          height: auto;
-          min-height: 100vh;
-        }
-
-        .hero-content h1 {
-          font-size: 36px;
-        }
-
-        .hero-content .hero-desc {
-          font-size: 15px;
-          line-height: 160%;
-        }
-
-        .hero-cta-btn {
-          min-width: 230px;
-        }
-
-        .hero-cta-btn span {
-          font-size: 19px;
-        }
-
-        .hero-content-2 .closing-text {
-          font-size: 18px;
-        }
-
-        .trust-badges {
-          flex-direction: column;
-          gap: 12px;
-        }
-
-        .trust-badge {
-          flex: 1;
-          max-width: 100%;
-        }
-
-        .resume-btn {
-          align-self: center;
-        }
-      }
-
-
-
-
+      /* contact-section */
       .contact-section {
         display: flex;
         padding: 60px 80px;
@@ -863,7 +443,7 @@
         margin-top: 70px;
       }
 
-      /* ================= LEFT: contact info ================= */
+      /* LEFT: contact info */
       .left-column {
         display: flex;
         flex-direction: column;
@@ -1054,7 +634,7 @@
         transform: scale(1.03);
       }
 
-      /* ================= RIGHT: contact form ================= */
+      /* RIGHT: contact form */
       .right-column {
         box-sizing: border-box;
         display: flex;
@@ -1229,8 +809,6 @@
         font-family: "vazirmatn";
       }
 
-
-      
       .bottom-cta-container {
         display: flex;
         flex-direction: column;
@@ -1256,7 +834,6 @@
         background: #1d3363;
         border-radius: 24px;
         overflow: hidden;
-    
       }
 
       .cta-pattern-1 {
@@ -1333,8 +910,8 @@
         font-family: "Vazirmatn";
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      .cta-action-button:hover{
-        transform: scaleY(2px);
+      .cta-action-button:hover {
+        transform: translateY(-2px);
         box-shadow: 0px 4px 12px #f0c040;
       }
 
@@ -1364,1041 +941,273 @@
         color: #1d3363;
       }
 
+      /* footer - بدون تغییر */
 
-       
-    a.div{
-      color: white;
-      text-decoration: none;
-    }
-    a.div7{
-      color: white;
-      text-decoration: none;
-    }
-    
-
-      /* ================= Responsive ================= */
-      @media (max-width: 1100px) {
+      /* ================= RESPONSIVE ================= */
+      @media (max-width: 1200px) {
+        .hero-section {
+          padding: 40px 40px 32px;
+          gap: 40px;
+          height: auto;
+          min-height: auto;
+        }
         .contact-section {
-          flex-direction: column;
-          padding: 48px 24px;
+          padding: 48px 40px;
           gap: 32px;
         }
-        .left-column,
-        .right-column {
-          width: 100%;
-        }
-        .info-card:hover {
-          transform: none;
-        }
-        .submit-button:hover {
-          transform: none;
+        .bottom-cta-container {
+          padding: 40px;
         }
       }
 
+      @media (max-width: 992px) {
+        .hero-section {
+          padding: 40px 24px 32px;
+          gap: 32px;
+        }
+        .hero-content h1 {
+          font-size: 36px;
+        }
+        .hero-content .hero-desc {
+          font-size: 15px;
+          line-height: 160%;
+        }
+        .trust-badges {
+          flex-direction: column;
+          gap: 12px;
+          max-width: 500px;
+        }
+        .trust-badge {
+          padding: 12px 16px;
+          gap: 10px;
+        }
+        .badge-icon-bg {
+          width: 36px;
+          height: 36px;
+          min-width: 36px;
+        }
+        .badge-icon-bg svg {
+          width: 16px;
+          height: 16px;
+        }
+        .contact-section {
+          flex-direction: column;
+          padding: 40px 24px;
+          margin-top: 120px;
+        }
+        .right-column {
+          order: 2;
+        }
+        .left-column {
+          order: 1;
+        }
+        .map-placeholder {
+          height: 150px;
+        }
+        .bottom-cta-banner {
+          padding: 40px 20px;
+          gap: 24px;
+          min-height: auto;
+        }
+        .cta-text h2 {
+          font-size: 28px;
+          line-height: 36px;
+        }
+        .cta-text p {
+          font-size: 14px;
+        }
+        .cta-action-button {
+          width: 180px;
+          height: 44px;
+        }
+      }
 
-/* ریسپانسیو سلما */
+      @media (max-width: 768px) {
+        .hero-section {
+          top: 88px;
+          padding: 32px 16px 24px;
+          gap: 24px;
+        }
+        .hero-content h1 {
+          font-size: 28px;
+          line-height: 1.4;
+        }
+        .hero-content .hero-desc {
+          font-size: 14px;
+          line-height: 1.7;
+        }
+        .hero-cta-btn {
+          min-width: 220px;
+          padding: 12px 24px;
+        }
+        .hero-cta-btn span {
+          font-size: 18px;
+        }
+        .resume-btn {
+          align-self: center;
+          min-width: 140px;
+        }
+        .hero-content-2 .closing-text {
+          font-size: 16px;
+          text-align: center;
+        }
+        .trust-badges {
+          max-width: 400px;
+          width: 100%;
+        }
+        .badge-text .badge-title {
+          font-size: 13px;
+        }
+        .badge-text .badge-sub {
+          font-size: 10px;
+        }
+        .contact-section {
+          padding: 24px 16px;
+          gap: 24px;
+          margin-top: 100px;
+        }
+        .right-column {
+          padding: 20px;
+          gap: 20px;
+        }
+        .title-group h2 {
+          font-size: 20px;
+        }
+        .subtitle {
+          font-size: 12px;
+        }
+        .info-card {
+          padding: 16px;
+          gap: 12px;
+        }
+        .info-text .value {
+          font-size: 14px;
+        }
+        .info-text .label {
+          font-size: 11px;
+        }
+        .info-icon-bg {
+          width: 38px;
+          height: 38px;
+        }
+        .social-icon {
+          width: 34px;
+          height: 34px;
+        }
+        .social-icon svg {
+          width: 15px;
+          height: 15px;
+        }
+        .input-container {
+          height: 44px;
+          padding: 10px 12px;
+        }
+        .input-container.textarea-container {
+          height: 90px;
+          padding: 12px;
+        }
+        .submit-button {
+          height: 46px;
+          padding: 12px;
+        }
+        .submit-button span {
+          font-size: 14px;
+        }
+        .bottom-cta-container {
+          padding: 24px 16px;
+        }
+        .bottom-cta-banner {
+          border-radius: 16px;
+          padding: 32px 16px;
+        }
+        .cta-text h2 {
+          font-size: 22px;
+          line-height: 30px;
+        }
+        .cta-text p {
+          font-size: 13px;
+          line-height: 1.6;
+        }
+        .cta-action-button {
+          width: 160px;
+          height: 40px;
+          padding: 10px 20px;
+        }
+        .cta-action-button span {
+          font-size: 14px;
+        }
+      }
 
-/* =============================================
-   RESPONSIVE STYLES - ADDED BY SEPARATE INJECTION
-   No original code modified
-   ============================================= */
-
-/* ---------- GENERAL RESPONSIVE FIXES ---------- */
-@media screen and (max-width: 1440px) {
-  .hero-section {
-    width: 100%;
-    padding: 56px 60px 48px;
-  }
-  
-  .bottom-cta-container {
-    width: 100%;
-    padding: 80px 60px;
-  }
-  
-  .bottom-cta-banner {
-    width: 100%;
-  }
-  
-  .contact-section {
-    max-width: 100%;
-    padding: 60px 60px;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .hero-section {
-    padding: 48px 48px 40px;
-    gap: 50px;
-    height: auto;
-    min-height: auto;
-  }
-  
-  .hero-content h1 {
-    font-size: 44px;
-  }
-  
-  .hero-content .hero-desc {
-    font-size: 16px;
-  }
-  
-  .hero-content-2 .closing-text {
-    font-size: 19px;
-  }
-  
-  .trust-badges {
-    max-width: 100%;
-  }
-  
-  .contact-section {
-    padding: 48px 48px;
-    gap: 36px;
-  }
-  
-  .bottom-cta-container {
-    padding: 60px 48px;
-  }
-  
-  .cta-text h2 {
-    font-size: 32px;
-    line-height: 40px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .hero-section {
-    padding: 44px 36px 36px;
-    gap: 40px;
-  }
-  
-  .hero-content h1 {
-    font-size: 40px;
-  }
-  
-  .hero-content .hero-desc {
-    font-size: 15px;
-    line-height: 160%;
-  }
-  
-  .hero-content-2 .closing-text {
-    font-size: 17px;
-  }
-  
-  .trust-badges {
-    gap: 12px;
-  }
-  
-  .trust-badge {
-    padding: 14px 16px;
-    gap: 10px;
-  }
-  
-  .badge-icon-bg {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-  }
-  
-  .badge-text .badge-title {
-    font-size: 13px;
-  }
-  
-  .badge-text .badge-sub {
-    font-size: 10px;
-  }
-  
-  /* Contact section */
-  .contact-section {
-    padding: 40px 36px;
-    gap: 28px;
-  }
-  
-  .right-column {
-    padding: 24px;
-    gap: 20px;
-  }
-  
-  .left-column {
-    gap: 24px;
-  }
-  
-  .bottom-cta-container {
-    padding: 48px 36px;
-  }
-  
-  .bottom-cta-banner {
-    padding: 44px;
-    gap: 24px;
-    min-height: auto;
-  }
-  
-  .cta-text h2 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-  
-  .cta-text p {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero-section {
-    padding: 36px 24px 32px;
-    gap: 30px;
-    top: 88px;
-  }
-  
-  .bg-line-1,
-  .bg-line-2,
-  .dot-pattern,
-  .bg-circle-1 {
-    opacity: 0.05;
-  }
-  
-  .hero-content h1 {
-    font-size: 32px;
-    line-height: 130%;
-  }
-  
-  .hero-content .hero-desc {
-    font-size: 14px;
-    line-height: 170%;
-    padding: 0 8px;
-  }
-  
-  .hero-content {
-    gap: 16px;
-  }
-  
-  .hero-cta-btn {
-    min-width: 220px;
-    padding: 12px 28px;
-  }
-  
-  .hero-cta-btn span {
-    font-size: 18px;
-  }
-  
-  .trust-badges {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .trust-badge {
-    width: 100%;
-    max-width: 100%;
-    padding: 14px 18px;
-    gap: 12px;
-  }
-  
-  .badge-icon-bg {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-  }
-  
-  .badge-text .badge-title {
-    font-size: 13px;
-  }
-  
-  .badge-text .badge-sub {
-    font-size: 11px;
-  }
-  
-  .hero-content-2 {
-    gap: 20px;
-    max-width: 100%;
-  }
-  
-  .hero-content-2 .closing-text {
-    font-size: 16px;
-    line-height: 170%;
-  }
-  
-  .resume-btn {
-    align-self: center;
-    min-width: 140px;
-  }
-  
-  /* Contact section */
-  .contact-section {
-    flex-direction: column;
-    padding: 32px 24px;
-    gap: 32px;
-    margin-top: 50px;
-  }
-  
-  .left-column {
-    width: 100%;
-    gap: 20px;
-  }
-  
-  .right-column {
-    width: 100%;
-    padding: 20px;
-    gap: 18px;
-    border-radius: 16px;
-  }
-  
-  .info-card {
-    padding: 16px;
-    gap: 12px;
-  }
-  
-  .info-icon-bg {
-    width: 38px;
-    height: 38px;
-  }
-  
-  .info-text .value {
-    font-size: 14px;
-  }
-  
-  .info-text .label {
-    font-size: 11px;
-  }
-  
-  .map-placeholder {
-    height: 160px;
-  }
-  
-  .form-header .title-group h2 {
-    font-size: 22px;
-  }
-  
-  .subtitle {
-    font-size: 13px;
-  }
-  
-  .field label {
-    font-size: 13px;
-  }
-  
-  .input-container {
-    height: 46px;
-    padding: 10px 14px;
-  }
-  
-  .input-container.textarea-container {
-    height: 100px;
-  }
-  
-  .submit-button {
-    height: 48px;
-  }
-  
-  .submit-button span {
-    font-size: 15px;
-  }
-  
-  .social-row {
-    gap: 10px;
-  }
-  
-  .social-icon {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .social-icon svg {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .social-row .social-label {
-    font-size: 13px;
-  }
-  
-  /* Bottom CTA */
-  .bottom-cta-container {
-    padding: 40px 24px;
-  }
-  
-  .bottom-cta-banner {
-    padding: 36px 24px;
-    gap: 20px;
-    border-radius: 20px;
-  }
-  
-  .cta-text {
-    width: 100%;
-    gap: 12px;
-  }
-  
-  .cta-text h2 {
-    font-size: 26px;
-    line-height: 34px;
-  }
-  
-  .cta-text p {
-    font-size: 14px;
-    line-height: 170%;
-  }
-  
-  .cta-action-button {
-    width: auto;
-    padding: 12px 28px;
-    height: auto;
-    min-height: 44px;
-  }
-  
-  .cta-action-button span {
-    font-size: 15px;
-  }
-  
-  /* Footer center alignment */
-  .site-footer-wrapper {
-    padding: 48px 24px 28px;
-    gap: 40px;
-  }
-  
-  .footer-grid-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 32px;
-  }
-  
-  .quick-links-column,
-  .contact-info-column,
-  .brand-info-column {
-    width: 100%;
-    max-width: 400px;
-    align-items: center;
-  }
-  
-  .quick-links-column,
-  .contact-info-column {
-    gap: 12px;
-  }
-  
-  .footer-heading-title {
-    text-align: center;
-  }
-  
-  .footer-link-item {
-    text-align: center;
-  }
-  
-  .contact-address-text {
-    text-align: center;
-  }
-  
-  .brand-info-column {
-    gap: 16px;
-  }
-  
-  .brand-description-text {
-    text-align: center;
-    font-size: 13px;
-  }
-  
-  .brand-name-gradient {
-    font-size: 20px;
-  }
-  
-  .brand-logo-image {
-    height: 48px;
-    width: 48px;
-  }
-  
-  .copyright-bottom-bar {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 24px 0px 0px;
-    text-align: center;
-  }
-  
-  .social-icons-group {
-    justify-content: center;
-  }
-  
-  .social-icon-circle {
-    height: 38px;
-    width: 38px;
-  }
-  
-  .social-icon-inner-lg {
-    height: 20px;
-    width: 20px;
-  }
-  
-  .social-svg-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .social-icon-inner-sm {
-    height: 14px;
-    width: 14px;
-  }
-  
-  .social-svg-icon-sm {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .copyright-text-content {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .hero-section {
-    padding: 28px 16px 24px;
-    gap: 24px;
-  }
-  
-  .hero-content h1 {
-    font-size: 28px;
-    line-height: 130%;
-  }
-  
-  .hero-content .hero-desc {
-    font-size: 13px;
-    line-height: 180%;
-    padding: 0 4px;
-  }
-  
-  .hero-content {
-    gap: 14px;
-  }
-  
-  .hero-cta-btn {
-    min-width: 200px;
-    padding: 11px 24px;
-  }
-  
-  .hero-cta-btn span {
-    font-size: 17px;
-  }
-  
-  .trust-badges {
-    gap: 8px;
-  }
-  
-  .trust-badge {
-    padding: 12px 14px;
-    gap: 10px;
-    border-radius: 14px;
-  }
-  
-  .badge-icon-bg {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    border-radius: 10px;
-  }
-  
-  .badge-text .badge-title {
-    font-size: 12px;
-    line-height: 16px;
-  }
-  
-  .badge-text .badge-sub {
-    font-size: 10px;
-    line-height: 13px;
-  }
-  
-  .hero-content-2 .closing-text {
-    font-size: 14px;
-    line-height: 170%;
-  }
-  
-  .resume-btn {
-    padding: 10px 22px;
-    min-width: 120px;
-  }
-  
-  .resume-btn span {
-    font-size: 14px;
-  }
-  
-  /* Contact section */
-  .contact-section {
-    padding: 24px 16px;
-    gap: 24px;
-    margin-top: 40px;
-  }
-  
-  .right-column {
-    padding: 16px;
-    gap: 16px;
-    border-radius: 14px;
-  }
-  
-  .left-column {
-    gap: 16px;
-  }
-  
-  .info-card {
-    padding: 14px;
-    gap: 10px;
-    border-radius: 14px;
-  }
-  
-  .info-icon-bg {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
-  }
-  
-  .info-icon-bg svg {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .info-text .value {
-    font-size: 13px;
-    line-height: 17px;
-  }
-  
-  .info-text .label {
-    font-size: 10px;
-  }
-  
-  .map-placeholder {
-    height: 140px;
-    border-radius: 14px;
-  }
-  
-  .form-header .title-group h2 {
-    font-size: 20px;
-  }
-  
-  .accent-bar {
-    width: 3px;
-    height: 20px;
-  }
-  
-  .subtitle {
-    font-size: 12px;
-    line-height: 18px;
-  }
-  
-  .field label {
-    font-size: 12px;
-  }
-  
-  .input-container {
-    height: 44px;
-    padding: 8px 12px;
-    border-radius: 10px;
-  }
-  
-  .input-container input,
-  .input-container select,
-  .input-container textarea {
-    font-size: 13px;
-  }
-  
-  .input-container.textarea-container {
-    height: 90px;
-    padding: 12px;
-  }
-  
-  .submit-button {
-    height: 46px;
-    border-radius: 10px;
-  }
-  
-  .submit-button span {
-    font-size: 14px;
-  }
-  
-  .social-row {
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  
-  .social-row .social-label {
-    font-size: 12px;
-    width: 100%;
-    margin-bottom: 4px;
-  }
-  
-  .social-icon {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .social-icon svg {
-    width: 14px;
-    height: 14px;
-  }
-  
-  /* Bottom CTA */
-  .bottom-cta-container {
-    padding: 32px 16px;
-  }
-  
-  .bottom-cta-banner {
-    padding: 28px 18px;
-    gap: 16px;
-    border-radius: 16px;
-  }
-  
-  .cta-text {
-    gap: 10px;
-  }
-  
-  .cta-text h2 {
-    font-size: 22px;
-    line-height: 30px;
-  }
-  
-  .cta-text p {
-    font-size: 13px;
-    line-height: 170%;
-  }
-  
-  .cta-action-button {
-    padding: 10px 24px;
-    min-height: 40px;
-  }
-  
-  .cta-action-button span {
-    font-size: 14px;
-  }
-  
-  /* Footer */
-  .site-footer-wrapper {
-    padding: 36px 16px 24px;
-    gap: 32px;
-  }
-  
-  .footer-grid-row {
-    gap: 24px;
-  }
-  
-  .quick-links-column,
-  .contact-info-column,
-  .brand-info-column {
-    max-width: 100%;
-  }
-  
-  .footer-heading-title {
-    font-size: 15px;
-  }
-  
-  .footer-link-item {
-    font-size: 13px;
-  }
-  
-  .brand-name-gradient {
-    font-size: 18px;
-  }
-  
-  .brand-logo-image {
-    height: 42px;
-    width: 42px;
-  }
-  
-  .brand-description-text {
-    font-size: 12px;
-    line-height: 190%;
-  }
-  
-  .social-icon-circle {
-    height: 34px;
-    width: 34px;
-    border-radius: 10px;
-  }
-  
-  .social-icon-inner-lg {
-    height: 18px;
-    width: 18px;
-  }
-  
-  .social-svg-icon {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .social-icon-inner-sm {
-    height: 12px;
-    width: 12px;
-  }
-  
-  .social-svg-icon-sm {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .copyright-text-content {
-    font-size: 11px;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  .hero-section {
-    padding: 24px 12px 20px;
-    gap: 20px;
-  }
-  
-  .hero-content h1 {
-    font-size: 24px;
-  }
-  
-  .hero-content .hero-desc {
-    font-size: 12px;
-    line-height: 180%;
-  }
-  
-  .hero-cta-btn {
-    min-width: 180px;
-    padding: 10px 20px;
-  }
-  
-  .hero-cta-btn span {
-    font-size: 16px;
-  }
-  
-  .trust-badge {
-    padding: 10px 12px;
-    gap: 8px;
-  }
-  
-  .badge-icon-bg {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-  }
-  
-  .badge-text .badge-title {
-    font-size: 11px;
-  }
-  
-  .badge-text .badge-sub {
-    font-size: 9px;
-  }
-  
-  .hero-content-2 .closing-text {
-    font-size: 13px;
-  }
-  
-  .contact-section {
-    padding: 20px 12px;
-    gap: 20px;
-  }
-  
-  .right-column {
-    padding: 14px;
-    gap: 14px;
-  }
-  
-  .info-card {
-    padding: 12px;
-  }
-  
-  .info-text .value {
-    font-size: 12px;
-  }
-  
-  .submit-button {
-    height: 44px;
-  }
-  
-  .submit-button span {
-    font-size: 13px;
-  }
-  
-  .bottom-cta-container {
-    padding: 24px 12px;
-  }
-  
-  .bottom-cta-banner {
-    padding: 24px 14px;
-    gap: 14px;
-  }
-  
-  .cta-text h2 {
-    font-size: 20px;
-    line-height: 28px;
-  }
-  
-  .cta-text p {
-    font-size: 12px;
-  }
-  
-  .cta-action-button {
-    padding: 8px 20px;
-  }
-  
-  .site-footer-wrapper {
-    padding: 28px 12px 20px;
-    gap: 24px;
-  }
-  
-  .footer-heading-title {
-    font-size: 14px;
-  }
-  
-  .footer-link-item {
-    font-size: 12px;
-  }
-  
-  .brand-name-gradient {
-    font-size: 16px;
-  }
-  
-  .brand-logo-image {
-    height: 36px;
-    width: 36px;
-  }
-  
-  .brand-description-text {
-    font-size: 11px;
-  }
-  
-  .social-icon-circle {
-    height: 30px;
-    width: 30px;
-  }
-  
-  .social-icon-inner-lg {
-    height: 16px;
-    width: 16px;
-  }
-  
-  .social-svg-icon {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-/* ---------- TOUCH DEVICE OPTIMIZATIONS ---------- */
-@media (hover: none) and (pointer: coarse) {
-  .hero-cta-btn:hover,
-  .resume-btn:hover,
-  .cta-action-button:hover,
-  .submit-button:hover {
-    transform: none;
-  }
-  
-  .trust-badge:hover {
-    transform: none;
-  }
-  
-  .info-card:hover {
-    transform: none;
-  }
-  
-  .social-icon:hover {
-    transform: none;
-  }
-  
-  .social-icon-circle:hover {
-    transform: none;
-  }
-}
-
-/* ---------- PRINT STYLES ---------- */
-@media print {
-  .navbar-wrapper,
-  .hero-cta-btn,
-  .resume-btn,
-  .cta-action-button,
-  .submit-button,
-  .social-row {
-    display: none !important;
-  }
-  
-  .hero-section,
-  .contact-section,
-  .bottom-cta-container {
-    padding: 20px !important;
-    background: white !important;
-    color: black !important;
-  }
-  
-  body {
-    font-size: 12pt;
-  }
-}
-
-
-/* ═══════════════════ RESPONSIVE FIX: select dropdown box (باکس بازشوی select) ═══════════════════ */
-/* این بخش فقط اضافه شده و به کد قبلی دست نخورده است */
-
-.input-container select {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.input-container select option {
-  direction: rtl;
-  text-align: right;
-  white-space: normal;
-  word-break: break-word;
-  background: var(--white);
-  color: var(--dark-text);
-  font-family: inherit;
-}
-
-/* دسکتاپ بزرگ */
-@media screen and (min-width: 1441px) {
-  .input-container select option {
-    font-size: 15px;
-    padding: 10px 12px;
-  }
-}
-
-/* دسکتاپ / لپ‌تاپ */
-@media screen and (max-width: 1440px) and (min-width: 1025px) {
-  .input-container select option {
-    font-size: 14px;
-    padding: 9px 10px;
-  }
-}
-
-/* تبلت */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-  .input-container select option {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-}
-
-/* موبایل بزرگ */
-@media screen and (max-width: 768px) and (min-width: 481px) {
-  .input-container select {
-    font-size: 13px;
-  }
-  .input-container select option {
-    font-size: 13px;
-    padding: 8px 8px;
-  }
-}
-
-/* موبایل متوسط */
-@media screen and (max-width: 480px) and (min-width: 361px) {
-  .input-container select {
-    font-size: 12px;
-  }
-  .input-container select option {
-    font-size: 12px;
-    padding: 7px 6px;
-  }
-}
-
-/* موبایل کوچک */
-@media screen and (max-width: 360px) {
-  .input-container select {
-    font-size: 11px;
-  }
-  .input-container select option {
-    font-size: 11px;
-    padding: 6px 6px;
-  }
-}
-
-      
+      @media (max-width: 480px) {
+        .hero-section {
+          padding: 24px 12px 16px;
+          gap: 20px;
+        }
+        .hero-content h1 {
+          font-size: 24px;
+        }
+        .hero-content .hero-desc {
+          font-size: 13px;
+        }
+        .hero-cta-btn {
+          min-width: 90%;
+          max-width: 280px;
+        }
+        .hero-cta-btn span {
+          font-size: 16px;
+        }
+        .trust-badge {
+          padding: 10px 12px;
+          gap: 8px;
+        }
+        .badge-icon-bg {
+          width: 32px;
+          height: 32px;
+          min-width: 32px;
+        }
+        .badge-icon-bg svg {
+          width: 14px;
+          height: 14px;
+        }
+        .contact-section {
+          padding: 16px 12px;
+          margin-top: 90px;
+        }
+        .right-column {
+          padding: 16px;
+        }
+        .title-group h2 {
+          font-size: 18px;
+        }
+        .field label {
+          font-size: 13px;
+        }
+        .input-container {
+          height: 40px;
+          padding: 8px 10px;
+        }
+        .input-container.textarea-container {
+          height: 80px;
+        }
+        .submit-button {
+          height: 42px;
+        }
+        .map-placeholder {
+          height: 120px;
+        }
+        .bottom-cta-banner {
+          padding: 24px 12px;
+          gap: 16px;
+        }
+        .cta-text h2 {
+          font-size: 20px;
+          line-height: 28px;
+        }
+        .cta-action-button {
+          width: 100%;
+          max-width: 200px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2409,25 +1218,13 @@
     <div class="hero-section">
       <div class="bg-line-1"></div>
       <div class="bg-line-2"></div>
-
       <div class="dot-pattern">
-        <div class="dot-row">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="dot-row">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="dot-row">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="dot-row">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="dot-row">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
+        <div class="dot-row"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="dot-row"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="dot-row"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="dot-row"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="dot-row"><span></span><span></span><span></span><span></span><span></span></div>
       </div>
-
       <div class="bg-circle-1"></div>
 
       <div class="hero-content">
@@ -2440,14 +1237,10 @@
           ارتباط باشید. تیم پشتیبانی ما در سریع ترین زمان ممکن پاسخگوی سوالات
           شما خواهد بود.
         </p>
-
         <button class="hero-cta-btn">
           <span>تماس با آذریزدان</span>
           <div class="angle-icon">
-            <svg
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 1.5L3 6L9 10.5" stroke="#1D3363" stroke-width="1.8" />
             </svg>
           </div>
@@ -2457,22 +1250,9 @@
       <div class="trust-badges">
         <div class="trust-badge">
           <div class="badge-icon-bg">
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <circle
-                cx="10"
-                cy="10"
-                r="7.5"
-                stroke="#1D3363"
-                stroke-width="1.6" />
-              <path
-                d="M10 6V10L12.5 12"
-                stroke="#1D3363"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="7.5" stroke="#1D3363" stroke-width="1.6" />
+              <path d="M10 6V10L12.5 12" stroke="#1D3363" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <div class="badge-text">
@@ -2480,19 +1260,10 @@
             <span class="badge-sub">تیم پشتیبانی همیشه آماده</span>
           </div>
         </div>
-
         <div class="trust-badge">
           <div class="badge-icon-bg">
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M2 17c0-2.8 2.7-4.5 5.5-4.5S13 14.2 13 17M14 12.5c2.2 0 4.5 1.4 4.5 3.7M9.5 9.5a3 3 0 100-6 3 3 0 000 6zM14.5 8.5a2.3 2.3 0 100-4.6"
-                stroke="#1D3363"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 17c0-2.8 2.7-4.5 5.5-4.5S13 14.2 13 17M14 12.5c2.2 0 4.5 1.4 4.5 3.7M9.5 9.5a3 3 0 100-6 3 3 0 000 6zM14.5 8.5a2.3 2.3 0 100-4.6" stroke="#1D3363" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <div class="badge-text">
@@ -2502,16 +1273,8 @@
         </div>
         <div class="trust-badge">
           <div class="badge-icon-bg">
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4 10.5L8 14.5L16 5.5"
-                stroke="#1D3363"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10.5L8 14.5L16 5.5" stroke="#1D3363" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <div class="badge-text">
@@ -2527,26 +1290,18 @@
           توانایی ها، دانش فنی و مهارت های خود هستید با ما در ارتباط باشید و
           رزومه خود را ارسال کنید.
         </p>
-
-        <a href="{% url "users:collaboration" %}" class="resume-btn">
-
+        <a href="{% url 'users:collaboration' %}"  class="resume-btn">
           <span>ارسال رزومه</span>
           <div class="angle-icon">
-            <svg
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 1.5L3 6L9 10.5" stroke="#1D3363" stroke-width="1.8" />
             </svg>
           </div>
-
         </a>
       </div>
-    </div>.
+    </div>
 
     <section class="contact-section">
-
-      <!-- RIGHT: contact form -->
       <div class="right-column">
         <div class="form-header">
           <div class="title-group">
@@ -2558,66 +1313,46 @@
             با شما تماس می‌گیرند.
           </p>
         </div>
-
-        <!-- نمایش پیام‌های Django -->
-
-        <form class="form-fields" id="contactForm" method="post" action="{% url 'users:contact_page' %}">
-          {% csrf_token %}
-          
+        <form class="form-fields">
           <div class="field">
-            <label for="fullname">نام و نام خانوادگی</label>
-            <div class="input-container" id="fullname-container">
-              <input type="text" id="fullname" name="fullname" placeholder="مثال: علی محمدی" required />
+            <label>نام و نام خانوادگی</label>
+            <div class="input-container">
+              <input type="text" placeholder="مثال: علی محمدی" />
             </div>
           </div>
-
           <div class="field">
-            <label for="email">ایمیل</label>
-            <div class="input-container" id="email-container">
-              <input type="email" id="email" name="email" placeholder="example@domain.com" />
+            <label>ایمیل</label>
+            <div class="input-container">
+              <input type="email" placeholder="example@domain.com" />
             </div>
           </div>
-
           <div class="field">
-            <label for="phone">شماره تماس</label>
-            <div class="input-container" id="phone-container">
-              <input type="tel" id="phone" name="phone" placeholder="09123456789" required />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="service_type">نوع خدمات</label>
-            <div class="input-container" id="service-container">
+            <label>نوع خدمات</label>
+            <div class="input-container">
               <div class="dropdown-arrow">
                 <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
               </div>
-              <select id="service_type" name="service_type" required>
-                <option value="" disabled selected>انتخاب کنید...</option>
-                <option value="web_design">طراحی و توسعه وب‌سایت</option>
-                <option value="digital_marketing">دیجیتال مارکتینگ</option>
-                <option value="branding">برندینگ و خلاقیت</option>
-                <option value="seo">سئو و بهینه‌سازی</option>
-                <option value="consulting">مشاوره دیجیتال</option>
+              <select>
+                <option>طراحی و توسعه وب‌سایت / دیجیتال مارکتینگ</option>
+                <option>طراحی و توسعه وب‌سایت</option>
+                <option>دیجیتال مارکتینگ</option>
+                <option>برندینگ و خلاقیت</option>
               </select>
             </div>
           </div>
-
           <div class="field">
-            <label for="message">جزئیات پروژه</label>
-            <div class="input-container textarea-container" id="message-container">
-              <textarea id="message" name="message" placeholder="توضیح مختصری درباره ایده، اهداف و نیازمندی‌های پروژه خود بنویسید..." required minlength="10"></textarea>
+            <label>جزئیات پروژه</label>
+            <div class="input-container textarea-container">
+              <textarea placeholder="توضیح مختصری درباره ایده، اهداف و نیازمندی‌های پروژه خود بنویسید..."></textarea>
             </div>
           </div>
-
-          <button type="submit" class="submit-button" id="submitBtn">
+          <button type="submit" class="submit-button">
             <span>شروع همکاری</span>
             <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
-            <span class="loading-spinner"></span>
           </button>
         </form>
       </div>
 
-      <!-- LEFT: contact info -->
       <div class="left-column">
         <div class="info-header">
           <div class="title-group">
@@ -2629,7 +1364,6 @@
             باشید.
           </p>
         </div>
-
         <div class="info-cards-stack">
           <div class="info-card">
             <div class="info-text">
@@ -2637,88 +1371,56 @@
               <span class="value">info@yazdancode.com</span>
             </div>
             <div class="info-icon-bg">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 4h16v16H4z" stroke-linejoin="round" />
-                <path d="M4 6l8 7 8-7" />
-              </svg>
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" stroke-linejoin="round" /><path d="M4 6l8 7 8-7" /></svg>
             </div>
           </div>
-
           <div class="info-card">
             <div class="info-text">
               <span class="label">شماره تلفن</span>
               <span class="value">0937-210-5008</span>
             </div>
             <div class="info-icon-bg">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.2 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10.5a16 16 0 0 0 6 6l1.7-1.4a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2z" />
-              </svg>
+              <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.2 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10.5a16 16 0 0 0 6 6l1.7-1.4a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2z" /></svg>
             </div>
           </div>
-
           <div class="info-card">
             <div class="info-text">
               <span class="label">دفتر مرکزی</span>
-              <span class="value">تبریز-جاده کرجان-پارک علم و فناوری تبریز
-              </span>
+              <span class="value">تبریز-جاده کرجان-پارک علم و فناوری تبریز</span>
             </div>
             <div class="info-icon-bg">
-              <svg viewBox="0 0 24 24">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
+              <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg>
             </div>
           </div>
-
           <div class="info-card">
             <div class="info-text">
               <span class="label">ساعات کاری</span>
               <span class="value">شنبه تا پنجشنبه، 10 صبح تا ۶ عصر</span>
             </div>
             <div class="info-icon-bg">
-              <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
-              </svg>
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
             </div>
           </div>
         </div>
-
         <div class="social-row">
           <span class="social-label">شبکه‌های اجتماعی:</span>
-          <a class="social-icon" href="#" aria-label="اینستاگرام">
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1" />
-            </svg>
+          <a class="social-icon" href="https://www.instagram.com/azaryazdan.company" aria-label="اینستاگرام">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" /></svg>
           </a>
-          <a class="social-icon" href="#" aria-label="لینکدین">
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-              <path
-                d="M10 9h4v2c1-1.5 2.5-2.3 4.5-2.3 3.3 0 5.5 2 5.5 6V21h-4v-5.5c0-1.8-.7-3-2.3-3-1.3 0-2.2.9-2.5 1.8-.1.3-.2.8-.2 1.2V21h-4z" />
-            </svg>
+          <a class="social-icon" href="https://www.linkedin.com/company/azar-yazdan/" aria-label="لینکدین">
+            <svg viewBox="0 0 24 24"><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /><path d="M10 9h4v2c1-1.5 2.5-2.3 4.5-2.3 3.3 0 5.5 2 5.5 6V21h-4v-5.5c0-1.8-.7-3-2.3-3-1.3 0-2.2.9-2.5 1.8-.1.3-.2.8-.2 1.2V21h-4z" /></svg>
           </a>
-          <a class="social-icon" href="#" aria-label="تلگرام">
-            <svg viewBox="0 0 24 24">
-              <path d="M22 2 2 10l6 2 2 7 3-4 5 4 4-17z" />
-            </svg>
+          <a class="social-icon" href="https://t.me/+JOGfOfUWO2Q4NzVk" aria-label="تلگرام">
+            <svg viewBox="0 0 24 24"><path d="M22 2 2 10l6 2 2 7 3-4 5 4 4-17z" /></svg>
           </a>
           <a class="social-icon" href="#" aria-label="ایکس">
             <svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4 4 20" /></svg>
           </a>
         </div>
-
         <div class="map-placeholder">
-          <img
-            src="{% static 'asets/locationcontact.png' %}"
-            alt="موقعیت مکانی" />
+          <img src="{% static '/asets/locationcontact.png' %}" alt="موقعیت مکانی" />
         </div>
       </div>
-
     </section>
 
     <div class="baner-payin">
@@ -2726,7 +1428,6 @@
         <div class="bottom-cta-banner">
           <div class="cta-pattern-1"></div>
           <div class="cta-pattern-2"></div>
-
           <div class="cta-text">
             <h2>آماده‌اید محصول دیجیتال بعدی خود را<br> بسازید؟</h2>
             <p>
@@ -2734,14 +1435,10 @@
               می‌سازد. از ایده تا اجرا همراه شما هستیم.
             </p>
           </div>
-
           <button class="cta-action-button">
             <span>مشاوره رایگان</span>
             <div class="chevron-left">
-              <svg
-                viewBox="0 0 8 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 1L2 4L6 7" stroke="#1D3363" stroke-width="1.3" />
               </svg>
             </div>
@@ -2752,6 +1449,7 @@
 
     <!-- footer -->
     {% include "includes/footer.html" %}
+    <script src="{% static 'js/index.js' %}"></script>
 
     <script>
       // ===== اعتبارسنجی فرم تماس با ما =====
@@ -3034,51 +1732,6 @@
         `;
         document.head.appendChild(style);
     });
-      // تابع باز و بسته کردن دراپ‌منو
-      function toggleDropdown(triggerId, dropdownId) {
-        var trigger = document.getElementById(triggerId);
-        var dropdown = document.getElementById(dropdownId);
-        
-        if(trigger && dropdown) {
-          trigger.addEventListener("click", function(e) {
-            e.stopPropagation();
-            
-            // بستن همه دراپ‌منوهای دیگر
-            document.querySelectorAll('.dropdown-content').forEach(function(el) {
-              if(el.id !== dropdownId) {
-                el.style.display = 'none';
-              }
-            });
-            
-            // باز و بسته کردن دراپ‌منو فعلی
-            if(dropdown.style.display === 'flex') {
-              dropdown.style.display = 'none';
-            } else {
-              dropdown.style.display = 'flex';
-            }
-          });
-        }
-      }
-      
-      // بستن دراپ‌منو با کلیک خارج از آن
-      document.addEventListener("click", function() {
-        document.querySelectorAll('.dropdown-content').forEach(function(el) {
-          el.style.display = 'none';
-        });
-      });
-      
-      // جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
-      document.querySelectorAll('.dropdown-content').forEach(function(el) {
-        el.addEventListener("click", function(e) {
-          e.stopPropagation();
-        });
-      });
-      
-      // راه‌اندازی دراپ‌منوها
-      toggleDropdown('frameContainer', 'blogDropdown');
-      toggleDropdown('frameContainer1', 'academyDropdown');
-      toggleDropdown('frameContainer2', 'servicesDropdown');
-
 
       // ═══════════════════ FORM VALIDATION & LOADING ═══════════════════
       const form = document.getElementById("contactForm");

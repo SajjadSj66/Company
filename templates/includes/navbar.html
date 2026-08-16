@@ -1,209 +1,389 @@
 {% load static %}
-<div class="navbar-wrapper">
-			<div class="rectangle-parent">
 
-				<img class="frame-item" alt>
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="rectangle-parent">
 
-				<div class="frame-wrapper">
-					<div class="cta-button-parent">
-						<a href="{% url "users:dashboard" %}">
-							<img class="frame-inner" src="{% static 'asets/porof.svg' %}" alt>
-						</a>
+			<img class="frame-item" alt>
 
-						<div class="cta-button">
-							<img class="phone-call-3-1" src="{% static 'asets/phone.svg' %}" alt>
+			<div class="frame-wrapper">
+				<div class="cta-button-parent">
+					<a href="{% url 'users:login' %}">
+					<img class="frame-inner" src="{% static '/asets/porof.svg' %}" alt>
+					</a>
+					<div class="cta-button">
+						<img class="phone-call-3-1" src="{% static '/asets/phone.svg' %}" alt>
 
-							<b class="button-label">۰۴۱-۳۵۵۷۹۳۹۶</b>
-						</div>
-
+						<b class="button-label">۰۴۱-۳۵۵۷۹۳۹۶</b>
 					</div>
-				</div>
-			</div>
-			<div class="frame-group">
-				<a href="{% url "home" %}">
-					<img class="logo-icon" src="{% static 'asets/logo.svg' %}" alt>
-				</a>
-				<div class="parent">
-					<!-- services -->
-					<div class="dropdown-trigger" id="frameContainer2">
-
-						<a href="{% url "shop:services" %}" class="div">خدمات ما</a>
-						<img class="phone-call-3-1" src="{% static 'asets/dropmenu.svg' %}" alt>
-
-						<!-- دراپ‌منو خدمات -->
-						<div class="dropdown-content services-dropdown" id="servicesDropdown">
-
-							<div class="services">
-
-								<div class="component-38-parent">
-									<div class="component-38">
-										<div class="div7">طراحی سایت شرکتی</div>
-									</div>
-									<div class="line-div">
-									</div>
-									<div class="frame-child4">
-									</div>
-									<div class="component-38">
-										<div class="div7">طراحی سایت فروشگاهی</div>
-									</div>
-									<div class="line-div">
-									</div>
-									<div class="frame-child4">
-									</div>
-									<a  href="{% url "shop:services_web" %}" style="text-decoration:none;" class="component-38">
-										<div class="div7">طراحی سایت اختصاصی</div>
-									</a>
-									<div class="line-div">
-									</div>
-									<div class="frame-child4">
-									</div>
-									<a href="{% url "shop:services_seo" %}" style="text-decoration:none;" class="component-38">
-										<div  class="div7">سئو سایت</div>
-									</a>
-								</div>
-
-								<div class="services-child">
-								</div>
-
-								<div class="component-44-parent">
-									<a href="{% url "shop:services_digital" %}" style="text-decoration:none;" class="component-44">
-										<div  class="div7">مشاوره دیجیتال مارکتینگ</div>
-									</a>
-									<div class="line-div">
-									</div>
-									<div class="component-44">
-										<div class="div7">پشتیبانی سایت</div>
-									</div>
-									<div class="line-div">
-									</div>
-									<a href="{% url "shop:services_wordpress" %}" style="text-decoration:none;" class="component-44">
-										<div class="div7">خدمات وردپرس</div>
-									</a>
-									<div class="line-div">
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-					</div>
-					<!-- project -->
-					<div class="div">
-						<a href="{% url 'shop:template_list' %}">پروژه ها</a>
-					</div>
-
-					<!-- academi -->
-					<div class="dropdown-trigger" id="frameContainer1">
-
-						<a href="{% url "courses:course_list" %}" style="text-decoration:none;" class="div3">آکادمی</a>
-						<img class="phone-call-3-1" src="{% static 'asets/dropmenu.svg' %}" alt>
-
-						<!-- دراپ‌منو آکادمی -->
-						<div class="dropdown-content academy-dropdown" id="academyDropdown">
-							<div class="academi">
-
-								<div class="component-38-group">
-									<a href="{% url "courses:front_signup" %}" style="text-decoration:none;" class="component-442">
-										<div class="div15">آموزش فرانت اند</div>
-									</a>
-									<div class="frame-child7">
-									</div>
-									<a href="{% url "courses:back_signup" %}" style="text-decoration:none;" class="component-442">
-										<div class="div15">آموزش بک اند</div>
-									</a>
-									<div class="frame-child7">
-									</div>
-									<a href="{% url "courses:wordpress_signup" %}" style="text-decoration:none;" class="component-402">
-										<div class="div15">آموزش طراحی سایت با وردپرس</div>
-									</a>
-									<div class="frame-child7">
-									</div>
-								</div>
-
-								<div class="academi-child">
-								</div>
-								<div class="component-44-group">
-									<a href="{% url "courses:ai_signup" %}" style="text-decoration:none;" class="component-442">
-										<div class="div14">آموزش هوش مصنوعی</div>
-									</a>
-									<div class="frame-child7">
-									</div>
-									<a href="{% url "courses:ui_signup" %}" style="text-decoration:none;" class="component-442">
-										<div class="div15">UI/UX</div>
-									</a>
-									<div class="frame-child7">
-									</div>
-									<a href="{% url "courses:seo_signup" %}" style="text-decoration:none;" class="component-442">
-										<div class="div15">آموزش سئو</div>
-									</a>
-									<div class="frame-child7">
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-					</div>
-
-					<!-- blog -->
-					<div class="dropdown-trigger" id="frameContainer">
-
-						<a href="{% url "users:blog_home" %}" style="text-decoration:none;" class="div3">وبلاگ</a>
-						<img class="phone-call-3-1" src="{% static 'asets/dropmenu.svg' %}" alt>
-						<!-- دراپ‌منو وبلاگ -->
-						<div class="dropdown-content blog-dropdown" id="blogDropdown">
-							<div class="blog">
-								<div class="component-38-container">
-									<a href="{% url 'users:blog_filter' %}?category=webdevelopment" style="text-decoration:none;" class="component-443">
-										<div class="div20">طراحی سایت</div>
-									</a>
-									<div class="frame-child13"></div>
-									
-									<a href="{% url 'users:blog_filter' %}?category=web" style="text-decoration:none;" class="component-443">
-										<div class="div20">برنامه‌نویسی</div>
-									</a>
-									<div class="frame-child13"></div>
-									
-									<a href="{% url 'users:blog_filter' %}?category=ai" style="text-decoration:none;" class="component-443">
-										<div class="div20">هوش مصنوعی</div>
-									</a>
-									<div class="frame-child13"></div>
-									
-									<a href="{% url 'users:blog_filter' %}?category=seo" style="text-decoration:none;" class="component-443">
-										<div class="div20">سئو</div>
-									</a>
-								</div>
-								
-								<div class="blog-child"></div>
-								
-								<div class="component-44-container">
-									<a href="{% url 'users:blog_filter' %}?category=marketing" style="text-decoration:none;" class="component-443">
-										<div class="div20">دیجیتال مارکتینگ</div>
-									</a>
-									<div class="frame-child13"></div>
-									
-									<a href="{% url 'users:blog_filter' %}?category=work" style="text-decoration:none;" class="component-443">
-										<div class="div20">کسب و کار</div>
-									</a>
-									<div class="frame-child13"></div>
-									
-									<a href="{% url 'users:blog_filter' %}?category=wordpress" style="text-decoration:none;" class="component-443">
-										<div class="div20">وردپرس</div>
-									</a>
-									<div class="frame-child13"></div>
-									
-									<a href="{% url 'users:blog_filter' %}?category=teach" style="text-decoration:none;" class="component-443">
-										<div class="div20">آموزش</div>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="div">درباره ما</div>
-					<a href="{% url "users:contact_page" %}" class="div">تماس با ما</a>
 
 				</div>
 			</div>
 		</div>
+		<div class="frame-group">
+			<a href="{% url 'home' %}">
+			<img class="logo-icon" src="{% static '/asets/logo.svg' %}" alt>
+			</a>
+			<div class="parent">
+				<!-- services -->
+				<div class="dropdown-trigger" id="frameContainer2">
+
+					<a href="{% url 'services' %}" class="div">خدمات ما</a>
+					<img class="phone-call-3-1" src="{% static '/asets/dropmenu.svg' %}" alt>
+
+					<!-- دراپ‌منو خدمات -->
+					<div class="dropdown-content services-dropdown" id="servicesDropdown">
+
+						<div class="services">
+
+							<div class="component-38-parent">
+								<a href="{% url 'services_web' %}" class="component-38">
+									<div class="div7">طراحی سایت شرکتی</div>
+								</a>
+								<div class="line-div">
+								</div>
+								<div class="frame-child4">
+								</div>
+								<a href="{% url 'services_web' %}" class="component-38">
+									<div class="div7">طراحی سایت فروشگاهی</div>
+								</a>
+								<div class="line-div">
+								</div>
+								<div class="frame-child4">
+								</div>
+								<a href="{% url 'services_web' %}" class="component-38">
+									<div class="div7">طراحی سایت اختصاصی</div>
+								</a>
+								<div class="line-div">
+								</div>
+								<div class="frame-child4">
+								</div>
+								<a href="{% url 'services_seo' %}" class="component-38">
+									<div class="div7">سئو سایت</div>
+								</a>
+							</div>
+
+							<div class="services-child">
+							</div>
+
+							<div class="component-44-parent">
+								<a href="{% url 'services_digital' %}" class="component-44">
+									<div class="div7">مشاوره دیجیتال مارکتینگ</div>
+								</a>
+								<div class="line-div">
+								</div>
+								<a href="{% url 'services_support' %}" class="component-44">
+									<div class="div7">پشتیبانی سایت</div>
+								</a>
+								<div class="line-div">
+								</div>
+								<a href="{% url 'services_wordpress' %}" class="component-44">
+									<div class="div7">خدمات وردپرس</div>
+								</a>
+								<div class="line-div">
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+				<!-- project -->
+				<a href="{% url 'template_list' %}" class="div">پروژه ها</a>
+
+				<!-- academi -->
+				<div class="dropdown-trigger" id="frameContainer1">
+
+					<a href="{% url 'courses:course_list' %}" class="div3">آکادمی</a>
+					<img class="phone-call-3-1" src="{% static '/asets/dropmenu.svg' %}" alt>
+
+					<!-- دراپ‌منو آکادمی -->
+					<div class="dropdown-content academy-dropdown" id="academyDropdown">
+						<div class="academi">
+
+							<div class="component-38-group">
+								<a href="{% url 'courses:front_signup' %}" class="component-442">
+									<div class="div15">آموزش فرانت اند</div>
+								</a>
+								<div class="frame-child7">
+								</div>
+								<a href="{% url 'courses:back_signup' %}" class="component-442">
+									<div class="div15">آموزش بک اند</div>
+								</a>
+								<div class="frame-child7">
+								</div>
+								<a href="{% url 'courses:wordpress_signup' %}" class="component-402">
+									<div class="div15">آموزش طراحی سایت با WordPress</div>
+								</a>
+								<div class="frame-child7">
+								</div>
+							</div>
+
+							<div class="academi-child">
+							</div>
+							<div class="component-44-group">
+								<a href="{% url 'courses:ai_signup' %}" class="component-442">
+									<div class="div14">آموزش هوش مصنوعی</div>
+								</a>
+								<div class="frame-child7">
+								</div>
+								<a href="{% url 'courses:ui_signup' %}" class="component-442">
+									<div class="div15">UI/UX</div>
+								</a>
+								<div class="frame-child7">
+								</div>
+								<a href="{% url 'courses:seo_signup' %}" class="component-442">
+									<div class="div15">آموزش سئو</div>
+								</a>
+								<div class="frame-child7">
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<a href="{% url 'users:blog_home' %}" class="div3">وبلاگ</a>
+				<a href="{% url 'users:about' %}" class="div">درباره ما</a>
+				<a href="{% url 'users:contact_page' %}" class="div">تماس با ما</a>
+
+			</div>
+		</div>
+	</div>
+	<!-- navbar موبایل -->
+	<div class="mobile-navbar" id="mobileNavbar">
+		<div class="mobile-navbar__bar">
+			<div class="nav-item">
+				<a href="{% url 'users:login' %}">
+					<svg width="16" height="20" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M5.99997 8.00001C8.2091 8.00001 9.99995 6.20915 9.99995 4.00001C9.99995 1.79086 8.2091 0 5.99997 0C3.79085 0 2 1.79086 2 4.00001C2 6.20915 3.79085 8.00001 5.99997 8.00001Z"
+							fill="#1D3363" />
+						<path
+							d="M5.99996 9C2.6878 9.00369 0.00368748 11.6878 0 15C0 15.3682 0.298467 15.6667 0.666652 15.6667H11.3332C11.7014 15.6667 11.9999 15.3682 11.9999 15C11.9962 11.6878 9.31213 9.00366 5.99996 9Z"
+							fill="#1D3363" />
+					</svg>
+
+				</a>
+			</div>
+			<div class="nav-item">
+				<div class="nav-item-logo">
+					<img class="mobile-navbar__logo" src="{% static '/asets/azaryzdn-logo.svg' %}" alt>
+					<p>آذر یزدان</p>
+				</div>
+			</div>
+			<div class="nav-item">
+				<button class="mobile-navbar__hamburger" id="mobileHamburger" aria-label="باز و بسته کردن منو"
+					aria-expanded="false">
+					<span></span><span></span><span></span>
+				</button>
+			</div>
+		</div>
+
+		<div class="mobile-navbar__overlay" id="mobileOverlay"></div>
+
+		<nav class="mobile-navbar__sidebar" id="mobileSidebar">
+
+			<div class="mobile-navbar-logo" id="sidebar-logo-div">
+				<a href="{% url 'home' %}">
+				<img src="{% static '/asets/mobile-navbar-logo.svg' %}" alt="" srcset="">
+				</a>
+				<p>آذر یزدان</p>
+			</div>
+
+			<div class="mobile-navbar__back" id="mobileBackBtn">
+				<img src="{% static 'asets/back-btn.svg' %}" alt="" srcset="">
+				<p id="mobileBackBtnSpan">بازگشت به منو</p>
+			</div>
+
+			<div class="mobile-navbar__item" data-mobile-trigger="services">
+				<span>خدمات ما</span>
+				<img class="mobile-navbar__arrow" src="{% static '/asets/dropmenu.svg' %}" alt>
+			</div>
+			<div class="mobile-navbar__submenu" data-mobile-submenu="services">
+
+				<a href="{% url 'services_web' %}" class="mobile-navbar__submenu-item">طراحی سایت شرکتی</a>
+				<a href="{% url 'services_web' %}" class="mobile-navbar__submenu-item">طراحی سایت فروشگاهی</a>
+				<a href="{% url 'services_web' %}" class="mobile-navbar__submenu-item">طراحی سایت اختصاصی</a>
+				<a href="{% url 'services_seo' %}" class="mobile-navbar__submenu-item">سئو سایت</a>
+				<a href="{% url 'services_digital' %}" class="mobile-navbar__submenu-item">مشاوره دیجیتال مارکتینگ</a>
+				<a href="{% url 'services_support' %}" class="mobile-navbar__submenu-item">پشتیبانی سایت</a>
+				<a href="{% url 'services_wordpress' %}" class="mobile-navbar__submenu-item">خدمات وردپرس</a>
+			</div>
+
+			<div class="mobile-navbar__item"><a href="{% url 'template_list' %}">پروژه ها</a></div>
+
+			<div class="mobile-navbar__item" data-mobile-trigger="academy">
+				<span>آکادمی</span>
+				<img class="mobile-navbar__arrow" src="{% static '/asets/dropmenu.svg' %}" alt>
+			</div>
+			<div class="mobile-navbar__submenu" data-mobile-submenu="academy">
+				<a href="{% url 'courses:front_signup' %}" class="mobile-navbar__submenu-item">آموزش فرانت اند</a>
+				<a href="{% url 'courses:back_signup' %}" class="mobile-navbar__submenu-item">آموزش بک اند</a>
+				<a href="{% url 'courses:wordpress_signup' %}" class="mobile-navbar__submenu-item">آموزش طراحی سایت با WordPress</a>
+				<a href="{% url 'courses:ai_signup' %}" class="mobile-navbar__submenu-item">آموزش هوش مصنوعی</a>
+				<a href="{% url 'courses:ui_signup' %}" class="mobile-navbar__submenu-item">UI/UX</a>
+				<a href="{% url 'courses:seo_signup' %}" class="mobile-navbar__submenu-item">آموزش سئو</a>
+			</div>
+
+			<a href="{% url 'users:blog_home' %}" class="mobile-navbar__item">وبلاگ</a>
+			<a href="{% url 'users:about' %}" class="mobile-navbar__item">درباره ما</a>
+			<a href="{% url 'users:contact_page' %}" class="mobile-navbar__item">تماس با ما</a>
+
+		</nav>
+	</div>
+	<script>
+		// ============================================================
+		// نویگیشن موبایل — با قابلیت تغییر متن backBtn و نمایش/مخفی کردن
+		// ============================================================
+		(function () {
+			var bar = document.getElementById('mobileNavbar');
+			if (!bar) return;
+
+			var hamburger = document.getElementById('mobileHamburger');
+			var overlay = document.getElementById('mobileOverlay');
+			var sidebar = document.getElementById('mobileSidebar');
+			var backBtn = document.getElementById('mobileBackBtn');
+			var backBtnSpan = document.getElementById('mobileBackBtnSpan');
+			var logoDiv = document.getElementById('sidebar-logo-div');
+			var triggers = bar.querySelectorAll('[data-mobile-trigger]');
+
+			// در ابتدا دکمه بازگشت مخفی و لوگو نمایش داده شود
+			if (logoDiv) logoDiv.style.display = 'flex';
+			if (backBtn) backBtn.style.display = 'none';
+
+			function openSidebar() {
+				sidebar.classList.add('is-open');
+				overlay.classList.add('is-active');
+				if (hamburger) {
+					hamburger.classList.add('is-active');
+					hamburger.setAttribute('aria-expanded', 'true');
+				}
+				document.body.classList.add('mobile-nav-lock');
+
+				// در حالت عادی (زیرمنو بسته) لوگو نمایش داده شود
+				if (logoDiv) logoDiv.style.display = 'flex';
+				if (backBtn) backBtn.style.display = 'none';
+			}
+
+			function closeSidebar() {
+				sidebar.classList.remove('is-open');
+				overlay.classList.remove('is-active');
+				if (hamburger) {
+					hamburger.classList.remove('is-active');
+					hamburger.setAttribute('aria-expanded', 'false');
+				}
+				document.body.classList.remove('mobile-nav-lock');
+				closeSubmenu();
+				// ریست کردن متن backBtnSpan
+				if (backBtnSpan) {
+					backBtnSpan.textContent = 'بازگشت به منو';
+				}
+				// نمایش لوگو و مخفی کردن دکمه بازگشت
+				if (logoDiv) logoDiv.style.display = 'flex';
+				if (backBtn) backBtn.style.display = 'none';
+			}
+
+			function toggleSidebar() {
+				if (sidebar.classList.contains('is-open')) {
+					closeSidebar();
+				} else {
+					openSidebar();
+				}
+			}
+
+			function closeSubmenu() {
+				sidebar.classList.remove('has-submenu-open');
+				bar.querySelectorAll('.mobile-navbar__submenu').forEach(function (s) {
+					s.classList.remove('is-open');
+				});
+				// ریست کردن متن backBtnSpan
+				if (backBtnSpan) {
+					backBtnSpan.textContent = 'بازگشت به منو';
+				}
+				// نمایش لوگو و مخفی کردن دکمه بازگشت
+				if (logoDiv) logoDiv.style.display = 'flex';
+				if (backBtn) backBtn.style.display = 'none';
+			}
+
+			function openSubmenu(key) {
+				// پیدا کردن نام ساب‌منو از المان trigger
+				var triggerElement = bar.querySelector('[data-mobile-trigger="' + key + '"]');
+				var menuName = 'بازگشت به منو';
+
+				if (triggerElement) {
+					// گرفتن متن از span داخل trigger
+					var spanElement = triggerElement.querySelector('span');
+					if (spanElement) {
+						menuName = spanElement.textContent.trim();
+					}
+				}
+
+				bar.querySelectorAll('.mobile-navbar__submenu').forEach(function (s) {
+					s.classList.toggle('is-open', s.getAttribute('data-mobile-submenu') === key);
+				});
+				sidebar.classList.add('has-submenu-open');
+
+				// تغییر متن backBtnSpan به نام ساب‌منو
+				if (backBtnSpan) {
+					backBtnSpan.textContent = menuName;
+				}
+
+				// مخفی کردن لوگو و نمایش دکمه بازگشت
+				if (logoDiv) logoDiv.style.display = 'none';
+				if (backBtn) backBtn.style.display = 'flex';
+			}
+
+			// رویدادها
+			if (hamburger) hamburger.addEventListener('click', toggleSidebar);
+			if (overlay) overlay.addEventListener('click', closeSidebar);
+			if (backBtn) {
+				backBtn.addEventListener('click', function (e) {
+					e.stopPropagation();
+					closeSubmenu();
+				});
+			}
+
+			triggers.forEach(function (trigger) {
+				trigger.addEventListener('click', function (e) {
+					e.stopPropagation();
+					var key = trigger.getAttribute('data-mobile-trigger');
+					openSubmenu(key);
+				});
+			});
+
+			// بستن سایدبار با کلیک روی آیتم‌های منو
+			bar.querySelectorAll('.mobile-navbar__item:not([data-mobile-trigger]), .mobile-navbar__submenu-item').forEach(function (link) {
+				link.addEventListener('click', function (e) {
+					// اگر لینک واقعی است و href دارد
+					if (this.getAttribute('href')) {
+						closeSidebar();
+					} else {
+						closeSidebar();
+					}
+				});
+			});
+
+			// بستن با کلید Escape
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Escape') closeSidebar();
+			});
+
+			// بستن سایدبار هنگام تغییر اندازه پنجره به دسکتاپ
+			window.addEventListener('resize', function () {
+				if (window.innerWidth > 1330) {
+					closeSidebar();
+				}
+			});
+
+			// جلوگیری از بسته شدن هنگام کلیک داخل سایدبار
+			if (sidebar) {
+				sidebar.addEventListener('click', function (e) {
+					e.stopPropagation();
+				});
+			}
+
+		})();
+	</script>

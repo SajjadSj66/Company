@@ -1,664 +1,85 @@
 {% load static %}
+{% load jformat %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-  	<meta charset="utf-8">
-  	<meta name="viewport" content="initial-scale=1, width=device-width">
-  	<title>404</title>
-  	<link rel="stylesheet"  href="./index.css" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google Sans Flex:wght@600&display=swap" />
-  	
-  	<style>
-      body{
-        margin:0;
-        padding:0;
-        overflow-x: hidden;
-      }
-        
-/* ناو بار */
-.navbar-wrapper {
-  width: 100%;
-  height: 88px;
-  position: fixed;
-  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
-  text-align: left;
-  font-size: 16px;
-  color: #ebebeb;
-  font-family: Rubik;
-  align-items: center;
-  justify-self: center;
-  z-index: 1000;
-}
-.rectangle-parent {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 526px;
-  height: 88px;
-  overflow: hidden;
-}
-.frame-child {
-  position: absolute;
-  top: 0px;
-  left: -18px;
-  width: 422px;
-  height: 106px;
-  flex-shrink: 0;
-}
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <title>404</title>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
-.frame-wrapper {
-  position: absolute;
-  top: 18px;
-  left: 64px;
-  width: 293px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.cta-button-parent {
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.cta-button {
-  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
-  border-radius: 12px;
-  background-color: #1d3363;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 36px;
-  gap: 8px;
-}
-.phone-call-3-1 {
-  height: 16px;
-  width: 16px;
-  position: relative;
-}
-.button-label {
-  position: relative;
-}
-.frame-inner {
-  height: 48px;
-  width: 48px;
-  position: relative;
-  border-radius: 12px;
-}
-.frame-group {
-  position: absolute;
-  top: 16px;
-  border-radius: 16px;
-  width: 887px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 32px;
-  text-align: right;
-  font-size: 20px;
-  color: #fbf8f8;
-  font-family: "Google Sans Flex";
-}
-.parent {
-  display: flex;
-  align-items: center;
-  gap: 57px;
-}
-.div {
-  position: relative;
-  font-weight: 600;
-  cursor: pointer;
-}
-.div3 {
-  width: 69px;
-  position: relative;
-  font-weight: 600;
-  display: inline-block;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-.angle-small-down-2-2-parent,
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  cursor: pointer;
-  position: relative;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-.angle-small-down-2-2-parent {
-  width: 97px;
-}
+    * {
+      font-family: Vazir !important;
+    }
 
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  width: 110px;
-}
 
-.logo-icon {
-  height: 56px;
-  width: 56px;
-  position: relative;
-  right: 10px;
-}
 
-/* استایل‌های جدید برای دراپ‌منو */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 8px;
-  z-index: 1001;
-}
+    .child {
+      display: flex;
+      position: relative;
+      top: 154px;
+      justify-self: center;
+      max-width: 100%;
+      height: auto;
+    }
 
-.blog-dropdown {
-  right: 0;
-}
+    a {
+      text-decoration: none !important;
+      color: inherit;
+    }
 
-.academy-dropdown {
-  right: 0;
-}
+    /* Vazir - Medium */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
 
-.services-dropdown {
-  right: 0;
-}
+    /* Vazir - Bold */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
 
-.services {
-  width: 100%;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 40px;
-}
-.component-44-parent {
-  height: 176px;
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-44 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.component-38:hover,
-.component-44:hover,
-.component-442:hover,
-.component-443:hover,
-.component-402:hover {
-  background-color: rgba(118, 130, 156, 0.6);
-}
-.div {
-  position: relative;
-  font-weight: 500;
-}
+    /* Vazir - thin */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 
-.services-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-parent {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.component-38-parent :last-child {
-  border-bottom-right-radius: 12px;
-}
-.component-38-parent :first-child {
-  border-top-right-radius: 12px;
-}
-.component-44-parent :first-child {
-  border-top-left-radius: 12px;
-}
-.component-38 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.line-div {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-
-.academi {
-  width: 465px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 93%;
-  max-height: 90%;
-  overflow: hidden;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 110px;
-}
-.component-44-group {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.component-442 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div14 {
-  position: relative;
-  font-weight: 500;
-  white-space: pre-wrap;
-}
-.frame-child7 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.div15 {
-  position: relative;
-  font-weight: 500;
-}
-.academi-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-  flex-shrink: 0;
-}
-.component-38-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  flex-shrink: 0;
-}
-.component-402 {
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 24px 16px;
-}
-
-.blog {
-  width: 409px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-}
-.component-44-container {
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-443 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div20 {
-  position: relative;
-  font-weight: 500;
-}
-.frame-child13 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.blog-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-container {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
-.popup-overlay {
-  display: none;
-}
-
-.child{
-  display:flex;
-  position: relative;
-  top: 154px;
-  justify-self:center;
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  text-decoration: none !important;
-  color: inherit;
-}
-
-/* ========== فقط ریسپانسیو ========== */
-
-/* تبلت و کوچیکتر */
-@media (max-width: 992px) {
-  .frame-group {
-    width: auto;
-    padding: 0 15px;
-    gap: 20px;
-  }
-  .parent {
-    gap: 25px;
-    font-size: 16px;
-  }
-  .cta-button {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
-  .child {
-    top: 120px;
-    max-width: 80%;
-  }
-}
-
-/* موبایل */
-@media (max-width: 768px) {
-  .navbar-wrapper {
-    height: 70px;
-  }
-  .frame-wrapper {
-    left: 15px;
-    top: 12px;
-    width: auto;
-  }
-  .logo-icon {
-    height: 40px;
-    width: 40px;
-    right: 5px;
-  }
-  .frame-group {
-    top: 12px;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding: 0 10px;
-  }
-  .parent {
-    gap: 12px;
-    font-size: 13px;
-    flex-wrap: wrap;
-  }
-  .cta-button {
-    padding: 8px 14px;
-    font-size: 11px;
-  }
-  .cta-button-parent {
-    gap: 10px;
-  }
-  .frame-inner {
-    height: 36px;
-    width: 36px;
-  }
-  .angle-small-down-2-2-parent,
-  .angle-small-down-2-2-container,
-  .dropdown-trigger {
-    width: auto;
-    gap: 4px;
-  }
-  .div3 {
-    width: auto;
-  }
-  
-  /* دراپ‌منوها */
-  .services,
-  .academi,
-  .blog {
-    left: 0 !important;
-    width: 280px !important;
-    max-width: 90vw !important;
-    top: 10px;
-  }
-  .component-44-parent,
-  .component-44-group,
-  .component-44-container,
-  .component-38-parent,
-  .component-38-container {
-    width: 100% !important;
-  }
-  .services,
-  .academi,
-  .blog {
-    flex-direction: column;
-  }
-  .services-child,
-  .academi-child,
-  .blog-child {
-    border-right: none;
-    border-bottom: 1px solid #6b7280;
-    width: 100%;
-    flex: none;
-    height: 1px;
-  }
-  .component-44-parent,
-  .component-38-parent,
-  .component-38-container {
-    height: auto !important;
-  }
-  
-  .child {
-    top: 100px;
-    max-width: 90%;
-  }
-}
-
-/* موبایل کوچک */
-@media (max-width: 480px) {
-  .navbar-wrapper {
-    height: 60px;
-  }
-  .logo-icon {
-    height: 32px;
-    width: 32px;
-    right: 0;
-  }
-  .frame-wrapper {
-    left: 8px;
-    top: 8px;
-  }
-  .frame-group {
-    top: 8px;
-    gap: 6px;
-    padding: 0 6px;
-  }
-  .parent {
-    gap: 6px;
-    font-size: 11px;
-  }
-  .cta-button {
-    padding: 4px 10px;
-    font-size: 9px;
-    border-radius: 8px;
-  }
-  .cta-button-parent {
-    gap: 6px;
-  }
-  .frame-inner {
-    height: 28px;
-    width: 28px;
-  }
-  .div3 {
-    font-size: 11px;
-  }
-  .angle-small-down-2-2-parent svg,
-  .angle-small-down-2-2-container svg,
-  .dropdown-trigger svg {
-    width: 14px;
-    height: 14px;
-  }
-  .services,
-  .academi,
-  .blog {
-    font-size: 12px;
-    width: 240px !important;
-  }
-  .component-44,
-  .component-38,
-  .component-442,
-  .component-443,
-  .component-402 {
-    padding: 12px 10px !important;
-  }
-  .child {
-    top: 80px;
-    max-width: 95%;
-  }
-}
-
-/* خیلی کوچیک */
-@media (max-width: 360px) {
-  .parent {
-    gap: 4px;
-    font-size: 9px;
-  }
-  .cta-button {
-    padding: 3px 6px;
-    font-size: 8px;
-  }
-  .logo-icon {
-    height: 26px;
-    width: 26px;
-  }
-  .frame-group {
-    gap: 4px;
-  }
-  .child {
-    top: 70px;
-  }
-  .services,
-  .academi,
-  .blog {
-    width: 200px !important;
-  }
-}
-    </style>
-  	
 </head>
 
 
 <body>
-  	
-	<!-- navbar -->
-	{% include "includes/navbar.html" %}
+
+  <!-- navbar -->
+  {% include "includes/navbar.html" %}
 
 
-  	<div class="div">
-    		
-    		<img class="child" src="{% static "asets/Frame 119.png" %}" alt="404">
-    		
-  	</div>
-  	
-  	
-  	
-  	<script>
-            		// تابع باز و بسته کردن دراپ‌منو
-    		function toggleDropdown(triggerId, dropdownId) {
-      			var trigger = document.getElementById(triggerId);
-      			var dropdown = document.getElementById(dropdownId);
-      			
-      			if(trigger && dropdown) {
-        				trigger.addEventListener("click", function(e) {
-          					e.stopPropagation();
-          					
-          					// بستن همه دراپ‌منوهای دیگر
-          					document.querySelectorAll('.dropdown-content').forEach(function(el) {
-            						if(el.id !== dropdownId) {
-              							el.style.display = 'none';
-            						}
-          					});
-          					
-          					// باز و بسته کردن دراپ‌منو فعلی
-          					if(dropdown.style.display === 'flex') {
-            						dropdown.style.display = 'none';
-          					} else {
-            						dropdown.style.display = 'flex';
-          					}
-        				});
-      			}
-    		}
-    		
-    		// بستن دراپ‌منو با کلیک خارج از آن
-    		document.addEventListener("click", function() {
-      			document.querySelectorAll('.dropdown-content').forEach(function(el) {
-        				el.style.display = 'none';
-      			});
-    		});
-    		
-    		// جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
-    		document.querySelectorAll('.dropdown-content').forEach(function(el) {
-      			el.addEventListener("click", function(e) {
-        				e.stopPropagation();
-      			});
-    		});
-    		
-    		// راه‌اندازی دراپ‌منوها
-    		toggleDropdown('frameContainer', 'blogDropdown');
-    		toggleDropdown('frameContainer1', 'academyDropdown');
-    		toggleDropdown('frameContainer2', 'servicesDropdown');
+  <div class="div">
 
-    </script>
+    <img class="child" src="{% static 'asets/Frame 119.png' %}" alt="404">
+
+  </div>
+
 </body>
+
 </html>

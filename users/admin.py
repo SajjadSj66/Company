@@ -1,22 +1,7 @@
 from django.contrib import admin
 from django.contrib import admin
-from .models import (
-    LoginModel,
-    OTPCode,
-    ContactMessage,
-    CourseRegistration,
-    ContactRequest,
-    UserProfile,
-    UserCourse,
-    UserTicket,
-    UserReview,
-    UserTransaction,
-    Category,
-    Article,
-    Tag,
-    Comment,
-    Collaboration
-)
+from .models import *
+
 
 @admin.register(Collaboration)
 class CollaborationAdmin(admin.ModelAdmin):
@@ -197,6 +182,13 @@ class UserTransactionAdmin(admin.ModelAdmin):
 class ContactRequestAdmin(admin.ModelAdmin):
     list_display = ['full_name', 'phone_or_email', 'work_name', 'project_choices']
     search_fields = ['full_name', 'phone_or_email', 'work_name']
+
+
+@admin.register(StudyRequest)
+class StudyRequestAdmin(admin.ModelAdmin):
+    list_display = ['full_name', 'phone_or_email', 'grade', 'study_choices']
+    search_fields = ['full_name', 'phone_or_email', 'grade']
+
 
 @admin.register(CourseRegistration)
 class CourseRegistrationAdmin(admin.ModelAdmin):

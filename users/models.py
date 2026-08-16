@@ -105,58 +105,21 @@ class UserProfile(models.Model):
         }
         return badges.get(self.membership, badges['free'])
 
-
 class Category(models.Model):
-    """دسته‌بندی مقالات با انتخاب‌های محدود (فقط ۳ مورد)"""
-
-    # ====== انتخاب‌های دسته‌بندی ======
-    class CategoryChoices(models.TextChoices):
-        AI = 'ai', 'هوش مصنوعی'
-        WEB = 'web', ' UI/UX طراحی '
-        WEBDEV = 'webdevelopment', 'طراحی سایت'
-        MARKETING = 'marketing', 'دیجیتال مارکتینگ'
-        WORK = 'work', 'کسب و کار'
-        WORDPRESS = 'wordpress', 'وردپرس'
-        TEACH = 'teach', 'آموزش'
-        SEO = 'seo', 'سئو'
-        
-        # NOTE: 'همه' یک گزینه برای نمایش است و در دیتابیس ذخیره نمی‌شود
-
-    # ====== فیلدها ======
-    name = models.CharField(
-        'نام دسته',
-        max_length=50,
-        choices=CategoryChoices.choices,
-        unique=True
-    )
-    slug = models.SlugField(
-        'اسلاگ',
-        max_length=50,
-        unique=True,
-        allow_unicode=True
-    )
-    icon = models.CharField('آیکون', max_length=50, blank=True, null=True)
+    name = models.CharField('نام', max_length=200, unique=True)
+    slug = models.SlugField('اسلاگ',max_length=50,unique=True,allow_unicode=True)
+    icon = models.ImageField('آیکون', upload_to='tags/', blank=True, null=True)
     description = models.TextField('توضیحات', blank=True)
-    order = models.PositiveIntegerField('ترتیب', default=0)
-    is_active = models.BooleanField('فعال', default=True)
     created_at = models.DateTimeField('تاریخ ایجاد', auto_now_add=True)
 
     class Meta:
         verbose_name = 'دسته‌بندی'
         verbose_name_plural = 'دسته‌بندی‌ها'
-        ordering = ['order', 'name']
+        ordering = ['-created_at']
 
     def __str__(self):
         return self.get_name_display()
 
-    def save(self, *args, **kwargs):
-        """قبل از ذخیره، اسلاگ رو به‌صورت خودکار تنظیم کن"""
-        if not self.slug:
-            for choice in self.CategoryChoices:
-                if choice.value == self.name:
-                    self.slug = choice.value
-                    break
-        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('users:category_detail', args=[self.slug])
@@ -167,53 +130,62 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
-    """برچسب‌ها"""
-    name = models.CharField('نام', max_length=50)
-    slug = models.SlugField('اسلاگ', max_length=60,
-                            unique=True, allow_unicode=True)
-
+    name = models.CharField('نام', max_length=200, unique=True)
+    slug = models.SlugField('اسلاگ',max_length=50,unique=True,allow_unicode=True)
+    icon = models.ImageField('آیکون', upload_to='tags/', blank=True, null=True)
+    description = models.TextField('توضیحات', blank=True)
+    created_at = models.DateTimeField('تاریخ ایجاد', auto_now_add=True)
+    
     class Meta:
-        verbose_name = 'برچسب'
-        verbose_name_plural = 'برچسب‌ها'
-
+            verbose_name = 'دسته‌بندی'
+            verbose_name_plural = 'دسته‌بندی‌ها'
+            ordering = ['-created_at']
+    
     def __str__(self):
-        return self.name
+            return self.get_name_display()
+    
+    
+    def get_absolute_url(self):
+            return reverse('users:category_detail', args=[self.slug])
+    
+    @property
+    def article_count(self):
+            return self.articles.filter(is_published=True).count()
 
 
 class Article(models.Model):
     """مدل مقاله"""
+    STATUS_CHOICES=[
+        ('prepublish', 'پیش نمایس'),
+        ('published', 'منتشر شده'),
+        ('private', 'خصوصی'),
+        ('timed', 'زمانبندی شده'),
+        ('deleted', 'حذف شده')
+    ]
+    SCHEMA_CHOICES=[
+        ('article', 'مقاله'),
+        ('blogposting', 'پست بلاگ'),
+        ('product', 'محصول'),
+        ('faq', 'سوالات متداول'),
+        ('howto', 'آموزش گام به گام'),
+        ('organization', 'سازمان'),
+        ('localbusiness', 'کسب و کار محلی'),
+        ('beadcrumb', 'مسیر ناوبری'),
+        ('person', 'شخص'),
+        ('review', 'نقد و بررسی')
+    ]
     title = models.CharField('عنوان', max_length=250)
-    slug = models.SlugField('اسلاگ', max_length=280,
-                            unique=True, allow_unicode=True)
+    slug = models.SlugField('اسلاگ', max_length=280,unique=True, allow_unicode=True)
     excerpt = models.TextField('خلاصه', max_length=500, blank=True)
     content = models.TextField('محتوا')
-    image = models.ImageField(
-        'تصویر شاخص', upload_to='users/images/%Y/%m/', blank=True, null=True)
-    image_alt = models.CharField(
-        'متن جایگزین تصویر', max_length=150, blank=True)
-
-    category = models.ForeignKey(
-        Category,
-        on_delete=models.CASCADE,
-        related_name='articles',
-        verbose_name='دسته‌بندی'
-    )
-    author = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name='articles',
-        verbose_name='نویسنده'
-    )
-    tags = models.ManyToManyField(
-        Tag,
-        related_name='articles',
-        blank=True,
-        verbose_name='برچسب‌ها'
-    )
+    image = models.ImageField('تصویر شاخص', upload_to=' blogs/', blank=True, null=True)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='articles',verbose_name='دسته‌بندی')
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='articles',verbose_name='نویسنده')
+    tags = models.ManyToManyField(Tag,related_name='articles',blank=True,verbose_name='برچسب‌ها')
+    status = models.CharField('وضعیت', max_length=40, choices=STATUS_CHOICES)
 
     # اطلاعات مقاله
-    read_time = models.PositiveSmallIntegerField(
-        'زمان مطالعه (دقیقه)', default=5)
+    read_time = models.PositiveSmallIntegerField('زمان مطالعه (دقیقه)', default=5)
     is_published = models.BooleanField('منتشر شده', default=False)
     is_featured = models.BooleanField('ویژه', default=False)
 
@@ -223,25 +195,20 @@ class Article(models.Model):
 
     # SEO
     seo_title = models.CharField('عنوان SEO', max_length=150, blank=True)
-    seo_description = models.CharField(
-        'توضیحات SEO', max_length=200, blank=True)
-    seo_keywords = models.CharField(
-        'کلمات کلیدی SEO', max_length=200, blank=True)
+    seo_description = models.CharField('توضیحات SEO', max_length=200, blank=True)
+    seo_keywords = models.CharField('کلمات کلیدی SEO', max_length=200, blank=True)
+    canonical_url = models.URLField('url متعارف')
+    schema = models.CharField('نشانه گذاری', max_length=50, choices=SCHEMA_CHOICES)
 
-    # زمان‌ها
-    created_at = models.DateTimeField('تاریخ ایجاد', auto_now_add=True)
-    updated_at = models.DateTimeField('تاریخ بروزرسانی', auto_now=True)
-    published_at = models.DateTimeField('تاریخ انتشار', default=timezone.now)
+    
+    published_date = models.DateTimeField('تاریخ انتشار',blank=True, null=True)
+    publish_time = models.TimeField('ساعت انتشار', blank=True, null=True)
 
     class Meta:
         verbose_name = 'مقاله'
         verbose_name_plural = 'مقالات'
         ordering = ['-published_at']
-        indexes = [
-            models.Index(fields=['slug']),
-            models.Index(fields=['category', 'is_published']),
-            models.Index(fields=['-published_at']),
-        ]
+        
 
     def __str__(self):
         return self.title
@@ -258,7 +225,6 @@ class Article(models.Model):
     def increment_views(self):
         self.views += 1
         self.save(update_fields=['views'])
-
 
 class Comment(models.Model):
     """مدل نظرات"""
@@ -654,3 +620,27 @@ class Collaboration(models.Model):
         if self.resume_file:
             return self.resume_file.name.split('/')[-1]
         return 'بدون فایل'
+
+class StudyRequest(models.Model):
+    STUDY_CHOICES=[
+        ('ai', 'ai'),
+        ('backend', 'backend'),
+        ('frontend', 'frontend'),
+        ('seo', 'seo'),
+        ('wordpress', 'wordpress'),
+        ('ui/ux', 'ui/ux'),
+    ]
+    full_name = models.CharField('نام و نام خانوادگی', max_length=200)
+    phone_or_email = models.CharField(max_length=150,verbose_name="شماره تماس یا ابمیل" , blank=True, null=True)
+    grade = models.CharField(max_length=100, verbose_name="تحصیلات", blank=True, null=True)
+    study_choices = models.CharField(choices=STUDY_CHOICES, max_length=40, verbose_name='نوع کلاس' , blank=True, null=True)
+    message = models.TextField('توضیحات کوتاه', blank=True, null=True)
+    created_at = models.DateTimeField('تاریخ ثبت', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'درخواست دوره'
+        verbose_name_plural = 'درخواست‌های دوره'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.full_name

@@ -1,0 +1,1971 @@
+{% load static %}
+{% load jformat %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>پشتیبانی حرفه‌ای سایت</title>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <style>
+    a {
+      text-decoration: none !important;
+    }
+
+    /* حفظ رنگ پیش‌فرض لینک‌ها */
+    a {
+      color: inherit;
+    }
+
+    * {
+      font-family: Vazir !important;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #1c2a5e;
+      --navy-2: #22326e;
+      --gold: #e6b84a;
+      --gold-dark: #caa03e;
+      --gold-pale: #fbf1da;
+      --gray-bg: #ececec;
+      --text-body: #5d6272;
+      --text-body-2: #6a6f80;
+      --card-border: #e7e7ec;
+      --green: #22c55e;
+      --green-pale: #e3f9ea;
+      --orange: #e2792c;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      direction: rtl;
+      background: #fff;
+      color: var(--navy);
+      line-height: normal;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+
+
+    /* ===== Design System Variables ===== */
+    :root {
+      /* Colors */
+      --color-cornsilk: #fff7d6;
+      --color-darkslateblue-100: #2b477c;
+      --color-darkslateblue-200: #1d3363;
+      --color-dimgray: #606873;
+      --color-goldenrod-100: #ffbd2e;
+      --color-goldenrod-200: #f0c040;
+      --color-goldenrod-300: rgba(240, 192, 64, 0.1);
+      --color-goldenrod-400: #e0a800;
+      --color-gray-transparent: rgba(0, 0, 0, 0);
+      --color-limegreen: #27c93f;
+      --color-mediumseagreen-100: #10b981;
+      --color-mediumseagreen-200: rgba(16, 185, 129, 0.1);
+      --color-tomato: #ff5f56;
+      --color-white: #ffffff;
+      --color-whitesmoke-100: #f7f8fa;
+      --color-whitesmoke-200: #f0f2f5;
+      --color-whitesmoke-300: #eaeaea;
+
+      /* Spacing & Sizes */
+      --gap-8: 8px;
+      --gap-12: 12px;
+      --gap-16: 16px;
+      --gap-20: 20px;
+      --gap-24: 24px;
+      --gap-32: 32px;
+      --gap-40: 40px;
+      --gap-56: 56px;
+      --padding-4: 4px;
+      --padding-12: 12px;
+      --padding-14: 14px;
+      --padding-16: 16px;
+      --padding-20: 20px;
+      --padding-32: 32px;
+      --padding-40: 40px;
+      --padding-80: 80px;
+      --padding-100: 100px;
+
+      /* Border Radius */
+      --br-2: 2px;
+      --br-6: 6px;
+      --br-8: 8px;
+      --br-14: 14px;
+      --br-16: 16px;
+      --br-20: 20px;
+      --br-24: 24px;
+      --br-50: 50%;
+      --br-100: 100px;
+
+      /* Borders */
+      --border-dashed: 1px dashed rgba(29, 51, 99, 0.15);
+      --border-solid-1: 1px solid var(--color-whitesmoke-300);
+      --border-solid-2: 2px solid var(--color-darkslateblue-200);
+
+      /* Sizes */
+      --width-8: 8px;
+      --height-8: 8px;
+      --height-24: 24px;
+      --width-24: 24px;
+      --height-40: 40px;
+    }
+
+    /* ===== Section: Hero (Refined for 1440px & UI/UX) ===== */
+    .hero {
+      width: 100%;
+      max-width: 100vw;
+      margin: 0 auto;
+      position: relative;
+      background-color: #f4f6fa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 100px;
+      box-sizing: border-box;
+      isolation: isolate;
+      gap: 100px;
+      text-align: right;
+      direction: rtl;
+      font-family: "Rubik", Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Grid background accent */
+    .grid-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0.04;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .grid-line {
+      width: 100%;
+      height: 0;
+      border-top: 1px dashed var(--color-darkslateblue-200);
+    }
+
+    /* Hero illustration container */
+    .hero-illustration {
+      direction: ltr;
+      width: 580px;
+      min-width: 400px;
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .illustration-frame {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    /* Dashboard mockup card */
+    .dashboard-card {
+      position: absolute;
+      top: 50px;
+      right: 30px;
+      border-radius: var(--br-16);
+      background-color: var(--color-white);
+      border: 2px solid var(--color-darkslateblue-200);
+      box-shadow: 0 20px 35px rgba(29, 51, 99, 0.08);
+      width: 400px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      gap: var(--gap-16);
+      backdrop-filter: blur(2px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--br-50);
+      background-color: var(--color-tomato);
+    }
+
+    .dot.yellow {
+      background-color: var(--color-goldenrod-100);
+    }
+
+    .dot.green {
+      background-color: var(--color-limegreen);
+    }
+
+    .url-text {
+      font-size: 13px;
+      color: var(--color-dimgray);
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 100%;
+      height: 0;
+      border-top: 1px solid #eef0f5;
+    }
+
+    .monitoring-info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-12);
+      flex: 1;
+    }
+
+    .uptime-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-darkslateblue-200);
+    }
+
+    .online-badge {
+      font-size: 12px;
+      color: var(--color-mediumseagreen-100);
+      background-color: var(--color-mediumseagreen-200);
+      padding: 2px 10px;
+      border-radius: var(--br-100);
+    }
+
+    .bars-container {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+      height: 40px;
+    }
+
+    .bar {
+      flex: 1;
+      height: 100%;
+      border-radius: var(--br-8);
+      background-color: #e9ecf2;
+    }
+
+    .highlight-bar {
+      width: 100%;
+      height: 65px;
+      border-radius: var(--br-8);
+      background-color: var(--color-goldenrod-300);
+    }
+
+    /* Floating elements around dashboard */
+    .security-badge {
+      position: absolute;
+      top: 40px;
+      right: -40px;
+      border-radius: 24px;
+      background-color: var(--color-darkslateblue-200);
+      box-shadow: 0 15px 25px rgba(29, 51, 99, 0.2);
+      width: 150px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .speed-card {
+      position: absolute;
+      bottom: 110px;
+      left: 110px;
+      border-radius: var(--br-16);
+      background: white;
+      border: 1px solid #eef0f5;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.04);
+      width: 190px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 14px;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--color-mediumseagreen-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .backup-card {
+      position: absolute;
+      bottom: 110px;
+      right: -30px;
+      border-radius: 20px;
+      background: #f8f9fc;
+      border: 1px solid var(--color-darkslateblue-200);
+      width: 130px;
+      height: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--color-darkslateblue-200);
+      font-weight: 700;
+    }
+
+    .connector-line-horizontal {
+      position: absolute;
+      top: 108px;
+      right: 90px;
+      width: 90px;
+      border-top: 2px dashed var(--color-goldenrod-200);
+    }
+
+    .connector-line-vertical {
+      position: absolute;
+      top: 220px;
+      left: 180px;
+      height: 130px;
+      border-left: 2px solid var(--color-darkslateblue-200);
+    }
+
+    .connector-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--color-goldenrod-200);
+      top: 104px;
+      right: 180px;
+    }
+
+    .connector-dot2 {
+      background-color: var(--color-darkslateblue-200);
+      top: 346px;
+      left: 176px;
+    }
+
+    /* Hero Content */
+    .hero-content {
+      width: 580px;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 24px;
+      z-index: 2;
+      flex-shrink: 1;
+    }
+
+    .pill-badge {
+      background-color: var(--color-cornsilk);
+      border-radius: var(--br-100);
+      padding: 8px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #5c4b1f;
+      display: inline-block;
+    }
+
+    .hero-headline {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--color-darkslateblue-200);
+    }
+
+    .hero-description {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--color-dimgray);
+      margin-top: 8px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    /* Professional Button Styles with Advanced Hover Effects */
+    .btn-primary {
+      background-color: var(--color-goldenrod-200);
+      border-radius: var(--br-14);
+      padding: 16px 36px;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      color: #1d3363;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      outline: none;
+      font-family: "Rubik", Arial, sans-serif;
+      letter-spacing: 0.01em;
+      box-shadow: 0 4px 15px rgba(240, 192, 64, 0.3);
+      transform: translateY(0);
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.6s ease-out,
+        height 0.6s ease-out;
+    }
+
+    .btn-primary:hover {
+      background-color: #eab308;
+      color: #1d3363;
+      box-shadow: 0 8px 25px rgba(240, 192, 64, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(240, 192, 64, 0.4);
+      background-color: var(--color-goldenrod-400);
+      transition: all 0.1s ease;
+    }
+
+    .btn-primary:focus-visible {
+      outline: 3px solid var(--color-darkslateblue-200);
+      outline-offset: 2px;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--color-darkslateblue-200);
+      border-radius: var(--br-14);
+      padding: 16px 36px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      color: var(--color-darkslateblue-200);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      outline: none;
+      font-family: "Rubik", Arial, sans-serif;
+      letter-spacing: 0.01em;
+      transform: translateY(0);
+      backdrop-filter: blur(0px);
+    }
+
+    .btn-secondary::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(29, 51, 99, 0.05),
+          transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(29, 51, 99, 0.06);
+      border-color: var(--color-darkslateblue-100);
+      color: var(--color-darkslateblue-100);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(29, 51, 99, 0.1);
+    }
+
+    .btn-secondary:hover::before {
+      left: 100%;
+    }
+
+    .btn-secondary:active {
+      transform: translateY(-1px);
+      background-color: rgba(29, 51, 99, 0.1);
+      border-color: var(--color-darkslateblue-200);
+      box-shadow: 0 3px 10px rgba(29, 51, 99, 0.15);
+      transition: all 0.1s ease;
+    }
+
+    .btn-secondary:focus-visible {
+      outline: 3px solid var(--color-darkslateblue-200);
+      outline-offset: 2px;
+    }
+
+    /* ---------- SECTION 2 : WHY + DARK BOX ---------- */
+    .why {
+      background: #fff;
+      padding: 80px 40px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .why-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .why-head {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .why-head h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .why-head p {
+      font-size: 15px;
+      color: #606873;
+      margin-bottom: 18px;
+    }
+
+    .why-divider {
+      width: 80px;
+      height: 4px;
+      background: #f0c040;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    .why-cards {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .why-card {
+      flex: 1 1 280px;
+      background: #f7f8fa;
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .why-card:hover {
+      border-color: #dce1eb;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .06);
+      transform: translateY(-4px);
+    }
+
+    .why-card-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .warn-ic {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .why-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .why-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #606873;
+    }
+
+    .dark-box {
+      background: var(--navy);
+      border-radius: 24px;
+      display: flex;
+      overflow: hidden;
+      flex-wrap: wrap;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .dark-col {
+      flex: 1 1 300px;
+    }
+
+    .dark-col:first-child {
+      border-left: 2px solid #2b477c;
+      padding-left: 40px;
+    }
+
+    .dark-col:last-child {
+      padding-right: 40px;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .pill-green {
+      background: #10b981;
+      color: #fff;
+    }
+
+    .pill-gold {
+      background: #f0c040;
+      color: var(--navy);
+    }
+
+    .dark-col h3 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .dark-col p {
+      color: #fff7d6;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .dark-col:last-child p {
+      color: #f7f8fa;
+    }
+
+    /* ---------- SECTION 3 : PROCESS ---------- */
+    .process {
+      background: #f0c040;
+      padding: 80px 40px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .process-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .process-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .process-head h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .process-head p {
+      font-size: 15px;
+      color: #606873;
+    }
+
+    .steps {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--navy);
+      border-radius: 20px;
+      padding: 24px;
+      width: 167px;
+      flex-shrink: 0;
+    }
+
+    .step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .step-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: #f0c040;
+    }
+
+    .step-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-card h4 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .step-card p {
+      font-size: 15px;
+      color: #606873;
+      line-height: 1.7;
+    }
+
+    .step-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    svg {
+      display: block;
+    }
+
+    /* div support */
+
+    .support-dashboard {
+      width: 100%;
+      position: relative;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px 80px;
+      box-sizing: border-box;
+      gap: 56px;
+      text-align: center;
+      font-size: 32px;
+      color: #1d3363;
+      font-family: Rubik;
+    }
+
+    .support-dashboard-section-title {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .support-dashboard-b {
+      align-self: stretch;
+      position: relative;
+      line-height: 130%;
+    }
+
+    .support-dashboard-div {
+      align-self: stretch;
+      position: relative;
+      font-size: 15px;
+      line-height: 170%;
+      color: #606873;
+    }
+
+    .support-dashboard-rectangle {
+      width: 80px;
+      height: 4px;
+      position: relative;
+      border-radius: 2px;
+      background-color: #f0c040;
+    }
+
+    .support-dashboard-frame {
+      direction: ltr;
+      align-self: stretch;
+      border-radius: 24px;
+      background-color: #1d3363;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 4px;
+      text-align: left;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .support-dashboard-frame2 {
+      align-self: stretch;
+      border-radius: 20px 20px 0px 0px;
+      background-color: #122246;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      gap: 20px;
+    }
+
+    .support-dashboard-frame3 {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .support-dashboard-ellipse {
+      height: 10px;
+      width: 10px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #ff5f56;
+    }
+
+    .support-dashboard-ellipse2 {
+      height: 10px;
+      width: 10px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #ffbd2e;
+    }
+
+    .support-dashboard-ellipse3 {
+      height: 10px;
+      width: 10px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #27c93f;
+    }
+
+    .support-dashboard-frame4 {
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: flex-start;
+      padding: 4px 32px;
+    }
+
+    .support-dashboard-agency-supportirdashboard {
+      position: relative;
+    }
+
+    .support-dashboard-refresh-cw-icon {
+      height: 18px;
+      width: 18px;
+      position: relative;
+    }
+
+    .support-dashboard-frame5 {
+      align-self: stretch;
+      border-radius: 0px 0px 20px 20px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 40px;
+      gap: 32px;
+      font-size: 13px;
+      color: #10b981;
+    }
+
+    .support-dashboard-frame6 {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .support-dashboard-frame7 {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .support-dashboard-frame8 {
+      border-radius: 100px;
+      background-color: rgba(16, 185, 129, 0.08);
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+    }
+
+    .support-dashboard-ellipse4 {
+      height: 10px;
+      width: 10px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #10b981;
+    }
+
+    .support-dashboard-div2 {
+      position: relative;
+      font-size: 20px;
+      line-height: 140%;
+      font-weight: 600;
+      color: #1d3363;
+    }
+
+    .support-dashboard-frame9 {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      color: #606873;
+    }
+
+    .support-dashboard-frame10 {
+      flex: 1;
+      border-radius: 16px;
+      background-color: #f7f8fa;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 12px;
+    }
+
+    .support-dashboard-icon-wrapper {
+      height: 36px;
+      width: 36px;
+      border-radius: 10px;
+      background-color: rgba(16, 185, 129, 0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .support-dashboard-shield-check-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    .support-dashboard-div4 {
+      position: relative;
+      font-size: 20px;
+      font-weight: 800;
+      color: #1d3363;
+      text-align: right;
+    }
+
+    .support-dashboard-icon-wrapper2 {
+      height: 36px;
+      width: 36px;
+      border-radius: 10px;
+      background-color: rgba(29, 51, 99, 0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .support-dashboard-icon-wrapper3 {
+      height: 36px;
+      width: 36px;
+      border-radius: 10px;
+      background-color: rgba(240, 192, 64, 0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .support-dashboard-frame16 {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 20px;
+      color: #1d3363;
+    }
+
+    .support-dashboard-frame17 {
+      flex: 1;
+      border-radius: 20px;
+      background-color: rgba(29, 51, 99, 0.07);
+      display: flex;
+      align-items: center;
+      padding: 24px;
+      gap: 24px;
+    }
+
+    .support-dashboard-frame18 {
+      height: 80px;
+      width: 80px;
+      border-radius: 40px;
+      background-color: #fff;
+      border: 6px solid #10b981;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .support-dashboard-div9 {
+      position: relative;
+      font-weight: 800;
+    }
+
+    .support-dashboard-frame19 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      text-align: right;
+    }
+
+    .support-dashboard-div10 {
+      position: relative;
+      line-height: 140%;
+      font-weight: 600;
+    }
+
+    .support-dashboard-div11 {
+      position: relative;
+      font-size: 13px;
+      color: #606873;
+    }
+
+    .support-dashboard-frame20 {
+      flex: 1;
+      border-radius: 20px;
+      background-color: #f7f8fa;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .support-dashboard-frame21 {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .support-dashboard-div12 {
+      position: relative;
+      font-size: 15px;
+      color: #606873;
+      text-align: right;
+    }
+
+
+    /* why choose us */
+
+    .why-choose-us {
+      direction: ltr;
+      width: 100%;
+      position: relative;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px 80px;
+      box-sizing: border-box;
+      gap: 56px;
+      text-align: center;
+      font-size: 32px;
+      color: #1d3363;
+      font-family: Rubik;
+    }
+
+    .why-choose-us-section-title {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .why-choose-us-b {
+      align-self: stretch;
+      position: relative;
+      line-height: 130%;
+    }
+
+    .why-choose-us-div {
+      align-self: stretch;
+      position: relative;
+      font-size: 15px;
+      line-height: 170%;
+      color: #606873;
+    }
+
+    .why-choose-us-rectangle {
+      width: 80px;
+      height: 4px;
+      position: relative;
+      border-radius: 2px;
+      background-color: #f0c040;
+    }
+
+    .why-choose-us-frame {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      text-align: right;
+      font-size: 16px;
+    }
+
+    .why-choose-us-frame2 {
+      align-self: stretch;
+      flex: 1;
+      border-radius: 20px;
+      background-color: #f7f8fa;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+      gap: 16px;
+    }
+
+    .why-choose-us-icon-wrapper {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background-color: rgba(29, 51, 99, 0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-choose-us-zap-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    .why-choose-us-b2 {
+      align-self: stretch;
+      position: relative;
+    }
+
+    .why-choose-us-div2 {
+      align-self: stretch;
+      position: relative;
+      font-size: 13px;
+      color: #606873;
+    }
+
+    .final-cta {
+      width: 100%;
+      position: relative;
+      background-color: #1d3363;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px;
+      box-sizing: border-box;
+      isolation: isolate;
+      gap: 40px;
+      text-align: center;
+      font-size: 44px;
+      color: #fff;
+      font-family: Rubik;
+    }
+
+    .final-cta-line {
+      width: 1440px;
+      height: 0px;
+      position: absolute;
+      margin: 0 !important;
+      top: 150px;
+      left: 0px;
+      border-top: 1px solid #2b477c;
+      box-sizing: border-box;
+      z-index: 0;
+      flex-shrink: 0;
+    }
+
+    .final-cta-line2 {
+      width: 1440px;
+      height: 0px;
+      position: absolute;
+      margin: 0 !important;
+      top: 154px;
+      left: 0px;
+      border-top: 1px dashed #2b477c;
+      box-sizing: border-box;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .final-cta-frame {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .final-cta-div {
+      align-self: stretch;
+      position: relative;
+      line-height: 130%;
+      font-weight: 800;
+    }
+
+    .final-cta-div2 {
+      align-self: stretch;
+      position: relative;
+      font-size: 15px;
+      line-height: 170%;
+      color: #fff7d6;
+    }
+
+    .final-cta-frame2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      flex-shrink: 0;
+      text-align: left;
+      font-size: 16px;
+      color: #1d3363;
+    }
+
+    .final-cta-button {
+      border-radius: 14px;
+      background-color: #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+    }
+
+    .final-cta-b {
+      position: relative;
+    }
+
+    @media (max-width: 968px) {
+      .hero {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-content {
+        align-items: center;
+      }
+
+      .hero-illustration {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .visual {
+        width: 100%;
+        max-width: 400px;
+        height: 280px;
+        margin: 0 auto;
+      }
+
+      .hero-content {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .connector-h,
+      .connector-v,
+      .dot,
+      .dot2,
+      .badge-card,
+      .float-card.backup {
+        display: none;
+      }
+
+      .browser-card {
+        width: 100%;
+        right: 0;
+      }
+
+      .dark-box {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+      }
+
+      .dark-col:first-child {
+        border-left: none;
+        padding-left: 0;
+        border-bottom: 2px solid #2b477c;
+        padding-bottom: 30px;
+      }
+
+      .dark-col:last-child {
+        padding-right: 0;
+      }
+
+      .steps {
+        justify-content: center;
+      }
+
+      .step-arrow {
+        display: none;
+      }
+
+      .why-choose-us-frame {
+        flex-wrap: wrap;
+      }
+
+      .why-choose-us-frame2 {
+        min-width: 180px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .support-dashboard-frame9 {
+        flex-wrap: wrap;
+      }
+
+      .support-dashboard-frame16 {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width:560px) {
+      .support-dashboard-frame6 {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .support-dashboard-frame9 {
+        flex-direction: column;
+        direction: ltr;
+      }
+
+      .support-dashboard {
+        padding: 100px 24px;
+      }
+
+      .support-dashboard-frame10 {
+        align-items: center;
+        width: 100%;
+      }
+
+      .support-dashboard-frame17 {
+        flex-wrap: wrap;
+      }
+
+      .support-dashboard-frame5 {
+        padding: 16px;
+      }
+
+    }
+
+    @media (max-width:478px) {
+      .btn-secondary {
+        padding: 16px 18px;
+      }
+
+      .btn-primary {
+        padding: 16px 18px;
+      }
+
+      .process {
+        padding: 80px 12px;
+      }
+
+      .why {
+        padding: 80px 24px;
+      }
+
+      .support-dashboard {
+        padding: 100px 12px;
+      }
+
+      .support-dashboard-frame5 {
+        padding: 12px;
+      }
+
+      .support-dashboard-frame6 {
+        text-align: center;
+      }
+
+      .hero-illustration {
+        display: none;
+      }
+
+      .support-dashboard-frame16 {
+        flex-direction: column;
+      }
+
+      .support-dashboard-frame17 {
+        flex-wrap: wrap;
+      }
+
+      .why-choose-us {
+        padding: 100px 6px;
+        gap: 12px;
+      }
+
+      .why-choose-us-frame {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 100px 6px;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  {% include "includes/navbar.html" %}
+  <div class="page">
+    <!-- ================= SECTION 1 : HERO ================= -->
+    <!-- Hero Section (Refined UI/UX) -->
+    <section class="hero">
+      <!-- Left side: content -->
+      <div class="hero-content">
+        <div class="pill-badge">پشتیبان هوشمند کسب‌وکار شما</div>
+        <div class="hero-headline">
+          پشتیبانی حرفه‌ای سایت،<br />بدون دغدغه
+        </div>
+        <p class="hero-description">
+          بعد از راه‌اندازی سایت، تیم ما کنار شماست تا امنیت، عملکرد،
+          بروزرسانی و سلامت سایت همیشه در بهترین وضعیت باشد. با خیال آسوده روی
+          رشد فروش تمرکز کنید.
+        </p>
+        <div class="button-group">
+          <a href="{% url 'users:contact_request' %}" class="btn-primary">درخواست پشتیبانی</a>
+          <a href="{% url 'shop:template_list' %}" class="btn-secondary">مشاهده پلن‌ها</a>
+        </div>
+      </div>
+
+      <div class="grid-accent">
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+      </div>
+
+      <!-- Right side: illustration complex -->
+      <div class="hero-illustration">
+        <div class="illustration-frame">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div class="window-dots">
+                <div class="dot"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+              </div>
+              <span class="url-text">dashboard.ir</span>
+            </div>
+            <div class="divider"></div>
+            <div class="monitoring-info">
+              <div class="uptime-row">
+                <span>مانیتورینگ آپتایم</span>
+                <span class="online-badge">۱۰۰٪ آنلاین</span>
+              </div>
+              <div class="bars-container">
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+              <div class="highlight-bar"></div>
+            </div>
+          </div>
+          <div class="security-badge">
+            <span>امنیت پایدار</span>
+          </div>
+          <div class="speed-card">
+            <div class="icon-circle"></div>
+            <div>
+              <div style="color: #606873">سرعت لود</div>
+              <div style="font-weight: 800; font-size: 18px; color: #1d3363">
+                ۰.۸ ثانیه
+              </div>
+            </div>
+          </div>
+          <div class="backup-card">
+            <span>پشتیبان‌گیری</span>
+          </div>
+          <div class="connector-line-horizontal"></div>
+          <div class="connector-line-vertical"></div>
+          <div class="connector-dot"></div>
+          <div class="connector-dot connector-dot2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2 : WHY + DARK BOX ================= -->
+    <section class="why">
+      <div class="why-inner">
+        <div class="why-head">
+          <h2>چرا سایت شما به پشتیبانی مداوم نیاز دارد؟</h2>
+          <p>رها کردن سایت پس از طراحی، شروع افت تدریجی رتبه و فروش شماست</p>
+          <div class="why-divider"></div>
+        </div>
+
+        <div class="why-cards">
+          <div class="why-card">
+            <div class="why-card-head">
+              <div class="warn-ic">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </div>
+              <h3>سایت کند می‌شود</h3>
+            </div>
+            <p>
+              با افزایش حجم داده‌ها و عدم بهینه‌سازی، سرعت لود بالا رفته و
+              مشتریان خسته می‌شوند.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-head">
+              <div class="warn-ic">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </div>
+              <h3>امنیت سایت کاهش پیدا می‌کند</h3>
+            </div>
+            <p>
+              افزونه‌های قدیمی و کانفیگ‌های نادرست، سایت را طعمه آسانی برای
+              هکرها می‌سازد.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-head">
+              <div class="warn-ic">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+              </div>
+              <h3>خطاهای فنی باعث از دست رفتن مشتری می‌شوند</h3>
+            </div>
+            <p>
+              باگ در درگاه پرداخت یا سبد خرید مستقیماً درآمد شما را نابود
+              می‌کند.
+            </p>
+          </div>
+        </div>
+
+        <div class="dark-box">
+          <div class="dark-col">
+            <span class="pill pill-green">پاسخ تیم ما</span>
+            <h3>نظارت مداوم و اقدام پیشگیرانه</h3>
+            <p>
+              ما قبل از اینکه مشکل ایجاد شود آن را شناسایی و رفع می‌کنیم.
+              مانیتورینگ آنلاین آپتایم و به‌روزرسانی‌های امنیتی تست‌شده تضمین
+              می‌کند سایت شما بدون ثانیه‌ای قطعی، به کار خود ادامه دهد.
+            </p>
+          </div>
+          <div class="dark-col">
+            <span class="pill pill-gold">سناریوی رایج</span>
+            <h3>مشتریان با خطای ۵۰۰ مواجه می‌شوند</h3>
+            <p>
+              عدم به‌روزرسانی دوره‌ای باعث تداخل درگاه پرداخت شده و کاربر در
+              لحظه پرداخت با خطا مواجه می‌شود. این یعنی ریزش شدید مشتریان بدون
+              اینکه شما متوجه علت آن شده باشید.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3 : PROCESS ================= -->
+    <section class="process">
+      <div class="process-inner">
+        <div class="process-head">
+          <h2>روال کاری شفاف و سریع آژانس مدار</h2>
+          <p>چگونه نکته‌ها و مشکلات سایت شما را گام به گام رفع می‌کنیم</p>
+        </div>
+
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-top">
+              <span class="step-num">۰۱</span>
+              <div class="step-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M5 12l4 4 10-10" />
+                </svg>
+              </div>
+            </div>
+            <h4>ثبت درخواست</h4>
+            <p>ارسال آسان تیکت</p>
+          </div>
+          <div class="step-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+          </div>
+
+          <div class="step-card">
+            <div class="step-top">
+              <span class="step-num">۰۲</span>
+              <div class="step-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M5 12l4 4 10-10" />
+                </svg>
+              </div>
+            </div>
+            <h4>بررسی مشکل</h4>
+            <p>آنالیز کارشناسان</p>
+          </div>
+          <div class="step-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+          </div>
+
+          <div class="step-card">
+            <div class="step-top">
+              <span class="step-num">۰۳</span>
+              <div class="step-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M5 12l4 4 10-10" />
+                </svg>
+              </div>
+            </div>
+            <h4>اولویت‌بندی</h4>
+            <p>تعیین حساسیت کار</p>
+          </div>
+          <div class="step-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+          </div>
+
+          <div class="step-card">
+            <div class="step-top">
+              <span class="step-num">۰۴</span>
+              <div class="step-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M5 12l4 4 10-10" />
+                </svg>
+              </div>
+            </div>
+            <h4>رفع مشکل</h4>
+            <p>کدنویسی و برطرف‌سازی</p>
+          </div>
+          <div class="step-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+          </div>
+
+          <div class="step-card">
+            <div class="step-top">
+              <span class="step-num">۰۵</span>
+              <div class="step-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M5 12l4 4 10-10" />
+                </svg>
+              </div>
+            </div>
+            <h4>تست سلامت</h4>
+            <p>بررسی نهایی در موبایل</p>
+          </div>
+          <div class="step-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+          </div>
+
+          <div class="step-card">
+            <div class="step-top">
+              <span class="step-num">۰۶</span>
+              <div class="step-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M5 12l4 4 10-10" />
+                </svg>
+              </div>
+            </div>
+            <h4>گزارش نهایی</h4>
+            <p>اطلاع‌رسانی به کارفرما</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="support-dashboard">
+        <div class="support-dashboard-section-title">
+          <b class="support-dashboard-b">پنل هوشمند مانیتورینگ و گزارش‌دهی</b>
+          <div class="support-dashboard-div">
+            کنترل تمام جزئیات سایت شما در یک نگاه؛ شفافیت کامل در خدمات
+          </div>
+          <div class="support-dashboard-rectangle"></div>
+        </div>
+        <div class="support-dashboard-frame">
+          <div class="support-dashboard-frame2">
+            <div class="support-dashboard-frame3">
+              <div class="support-dashboard-ellipse"></div>
+              <div class="support-dashboard-ellipse2"></div>
+              <div class="support-dashboard-ellipse3"></div>
+            </div>
+            <div class="support-dashboard-frame4">
+              <div class="support-dashboard-agency-supportirdashboard">
+                agency-support.ir/dashboard
+              </div>
+            </div>
+            <img class="support-dashboard-refresh-cw-icon" src="{% static 'asets/refresh.svg' %}" alt="" />
+          </div>
+          <div class="support-dashboard-frame5">
+            <div class="support-dashboard-frame6">
+              <div class="support-dashboard-frame7">
+                <div class="support-dashboard-frame8">
+                  <b class="support-dashboard-agency-supportirdashboard">سایت فعال است</b>
+                </div>
+                <div class="support-dashboard-ellipse4"></div>
+              </div>
+              <div class="support-dashboard-div2">وضعیت سلامت وب‌سایت</div>
+            </div>
+            <div class="support-dashboard-frame9">
+              <div class="support-dashboard-frame10">
+                <div class="support-dashboard-frame6">
+                  <div class="support-dashboard-icon-wrapper">
+                    <img class="support-dashboard-shield-check-icon" src="{% static 'asets/shield-check.svg' %}"
+                      alt="" />
+                  </div>
+                  <div class="support-dashboard-agency-supportirdashboard">
+                    امنیت هسته
+                  </div>
+                </div>
+                <div class="support-dashboard-div4">محافظت‌شده</div>
+              </div>
+              <div class="support-dashboard-frame10">
+                <div class="support-dashboard-frame6">
+                  <div class="support-dashboard-icon-wrapper2">
+                    <img class="support-dashboard-shield-check-icon" src="{% static 'asets/cloud-drizzle.svg' %}"
+                      alt="" />
+                  </div>
+                  <div class="support-dashboard-agency-supportirdashboard">
+                    بکاپ خودکار
+                  </div>
+                </div>
+                <div class="support-dashboard-div4">تکمیل‌شده</div>
+              </div>
+              <div class="support-dashboard-frame10">
+                <div class="support-dashboard-frame6">
+                  <div class="support-dashboard-icon-wrapper3">
+                    <img class="support-dashboard-shield-check-icon" src="{% static 'asets/document-gold.svg' %}"
+                      alt="" />
+                  </div>
+                  <div class="support-dashboard-agency-supportirdashboard">
+                    درخواست‌های باز
+                  </div>
+                </div>
+                <div class="support-dashboard-div4">۰ تیکت فعال</div>
+              </div>
+            </div>
+            <div class="support-dashboard-frame16">
+              <div class="support-dashboard-frame17">
+                <div class="support-dashboard-frame18">
+                  <div class="support-dashboard-div9">۹۴٪</div>
+                </div>
+                <div class="support-dashboard-frame19">
+                  <div class="support-dashboard-div10">
+                    امتیاز سرعت و عملکرد جی‌تی‌متریکس
+                  </div>
+                  <div class="support-dashboard-div11">
+                    بهینه‌سازی کدهای فرانت‌اند و فشرده‌سازی خودکار کش سیستم
+                  </div>
+                </div>
+              </div>
+              <div class="support-dashboard-frame20">
+                <div class="support-dashboard-frame21">
+                  <b class="support-dashboard-agency-supportirdashboard">آخرین عملیات نگهداری دوره‌ای</b>
+                  <img class="support-dashboard-refresh-cw-icon" src="{% static 'asets/calendar-1.svg' %}" alt="" />
+                </div>
+                <div class="support-dashboard-div12">
+                  امروز، ساعت ۴:۳۰ صبح — پایگاه داده کاملاً بهینه‌سازی و
+                  هماهنگ شد.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="why-choose-us">
+        <div class="why-choose-us-section-title">
+          <b class="why-choose-us-b">چرا آذریزدان انتخاب اول شماست؟</b>
+          <div class="why-choose-us-div">
+            تعهد اخلاقی و استانداردهای سخت‌گیرانه فنی، تمایز ما در بازار است
+          </div>
+          <div class="why-choose-us-rectangle"></div>
+        </div>
+        <div class="why-choose-us-frame">
+          <div class="why-choose-us-frame2">
+            <div class="why-choose-us-icon-wrapper">
+              <img class="why-choose-us-zap-icon" src="{% static 'asets/zap-blue.svg' %}" alt="" />
+            </div>
+            <b class="why-choose-us-b2">پاسخگویی سریع</b>
+            <div class="why-choose-us-div2">
+              سیستم تیکتینگ یکپارچه با پاسخگویی زیر ۲ ساعت در روزهای کاری.
+            </div>
+          </div>
+          <div class="why-choose-us-frame2">
+            <div class="why-choose-us-icon-wrapper">
+              <img class="why-choose-us-zap-icon" src="{% static 'asets/users-blue.svg' %}" alt="" />
+            </div>
+            <b class="why-choose-us-b2">تیم متخصص</b>
+            <div class="why-choose-us-div2">
+              متشکل از مهندسان فنی ارشد وردپرس، لینوکس و امنیت شبکه.
+            </div>
+          </div>
+          <div class="why-choose-us-frame2">
+            <div class="why-choose-us-icon-wrapper">
+              <img class="why-choose-us-zap-icon" src="{% static 'asets/shield-blue.svg' %}" alt="" />
+            </div>
+            <b class="why-choose-us-b2">امنیت و پایداری</b>
+            <div class="why-choose-us-div2">
+              نظارت فعال برای جلوگیری از نفوذ مخرب بدافزارها و نشت اطلاعات.
+            </div>
+          </div>
+          <div class="why-choose-us-frame2">
+            <div class="why-choose-us-icon-wrapper">
+              <img class="why-choose-us-zap-icon" src="{% static 'asets/document-blue.svg' %}" alt="" />
+            </div>
+            <b class="why-choose-us-b2">گزارش‌دهی شفاف</b>
+            <div class="why-choose-us-div2">
+              ارائه گزارش مکتوب ماهانه از اقدامات امنیتی و بهینه‌سازی‌ها.
+            </div>
+          </div>
+          <div class="why-choose-us-frame2">
+            <div class="why-choose-us-icon-wrapper">
+              <img class="why-choose-us-zap-icon" src="{% static 'asets/clock-blue.svg' %}" alt="" />
+            </div>
+            <b class="why-choose-us-b2">پشتیبانی بلندمدت</b>
+            <div class="why-choose-us-div2">
+              همراهی صمیمانه و متعهدانه در کل مسیر توسعه کسب‌وکارتان.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="final-cta">
+        <div class="final-cta-line"></div>
+        <div class="final-cta-line2"></div>
+        <div class="final-cta-frame">
+          <div class="final-cta-div">
+            نگذارید مشکلات فنی جلوی رشد کسب‌وکارتان را بگیرد
+          </div>
+          <div class="final-cta-div2">
+            سایتتان را به تیم متخصص و متعهد ما بسپارید و با خیال راحت روی
+            گسترش فروش خود تمرکز کنید.
+          </div>
+        </div>
+        <div class="final-cta-frame2">
+          <div class="final-cta-button">
+            <a href="{% url 'users:contact_request' %}">
+              <b class="final-cta-b">شروع پشتیبانی از امروز</b>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- فوتر (بدون تغییر) -->
+  {% include "includes/footer.html" %}
+  <script src="{% static 'js/index.js' %}">
+  </script>
+</body>
+
+</html>

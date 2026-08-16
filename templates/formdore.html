@@ -1,0 +1,684 @@
+{% load static %}
+{% load jformat %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <title>ثبت‌نام دوره آموزشی</title>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <style>
+    a {
+      text-decoration: none !important;
+    }
+
+    /* حفظ رنگ پیش‌فرض لینک‌ها */
+    a {
+      color: inherit;
+    }
+
+    * {
+      font-family: Vazir !important;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, sans-serif;
+      background-color: #fff;
+    }
+
+    .hero-section {
+      width: 100%;
+      position: relative;
+      background-color: #fff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 96px 120px;
+      gap: 48px;
+      text-align: center;
+      font-size: 52px;
+      color: #1d3363;
+    }
+
+    .tech-grid-overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0.04;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .grid-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .grid-cell {
+      height: 48px;
+      width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .plus-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .hero-text-block {
+      max-width: 840px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 52px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #606c80;
+    }
+
+    .hero-cta-btn {
+      box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      background-color: #f0c040;
+      border: none;
+      padding: 18px 48px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1d3363;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .metric-cards-container {
+      direction: ltr;
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      gap: 24px;
+      z-index: 3;
+      flex-wrap: wrap;
+    }
+
+    .metric-card {
+      flex: 1;
+      min-width: 200px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-top: 4px solid #e8e8e8;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .metric-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fdf8e7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .metric-number {
+      direction: rtl;
+      font-weight: 800;
+      font-size: 24px;
+    }
+
+    .metric-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a253c;
+      text-align: right;
+    }
+
+    .two-column-layout {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      gap: 64px;
+      padding: 60px 40px;
+    }
+
+    .left-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .title {
+      font-weight: 800;
+      font-size: 24px;
+    }
+
+    .title-accent {
+      width: 4px;
+      height: 24px;
+      border-radius: 2px;
+      background: #f0c040;
+    }
+
+    .info-subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-top: 12px;
+    }
+
+    .info-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-card {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      gap: 16px;
+      border-radius: 16px;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .info-text {
+      flex: 1;
+    }
+
+    .info-label {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .info-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1d3363;
+    }
+
+    .info-icon-bg {
+      border-radius: 12px;
+      background: rgba(240, 192, 64, 0.08);
+      padding: 12px;
+    }
+
+    .info-icon-placeholder {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+
+    .social-row-form {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-circle-form {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-placeholder-form {
+      border-radius: 4px;
+    } 
+
+    .map-placeholder {
+      height: 180px;
+      border-radius: 16px;
+      background: #e8e8e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      overflow: hidden;
+    }
+
+    .map-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .right-form-card {
+      flex: 1;
+      border-radius: 20px;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-title {
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      color: #1d3363;
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .input-field label {
+      font-weight: 600;
+      font-size: 14px;
+      color: #1d3363;
+    }
+
+    .input,
+    .select,
+    .textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #e8e8e8;
+      padding: 12px 14px;
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .input::placeholder,
+    .textarea::placeholder {
+      color: #606c80;
+    }
+
+    .select {
+      appearance: none;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border-radius: 16px;
+      background: #f0c040;
+      border: none;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1d3363;
+      cursor: pointer;
+    }
+
+    .process-section {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: #f8f8fa;
+      padding: 96px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .section-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-accent {
+      width: 64px;
+      height: 4px;
+      border-radius: 2px;
+      background: #f0c040;
+    }
+
+    .steps-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .step-block {
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .step-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .step-line {
+      width: 80px;
+      height: 0;
+      border-top: 2px dashed #e8e8e8;
+    }
+
+    @media (max-width: 900px) {
+      .hero-section {
+        padding: 40px 20px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+      }
+
+      .two-column-layout {
+        flex-direction: column;
+        padding: 30px 16px;
+      }
+
+      .steps-container {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .step-line {
+        width: 0;
+        height: 40px;
+        border-left: 2px dashed #e8e8e8;
+        border-top: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 24px 12px;
+      }
+
+      .right-form-card {
+        padding: 20px 16px;
+      }
+    }
+
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - Bold */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - thin */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+</head>
+{% include "includes/navbar.html" %}
+
+<body>
+  <section class="hero-section">
+    <div class="tech-grid-overlay"></div>
+    <div class="hero-text-block">
+      <h1 class="hero-title">دوره آموزشی شما از اینجا شروع می‌شود</h1>
+      <p class="hero-subtitle">
+        با اساتید مجرب ما، مهارت‌های خود را به سطح حرفه‌ای ارتقا دهید. همین
+        حالا ثبت‌نام کنید.
+      </p>
+    </div>
+    <div class="metric-cards-container">
+      <div class="metric-card">
+        <div class="metric-card-header">
+          <div class="icon-circle">
+            <img src="{% static 'asets/clocktalayi.svg' %}" alt="" />
+            <div class="icon-placeholder"></div>
+          </div>
+          <div class="metric-number">۲۴ ساعته</div>
+        </div>
+        <div class="metric-label">پشتیبانی ۲۴ ساعته</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-card-header">
+          <div class="icon-circle">
+            <div class="icon-placeholder"></div>
+            <img src="{% static 'asets/heart.svg' %}" alt="" />
+          </div>
+          <div class="metric-number">۹۸٪</div>
+        </div>
+        <div class="metric-label">رضایت دانشجویان</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-card-header">
+          <div class="icon-circle">
+            <div class="icon-placeholder"></div>
+            <img src="{% static 'asets/check-circle.svg' %}" alt="" />
+          </div>
+          <div class="metric-number">۱۵۰+</div>
+        </div>
+        <div class="metric-label">دوره‌های برگزار شده</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="two-column-layout">
+    <div class="right-form-card">
+      <h3 class="form-title">فرم ثبت‌نام در دوره</h3>
+      <form method="post" action="{% url 'users:study_request' %}"
+        style="display:flex;flex-direction:column;gap:24px;width:100%;">
+        {% csrf_token %}
+        <div class="input-field">
+          <label>نام و نام خانوادگی</label>
+          <input class="input" placeholder="مثال: رضا احمدی" name="full_name" />
+        </div>
+        <div class="input-field">
+          <label> شماره تماس</label>
+          <input class="input" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" pattern="09[0-9]{9}"
+            title="لطفاً شماره موبایل معتبر (۱۱ رقم و با ۰۹ شروع شود) وارد کنید" name="phone_or_email" />
+        </div>
+        <div class="input-field">
+          <label>مدرک تحصیلی</label>
+          <input class="input" placeholder="مثال: کارشناسی مهندسی نرم‌افزار" name="grade" />
+        </div>
+        <div class="input-field">
+          <label>دوره مورد نظر</label>
+          <select class="select" name="study_choices">
+            <option value="">انتخاب دوره...</option>
+            <option value="frontend">front-end</option>
+            <option value="backend">back-end</option>
+            <option value="ai">ai</option>
+            <option value="seo">seo</option>
+            <option value="wordpress">wordpress</option>
+            <option value="ui/ux">ui/ux</option>
+          </select>
+        </div>
+        <div class="input-field">
+          <label>سابقه و تجربیات</label>
+          <textarea class="textarea" placeholder="درباره سوابق خود بنویسید..." name="message"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">ثبت‌نام در دوره</button>
+      </form>
+    </div>
+    <div class="left-column">
+      <div>
+        <div class="title-group">
+          <h2 class="title">اطلاعات تماس</h2>
+          <div class="title-accent"></div>
+        </div>
+        <p class="info-subtitle">
+          از راه‌های زیر با کارشناسان ما در ارتباط باشید.
+        </p>
+      </div>
+      <div class="info-cards-stack">
+        <div class="info-card">
+          <div class="info-text">
+            <div class="info-label">پست الکترونیکی</div>
+            <div class="info-value">info@academy.ir</div>
+          </div>
+          <div class="info-icon-bg">
+            <div class="info-icon-placeholder">
+              <img src="{% static 'asets/email' %}" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-text">
+            <div class="info-label">شماره تلفن</div>
+            <div class="info-value">۰۲۱-۸۸۷۷۶۶۵۵</div>
+          </div>
+          <div class="info-icon-bg">
+            <div class="info-icon-placeholder">
+              <img src="{% static 'asets/phone.svg' %}" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-text">
+            <div class="info-label">دفتر مرکزی</div>
+            <div class="info-value">تهران، خیابان ولیعصر، برج نوآوری</div>
+          </div>
+          <div class="info-icon-bg">
+            <div class="info-icon-placeholder">
+              <img src="{% static 'asets/map.png' %}" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-text">
+            <div class="info-label">ساعات کاری</div>
+            <div class="info-value">شنبه تا پنجشنبه، ۹ صبح تا ۶ عصر</div>
+          </div>
+          <div class="info-icon-bg">
+            <div class="info-icon-placeholder">
+              <img src="{% static 'asets/clocktalayi.svg' %}" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-row-form">
+        <strong>شبکه‌های اجتماعی:</strong>
+
+        <div class="social-circle-form">
+          <div class="social-placeholder-form">
+            <img src="{% static 'asets/twitter.svg' %}" alt="" />
+          </div>
+        </div>
+        <div class="social-circle-form">
+          <div class="social-placeholder-form"><img src="{% static 'asets/send.svg' %}" alt="" /></div>
+        </div>
+        <div class="social-circle-form">
+          <div class="social-placeholder-form"><img src="{% static 'asets/instagram.svg' %}" alt="" /></div>
+        </div>
+        <div class="social-circle-form">
+          <div class="social-placeholder-form"><img src="{% static 'asets/linkedin.svg' %}" alt="" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="section-title">
+      <h2 class="title">مراحل ثبت‌نام</h2>
+      <div class="section-accent"></div>
+    </div>
+    <div class="steps-container">
+      <div class="step-block">
+        <div class="step-circle">۳</div>
+        <strong>شروع دوره</strong>
+        <p style="font-size: 14px; color: #606c80">
+          شروع یادگیری با برنامه آموزشی
+        </p>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-block">
+        <div class="step-circle">۲</div>
+        <strong>جلسه مشاوره</strong>
+        <p style="font-size: 14px; color: #606c80">
+          انتخاب بهترین مسیر آموزشی
+        </p>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-block">
+        <div class="step-circle">۱</div>
+        <strong>تکمیل فرم</strong>
+        <p style="font-size: 14px; color: #606c80">
+          ارسال اطلاعات و انتخاب دوره
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- فوتر  -->
+  {% include "includes/footer.html" %}
+  <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>

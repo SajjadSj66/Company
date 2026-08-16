@@ -1,2243 +1,2604 @@
 {% load static %}
+{% load jformat %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>academy</title>
-    <style>
-        a {
-		text-decoration: none !important;
-		}
-
-		/* حفظ رنگ پیش‌فرض لینک‌ها */
-		a {
-		color: inherit;
-		}
-        :root {
-            --navy: #1D3363;
-            --gold: #F0C040;
-            --accent: #E2543D;
-            /* رنگ تقریبی برای نام برند، رنگ دقیق برام مشخص نشده بود */
-            --bg: #F7F5F1;
-            --text-dark: #1D2430;
-            --text-muted: #6b7280;
-            --card-bg: #ffffff;
-            --card-border: #eceae5;
-        }
-
-        @font-face {
-            font-family: "Google Sans Flex";
-            src: url(../fonts/GoogleSansFlex.ttf);
-        }
-
-        @font-face {
-            font-family: "Vazir-Bold";
-            src: url(../fonts/Vazir-Bold.ttf);
-        }
-
-
-        @font-face {
-            font-family: "Vazir-Light";
-            src: url(../fonts/Vazir-Light.ttf);
-        }
-
-        @font-face {
-            font-family: "Vazir-Meduim";
-            src: url(../fonts/Vazir-Medium.ttf);
-        }
-
-        @font-face {
-            font-family: "Vazir-Thin";
-            src: url(../fonts/Vazir-Thin.ttf);
-        }
-
-        @font-face {
-            font-family: "Vazir";
-            src: url(../fonts/Vazir.ttf);
-        }
-
-        * {
-            box-sizing: border-box;
-            font-family: "Vazir";
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
-            direction: rtl;
-            width: 100%;
-        }
-
-
-        
-/* ناو بار */
-.navbar-wrapper {
-  width: 100%;
-  height: 88px;
-  position: fixed;
-  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
-  text-align: left;
-  font-size: 16px;
-  color: #ebebeb;
-  font-family: Rubik;
-  align-items: center;
-  justify-self: center;
-  z-index: 1000;
-}
-.rectangle-parent {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 526px;
-  height: 88px;
-  overflow: hidden;
-}
-.frame-child {
-  position: absolute;
-  top: 0px;
-  left: -18px;
-  width: 422px;
-  height: 106px;
-  flex-shrink: 0;
-}
-
-.frame-wrapper {
-  position: absolute;
-  top: 18px;
-  left: 64px;
-  width: 293px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.cta-button-parent {
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.cta-button {
-  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
-  border-radius: 12px;
-  background-color: #1d3363;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 36px;
-  gap: 8px;
-}
-.phone-call-3-1 {
-  height: 16px;
-  width: 16px;
-  position: relative;
-}
-.button-label {
-  position: relative;
-}
-.frame-inner {
-  height: 48px;
-  width: 48px;
-  position: relative;
-  border-radius: 12px;
-}
-.frame-group {
-  position: absolute;
-  top: 16px;
-  border-radius: 16px;
-  width: 887px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 32px;
-  text-align: right;
-  font-size: 20px;
-  color: #fbf8f8;
-  font-family: "Google Sans Flex";
-}
-.parent {
-  display: flex;
-  align-items: center;
-  gap: 57px;
-}
-.div {
-  position: relative;
-  font-weight: 600;
-  cursor: pointer;
-}
-.div3 {
-  width: 69px;
-  position: relative;
-  font-weight: 600;
-  display: inline-block;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-.angle-small-down-2-2-parent,
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  cursor: pointer;
-  position: relative;
-}
-
-.angle-small-down-2-2-parent {
-  width: 97px;
-}
-
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  width: 110px;
-}
-
-.logo-icon {
-  height: 56px;
-  width: 56px;
-  position: relative;
-  right: 10px;
-}
-
-/* استایل‌های جدید برای دراپ‌منو */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 8px;
-  z-index: 1001;
-}
-
-.blog-dropdown {
-  right: 0;
-}
-
-.academy-dropdown {
-  right: 0;
-}
-
-.services-dropdown {
-  right: 0;
-}
-
-.services {
-  width: 100%;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 40px;
-}
-.component-44-parent {
-  height: 176px;
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-44 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.component-38:hover,
-.component-44:hover,
-.component-442:hover,
-.component-443:hover,
-.component-402:hover {
-  background-color: rgba(118, 130, 156, 0.6);
-}
-.div {
-  position: relative;
-  font-weight: 500;
-}
-
-.services-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-parent {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.component-38-parent :last-child {
-  border-bottom-right-radius: 12px;
-}
-.component-38-parent :first-child {
-  border-top-right-radius: 12px;
-}
-.component-44-parent :first-child {
-  border-top-left-radius: 12px;
-}
-.component-38 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.line-div {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-
-.academi {
-  width: 465px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 93%;
-  max-height: 90%;
-  overflow: hidden;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 110px;
-}
-.component-44-group {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.component-442 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div14 {
-  position: relative;
-  font-weight: 500;
-  white-space: pre-wrap;
-}
-.frame-child7 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.div15 {
-  position: relative;
-  font-weight: 500;
-}
-.academi-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-  flex-shrink: 0;
-}
-.component-38-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  flex-shrink: 0;
-}
-.component-402 {
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 24px 16px;
-}
-
-.blog {
-  width: 409px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-}
-.component-44-container {
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-443 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div20 {
-  position: relative;
-  font-weight: 500;
-}
-.frame-child13 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.blog-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-container {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
-.popup-overlay {
-  display: none;
-}
-
-
-        .academy-hero-wrap {
-            top: 85px;
-            max-width: 1440px;
-            width: 100%;
-            height: 674px;
-            margin: 0 auto;
-            padding: 100px 80px;
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            justify-content: center;
-            justify-self: center;
-            gap: 60px;
-            align-items: center;
-            background-color: #ECFAFF;
-            position: relative;
-            overflow: hidden;
-
-        }
-
-        .academy-hero-img img {
-            width: 580px;
-            height: 363px;
-            border-radius: 32px;
-        }
-
-        .academy-hero-content {
-            max-width: 1440px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            text-align: center;
-            align-items: center;
-        }
-
-        .academy-hero-badge {
-            justify-content: center;
-            width: 241px;
-            height: 27px;
-            border-radius: 20px;
-            border: 1px solid #F0C040;
-            background: rgba(240, 192, 64, 0.08);
-            display: flex;
-            padding: 6px 16px;
-            align-items: center;
-            gap: 8px;
-            color: #1D3363;
-            font-family: Inter;
-            font-size: 13px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-            text-transform: uppercase;
-        }
-
-        .academy-hero-content h1 {
-            width: 800px;
-            color: var(--navy);
-            font-weight: bolder;
-            font-size: 56px;
-            line-height: 120%;
-            text-align: center;
-            margin: 5px 0px;
-        }
-
-        .academy-hero-content p {
-            width: 616px;
-            margin: 5px 0px;
-        }
-
-        .academy-hero-content .discription {
-            width: 500px;
-            font-size: 18px;
-            font-weight: 400;
-            color: #4B5563;
-            text-align: justify;
-            line-height: 32px;
-        }
-
-        .hero-robot-img {
-            position: absolute;
-            transition: all ease-in 0.1s;
-        }
-
-        .robot-1 {
-            top: 14%;
-            left: 71%;
-            animation: hover-animation 2s 0.2s infinite ease-in-out, fadeIn .8s forwards, robot-1-fadeIn 1s ease-in-out;
-        }
-
-        .robot-2 {
-            top: 5%;
-            left: 2%;
-            animation: hover-animation 2s 0.5s infinite ease-in-out, fadeIn .8s forwards, robot-2-fadeIn 1s ease-in-out;
-            ;
-        }
-
-        .robot-3 {
-            top: 73%;
-            left: 20%;
-            animation: hover-animation 2s infinite ease-in-out, fadeIn .8s forwards, robot-3-fadeIn 1s ease-in-out;
-            ;
-        }
-
-        .robot-4 {
-            top: 45%;
-            right: 2%;
-            animation: fadeIn .8s forwards, robot-4-fadeIn 1s ease-in-out;
-        }
-
-        @keyframes hover-animation {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes robot-1-fadeIn {
-            from {
-                top: -15%;
-            }
-
-         
-        }
-
-        @keyframes robot-2-fadeIn {
-            from {
-                left: -10%;
-            }
-
-            to {
-                left: 2%;
-            }
-        }
-
-        @keyframes robot-3-fadeIn {
-            from {
-                top: 90%;
-            }
-
-            to {
-                top: 73%;
-            }
-        }
-
-        @keyframes robot-4-fadeIn {
-            from{
-                right: -10%;
-            }
-        }
-
-
-        /* salma */
-         .learning-categories-section {
-            max-width: 1440px;
-            justify-self: center;
-            width: 100%;
-            position: relative;
-            background-color: #1d3363;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 80px;
-            box-sizing: border-box;
-            gap: 48px;
-            text-align: center;
-            font-size: 14px;
-            color: #1d3363;
-            font-family: Inter;
-            margin-top: 85px;
-        }
-        .section-header {
-            align-self: stretch;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
-        .section-badge {
-            border-radius: 100px;
-            background-color: #fef9e6;
-            display: flex;
-            align-items: flex-start;
-            padding: 6px 16px;
-            text-align: left;
-        }
-        .section-badge-text {
-            position: relative;
-        }
-        .section-title {
-            align-self: stretch;
-            position: relative;
-            font-size: 36px;
-            font-weight: 800;
-            color: #fff;
-        }
-        .section-description {
-            width: 640px;
-            position: relative;
-            font-size: 16px;
-            line-height: 160%;
-            color: #fbf8f8;
-            display: inline-block;
-        }
-        .categories-grid {
-            align-self: stretch;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            text-align: right;
-            font-size: 20px;
-        }
-
-        /* استایل‌های پایه برای همه کارت‌ها (باتن‌ها) */
-        .category-btn {
-            height: 220px;
-            width: 196.7px;
-            border-radius: 20px;
-            overflow: hidden;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-end;
-            padding: 24px;
-            box-sizing: border-box;
-            gap: 12px;
-            border: 4px solid transparent; /* ضخیم‌تر شد: 4px */
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2); /* نرم‌تر و با کشیدگی ملایم */
-            font-family: Inter;
-            text-align: right;
-            line-height: normal;
-            outline: none;
-            background-clip: padding-box; /* کمک به نمایش بهتر بوردر */
-        }
-
-        /* رنگ‌های پس‌زمینه اختصاصی */
-        .btn-ai {
-            background-color: #fef9e6;
-        }
-        .btn-seo {
-            background-color: #e8f5e9;
-        }
-        .btn-wordpress {
-            background-color: #fedccd;
-        }
-        .btn-uiux {
-            background-color: #f3e5f5;
-        }
-        .btn-backend {
-            background-color: #eef2f6;
-        }
-        .btn-frontend {
-            background-color: #eae6fe;
-        }
-
-        /* استایل‌های hover با بوردر ضخیم و رنگ‌های مشخص‌تر */
-        .btn-ai:hover {
-            border-color: #EDBC00; /* طلایی پررنگ و گرم */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transform: translateY(-5px);
-        }
-        .btn-seo:hover {
-            border-color: #47F1BE; /* سبز عمیق و شفاف */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transform: translateY(-5px);
-        }
-        .btn-wordpress:hover {
-            border-color: #FF9B6F; /* نارنجی-آجری زنده */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transform: translateY(-5px);
-        }
-        .btn-uiux:hover {
-            border-color: #E951FF; /* بنفش درخشان */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transform: translateY(-5px);
-        }
-        .btn-backend:hover {
-            border-color:#7EBEFF; /* آبی-خاکستری مدرن و مشخص */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transform: translateY(-5px);
-        }
-        .btn-frontend:hover {
-            border-color: #8870FF; /* بنفش-آبی پرانرژی */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transform: translateY(-5px);
-        }
-
-        /* استایل‌های داخلی (بدون تغییر) */
-        .category-card-image-placeholder {
-            align-self: stretch;
-            height: 80px;
-            position: relative;
-            border-radius: 12px;
-            flex-shrink: 0;
-        }
-        .category-card-icon {
-            width: 149px;
-            height: 115px;
-            position: relative;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .category-card-details {
-            align-self: stretch;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
-            flex-shrink: 0;
-            z-index: 2;
-        }
-        .category-card-course-count {
-            position: relative;
-            font-size: 14px;
-            color: #64748b;
-        }
-        .category-card-label {
-            position: relative;
-            font-weight: 800;
-            color: #1d3363;
-        }
-        .category-card-icon-wrapper {
-            width: 149px;
-            height: 115px;
-            position: relative;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        .category-card-icon-img {
-            position: absolute;
-            top: calc(50% - 61.5px);
-            left: calc(50% - 61.83px);
-            width: 124px;
-            height: 124px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        /* ریسپانسیو ساده برای موبایل */
-        @media (max-width: 768px) {
-            .learning-categories-section {
-                padding: 40px 20px;
-            }
-            .section-description {
-                width: 100%;
-            }
-            .categories-grid {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .category-btn {
-                width: 45%;
-                height: 200px;
-            }
-        }
-
-
-        /* سکشن دوم */
-        /* ========== MAIN CONTAINER ========== */
-.training-overview {
-    max-width: 1440px;
-    justify-self: center;
-  	width: 100%;
-  	position: relative;
-  	background-color: #fff;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	padding: 100px 80px;
-  	box-sizing: border-box;
-  	gap: 48px;
-  	text-align: left;
-  	font-size: 14px;
-  	color: #f0c040;
-  	font-family: Rubik;
-}
-
-/* ========== HEADER AREA ========== */
-.overview-header {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	gap: 12px;
-}
-
-.overview-badge {
-  	position: relative;
-  	text-transform: uppercase;
-  	font-weight: 600;
-  	letter-spacing: 2px;
-}
-
-.overview-headline {
-  	position: relative;
-  	font-size: 36px;
-  	font-weight: 800;
-  	color: #1d3363;
-}
-
-/* ========== CARDS GRID ========== */
-.benefits-grid {
-    justify-content: center;
-  	align-self: stretch;
-  	display: flex;
-  	align-items: flex-start;
-  	flex-wrap: wrap;
-  	align-content:flex-start;
-  	gap: 24px;
-  	font-size: 20px;
-  	color: #1d3363;
-}
-
-/* ========== SINGLE CARD ========== */
-.learning-card {
-  	width: 580px;
-  	border-radius: 20px;
-  	background-color: #fff;
-  	border: 1px solid #f0f0f2;
-  	box-sizing: border-box;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-end;
-  	padding: 32px;
-  	gap: 20px;
-  	transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  	position: relative;
-  	overflow: hidden;
-  	cursor: pointer;
-  	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-}
-
-.learning-card::before {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	right: 0;
-  	bottom: 0;
-  	background: linear-gradient(135deg, rgba(240, 192, 64, 0.06), rgba(245, 158, 11, 0.03));
-  	opacity: 0;
-  	transition: opacity 0.4s ease;
-  	border-radius: 20px;
-  	z-index: 0;
-}
-
-.learning-card:hover::before {
-  	opacity: 1;
-}
-
-.learning-card:hover {
-  	border-color: #f0c040;
-  	transform: translateY(-8px);
-  	box-shadow: 0 25px 40px -15px rgba(240, 192, 64, 0.25),
-              0 0 0 1px rgba(240, 192, 64, 0.1);
-}
-
-/* ========== CARD HEADER ========== */
-.card-header {
-  	display: flex;
-  	align-items: center;
-  	gap: 16px;
-  	align-self: start;
-  	position: relative;
-  	z-index: 1;
-}
-
-.card-title {
-  	position: relative;
-  	font-weight: 700;
-  	transition: all 0.3s ease;
-}
-
-.learning-card:hover .card-title {
-  	color: #b8860b;
-}
-
-/* ========== ICON CONTAINER ========== */
-.icon-wrapper {
-  	border-radius: 16px;
-  	background: linear-gradient(135deg, rgba(240, 192, 64, 0.15), rgba(245, 158, 11, 0.05));
-  	display: flex;
-  	align-items: flex-start;
-  	padding: 14px;
-  	transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  	border: 1px solid rgba(240, 192, 64, 0.1);
-}
-
-.learning-card:hover .icon-wrapper {
-  	background: linear-gradient(135deg, rgba(240, 192, 64, 0.25), rgba(245, 158, 11, 0.1));
-  	transform: scale(1.08);
-  	box-shadow: 0 10px 25px -5px rgba(240, 192, 64, 0.25);
-}
-
-.icon-container {
-  	height: 22px;
-  	width: 22px;
-  	overflow: hidden;
-  	flex-shrink: 0;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-}
-
-.custom-icon {
-  	width: 22px;
-  	height: 22px;
-  	position: relative;
-}
-
-/* ========== FEATURES LIST ========== */
-.features-list {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-end;
-  	gap: 14px;
-  	text-align: right;
-  	font-size: 14px;
-  	color: #4b5563;
-  	position: relative;
-  	z-index: 1;
-}
-
-.feature-item {
-  	align-self: stretch;
-  	display: flex;
-  	align-items: center;
-  	justify-content: flex-end;
-  	gap: 10px;
-  	transition: all 0.3s ease;
-  	padding: 4px 0;
-  	border-radius: 8px;
-}
-
-.learning-card:hover .feature-item {
-  	transform: translateX(-5px);
-}
-
-.feature-text {
-  	flex: 1;
-  	position: relative;
-  	transition: color 0.3s ease;
-}
-
-.learning-card:hover .feature-text {
-  	color: #374151;
-}
-
-/* ========== BULLET POINT ========== */
-.bullet-dot {
-  	height: 8px;
-  	width: 8px;
-  	min-width: 8px;
-  	position: relative;
-  	border-radius: 50%;
-  	background-color: #f0c040;
-  	box-shadow: 0 0 0 0 rgba(240, 192, 64, 0);
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 1400px) {
-  	.training-overview {
-    	padding: 80px 40px;
-  	}
-  	
-  	.learning-card {
-    	width: calc(50% - 12px);
-  	}
-}
-
-@media (max-width: 768px) {
-  	.training-overview {
-    	padding: 60px 20px;
-  	}
-  	
-  	.learning-card {
-    	width: 100%;
-  	}
-  	
-  	.overview-headline {
-    	font-size: 28px;
-  	}
-}
-
-        /* sectionman */
-          /* === MAIN CONTAINER (خلاقانه‌تر) === */
-        .journey-canvas {
-            max-width: 1440px;
-            width: 100%;
-            justify-self: center;
-            
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 90px 70px 110px;
-            gap: 56px;
-            text-align: center;
-            font-size: 15px;
-            color: #f0b940;
-            position: relative;
-            overflow: hidden;
-        }
-
-    
-        /* === هدر بخش === */
-        .canvas-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-badge {
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 2px;
-            background: rgba(240,185,64,0.12);
-            padding: 8px 28px;
-            border-radius: 40px;
-            color: #b68b2e;
-            font-size: 14px;
-            backdrop-filter: blur(4px);
-        }
-
-        .header-headline {
-            font-size: 40px;
-            font-weight: 800;
-            color: #1d3363;
-            line-height: 1.3;
-            letter-spacing: -0.5px;
-        }
-
-        /* === ردیف تایملاین === */
-        .milestone-row {
-            align-self: stretch;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            position: relative;
-            isolation: isolate;
-            gap: 15px;
-            font-size: 18px;
-            color: #1d3363;
-            flex-wrap: wrap;
-        }
-
-        /* خط اتصال خلاقانه (با گرادیانت و پویانمایی) */
-        .progress-connector {
-            height: 0;
-            width: calc(100% - 160px);
-            position: absolute;
-            margin: 0 !important;
-            top: 28px;
-            left: 80px;
-            right: 80px;
-            border-top: 3px dashed #f0c040;
-            opacity: 0.28;
-            z-index: 0;
-            background: linear-gradient(90deg, #f0c040 0%, #f7d86e 50%, #f0c040 100%);
-            transition: opacity 0.4s ease;
-        }
-
-        .milestone-row:hover .progress-connector {
-            opacity: 0.6;
-        }
-
-        /* === کارت‌های گام (نام‌های خلاقانه) === */
-        .growth-card {
-            width: 235px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 18px;
-            z-index: 3;
-            cursor: default;
-            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-            padding: 12px 8px 20px;
-            border-radius: 40px;
-            background: transparent;
-            transform: translateY(0);
-        }
-
-        /* هاور کارت: افکت شناور شدن و سایه خلاقانه */
-        .growth-card:hover {
-            transform: translateY(-14px);
-            background: rgba(255,255,255,0.9);
-            box-shadow: 0 30px 45px -20px rgba(29,51,99,0.2), 0 0 0 1px rgba(240,192,64,0.3);
-            backdrop-filter: blur(12px);
-        }
-
-        /* === نشان دایره‌ای (Badge) === */
-        .achievement-badge {
-            width: 56px;
-            height: 56px;
-            border-radius: 30px;
-            background-color: #fff;
-            border: 2.5px solid #f0c040;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 5;
-            box-shadow: 0 8px 18px rgba(240,192,64,0.15);
-        }
-
-        /* بج فعال (استپ آخر) */
-        .achievement-badge.highlight-badge {
-            background-color: #f0c040;
-            border: none;
-            box-shadow: 0 12px 24px rgba(240,192,64,0.45);
-        }
-
-        .growth-card:hover .achievement-badge {
-            transform: scale(1.06) rotate(2deg);
-            box-shadow: 0 18px 28px rgba(240,175,40,0.35);
-            border-color: #e0a800;
-        }
-
-        .growth-card:hover .achievement-badge.highlight-badge {
-            background-color: #f5b730;
-            transform: scale(1.08) rotate(-2deg);
-            box-shadow: 0 22px 32px rgba(220,160,20,0.6);
-        }
-
-        /* آیکون داخل بج */
-        .badge-icon-frame {
-            height: 26px;
-            width: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .growth-card:hover .badge-icon-frame {
-            transform: scale(1.12);
-        }
-
-        .step-illustration {
-            width: 26px;
-            height: 26px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-        }
-
-        /* === متن و توضیحات === */
-        .card-copy {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-        }
-
-        .step-title {
-            font-weight: 700;
-            font-size: 17px;
-            color: #1d3363;
-            transition: color 0.2s;
-        }
-
-        .growth-card:hover .step-title {
-            color: #0f2444;
-        }
-
-        .step-description {
-            width: 220px;
-            font-size: 13.5px;
-            line-height: 160%;
-            color: #4b5563;
-            transition: color 0.3s, font-weight 0.2s;
-            font-weight: 400;
-        }
-
-        .growth-card:hover .step-description {
-            color: #1f2a44;
-            font-weight: 450;
-        }
-
-        /* تنظیم عرض توضیحات کارت‌های مختلف */
-        .card-copy.wide-desc .step-description {
-            width: 235px;
-        }
-
-        .card-copy.narrow-desc .step-description {
-            width: 210px;
-        }
-
-        /* === ریسپانسیو === */
-        @media (max-width: 1100px) {
-            .milestone-row {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 30px;
-            }
-            .progress-connector {
-                display: none;
-            }
-            .growth-card {
-                width: 220px;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .journey-canvas {
-                padding: 50px 25px;
-            }
-            .header-headline {
-                font-size: 30px;
-            }
-        }
-
-        /* انیمیشن ورود ملایم */
-        @keyframes gentleFade {
-            0% { opacity: 0; transform: translateY(18px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .growth-card {
-            animation: gentleFade 0.7s ease forwards;
-        }
-        .growth-card:nth-child(2) { animation-delay: 0.05s; }
-        .growth-card:nth-child(3) { animation-delay: 0.15s; }
-        .growth-card:nth-child(4) { animation-delay: 0.25s; }
-        .growth-card:nth-child(5) { animation-delay: 0.35s; }
-
-
-
-        /* sectionman */
-           /* ========== استایل‌های پایه و اصلی ========== */
-        .teachers-section {
-            max-width: 1440px;
-            justify-self: center;
-            width: 100%;
-            position: relative;
-            background-color: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 100px 80px 160px;
-            box-sizing: border-box;
-            gap: 48px;
-            text-align: right;
-            font-size: 20px;
-            color: #1d3363;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .section-header-area {
-            align-self: stretch;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .badge-container {
-            border-radius: 100px;
-            background-color: #fef9e6;
-            display: flex;
-            align-items: flex-start;
-            padding: 6px 16px;
-            text-align: left;
-        }
-
-        .badge-text {
-            position: relative;
-            font-weight: 700;
-        }
-
-        .main-heading {
-            align-self: stretch;
-            position: relative;
-            font-size: 36px;
-            font-weight: 800;
-        }
-
-        .sub-description {
-            width: 640px;
-            position: relative;
-            font-size: 16px;
-            line-height: 160%;
-            color: #64748b;
-            display: inline-block;
-        }
-
-        /* ========== ردیف کارت‌ها ========== */
-        .cards-row {
-            align-self: stretch;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        /* ========== کارت اصلی استاد ========== */
-        .teacher-card {
-            height: 314px;
-            width: 257px;
-            position: relative;
-            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
-            border-radius: 16px;
-            background-color: #ffffff;
-            overflow: hidden;
-            flex-shrink: 0;
-            cursor: pointer;
-            
-        }
-
-        .teacher-card:hover {
-            box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.12);
-         
-        }
-
-        /* تصویر پروفایل استاد */
-        .teacher-photo {
-            position: absolute;
-            top: 0;
-           
-            width: 100%;
-            height: 363px;
-            object-fit: cover;
-            flex-shrink: 0;
-            display: block;
-           
-            z-index: 1;
-        }
-
-        /* وقتی هاور میشه عکس پشت بلور کمی تار میشه */
-       
-
-        /* ========== پنل شیشه‌ای اصلی (همیشه پایین کارت، با هاور تا نصف میاد بالا) ========== */
-        .teacher-glass-panel {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 20%;
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(6px) saturate(180%);
-           
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            padding: 16px 16px 14px;
-            box-sizing: border-box;
-            gap: 8px;
-            
-            /* انیمیشن نرم و لطیف برای تغییر ارتفاع */
-            transition: all  0.5s  ease-out;
-                    
-            
-            z-index: 3;
-            border-radius: 0 0 16px 16px;
-        }
-
-        /* حالت هاور: پنل تا نصف کارت قد می‌کشه */
-        .teacher-card:hover .teacher-glass-panel {
-            height: 170px;
-            background: rgba(255, 255, 255, 0.397);
-            backdrop-filter: blur(22px) saturate(180%);
-            
-        
-           
-        }
-
-        /* ========== نام استاد (همیشه دیده میشه) ========== */
-        .teacher-name {
-            font-weight: 800;
-            font-size: 18px;
-            color: #0f1a3a;
-            text-align: right;
-            letter-spacing: -0.3px;
-            line-height: 1.2;
-           
-        }
-
-        
-        .box-detail-ostad{
-            display: flex;
-            gap: 12px;
-            justify-content: flex-end;
-        }
-
-        /* ========== عنوان شغلی (همیشه دیده میشه) ========== */
-        .teacher-role-badge {
-            font-size: 11px;
-            font-weight: 700;
-            color: #816827;
-            background: rgba(253, 219, 125, 0.63);
-            backdrop-filter: blur(6px);
-           
-            border: 1px solid rgba(184, 134, 11, 0.3);
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-align: right;
-           
-        }
-
-        /* ========== محتوای اضافی (فقط در هاور دیده میشه) ========== */
-        .teacher-extra-content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-            width: 100%;
-            
-            /* مخفی در حالت عادی */
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-         
-        }
-
-        .teacher-card:hover .teacher-extra-content {
-            max-height: 200px;
-            opacity: 1;
-            gap: 10px;
-        }
-
-   
-    
-
-        /* بیوگرافی */
-        .teacher-bio-text {
-            
-            font-size: 14px;
-            line-height: 170%;
-            color: rgb(21, 24, 78);
-            font-weight: 500;
-            text-align: right;
-          
-         
-        }
-
-    
-
-        /* تگ‌های مهارت */
-        .skill-tags-row {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-          
-         
-        }
-
-       
-        .skill-tag-item {
-            font-size: 10px;
-            font-weight: 600;
-            color: #475569;
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            padding: 3px 9px;
-            border-radius: 12px;
-            letter-spacing: -0.2px;
-           
-        }
-
-      
-
-        /* واکنش‌گرایی */
-        @media (max-width: 900px) {
-            .teachers-section {
-                padding: 50px 20px;
-            }
-            .cards-row {
-                justify-content: center;
-            }
-            .sub-description {
-                width: 100%;
-            }
-        }
-
-
-
-        /* salma */
-          .cta-wrapper {
-            max-width: 1440px;
-            justify-self: center;
-  	width: 100%;
-  	position: relative;
-  	background-color: #1d3363;
-  	overflow: hidden;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	padding: 120px 80px;
-  	box-sizing: border-box;
-  	gap: 40px;
-  	text-align: center;
-  	font-size: 14px;
-  	color: #f0c040;
-  	font-family: Inter;
-}
-.divider-line {
-  	width: 1280px;
-  	height: 1px;
-  	position: relative;
-}
-.text-container {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	gap: 24px;
-}
-.badge {
-  	border-radius: 100px;
-  	background-color: rgba(255, 255, 255, 0.1);
-  	display: flex;
-  	align-items: flex-start;
-  	padding: 6px 16px;
-  	text-align: left;
-}
-.badge-text {
-  	position: relative;
-}
-.hero-heading {
-  	position: relative;
-  	font-size: 48px;
-  	font-weight: 900;
-  	color: #fff;
-}
-.description {
-  	width: 640px;
-  	position: relative;
-  	font-size: 18px;
-  	line-height: 160%;
-  	color: #cbd5e1;
-  	display: inline-block;
-}
-.action-buttons {
-  	display: flex;
-  	align-items: flex-start;
-  	padding: 16px 0px 0px;
-  	gap: 16px;
-  	text-align: left;
-  	font-size: 16px;
-  	color: #1d3363;
-}
-/* استایل‌های دکمه‌ها */
-.btn-primary {
-  	border-radius: 16px;
-  	background-color: #f0c040;
-  	display: flex;
-  	align-items: flex-start;
-  	padding: 18px 36px;
-  	border: none;
-  	cursor: pointer;
-  	font-family: Inter;
-  	font-size: 16px;
-  	font-weight: 700;
-  	color: #1d3363;
-  	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  	box-shadow: 0 4px 15px rgba(240, 192, 64, 0.3);
-  	position: relative;
-  	overflow: hidden;
-}
-.btn-primary::after {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	width: 100%;
-  	height: 100%;
-  	background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
-  	transition: opacity 0.3s ease;
-  	opacity: 0;
-}
-.btn-primary:hover {
-  	background-color: #f5c542;
-  	transform: translateY(-3px);
-  	box-shadow: 0 8px 25px rgba(240, 192, 64, 0.5);
-}
-.btn-primary:hover::after {
-  	opacity: 1;
-}
-.btn-primary:active {
-  	transform: translateY(-1px);
-  	box-shadow: 0 4px 15px rgba(240, 192, 64, 0.3);
-  	transition: all 0.1s ease;
-}
-.btn-secondary {
-  	border-radius: 16px;
-  	background-color: rgba(255, 255, 255, 0.08);
-  	border: 2px solid #fff;
-  	display: flex;
-  	align-items: flex-start;
-  	padding: 18px 36px;
-  	color: #fff;
-  	cursor: pointer;
-  	font-family: Inter;
-  	font-size: 16px;
-  	font-weight: 700;
-  	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  	position: relative;
-  	overflow: hidden;
-  	backdrop-filter: blur(10px);
-}
-.btn-secondary::before {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	left: -100%;
-  	width: 100%;
-  	height: 100%;
-  	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  	transition: left 0.5s ease;
-}
-.btn-secondary:hover {
-  	background-color: rgba(255, 255, 255, 0.2);
-  	border-color: #f0c040;
-  	transform: translateY(-3px);
-  	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  	color: #f0c040;
-}
-.btn-secondary:hover::before {
-  	left: 100%;
-}
-.btn-secondary:active {
-  	transform: translateY(-1px);
-  	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  	transition: all 0.1s ease;
-}
-/* برای فوکوس با کیبورد */
-.btn-primary:focus-visible,
-.btn-secondary:focus-visible {
-  	outline: 3px solid #f0c040;
-  	outline-offset: 2px;
-}
-
-.floating-icon{
-
-    position:absolute;
-
-    font-size:40px;
-
-    color:#f4c542;
-
-    opacity:.9;
-}
-
-.icon-left{
-
-    top:90px;
-
-    left:180px;
-}
-
-.icon-right{
-
-    top:140px;
-
-    right:180px;
-}
-
-
-
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>academy</title>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <style>
+    a {
+      text-decoration: none !important;
+    }
+
+    /* حفظ رنگ پیش‌فرض لینک‌ها */
+    a {
+      color: inherit;
+    }
+
+    :root {
+      --navy: #1D3363;
+      --gold: #F0C040;
+      --accent: #E2543D;
+      /* رنگ تقریبی برای نام برند، رنگ دقیق برام مشخص نشده بود */
+      --bg: #F7F5F1;
+      --text-dark: #1D2430;
+      --text-muted: #6b7280;
+      --card-bg: #ffffff;
+      --card-border: #eceae5;
+    }
+
+
+    * {
+      box-sizing: border-box;
+      font-family: "Vazir";
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      width: 100%;
+    }
+
+
+
+    .academy-hero-wrap {
+      top: 85px;
+      max-width: 1440px;
+      width: 100%;
+      height: 674px;
+      margin: 0 auto;
+      padding: 100px 80px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      justify-self: center;
+      gap: 60px;
+      align-items: center;
+      background-color: #ECFAFF;
+      position: relative;
+      overflow: hidden;
+
+    }
+
+    .academy-hero-img img {
+      width: 580px;
+      height: 363px;
+      border-radius: 32px;
+    }
+
+    .academy-hero-content {
+      max-width: 1440px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      text-align: center;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .academy-hero-badge {
+      justify-content: center;
+      width: 241px;
+      height: 27px;
+      border-radius: 20px;
+      border: 1px solid #F0C040;
+      background: rgba(240, 192, 64, 0.08);
+      display: flex;
+      padding: 6px 16px;
+      align-items: center;
+      gap: 8px;
+      color: #1D3363;
+
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 5;
+    }
+
+    .academy-hero-content h1 {
+      width: 800px;
+      color: var(--navy);
+      font-weight: bolder;
+      font-size: 56px;
+      line-height: 120%;
+      text-align: center;
+      margin: 5px 0px;
+    }
+
+    .academy-hero-content p {
+      width: 616px;
+      margin: 5px 0px;
+    }
+
+    .academy-hero-content .discription {
+      width: 500px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #4B5563;
+      text-align: justify;
+      line-height: 32px;
+    }
+
+    .hero-robot-img {
+      position: absolute;
+      transition: all ease-in 0.1s;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .robot-1 {
+      top: 10%;
+      left: 71%;
+      animation: hover-animation 2s 0.2s infinite ease-in-out, fadeIn .8s forwards, robot-1-fadeIn 1s ease-in-out;
+    }
+
+    .robot-2 {
+      top: 5%;
+      left: 2%;
+      animation: hover-animation 2s 0.5s infinite ease-in-out, fadeIn .8s forwards, robot-2-fadeIn 1s ease-in-out;
+    }
+
+    .robot-3 {
+      top: 73%;
+      left: 20%;
+      animation: hover-animation 2s infinite ease-in-out, fadeIn .8s forwards, robot-3-fadeIn 1s ease-in-out;
+    }
+
+    .robot-4 {
+      top: 45%;
+      right: 2%;
+      animation: fadeIn .8s forwards, robot-4-fadeIn 1s ease-in-out;
+    }
+
+    @keyframes hover-animation {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes robot-1-fadeIn {
+      from {
+        top: -15%;
+      }
+
+      to {
+        top: 10%;
+      }
+    }
+
+    @keyframes robot-2-fadeIn {
+      from {
+        left: -10%;
+      }
+
+      to {
+        left: 2%;
+      }
+    }
+
+    @keyframes robot-3-fadeIn {
+      from {
+        top: 90%;
+      }
+
+      to {
+        top: 73%;
+      }
+    }
+
+    @keyframes robot-4-fadeIn {
+      from {
+        right: -10%;
+      }
+
+      to {
+        right: 2%;
+      }
+    }
+
+
+    /* salma */
+    .learning-categories-section {
+      max-width: 1440px;
+      justify-self: center;
+      width: 100%;
+      position: relative;
+      background-color: #1d3363;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px;
+      box-sizing: border-box;
+      gap: 48px;
+      text-align: center;
+      font-size: 14px;
+      color: #1d3363;
+
+      margin-top: 85px;
+    }
+
+    .section-header {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-badge {
+      border-radius: 100px;
+      background-color: #fef9e6;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+      text-align: left;
+    }
+
+    .section-badge-text {
+      position: relative;
+    }
+
+    .section-title {
+      align-self: stretch;
+      position: relative;
+      font-size: 36px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .section-description {
+      width: 640px;
+      position: relative;
+      font-size: 16px;
+      line-height: 160%;
+      color: #fbf8f8;
+      display: inline-block;
+    }
+
+    .categories-grid {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      text-align: right;
+      font-size: 20px;
+    }
+
+    /* استایل‌های پایه برای همه کارت‌ها (باتن‌ها) */
+    .category-btn {
+      height: 220px;
+      width: 196.7px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 24px;
+      box-sizing: border-box;
+      gap: 12px;
+      border: 4px solid transparent;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+
+      text-align: right;
+      line-height: normal;
+      outline: none;
+      background-clip: padding-box;
+    }
+
+    /* رنگ‌های پس‌زمینه اختصاصی */
+    .btn-ai {
+      background-color: #fef9e6;
+    }
+
+    .btn-seo {
+      background-color: #e8f5e9;
+    }
+
+    .btn-wordpress {
+      background-color: #fedccd;
+    }
+
+    .btn-uiux {
+      background-color: #f3e5f5;
+    }
+
+    .btn-backend {
+      background-color: #eef2f6;
+    }
+
+    .btn-frontend {
+      background-color: #eae6fe;
+    }
+
+    /* استایل‌های hover با بوردر ضخیم و رنگ‌های مشخص‌تر */
+    .btn-ai:hover {
+      border-color: #EDBC00;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .btn-seo:hover {
+      border-color: #47F1BE;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .btn-wordpress:hover {
+      border-color: #FF9B6F;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .btn-uiux:hover {
+      border-color: #E951FF;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .btn-backend:hover {
+      border-color: #7EBEFF;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .btn-frontend:hover {
+      border-color: #8870FF;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    /* استایل‌های داخلی (بدون تغییر) */
+    .category-card-image-placeholder {
+      align-self: stretch;
+      height: 80px;
+      position: relative;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .category-card-icon {
+      width: 149px;
+      height: 115px;
+      position: relative;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .category-card-details {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      flex-shrink: 0;
+      z-index: 2;
+    }
+
+    .category-card-course-count {
+      position: relative;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .category-card-label {
+      position: relative;
+      font-weight: 800;
+      color: #1d3363;
+    }
+
+    .category-card-icon-wrapper {
+      width: 149px;
+      height: 115px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .category-card-icon-img {
+      position: absolute;
+      top: calc(50% - 61.5px);
+      left: calc(50% - 61.83px);
+      width: 124px;
+      height: 124px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    /* ریسپانسیو ساده برای موبایل */
+    @media (max-width: 768px) {
+      .learning-categories-section {
+        padding: 40px 20px;
+      }
+
+      .section-description {
+        width: 100%;
+      }
+
+      .categories-grid {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .category-btn {
+        width: 45%;
+        height: 200px;
+      }
+    }
+
+
+    /* سکشن دوم */
+    /* ========== MAIN CONTAINER ========== */
+    .training-overview {
+      max-width: 1440px;
+      justify-self: center;
+      width: 100%;
+      position: relative;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px 80px;
+      box-sizing: border-box;
+      gap: 48px;
+      text-align: left;
+      font-size: 14px;
+      color: #f0c040;
+
+    }
+
+    /* ========== HEADER AREA ========== */
+    .overview-header {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .overview-badge {
+      position: relative;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .overview-headline {
+      position: relative;
+      font-size: 36px;
+      font-weight: 800;
+      color: #1d3363;
+    }
+
+    /* ========== CARDS GRID ========== */
+    .benefits-grid {
+      justify-content: center;
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 24px;
+      font-size: 20px;
+      color: #1d3363;
+    }
+
+    /* ========== SINGLE CARD ========== */
+    .learning-card {
+      width: 580px;
+      border-radius: 20px;
+      background-color: #fff;
+      border: 1px solid #f0f0f2;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 32px;
+      gap: 20px;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .learning-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(240, 192, 64, 0.06), rgba(245, 158, 11, 0.03));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 20px;
+      z-index: 0;
+    }
+
+    .learning-card:hover::before {
+      opacity: 1;
+    }
+
+    .learning-card:hover {
+      border-color: #f0c040;
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px -15px rgba(240, 192, 64, 0.25),
+        0 0 0 1px rgba(240, 192, 64, 0.1);
+    }
+
+    /* ========== CARD HEADER ========== */
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      align-self: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      position: relative;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .learning-card:hover .card-title {
+      color: #b8860b;
+    }
+
+    /* ========== ICON CONTAINER ========== */
+    .icon-wrapper {
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(240, 192, 64, 0.15), rgba(245, 158, 11, 0.05));
+      display: flex;
+      align-items: flex-start;
+      padding: 14px;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 1px solid rgba(240, 192, 64, 0.1);
+    }
+
+    .learning-card:hover .icon-wrapper {
+      background: linear-gradient(135deg, rgba(240, 192, 64, 0.25), rgba(245, 158, 11, 0.1));
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px -5px rgba(240, 192, 64, 0.25);
+    }
+
+    .icon-container {
+      height: 22px;
+      width: 22px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-icon {
+      width: 22px;
+      height: 22px;
+      position: relative;
+    }
+
+    /* ========== FEATURES LIST ========== */
+    .features-list {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+      text-align: right;
+      font-size: 14px;
+      color: #4b5563;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-item {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      transition: all 0.3s ease;
+      padding: 4px 0;
+      border-radius: 8px;
+    }
+
+    .learning-card:hover .feature-item {
+      transform: translateX(-5px);
+    }
+
+    .feature-text {
+      flex: 1;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .learning-card:hover .feature-text {
+      color: #374151;
+    }
+
+    /* ========== BULLET POINT ========== */
+    .bullet-dot {
+      height: 8px;
+      width: 8px;
+      min-width: 8px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #f0c040;
+      box-shadow: 0 0 0 0 rgba(240, 192, 64, 0);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1400px) {
+      .training-overview {
+        padding: 80px 40px;
+      }
+
+      .learning-card {
+        width: calc(50% - 12px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .training-overview {
+        padding: 60px 20px;
+      }
+
+      .learning-card {
+        width: 100%;
+      }
+
+      .overview-headline {
+        font-size: 28px;
+      }
+    }
+
+    /* sectionman */
+    /* === MAIN CONTAINER (خلاقانه‌تر) === */
+    .journey-canvas {
+      max-width: 1440px;
+      width: 100%;
+      justify-self: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 90px 70px 110px;
+      gap: 56px;
+      text-align: center;
+      font-size: 15px;
+      color: #f0b940;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    /* === هدر بخش === */
+    .canvas-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-badge {
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+      background: rgba(240, 185, 64, 0.12);
+      padding: 8px 28px;
+      border-radius: 40px;
+      color: #b68b2e;
+      font-size: 14px;
+      backdrop-filter: blur(4px);
+    }
+
+    .header-headline {
+      font-size: 40px;
+      font-weight: 800;
+      color: #1d3363;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+    }
+
+    /* === ردیف تایملاین === */
+    .milestone-row {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      position: relative;
+      isolation: isolate;
+      gap: 15px;
+      font-size: 18px;
+      color: #1d3363;
+      flex-wrap: wrap;
+    }
+
+    /* خط اتصال خلاقانه (با گرادیانت و پویانمایی) */
+    .progress-connector {
+      height: 0;
+      width: calc(100% - 160px);
+      position: absolute;
+      margin: 0 !important;
+      top: 28px;
+      left: 80px;
+      right: 80px;
+      border-top: 3px dashed #f0c040;
+      opacity: 0.28;
+      z-index: 0;
+      background: linear-gradient(90deg, #f0c040 0%, #f7d86e 50%, #f0c040 100%);
+      transition: opacity 0.4s ease;
+    }
+
+    .milestone-row:hover .progress-connector {
+      opacity: 0.6;
+    }
+
+    /* === کارت‌های گام (نام‌های خلاقانه) === */
+    .growth-card {
+      width: 235px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      z-index: 3;
+      cursor: default;
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      padding: 12px 8px 20px;
+      border-radius: 40px;
+      background: transparent;
+      transform: translateY(0);
+    }
+
+    /* هاور کارت: افکت شناور شدن و سایه خلاقانه */
+    .growth-card:hover {
+      transform: translateY(-14px);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 30px 45px -20px rgba(29, 51, 99, 0.2), 0 0 0 1px rgba(240, 192, 64, 0.3);
+      backdrop-filter: blur(12px);
+    }
+
+    /* === نشان دایره‌ای (Badge) === */
+    .achievement-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 30px;
+      background-color: #fff;
+      border: 2.5px solid #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 5;
+      box-shadow: 0 8px 18px rgba(240, 192, 64, 0.15);
+    }
+
+    /* بج فعال (استپ آخر) */
+    .achievement-badge.highlight-badge {
+      background-color: #f0c040;
+      border: none;
+      box-shadow: 0 12px 24px rgba(240, 192, 64, 0.45);
+    }
+
+    .growth-card:hover .achievement-badge {
+      transform: scale(1.06) rotate(2deg);
+      box-shadow: 0 18px 28px rgba(240, 175, 40, 0.35);
+      border-color: #e0a800;
+    }
+
+    .growth-card:hover .achievement-badge.highlight-badge {
+      background-color: #f5b730;
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 22px 32px rgba(220, 160, 20, 0.6);
+    }
+
+    /* آیکون داخل بج */
+    .badge-icon-frame {
+      height: 26px;
+      width: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .growth-card:hover .badge-icon-frame {
+      transform: scale(1.12);
+    }
+
+    .step-illustration {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    /* === متن و توضیحات === */
+    .card-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s;
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 17px;
+      color: #1d3363;
+      transition: color 0.2s;
+    }
+
+    .growth-card:hover .step-title {
+      color: #0f2444;
+    }
+
+    .step-description {
+      width: 220px;
+      font-size: 13.5px;
+      line-height: 160%;
+      color: #4b5563;
+      transition: color 0.3s, font-weight 0.2s;
+      font-weight: 400;
+    }
+
+    .growth-card:hover .step-description {
+      color: #1f2a44;
+      font-weight: 450;
+    }
+
+    /* تنظیم عرض توضیحات کارت‌های مختلف */
+    .card-copy.wide-desc .step-description {
+      width: 235px;
+    }
+
+    .card-copy.narrow-desc .step-description {
+      width: 210px;
+    }
+
+    /* === ریسپانسیو === */
+    @media (max-width: 1100px) {
+      .milestone-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .progress-connector {
+        display: none;
+      }
+
+      .growth-card {
+        width: 220px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .journey-canvas {
+        padding: 50px 25px;
+      }
+
+      .header-headline {
+        font-size: 30px;
+      }
+    }
+
+    /* انیمیشن ورود ملایم */
+    @keyframes gentleFade {
+      0% {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .growth-card {
+      animation: gentleFade 0.7s ease forwards;
+    }
+
+    .growth-card:nth-child(2) {
+      animation-delay: 0.05s;
+    }
+
+    .growth-card:nth-child(3) {
+      animation-delay: 0.15s;
+    }
+
+    .growth-card:nth-child(4) {
+      animation-delay: 0.25s;
+    }
+
+    .growth-card:nth-child(5) {
+      animation-delay: 0.35s;
+    }
+
+
+
+    /* sectionman */
+    /* ========== استایل‌های پایه و اصلی ========== */
+
+
+
+
+    /* salma */
+    .cta-wrapper {
+      max-width: 1440px;
+      justify-self: center;
+      width: 100%;
+      position: relative;
+      background-color: #1d3363;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 120px 80px;
+      box-sizing: border-box;
+      gap: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #f0c040;
+
+    }
+
+    .divider-line {
+      width: 1280px;
+      height: 1px;
+      position: relative;
+    }
+
+    .text-container {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .badge {
+      border-radius: 100px;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+      text-align: left;
+    }
+
+    .badge-text {
+      position: relative;
+    }
+
+    .hero-heading {
+      position: relative;
+      font-size: 48px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .description {
+      width: 640px;
+      position: relative;
+      font-size: 18px;
+      line-height: 160%;
+      color: #cbd5e1;
+      display: inline-block;
+    }
+
+    .action-buttons {
+      display: flex;
+      align-items: flex-start;
+      padding: 16px 0px 0px;
+      gap: 16px;
+      text-align: left;
+      font-size: 16px;
+      color: #1d3363;
+    }
+
+    /* استایل‌های دکمه‌ها */
+    .btn-primary {
+      border-radius: 16px;
+      background-color: #f0c040;
+      display: flex;
+      align-items: flex-start;
+      padding: 18px 36px;
+      border: none;
+      cursor: pointer;
+
+      font-size: 16px;
+      font-weight: 700;
+      color: #1d3363;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 4px 15px rgba(240, 192, 64, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .btn-primary:hover {
+      background-color: #f5c542;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(240, 192, 64, 0.5);
+    }
+
+    .btn-primary:hover::after {
+      opacity: 1;
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(240, 192, 64, 0.3);
+      transition: all 0.1s ease;
+    }
+
+    .btn-secondary {
+      border-radius: 16px;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 2px solid #fff;
+      display: flex;
+      align-items: flex-start;
+      padding: 18px 36px;
+      color: #fff;
+      cursor: pointer;
+
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: #f0c040;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      color: #f0c040;
+    }
+
+    .btn-secondary:hover::before {
+      left: 100%;
+    }
+
+    .btn-secondary:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.1s ease;
+    }
+
+    /* برای فوکوس با کیبورد */
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible {
+      outline: 3px solid #f0c040;
+      outline-offset: 2px;
+    }
+
+    .floating-icon {
+
+      position: absolute;
+
+      font-size: 40px;
+
+      color: #f4c542;
+
+      opacity: .9;
+    }
+
+    .icon-left {
+
+      top: 90px;
+
+      left: 180px;
+    }
+
+    .icon-right {
+
+      top: 140px;
+
+      right: 180px;
+    }
+
+
+    /* footer */
+    /* فوتر  */
+    .site-footer-wrapper {
+      width: 100%;
+      position: relative;
+      background-color: #1d3363;
+      border-top: 1px solid #1d3363;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px 80px 40px;
+      gap: 64px;
+      text-align: left;
+      font-size: 14px;
+      color: #ebebeb;
+
+      top: 120px;
+    }
+
+    .footer-grid-row {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .quick-links-column {
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-heading-title {
+      position: relative;
+      font-size: 16px;
+      color: #f0c040;
+      transition: color 0.3s ease;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .footer-heading-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: #f0c040;
+      transition: width 0.3s ease;
+    }
+
+    .footer-heading-title:hover::after {
+      width: 100%;
+    }
+
+    .footer-link-item {
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 4px 0;
+      position: relative;
+    }
+
+    .footer-link-item:hover {
+      color: #f0c040;
+      transform: translateX(-5px);
+    }
+
+    .contact-info-column {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-address-text {
+      position: relative;
+      text-align: right;
+      transition: color 0.3s ease;
+    }
+
+    .brand-info-column {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      font-size: 22px;
+    }
+
+    .brand-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-logo-wrapper:hover {
+      transform: scale(1.05);
+    }
+
+    .brand-name-gradient {
+      position: relative;
+      font-weight: 800;
+      background: linear-gradient(45deg, #f0c040, #ffd700, #f0c040);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: all 0.3s ease;
+    }
+
+    .brand-logo-image {
+      height: 56px;
+      width: 56px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-logo-wrapper:hover .brand-logo-image {
+      transform: rotate(10deg);
+    }
+
+    .brand-description-text {
+      align-self: stretch;
+      position: relative;
+      font-size: 14px;
+      line-height: 180%;
+      text-align: right;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .brand-description-text:hover {
+      opacity: 1;
+    }
+
+    .copyright-bottom-bar {
+      align-self: stretch;
+      border-top: 1px solid rgba(240, 192, 64, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 0px 0px;
+      gap: 20px;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .social-icons-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .social-icon-circle {
+      height: 42px;
+      width: 42px;
+      box-shadow: 0px 6px 16px rgba(240, 192, 64, 0.4);
+      border-radius: 12px;
+      background-color: #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-icon-circle::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.6s,
+        height 0.6s;
+    }
+
+    .social-icon-circle:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 12px 24px rgba(240, 192, 64, 0.6);
+      background-color: #ffd700;
+    }
+
+    .social-icon-circle:hover::before {
+      width: 100px;
+      height: 100px;
+    }
+
+    .social-icon-circle:active {
+      transform: translateY(-2px);
+    }
+
+    .social-icon-inner-lg {
+      height: 24px;
+      width: 24px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon-circle:hover .social-icon-inner-lg {
+      transform: scale(1.1);
+    }
+
+    .social-svg-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    .social-icon-inner-sm {
+      height: 16px;
+      width: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon-circle:hover .social-icon-inner-sm {
+      transform: scale(1.1);
+    }
+
+    .social-svg-icon-sm {
+      width: 16px;
+      height: 16px;
+      position: relative;
+    }
+
+    .copyright-text-content {
+      position: relative;
+    }
+
+    /* Additional polish for links */
+    .footer-link-item,
+    .contact-info-column .footer-link-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-link-item::before,
+    .contact-info-column .footer-link-item::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 1px;
+      background-color: #f0c040;
+      transition: width 0.3s ease;
+    }
+
+    .footer-link-item:hover::before,
+    .contact-info-column .footer-link-item:hover::before {
+      width: 100%;
+    }
+
+    /* Contact info specific hover */
+    .contact-address-text:hover {
+      color: #f0c040;
+    }
+
+    /* Smooth scrollbar styling */
+    @media (max-width: 768px) {
+      .site-footer-wrapper {
+        padding: 40px 20px 20px;
+        gap: 40px;
+      }
+
+      .footer-grid-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .quick-links-column,
+      .contact-info-column,
+      .brand-info-column {
+        width: 100%;
+        align-items: center;
+      }
+
+      .brand-description-text,
+      .contact-address-text {
+        text-align: center;
+      }
+
+      .copyright-bottom-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+    }
+
+    /* ============================================================= */
+    /* ریسپانسیو نهایی — تمام سایزها                                  */
+    /* ============================================================= */
+
+
+
+    /* ---------------- سکشن هیرو ---------------- */
+    @media (max-width: 1024px) {
+      .academy-hero-wrap {
+        height: auto;
+        padding: 90px 40px 80px;
+        margin-bottom: 30px;
+      }
+
+      .academy-hero-content h1 {
+        width: 100%;
+        max-width: 620px;
+        font-size: 40px;
+      }
+
+      .academy-hero-content p {
+        width: 100%;
+        max-width: 520px;
+      }
+
+      .academy-hero-content .discription {
+        width: 100%;
+        max-width: 460px;
+        font-size: 17px;
+      }
+
+      .hero-robot-img {
+        max-width: 90px;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .academy-hero-wrap {
+        padding: 70px 20px 90px;
+        gap: 36px;
+        margin-bottom: 40px;
+      }
+
+      .academy-hero-badge {
+        width: auto;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+
+      .academy-hero-content h1 {
+        font-size: 26px;
+        max-width: 100%;
+      }
+
+      .academy-hero-content p,
+      .academy-hero-content .discription {
+        max-width: 100%;
+        font-size: 15px;
+        line-height: 26px;
+      }
+
+      .hero-robot-img {
+        max-width: 30px;
+      }
+
+      /* تنظیم موقعیت ربات‌ها در موبایل برای عدم تداخل با متن */
+      .robot-1 {
+        top: 5%;
+        left: auto;
+        right: 5%;
+        max-width: 35px;
+      }
+
+      .robot-2 {
+        top: 5%;
+        left: 3%;
+        max-width: 35px;
+      }
+
+      .robot-3 {
+        top: auto;
+        bottom: 8%;
+        left: 10%;
+        max-width: 35px;
+      }
+
+      .robot-4 {
+        top: auto;
+        bottom: 8%;
+        right: 5%;
+        max-width: 35px;
+      }
+    }
+
+    /* ---------------- سکشن دوم: دسته‌بندی‌ها ---------------- */
+    @media (max-width: 1024px) {
+      .learning-categories-section {
+        padding: 60px 30px;
+        margin-top: 0;
+      }
+
+      .categories-grid {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .category-btn {
+        width: calc((100% - 32px) / 3);
+        height: 210px;
+        padding: 16px;
+      }
+
+      .category-card-icon-wrapper,
+      .category-card-icon {
+        width: 100%;
+        height: 90px;
+        object-fit: contain;
+      }
+
+      .category-card-icon-img {
+        width: 80px;
+        height: 80px;
+        top: calc(50% - 40px);
+        left: calc(50% - 40px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .learning-categories-section {
+        padding: 40px 16px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .categories-grid {
+        gap: 10px;
+      }
+
+      .category-btn {
+        width: calc((100% - 20px) / 3);
+        height: auto;
+        min-height: 150px;
+        padding: 10px;
+        gap: 8px;
+      }
+
+      .category-card-image-placeholder {
+        height: 36px;
+      }
+
+      .category-card-icon-wrapper,
+      .category-card-icon {
+        width: 100%;
+        height: 60px;
+        object-fit: contain;
+      }
+
+      .category-card-icon-img {
+        width: 50px;
+        height: 50px;
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);
+      }
+
+      .category-card-label {
+        font-size: 12px;
+      }
+
+      .category-card-course-count {
+        font-size: 10px;
+      }
+    }
+
+
+
+
+
+
+    /* ---------------- سکشن مسیر یادگیری ---------------- */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .journey-canvas .milestone-row {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .journey-canvas .growth-card {
+        width: calc(25% - 12px);
+        padding: 8px 4px 14px;
+      }
+
+      .journey-canvas .progress-connector {
+        display: block;
+        width: calc(100% - 120px);
+        left: 60px;
+        right: 60px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .journey-canvas {
+        padding: 50px 20px 80px;
+        gap: 40px;
+      }
+
+      .journey-canvas .header-headline {
+        font-size: 24px;
+      }
+
+      .journey-canvas .milestone-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        justify-items: center;
+      }
+
+      .journey-canvas .growth-card {
+        width: 100%;
+        padding: 10px 6px 16px;
+      }
+
+      .journey-canvas .step-description,
+      .journey-canvas .card-copy.wide-desc .step-description,
+      .journey-canvas .card-copy.narrow-desc .step-description {
+        width: 100%;
+      }
+
+      .journey-canvas .progress-connector {
+        display: none;
+      }
+
+      .journey-canvas .achievement-badge {
+        width: 46px;
+        height: 46px;
+      }
+
+      .journey-canvas .step-title {
+        font-size: 14px;
+      }
+
+      .journey-canvas .step-description {
+        font-size: 12px;
+      }
+    }
+
+    /* ---------------- سکشن CTA ---------------- */
+    @media (max-width: 1024px) {
+      .cta-wrapper {
+        padding: 90px 40px;
+      }
+
+      .hero-heading {
+        font-size: 36px;
+      }
+
+      .description {
+        width: 100%;
+        max-width: 560px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cta-wrapper {
+        padding: 60px 20px;
+        gap: 28px;
+      }
+
+      .hero-heading {
+        font-size: 26px;
+      }
+
+      .description {
+        max-width: 100%;
+        font-size: 15px;
+      }
+
+      .action-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .floating-icon {
+        display: none;
+      }
+    }
+
+    /* ---------------- تبلت یکپارچه (601px تا 1024px) ---------------- */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .academy-hero-wrap {
+        padding: 80px 40px 70px;
+      }
+
+      .learning-categories-section {
+        padding: 60px 30px;
+      }
+
+      .categories-grid {
+        gap: 18px;
+      }
+
+      .category-btn {
+        width: calc((100% - 36px) / 3);
+      }
+
+      .training-overview {
+        padding: 70px 30px;
+      }
+
+      .learning-card {
+        width: calc(50% - 12px);
+      }
+
+      .journey-canvas {
+        padding: 70px 20px 90px;
+        gap: 40px;
+      }
+
+      .journey-canvas .milestone-row {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 6px;
+      }
+
+      .journey-canvas .growth-card {
+        width: calc(25% - 8px);
+        padding: 8px 4px 14px;
+      }
+
+      .journey-canvas .progress-connector {
+        display: block;
+        width: calc(100% - 100px);
+        left: 50px;
+        right: 50px;
+      }
+
+      .journey-canvas .header-headline {
+        font-size: 32px;
+      }
+
+    }
+
+    /* ===================== SECTION 5 : TEACHERS ===================== */
+    .teachers-section {
+      max-width: 1440px;
+      justify-self: center;
+      width: 100%;
+      position: relative;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px 80px 160px;
+      box-sizing: border-box;
+      gap: 48px;
+      text-align: right;
+      font-size: 20px;
+      color: #1d3363;
+
+      margin: 0 auto;
+    }
+
+    .section-header-area {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .badge-container {
+      border-radius: 100px;
+      background-color: #fef9e6;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+      text-align: left;
+    }
+
+    .badge-text {
+      position: relative;
+      font-weight: 700;
+    }
+
+    .main-heading {
+      align-self: stretch;
+      position: relative;
+      font-size: 36px;
+      font-weight: 800;
+    }
+
+    .sub-description {
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+      font-size: 16px;
+      line-height: 160%;
+      color: #64748b;
+      display: inline-block;
+    }
+
+    /* کانتینر اسکرول افقی برای موبایل */
+    .teachers-scroll-container {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+
+    /* مخفی کردن اسکرول بار در مرورگرهای مختلف */
+    .teachers-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .teachers-scroll-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .cards-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      min-width: min-content;
+      padding: 0 20px;
+      justify-content: center;
+    }
+
+    /* در دسکتاپ، ردیف‌ها جدا هستند و wrap می‌شوند */
+    @media (min-width: 1025px) {
+      .teachers-scroll-container {
+        overflow-x: visible;
+        scroll-snap-type: none;
+      }
+
+      .cards-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        min-width: auto;
+        padding: 0;
+        align-self: stretch;
+      }
+    }
+
+    .teacher-card {
+      height: 314px;
+      width: 257px;
+      flex: 0 0 257px;
+      position: relative;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      background-color: #ffffff;
+      overflow: hidden;
+      cursor: pointer;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .teacher-card:hover {
+      box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.12);
+    }
+
+    .teacher-photo {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
+    }
+
+    .teacher-glass-panel {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20%;
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(6px) saturate(180%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 16px 16px 14px;
+      box-sizing: border-box;
+      gap: 8px;
+      transition: all 0.5s ease-out;
+      z-index: 3;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .teacher-card:hover .teacher-glass-panel {
+      height: 170px;
+      background: rgba(255, 255, 255, 0.397);
+      backdrop-filter: blur(22px) saturate(180%);
+    }
+
+    .teacher-name {
+      font-weight: 800;
+      font-size: 15px;
+      color: #0f1a3a;
+      text-align: right;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+
+    .box-detail-ostad {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .teacher-role-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #816827;
+      background: rgba(253, 219, 125, 0.63);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(184, 134, 11, 0.3);
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-align: right;
+    }
+
+    .teacher-extra-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      width: 100%;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.3s ease;
+    }
+
+    .teacher-card:hover .teacher-extra-content {
+      max-height: 200px;
+      opacity: 1;
+      gap: 10px;
+    }
+
+    .teacher-bio-text {
+      font-size: 14px;
+      line-height: 170%;
+      color: rgb(21, 24, 78);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .skill-tags-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .skill-tag-item {
+      font-size: 10px;
+      font-weight: 600;
+      color: #475569;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      padding: 3px 9px;
+      border-radius: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    @media (max-width: 1200px) {
+      .teachers-section {
+        padding: 80px 40px 120px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .teachers-section {
+        padding: 60px 20px 100px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .teachers-section {
+        padding: 40px 10px 80px;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .teachers-section {
+        padding: 30px 8px 60px;
+        gap: 24px;
+      }
+
+      .teacher-name {
+        font-size: 13px;
+      }
+
+      .teacher-role-badge {
+        font-size: 8px;
+      }
+
+      .teacher-bio-text {
+        font-size: 12px;
+      }
+    }
+
+    /* Vazir - Medium */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - Bold */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - thin */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- navbar -->
-		{% include "includes/navbar.html" %}
+  <!-- navbar -->
+  {% include "includes/navbar.html" %}
 
 
-    <div class="academy-hero-wrap">
-        <img src="{% static 'asets/robot-1.png' %}" class="hero-robot-img robot-1" alt="robot-1">
-        <img src="{% static 'asets/robot-2.png' %}" class="hero-robot-img robot-2" alt="robot-2">
-        <img src="{% static 'asets/robot-3.png' %}" class="hero-robot-img robot-3" alt="robot-3">
-        <img src="{% static 'asets/robot-4.png' %}" class="hero-robot-img robot-4" alt="robot-4">
-        <div class="academy-hero-badge">
-            <span> شروع ثبت‌نام آکادمی تخصصی آذریزدان</span>
-        </div>
-        <div class="academy-hero-content">
-            <h1>مهارت‌های دیجیتال را عملی یاد بگیرید</h1>
-            <p>مهارت‌های فردا را همین امروز با پروژه‌های واقعی کارفرمایان یاد بگیرید. مربیان ما از قلب بازار کار، مسیر
-                حرفه‌ای شدن را برای شما ترسیم می‌کنند.</p>
-        </div>
+  <div class="academy-hero-wrap">
+    <img src="{% static 'asets/robot-1.png' %}" class="hero-robot-img robot-1" alt="robot-1">
+    <img src="{% static 'asets/robot-2.png' %}" class="hero-robot-img robot-2" alt="robot-2">
+    <img src="{% static 'asets/robot-3.png' %}" class="hero-robot-img robot-3" alt="robot-3">
+    <img src="{% static 'asets/robot-4.png' %}" class="hero-robot-img robot-4" alt="robot-4">
+    <div class="academy-hero-badge">
+      <span> شروع ثبت‌نام آکادمی تخصصی آذریزدان</span>
     </div>
+    <div class="academy-hero-content">
+      <h1>مهارت‌های دیجیتال را عملی یاد بگیرید</h1>
+      <p>مهارت‌های فردا را همین امروز با پروژه‌های واقعی کارفرمایان یاد بگیرید. مربیان ما از قلب بازار کار، مسیر
+        حرفه‌ای شدن را برای شما ترسیم می‌کنند.</p>
+    </div>
+  </div>
 
 
 
-    <!-- salma -->
+  <!-- salma -->
 
-    <div class="learning-categories-section">
+  <div class="learning-categories-section">
     <div class="section-header">
-        <div class="section-badge">
-            <b class="section-badge-text">دسته‌بندی‌های آموزشی</b>
-        </div>
-        <div class="section-title">مسیر متناسب با استعداد خود را پیدا کنید</div>
-        <div class="section-description">تنوع کم‌نظیر کارگاه‌ها و آموزش‌های جامع برای تبدیل شدن به متخصص همه‌ فن‌ حریف.</div>
+      <div class="section-badge">
+        <b class="section-badge-text">دسته‌بندی‌های آموزشی</b>
+      </div>
+      <div class="section-title">مسیر متناسب با استعداد خود را پیدا کنید</div>
+      <div class="section-description">تنوع کم‌نظیر کارگاه‌ها و آموزش‌های جامع برای تبدیل شدن به متخصص همه‌ فن‌ حریف.
+      </div>
     </div>
     <div class="categories-grid">
 
-        <!-- کارت هوش مصنوعی -->
-        <button class="category-btn btn-ai" aria-label="هوش مصنوعی - ۴ دوره فعال">
-            <div class="category-card-image-placeholder"></div>
-            <div class="category-card-icon-wrapper">
-                <img class="category-card-icon-img" src="{% static 'asets/ai.png' %}" alt="هوش مصنوعی">
-            </div>
-            <div class="category-card-details">
-                <div class="category-card-label">هوش مصنوعی</div>
-                <div class="category-card-course-count">۴ دوره فعال</div>
-            </div>
-        </button>
+      <!-- کارت هوش مصنوعی -->
+      <button class="category-btn btn-ai" aria-label="هوش مصنوعی - ۴ دوره فعال">
+        <div class="category-card-image-placeholder"></div>
+        <div class="category-card-icon-wrapper">
+          <img class="category-card-icon-img" src="{% static 'asets/ai.png' %}" alt="هوش مصنوعی">
+        </div>
+        <div class="category-card-details">
+          <div class="category-card-label">هوش مصنوعی</div>
+          <div class="category-card-course-count">۴ دوره فعال</div>
+        </div>
+      </button>
 
-        <!-- کارت سئو -->
-        <button class="category-btn btn-seo" aria-label="سئو (SEO) - ۹ دوره فعال">
-            <div class="category-card-image-placeholder"></div>
-            <img class="category-card-icon" src="{% static 'asets/seos.png' %}" alt="سئو">
-            <div class="category-card-details">
-                <div class="category-card-label">سئو (SEO)</div>
-                <div class="category-card-course-count">۹ دوره فعال</div>
-            </div>
-        </button>
+      <!-- کارت سئو -->
+      <button class="category-btn btn-seo" aria-label="سئو (SEO) - ۹ دوره فعال">
+        <div class="category-card-image-placeholder"></div>
+        <img class="category-card-icon" src="{% static 'asets/seos.png' %}" alt="سئو">
+        <div class="category-card-details">
+          <div class="category-card-label">سئو (SEO)</div>
+          <div class="category-card-course-count">۹ دوره فعال</div>
+        </div>
+      </button>
 
-        <!-- کارت وردپرس -->
-        <button class="category-btn btn-wordpress" aria-label="وردپرس - ۶ دوره فعال">
-            <div class="category-card-image-placeholder"></div>
-            <img class="category-card-icon" src="{% static 'asets/wordpress.png' %}" alt="وردپرس">
-            <div class="category-card-details">
-                <div class="category-card-label">وردپرس</div>
-                <div class="category-card-course-count">۶ دوره فعال</div>
-            </div>
-        </button>
+      <!-- کارت وردپرس -->
+      <button class="category-btn btn-wordpress" aria-label="وردپرس - ۶ دوره فعال">
+        <div class="category-card-image-placeholder"></div>
+        <img class="category-card-icon" src="{% static 'asets/wordpress.png' %}" alt="وردپرس">
+        <div class="category-card-details">
+          <div class="category-card-label">وردپرس</div>
+          <div class="category-card-course-count">۶ دوره فعال</div>
+        </div>
+      </button>
 
-        <!-- کارت طراحی UI/UX -->
-        <button class="category-btn btn-uiux" aria-label="طراحی UI/UX - ۱۵ دوره فعال">
-            <div class="category-card-image-placeholder"></div>
-            <img class="category-card-icon" src="{% static 'asets/uiux.png' %}" alt="طراحی رابط کاربری">
-            <div class="category-card-details">
-                <div class="category-card-label">طراحی UI/UX</div>
-                <div class="category-card-course-count">۱۵ دوره فعال</div>
-            </div>
-        </button>
+      <!-- کارت طراحی UI/UX -->
+      <button class="category-btn btn-uiux" aria-label="طراحی UI/UX - ۱۵ دوره فعال">
+        <div class="category-card-image-placeholder"></div>
+        <img class="category-card-icon" src="{% static 'asets/uiux.png' %}" alt="طراحی رابط کاربری">
+        <div class="category-card-details">
+          <div class="category-card-label">طراحی UI/UX</div>
+          <div class="category-card-course-count">۱۵ دوره فعال</div>
+        </div>
+      </button>
 
-        <!-- کارت بک‌اند -->
-        <button class="category-btn btn-backend" aria-label="بک‌اند - ۸ دوره فعال">
-            <div class="category-card-image-placeholder"></div>
-            <img class="category-card-icon" src="{% static 'asets/backend.png' %}" alt="برنامه‌نویسی سمت سرور">
-            <div class="category-card-details">
-                <div class="category-card-label">بک‌اند</div>
-                <div class="category-card-course-count">۸ دوره فعال</div>
-            </div>
-        </button>
+      <!-- کارت بک‌اند -->
+      <button class="category-btn btn-backend" aria-label="بک‌اند - ۸ دوره فعال">
+        <div class="category-card-image-placeholder"></div>
+        <img class="category-card-icon" src="{% static 'asets/backend.png' %}" alt="برنامه‌نویسی سمت سرور">
+        <div class="category-card-details">
+          <div class="category-card-label">بک‌اند</div>
+          <div class="category-card-course-count">۸ دوره فعال</div>
+        </div>
+      </button>
 
-        <!-- کارت فرانت‌اند -->
-        <button class="category-btn btn-frontend" aria-label="فرانت‌اند - ۱۲ دوره فعال">
-            <div class="category-card-image-placeholder"></div>
-            <img class="category-card-icon" src="{% static 'asets/front.png' %}" alt="برنامه‌نویسی سمت کاربر">
-            <div class="category-card-details">
-                <div class="category-card-label">فرانت‌اند</div>
-                <div class="category-card-course-count">۱۲ دوره فعال</div>
-            </div>
-        </button>
+      <!-- کارت فرانت‌اند -->
+      <button class="category-btn btn-frontend" aria-label="فرانت‌اند - ۱۲ دوره فعال">
+        <div class="category-card-image-placeholder"></div>
+        <img class="category-card-icon" src="{% static 'asets/front.png' %}" alt="برنامه‌نویسی سمت کاربر">
+        <div class="category-card-details">
+          <div class="category-card-label">فرانت‌اند</div>
+          <div class="category-card-course-count">۱۲ دوره فعال</div>
+        </div>
+      </button>
 
     </div>
-</div>
-<!-- سکشن دوم  -->
-<div class="training-overview">
-    		<div class="overview-header">
-      			<div class="overview-badge">تمرکز بر شایستگی‌های بازار کار</div>
-      			<div class="overview-headline">در این دوره چه می‌آموزید؟</div>
-    		</div>
-    		<div class="benefits-grid">
-      			<div class="learning-card">
-        				<div class="card-header">
-          					<div class="icon-wrapper">
-            						<div class="icon-container">
-              							<img class="custom-icon" src="{% static 'asets/chart-bar.svg' %}">
-            						</div>
-          					</div>
-                            <b class="card-title">نتایج تضمینی یادگیری</b>
-        				</div>
-        				<div class="features-list">
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">توانایی تدوین استراتژی جامع تبلیغاتی آنلاین</div>
-          					</div>
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">مسلط شدن به ابزارهای تحلیل وب و پیاده‌سازی کمپین</div>
-          					</div>
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">دریافت گواهینامه معتبر دوزبانه قابل ردیابی و استعلام</div>
-          					</div>
-        				</div>
-      			</div>
-                
-                <div class="learning-card">
-        				<div class="card-header">
-          					<div class="icon-wrapper">
-            						<div class="icon-container">
-              							<img class="custom-icon" src="{% static 'asets/usersabi.svg' %}">
-            						</div>
-          					</div>
-                            <b class="card-title">این دوره برای چه کسانی است؟</b>
-        				</div>
-        				<div class="features-list">
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">علاقه‌مندان به ورود به بازار کار جذاب حوزه دیجیتال</div>
-          					</div>
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">مدیران کسب‌وکاری که به دنبال رشد فروش و ترافیک هستند</div>
-          					</div>
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">کارشناسان سنتی تبلیغات مایل به به‌روزرسانی دانش خود</div>
-          					</div>
-        				</div>
-      			</div>
-      			
-      			<div class="learning-card">
-        				<div class="card-header">
-          					<div class="icon-wrapper">
-            						<div class="icon-container">
-              							<img class="custom-icon" src="{% static 'asets/book-open.svg' %}">
-            						</div>
-          					</div>
-                            <b class="card-title">سرفصل‌های جامع دوره</b>
-        				</div>
-        				<div class="features-list">
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">مقدماتی تا پیشرفته مبانی بازاریابی دیجیتال</div>
-          					</div>
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">استراتژی محتوا، کپی‌رایتینگ تخصصی و داستان‌سرایی</div>
-          					</div>
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">سوشال مدیا مارکتینگ متمرکز بر اینستاگرام و لینکدین</div>
-          					</div>
-        				</div>
-      			</div>
-                
-                <div class="learning-card">
-        				<div class="card-header">
-          					<div class="icon-wrapper">
-            						<div class="icon-container">
-              							<img class="custom-icon" src="{% static 'asets/key.svg' %}">
-            						</div>
-          					</div>
-                            <b class="card-title">مهارت‌های کاربردی و فنی</b>
-        				</div>
-        				<div class="features-list">
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">بهینه‌سازی عمیق موتورهای جستجو (SEO)</div>
-          					</div>
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">کار تخصصی با ابزارهای تبلیغاتی معتبر گوگل ادز</div>
-          					</div>
-          					<div class="feature-item">
-                                <div class="bullet-dot"></div>
-                                <div class="feature-text">راه‌اندازی سیستم ایمیل مارکتینگ اتوماتیک</div>
-          					</div>
-        				</div>
-      			</div>
-    		</div>
-  	</div>
-
-    <!-- sectionman -->
-      <div class="journey-canvas">
-        <div class="canvas-header">
-            <span class="header-badge">گام‌به‌گام تا موفقیت شغلی</span>
-            <h2 class="header-headline">مسیر یادگیری شما در آکادمی</h2>
+  </div>
+  <!-- سکشن دوم  -->
+  <div class="training-overview">
+    <div class="overview-header">
+      <div class="overview-badge">تمرکز بر شایستگی‌های بازار کار</div>
+      <div class="overview-headline">در این دوره چه می‌آموزید؟</div>
+    </div>
+    <div class="benefits-grid">
+      <div class="learning-card">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <div class="icon-container">
+              <img class="custom-icon" src="{% static 'asets/chart-bar.svg' %}">
+            </div>
+          </div>
+          <b class="card-title">نتایج تضمینی یادگیری</b>
         </div>
-
-        <div class="milestone-row">
-            <!-- خط اتصال پس‌زمینه -->
-            <div class="progress-connector" aria-hidden="true"></div>
-
-            <!-- گام ۱: ثبت‌نام -->
-            <div class="growth-card">
-                <div class="achievement-badge">
-                    <div class="badge-icon-frame">
-                        <img src="{% static 'asets/user-plus.svg' %}" alt="">
-                    </div>
-                </div>
-                <div class="card-copy">
-                    <strong class="step-title">۱. ثبت‌نام و ارزیابی اولیه</strong>
-                    <div class="step-description">دوره متناسب با سطح و اهداف شغلی خود را انتخاب و ثبت‌نام کنید.</div>
-                </div>
-            </div>
-
-            <!-- گام ۲: یادگیری -->
-            <div class="growth-card">
-                <div class="achievement-badge">
-                    <div class="badge-icon-frame">
-                       <img src="{% static 'asets/play.svg' %}" alt="">
-                    </div>
-                </div>
-                <div class="card-copy narrow-desc">
-                    <strong class="step-title">۲. یادگیری تخصصی عملی</strong>
-                    <div class="step-description">در کلاس‌های تعاملی و پرانرژی شرکت کرده و مهارت‌ها را فرا بگیرید.</div>
-                </div>
-            </div>
-
-            <!-- گام ۳: تمرین و پروژه -->
-            <div class="growth-card">
-                <div class="achievement-badge">
-                    <div class="badge-icon-frame">
-                      <img src="{% static 'asets/briefcase.svg' %}" alt="">
-                    </div>
-                </div>
-                <div class="card-copy wide-desc">
-                    <strong class="step-title">۳. تمرین و پروژه واقعی</strong>
-                    <div class="step-description">روی کیس‌استادی‌های واقعی کار کنید و از اساتید خود بازخورد دقیق بگیرید.</div>
-                </div>
-            </div>
-
-            <!-- گام ۴: گواهینامه (بج طلایی) -->
-            <div class="growth-card">
-                <div class="achievement-badge highlight-badge">
-                    <div class="badge-icon-frame">
-                        <img src="{% static 'asets/award.svg' %}" alt="">
-                    </div>
-                </div>
-                <div class="card-copy">
-                    <strong class="step-title">۴. گواهینامه معتبر</strong>
-                    <div class="step-description">پس از تایید پروژه‌ها، گواهی دوزبانه قابل ارائه به شرکت‌ها دریافت کنید.</div>
-                </div>
-            </div>
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">توانایی تدوین استراتژی جامع تبلیغاتی آنلاین</div>
+          </div>
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">مسلط شدن به ابزارهای تحلیل وب و پیاده‌سازی کمپین</div>
+          </div>
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">دریافت گواهینامه معتبر دوزبانه قابل ردیابی و استعلام</div>
+          </div>
         </div>
-   </div>
+      </div>
 
-
-     <div class="teachers-section">
-        <!-- سربرگ بخش -->
-        <div class="section-header-area">
-            <div class="badge-container">
-                <b class="badge-text">مدرسان عالی‌رتبه</b>
+      <div class="learning-card">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <div class="icon-container">
+              <img class="custom-icon" src="{% static 'asets/usersabi.svg' %}">
             </div>
-            <div class="main-heading">از کسانی یاد بگیرید که هر روز در بازار دیزاین می‌کنند و می‌سازند</div>
-            <div class="sub-description"> سازمانی می‌نشینند.</div>
+          </div>
+          <b class="card-title">این دوره برای چه کسانی است؟</b>
         </div>
-
-        <!-- ردیف اول کارت‌ها (۴ استاد) -->
-        <div class="cards-row">
-            <!-- استاد ۱ -->
-            <div class="teacher-card">
-                <img class="teacher-photo" src="{% static 'img/gh.jpg' %}" alt="عرفان قهرمانی">
-                
-                <div class="teacher-glass-panel">
-                    <!-- همیشه دیده میشه -->
-                     <div class="box-detail-ostad">
-                    <div class="teacher-name">عرفان قهرمانی</div>
-                    <div class="teacher-role-badge">مهندس فرانت اند</div>
-                    </div>
-                    <!-- فقط در هاور دیده میشه -->
-                    <div class="teacher-extra-content">
-                        <div class="glass-separator"></div>
-                        <div class="teacher-bio-text">محقق سابق پردازش زبان طبیعی، طراح هوشمند دستیار صوتی اختصاصی کسب‌وکارها.</div>
-                        <div class="skill-tags-row">
-                            <span class="skill-tag-item">NLP</span>
-                            <span class="skill-tag-item">TensorFlow</span>
-                            <span class="skill-tag-item">LLM</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- استاد ۲ -->
-            <div class="teacher-card">
-                <img class="teacher-photo" src="{% static 'img/ja.jpg' %}" alt="سجاد جدیدی">
-                <div class="teacher-glass-panel">
-                    <div class="box-detail-ostad">
-                    <div class="teacher-name">سجاد جدیدی</div>
-                    <div class="teacher-role-badge">مهندس بک اند</div>
-                    </div>
-                    <div class="teacher-extra-content">
-                        <div class="glass-separator"></div>
-                        <div class="teacher-bio-text">بیش از ۸ سال تجربه در طراحی تجربه کاربری برای استارتاپ‌های بین‌المللی.</div>
-                        <div class="skill-tags-row">
-                            <span class="skill-tag-item">Figma</span>
-                            <span class="skill-tag-item">UX Research</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- استاد ۳ -->
-            <div class="teacher-card">
-                <img class="teacher-photo" src="{% static 'img/pr.jpg' %}" alt="پزیسا پرنیان">
-                <div class="teacher-glass-panel">
-                    <div class="box-detail-ostad">
-                    <div class="teacher-name">پریسا پرنیان</div>
-                    <div class="teacher-role-badge">مهندس وردپرس</div>
-                    </div>
-                    <div class="teacher-extra-content">
-                        <div class="glass-separator"></div>
-                        <div class="teacher-bio-text">متخصص React و Next.js، مدرس دوره‌های پیشرفته توسعه وب.</div>
-                        <div class="skill-tags-row">
-                            <span class="skill-tag-item">React</span>
-                            <span class="skill-tag-item">TypeScript</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- استاد ۴ -->
-            <div class="teacher-card">
-                <img class="teacher-photo" src="{% static 'img/sh.jpg' %}" alt="شایان رضایی">
-                <div class="teacher-glass-panel">
-                    <div class="box-detail-ostad">
-                    <div class="teacher-name">شایان رضایی</div>
-                    <div class="teacher-role-badge">مهندس بک اند</div>
-                    </div>
-                    <div class="teacher-extra-content">
-                        <div class="glass-separator"></div>
-                        <div class="teacher-bio-text">استراتژیست محصول در اسنپ‌فود، مربی تفکر طراحی و Product Discovery.</div>
-                        <div class="skill-tags-row">
-                            <span class="skill-tag-item">Product Strategy</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">علاقه‌مندان به ورود به بازار کار جذاب حوزه دیجیتال</div>
+          </div>
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">مدیران کسب‌وکاری که به دنبال رشد فروش و ترافیک هستند</div>
+          </div>
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">کارشناسان سنتی تبلیغات مایل به به‌روزرسانی دانش خود</div>
+          </div>
         </div>
+      </div>
 
-        <!-- ردیف دوم کارت‌ها (۳ استاد) -->
-        <div class="cards-row">
-            <!-- استاد ۵ -->
-            <div class="teacher-card">
-                <img class="teacher-photo" src="{% static 'img/fr.jpg' %}" alt="طاها فرامرزی">
-                <div class="teacher-glass-panel">
-                    <div class="box-detail-ostad">
-                    <div class="teacher-name">طاها فرامرزی</div>
-                    <div class="teacher-role-badge">مهندس هوش مصنوعی</div>
-                    </div>
-                    <div class="teacher-extra-content">
-                        <div class="glass-separator"></div>
-                        <div class="teacher-bio-text">متخصص SQL و Python، مدرس دوره‌های علم داده و یادگیری ماشین.</div>
-                        <div class="skill-tags-row">
-                            <span class="skill-tag-item">Python</span>
-                            <span class="skill-tag-item">SQL</span>
-                        </div>
-                    </div>
-                </div>
+      <div class="learning-card">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <div class="icon-container">
+              <img class="custom-icon" src="{% static 'asets/book-open.svg' %}">
             </div>
-
-            <!-- استاد ۶ -->
-            <div class="teacher-card">
-                <img class="teacher-photo" src="{% static 'img/gaderi.jpg' %}" alt="محمدامین قادری">
-                <div class="teacher-glass-panel">
-                    <div class="box-detail-ostad">
-                    <div class="teacher-name">محمدامین قادری</div>
-                    <div class="teacher-role-badge">گرافیست</div>
-                    </div>
-                    <div class="teacher-extra-content">
-                        <div class="glass-separator"></div>
-                        <div class="teacher-bio-text">خلق هویت بصری برای برندهای مطرح، مدرس نرم‌افزارهای Adobe.</div>
-                        <div class="skill-tags-row">
-                            <span class="skill-tag-item">Photoshop</span>
-                            <span class="skill-tag-item">Branding</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- استاد ۷ -->
-            <div class="teacher-card">
-                <img class="teacher-photo" src="{% static 'asets/gahremani.PNG' %}" alt="کیوان جعفری">
-                <div class="teacher-glass-panel">
-                    <div class="box-detail-ostad">
-                    <div class="teacher-name">کیوان جعفری</div>
-                    <div class="teacher-role-badge">متخصص سئو</div>
-                    </div>
-                    <div class="teacher-extra-content">
-                        <div class="glass-separator"></div>
-                        <div class="teacher-bio-text">راهبر تولید محتوا در دیجی‌کالا، استراتژیست بازاریابی دیجیتال.</div>
-                        <div class="skill-tags-row">
-                            <span class="skill-tag-item">SEO</span>
-                            <span class="skill-tag-item">Content</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
+          <b class="card-title">سرفصل‌های جامع دوره</b>
         </div>
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">مقدماتی تا پیشرفته مبانی بازاریابی دیجیتال</div>
+          </div>
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">استراتژی محتوا، کپی‌رایتینگ تخصصی و داستان‌سرایی</div>
+          </div>
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">سوشال مدیا مارکتینگ متمرکز بر اینستاگرام و لینکدین</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="learning-card">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <div class="icon-container">
+              <img class="custom-icon" src="{% static 'asets/key.svg' %}">
+            </div>
+          </div>
+          <b class="card-title">مهارت‌های کاربردی و فنی</b>
+        </div>
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">بهینه‌سازی عمیق موتورهای جستجو (SEO)</div>
+          </div>
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">کار تخصصی با ابزارهای تبلیغاتی معتبر گوگل ادز</div>
+          </div>
+          <div class="feature-item">
+            <div class="bullet-dot"></div>
+            <div class="feature-text">راه‌اندازی سیستم ایمیل مارکتینگ اتوماتیک</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sectionman -->
+  <div class="journey-canvas">
+    <div class="canvas-header">
+      <span class="header-badge">گام‌به‌گام تا موفقیت شغلی</span>
+      <h2 class="header-headline">مسیر یادگیری شما در آکادمی</h2>
     </div>
 
-    <!-- salma -->
-     	<div class="cta-wrapper">
-    		
-        <div class="floating-icon icon-left">
-          <img src="{% static 'asets/graduation-cap.svg' %}" alt="">
+    <div class="milestone-row">
+      <div class="progress-connector" aria-hidden="true"></div>
+
+      <div class="growth-card">
+        <div class="achievement-badge">
+          <div class="badge-icon-frame">
+            <img src="{% static 'asets/user-plus.svg' %}" alt="">
+          </div>
+        </div>
+        <div class="card-copy">
+          <strong class="step-title">۱. ثبت‌نام و ارزیابی اولیه</strong>
+          <div class="step-description">دوره متناسب با سطح و اهداف شغلی خود را انتخاب و ثبت‌نام کنید.</div>
+        </div>
+      </div>
+
+      <div class="growth-card">
+        <div class="achievement-badge">
+          <div class="badge-icon-frame">
+            <img src="{% static 'asets/play.svg' %}" alt="">
+          </div>
+        </div>
+        <div class="card-copy narrow-desc">
+          <strong class="step-title">۲. یادگیری تخصصی عملی</strong>
+          <div class="step-description">در کلاس‌های تعاملی و پرانرژی شرکت کرده و مهارت‌ها را فرا بگیرید.</div>
+        </div>
+      </div>
+
+      <div class="growth-card">
+        <div class="achievement-badge">
+          <div class="badge-icon-frame">
+            <img src="{% static 'asets/briefcase.svg' %}" alt="">
+          </div>
+        </div>
+        <div class="card-copy wide-desc">
+          <strong class="step-title">۳. تمرین و پروژه واقعی</strong>
+          <div class="step-description">روی کیس‌استادی‌های واقعی کار کنید و از اساتید خود بازخورد دقیق بگیرید.</div>
+        </div>
+      </div>
+
+      <div class="growth-card">
+        <div class="achievement-badge highlight-badge">
+          <div class="badge-icon-frame">
+            <img src="{% static 'asets/award.svg' %}" alt="">
+          </div>
+        </div>
+        <div class="card-copy">
+          <strong class="step-title">۴. گواهینامه معتبر</strong>
+          <div class="step-description">پس از تایید پروژه‌ها، گواهی دوزبانه قابل ارائه به شرکت‌ها دریافت کنید.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="teachers-section">
+    <div class="section-header-area">
+      <div class="badge-container"><b class="badge-text">مدرسان عالی‌رتبه</b></div>
+      <div class="main-heading">از کسانی یاد بگیرید که هر روز در بازار دیزاین می‌کنند و می‌سازند</div>
+      <div class="sub-description">سازمانی می‌نشینند.</div>
+    </div>
+
+    <!-- کانتینر اسکرول افقی -->
+    <div class="teachers-scroll-container">
+      <div class="cards-row">
+        <!-- استاد ۱ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/gahremany.png' %}" alt="نسیم یوسفی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس قهرمانی</div>
+              <div class="teacher-role-badge">متخصص فرانت اند</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">i love back-end developers!</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">React</span>
+                <span class="skill-tag-item">Next JS</span>
+                <span class="skill-tag-item">TypeScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۲ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/parnian.png' %}" alt="سارا رضایی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس پرنیان</div>
+              <div class="teacher-role-badge">متخصص وردپرس</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">با بیش از 3 سال تجربه در حوزه طراحی وب</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">html</span>
+                <span class="skill-tag-item">css</span>
+                <span class="skill-tag-item">wordpress</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۳ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/shayan.png' %}" alt="امیر مرادی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس رضایی</div>
+              <div class="teacher-role-badge">مهندس بک اند لاراول</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">متخصص React و Next.js، مدرس دوره‌های پیشرفته توسعه وب.</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">React</span>
+                <span class="skill-tag-item">TypeScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۴ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/jadidi.png' %}" alt="لیلا احمدی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس جدیدی</div>
+              <div class="teacher-role-badge">متخصص بک اند جنگو</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">فعالیت در حوزه طراحی و توسعه وب‌سایت با فریم‌ورک جنگو</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">Django</span>
+                <span class="skill-tag-item">FastAPI</span>
+                <span class="skill-tag-item">DRF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۵ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/gaderi.jpeg' %}" alt="حسین کرمی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس قادری</div>
+              <div class="teacher-role-badge">متخصص بک‌اند</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">فعالیت در حوزه طراحی و توسعه وب با تکنولوژی Asp.net Core</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">Asp.net core</span>
+                <span class="skill-tag-item">SQL Server</span>
+                <span class="skill-tag-item">Unity 3D</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۶ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/taha.png' %}" alt="مینا نوروزی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس فرامرزی</div>
+              <div class="teacher-role-badge">متخصص AI</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">خلق هویت بصری برای برندهای مطرح، مدرس نرم‌افزارهای Adobe.</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">Photoshop</span>
+                <span class="skill-tag-item">Branding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۷ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/' %}" alt="مهندس طباطبایی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس طباطبایی</div>
+              <div class="teacher-role-badge">متخصص UI/UX</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">راهبر تولید محتوا در دیجی‌کالا، استراتژیست بازاریابی دیجیتال.</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">SEO</span>
+                <span class="skill-tag-item">Content</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۸ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/' %}" alt="مهندس ذریه">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس ذریه</div>
+              <div class="teacher-role-badge">متخصص سئو</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">راهبر تولید محتوا در دیجی‌کالا، استراتژیست بازاریابی دیجیتال.</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">SEO</span>
+                <span class="skill-tag-item">Content</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <!-- salma -->
+  <div class="cta-wrapper">
+
+    <div class="floating-icon icon-left">
+      <img src="{% static 'asets/graduation-cap.svg' %}" alt="">
     </div>
 
     <div class="floating-icon icon-right">
-        <img src="{% static 'asets/sparkles.svg' %}" alt="">
+      <img src="{% static 'asets/sparkles.svg' %}" alt="">
     </div>
-    		
-    		<div class="text-container">
-      			<div class="badge">
-        				<b class="badge-text">فرصت‌ها منتظر نمی‌مانند</b>
-      			</div>
-      			<div class="hero-heading">آماده شروع مسیر حرفه‌ای خود هستید؟</div>
-      			<div class="description">امروز ثبت‌نام کنید و قدم اول را برای تصاحب شغل رویایی خود بردارید. ظرفیت کارگاه‌ها به خاطر حفظ کیفیت منتورینگ بسیار محدود است.</div>
-    		</div>
-    		<div class="action-buttons">
-                <button class="btn-secondary">
-        				<b class="badge-text">صحبت با کارشناسان آموزش</b>
-      			</button>
-      			<button class="btn-primary">
-        				<b class="badge-text">ثبت‌نام در دوره‌ها</b>
-      			</button>
-    		</div>
-  	</div>
-  	
-  	
 
-   	<!-- فوتر  -->
-		{% include "includes/footer.html" %}
+    <div class="text-container">
+      <div class="badge">
+        <b class="badge-text">فرصت‌ها منتظر نمی‌مانند</b>
+      </div>
+      <div class="hero-heading">آماده شروع مسیر حرفه‌ای خود هستید؟</div>
+      <div class="description">امروز ثبت‌نام کنید و قدم اول را برای تصاحب شغل رویایی خود بردارید. ظرفیت کارگاه‌ها به
+        خاطر حفظ کیفیت منتورینگ بسیار محدود است.</div>
+    </div>
+    <div class="action-buttons">
+      <a href="{% url 'users:study_request' %}" class="btn-secondary">
+        <b class="badge-text">صحبت با کارشناسان آموزش</b>
+      </a>
+      {% comment %} <button class="btn-primary">
+        <b class="badge-text">ثبت‌نام در دوره‌ها</b>
+      </button> {% endcomment %}
+    </div>
+  </div>
 
-<!-- sectionman -->
- 
-       <script>
-        // تابع باز و بسته کردن دراپ‌منو
-    		function toggleDropdown(triggerId, dropdownId) {
-      			var trigger = document.getElementById(triggerId);
-      			var dropdown = document.getElementById(dropdownId);
-      			
-      			if(trigger && dropdown) {
-        				trigger.addEventListener("click", function(e) {
-          					e.stopPropagation();
-          					
-          					// بستن همه دراپ‌منوهای دیگر
-          					document.querySelectorAll('.dropdown-content').forEach(function(el) {
-            						if(el.id !== dropdownId) {
-              							el.style.display = 'none';
-            						}
-          					});
-          					
-          					// باز و بسته کردن دراپ‌منو فعلی
-          					if(dropdown.style.display === 'flex') {
-            						dropdown.style.display = 'none';
-          					} else {
-            						dropdown.style.display = 'flex';
-          					}
-        				});
-      			}
-    		}
-    		
-    		// بستن دراپ‌منو با کلیک خارج از آن
-    		document.addEventListener("click", function() {
-      			document.querySelectorAll('.dropdown-content').forEach(function(el) {
-        				el.style.display = 'none';
-      			});
-    		});
-    		
-    		// جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
-    		document.querySelectorAll('.dropdown-content').forEach(function(el) {
-      			el.addEventListener("click", function(e) {
-        				e.stopPropagation();
-      			});
-    		});
-    		
-    		// راه‌اندازی دراپ‌منوها
-    		toggleDropdown('frameContainer', 'blogDropdown');
-    		toggleDropdown('frameContainer1', 'academyDropdown');
-    		toggleDropdown('frameContainer2', 'servicesDropdown');
 
-       </script> 
+
+  <!-- فوتر  -->
+  {% include "includes/footer.html" %}
+  <script src="{% static 'js/index.js' %}"></script>
+
 </body>
 
 </html>

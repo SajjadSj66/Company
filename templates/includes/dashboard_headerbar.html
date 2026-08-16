@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="headerbar">
+  <div class="usercontrols">
+    <button
+      class="hamburger-btn"
+      onclick="toggleSidebar()"
+      aria-label="باز کردن منو"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="notificationbell">
+      <img class="bell-icon" src="{% static 'asets/icon/bell.svg' %}" alt="" />
+
+      <div class="ellipse"></div>
+    </div>
+  </div>
+
+  <div class="greetingsection">
+    <div class="div">سلام، {{ user.username }} 👋</div>
+    <div class="div2">
+      خلاصه‌ای از فعالیت‌ها و پروژه‌های شما در آژانس دیجیتال
+    </div>
+  </div>
+</div>

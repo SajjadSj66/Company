@@ -1,0 +1,514 @@
+
+/* ناو بار */
+.navbar-wrapper {
+  width: 100%;
+  height: 88px;
+  left: 0;
+  position: fixed;
+  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
+  text-align: left;
+  font-size: 16px;
+  color: #ebebeb;
+  font-family: Rubik;
+  align-items: center;
+  justify-self: center;
+  z-index: 1000;
+}
+
+.rectangle-parent {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 526px;
+  height: 88px;
+  overflow: hidden;
+}
+
+.frame-child {
+  position: absolute;
+  top: 0px;
+  left: -18px;
+  width: 422px;
+  height: 106px;
+  flex-shrink: 0;
+}
+
+.frame-wrapper {
+  position: absolute;
+  top: 18px;
+  left: 64px;
+  width: 293px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.cta-button-parent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta-button {
+  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
+  border-radius: 12px;
+  background-color: #1d3363;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  gap: 8px;
+}
+
+.phone-call-3-1 {
+  height: 16px;
+  width: 16px;
+  position: relative;
+}
+
+.button-label {
+  position: relative;
+}
+
+.frame-inner {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  border-radius: 12px;
+}
+
+.frame-group {
+  position: absolute;
+  top: 16px;
+  border-radius: 16px;
+  width: 887px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  text-align: right;
+  font-size: 20px;
+  color: #fbf8f8;
+  font-family: "Google Sans Flex";
+}
+
+.parent {
+  display: flex;
+  align-items: center;
+  gap: 57px;
+}
+
+.div {
+  position: relative;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.div3 {
+  width: 69px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.angle-small-down-2-2-parent,
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.angle-small-down-2-2-parent {
+  width: 97px;
+}
+
+.angle-small-down-2-2-container,
+.dropdown-trigger {
+  width: 110px;
+}
+
+.logo-icon {
+  height: 56px;
+  width: 56px;
+  position: relative;
+  right: 10px;
+}
+
+/* استایل‌های جدید برای دراپ‌منو */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  z-index: 1001;
+}
+
+.blog-dropdown {
+  right: 0;
+}
+
+.academy-dropdown {
+  right: 0;
+}
+
+.services-dropdown {
+  right: 0;
+}
+
+.services {
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 40px;
+}
+
+.component-44-parent {
+  height: 176px;
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.component-44 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+
+.component-38:hover,
+.component-44:hover,
+.component-442:hover,
+.component-443:hover,
+.component-402:hover {
+  background-color: rgba(118, 130, 156, 0.6);
+}
+
+.div {
+  position: relative;
+  font-weight: 500;
+}
+
+.services-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+
+.component-38-parent {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.component-38-parent :last-child {
+  border-bottom-right-radius: 12px;
+}
+
+.component-38-parent :first-child {
+  border-top-right-radius: 12px;
+}
+
+.component-44-parent :first-child {
+  border-top-left-radius: 12px;
+}
+
+.component-38 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+
+.line-div {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+
+.academi {
+  width: 465px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 93%;
+  max-height: 90%;
+  overflow: hidden;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+  left: 110px;
+}
+
+.component-44-group {
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.component-442 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+
+.div14 {
+  position: relative;
+  font-weight: 500;
+  white-space: pre-wrap;
+}
+
+.frame-child7 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+
+.div15 {
+  position: relative;
+  font-weight: 500;
+}
+
+.academi-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+  flex-shrink: 0;
+}
+
+.component-38-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.component-402 {
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px 16px;
+}
+
+.blog {
+  width: 409px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  background-color: rgba(29, 51, 99, 0.5);
+  display: flex;
+  align-items: flex-start;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: right;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Google Sans Flex";
+  top: 23px;
+}
+
+.component-44-container {
+  width: 197px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.component-443 {
+  align-self: stretch;
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px;
+}
+
+.div20 {
+  position: relative;
+  font-weight: 500;
+}
+
+.frame-child13 {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  border-top: 1px solid #737a88;
+  box-sizing: border-box;
+}
+
+.blog-child {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-right: 1px solid #6b7280;
+}
+
+.component-38-container {
+  width: 211px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
+.popup-overlay {
+  display: none;
+}
+
+
+/* ===== نمایش در موبایل ===== */
+@media (max-width: 1330px) {
+  .navbar-wrapper {
+    display: none;
+  }
+
+  .mobile-navbar {
+    display: block;
+  }
+
+  .logos-frame {
+    padding: 0px 24px 0px;
+  }
+}
+
+/* ===== ریسپانسیو بیشتر برای صفحه‌های خیلی کوچک ===== */
+@media (max-width: 480px) {
+  .mobile-navbar__sidebar {
+    width: 290px;
+    max-width: 90vw;
+    padding: 80px 16px 20px;
+  }
+
+  .mobile-navbar__item {
+    font-size: 15px;
+    padding: 14px 2px;
+  }
+
+  .mobile-navbar__submenu-item {
+    font-size: 14px;
+    padding: 12px 2px;
+  }
+
+  .mobile-navbar__hamburger {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-navbar__hamburger span {
+    width: 20px;
+    height: 2.5px;
+  }
+
+  .mobile-navbar__bar {
+    height: 64px;
+    padding: 0 12px;
+  }
+
+  .mobile-navbar__logo {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+/* ===== پشتیبانی از نمایشگرهای با ارتفاع کم ===== */
+@media (max-height: 600px) {
+  .mobile-navbar__sidebar {
+    padding-top: 72px;
+    padding-bottom: 16px;
+  }
+
+  .mobile-navbar__item {
+    padding: 10px 4px;
+    font-size: 14px;
+  }
+
+  .mobile-navbar__submenu-item {
+    padding: 10px 4px;
+    font-size: 13px;
+  }
+
+  .mobile-navbar__back {
+    padding: 8px 4px 14px;
+  }
+}
+
+/* ===== اطمینان از درست کار کردن در جهت RTL ===== */
+.mobile-navbar__sidebar,
+.mobile-navbar__item,
+.mobile-navbar__submenu,
+.mobile-navbar__back {
+  direction: rtl;
+  text-align: right;
+}
+
+.mobile-navbar__arrow {
+  transform: rotate(90deg);
+}
+
+/* ===== ریست کردن position:fixed برای جلوگیری از تداخل ===== */
+.mobile-navbar__bar,
+.mobile-navbar__overlay,
+.mobile-navbar__sidebar {
+  position: fixed;
+}
+
+/* ===== بهبود تچ target در موبایل ===== */
+@media (hover: none) and (pointer: coarse) {
+
+  .mobile-navbar__item,
+  .mobile-navbar__submenu-item,
+  .mobile-navbar__back {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-navbar__hamburger {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

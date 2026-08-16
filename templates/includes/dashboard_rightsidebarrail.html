@@ -1,0 +1,329 @@
+{% load static %}
+
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<div class="rightsidebarrail" id="rightSidebar">
+  <!-- =========================
+       Sidebar Menu
+  ========================== -->
+  <div class="menucontainer">
+    <!-- Logo / Brand -->
+    <div class="frame-parent">
+      <div class="parent">
+        <b class="b30">آذریزدان</b>
+        <div class="azaryazdan">Azaryazdan</div>
+      </div>
+
+      <img
+        class="logo-icon"
+        src="{% static 'asets/icon/logo 1 [Vectorized].svg' %}"
+        alt="آذریزدان"
+      />
+    </div>
+
+    <!-- =========================
+         Navigation
+    ========================== -->
+    <div class="navitems">
+      <!-- Dashboard -->
+      <a
+        href="{% url 'users:dashboard' %}"
+        class="{% if request.resolver_match.url_name == 'dashboard' %}sidebaritem{% else %}sidebaritem2{% endif %}"
+      >
+        <b
+          class="{% if request.resolver_match.url_name == 'dashboard' %}b31{% else %}div37{% endif %}"
+        >
+          داشبورد
+        </b>
+
+        <img
+          class="layout-dashboard-icon"
+          src="{% static 'asets/icon/layout-dashboard.svg' %}"
+          alt="داشبورد"
+        />
+
+        {% if request.resolver_match.url_name == 'dashboard' %}
+        <div class="rectangle16"></div>
+        {% endif %}
+      </a>
+
+      <!-- =========================
+           My Projects
+      ========================== -->
+      <a
+        href="{% url 'users:dashboard2' %}"
+        class="{% if request.resolver_match.url_name == 'dashboard2' %}sidebaritem{% else %}sidebaritem2{% endif %}"
+      >
+        <div
+          class="{% if request.resolver_match.url_name == 'dashboard2' %}b31{% else %}div37{% endif %}"
+        >
+          پروژه‌های من
+        </div>
+
+        <img
+          class="clipboard-list-icon"
+          src="{% static 'asets/icon/briefcase.svg' %}"
+          alt="پروژه‌های من"
+        />
+
+        {% if request.resolver_match.url_name == 'dashboard2' %}
+        <div class="rectangle16"></div>
+        {% endif %}
+      </a>
+
+      <!-- =========================
+           My Requests
+           dashboard3
+      ========================== -->
+      <a
+        href="{% url 'users:dashboard3' %}"
+        class="{% if request.resolver_match.url_name == 'dashboard3' %}sidebaritem{% else %}sidebaritem2{% endif %}"
+      >
+        <div
+          class="{% if request.resolver_match.url_name == 'dashboard3' %}b31{% else %}div37{% endif %}"
+        >
+          درخواست‌های من
+        </div>
+
+        <img
+          class="clipboard-list-icon"
+          src="{% static 'asets/icon/clipboard-list.svg' %}"
+          alt="درخواست‌های من"
+        />
+
+        {% if request.resolver_match.url_name == 'dashboard3' %}
+        <div class="rectangle16"></div>
+        {% endif %}
+      </a>
+
+      <!-- =========================
+           My Courses
+           dashboard4
+      ========================== -->
+      <a
+        href="{% url 'users:dashboard4' %}"
+        class="{% if request.resolver_match.url_name == 'dashboard4' %}sidebaritem{% else %}sidebaritem2{% endif %}"
+      >
+        <div
+          class="{% if request.resolver_match.url_name == 'dashboard4' %}b31{% else %}div37{% endif %}"
+        >
+          دوره‌های من
+        </div>
+
+        <img
+          class="clipboard-list-icon"
+          src="{% static 'asets/icon/book-open.svg' %}"
+          alt="دوره‌های من"
+        />
+
+        {% if request.resolver_match.url_name == 'dashboard4' %}
+        <div class="rectangle16"></div>
+        {% endif %}
+      </a>
+
+      <!-- =========================
+           Messages
+           فعلاً بدون لینک
+      ========================== -->
+      <div class="sidebaritem2 sidebar-disabled">
+        <div class="div37">پیام‌ها</div>
+
+        <img
+          class="clipboard-list-icon"
+          src="{% static 'asets/icon/message-circle.svg' %}"
+          alt="پیام‌ها"
+        />
+      </div>
+
+      <!-- =========================
+           Settings
+           فعلاً بدون لینک
+      ========================== -->
+      <div class="sidebaritem2 sidebar-disabled">
+        <div class="div37">تنظیمات</div>
+
+        <img
+          class="clipboard-list-icon"
+          src="{% static 'asets/icon/settings.svg' %}"
+          alt="تنظیمات"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       User Profile
+  ========================== -->
+  <div class="profilecontainer">
+    <div class="line5"></div>
+
+    <!-- User Information -->
+    <div class="userprofile">
+      <div class="profiledetails">
+        <b class="b"> {{ user.username }} </b>
+
+        <div class="div6">کاربر طلایی آکادمی</div>
+      </div>
+
+      <img
+        class="useravatarsmall-icon"
+        src="{% static 'asets/icon/logo 1 [Vectorized].svg' %}"
+        alt="پروفایل کاربر"
+      />
+    </div>
+
+    <!-- =========================
+         Logout
+    ========================== -->
+    <form
+      method="post"
+      action="{% url 'users:logout' %}"
+      style="all: unset; align-self: stretch; display: flex"
+    >
+      {% csrf_token %}
+
+      <button
+        type="submit"
+        class="logoutbutton"
+        style="
+          width: 100%;
+          cursor: pointer;
+          background: none;
+          font: inherit;
+          color: inherit;
+        "
+      >
+        <b class="b"> خروج از حساب کاربری </b>
+
+        <img
+          class="arrow-left-icon"
+          src="{% static 'asets/icon/log-out.svg' %}"
+          alt="خروج"
+        />
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- =========================
+     Sidebar Additional Styles
+========================== -->
+<style>
+  .sidebaritem,
+  .sidebaritem2 {
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  /* جلوگیری از تغییر رنگ لینک‌ها */
+  .sidebaritem2 {
+    color: #ffffff;
+  }
+
+  .sidebaritem {
+    color: #f0c040;
+  }
+
+  /* حالت Hover برای آیتم‌های غیرفعال */
+  .sidebaritem2:hover {
+    background-color: rgba(240, 192, 64, 0.08);
+    color: #ffffff;
+  }
+
+  /* حالت Hover باعث تغییر رنگ آیکون نشود */
+  .sidebaritem2 img {
+    opacity: 0.7;
+  }
+
+  .sidebaritem:hover img {
+    opacity: 1;
+  }
+
+  /* آیتم‌های فعلاً غیرفعال */
+  .sidebar-disabled {
+    cursor: default;
+  }
+
+  .sidebar-disabled:hover {
+    background-color: transparent;
+  }
+
+  /* دکمه خروج */
+  .logoutbutton {
+    font-family: Vazir;
+    border: 1px solid rgba(255, 255, 255, 0.19);
+  }
+
+  .logoutbutton:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .logoutbutton:active {
+    transform: scale(0.99);
+  }
+
+  /* حذف استایل پیش‌فرض button */
+  .logoutbutton:focus {
+    outline: none;
+  }
+
+  /* موبایل */
+  @media (max-width: 768px) {
+    .rightsidebarrail {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      min-height: 100vh;
+      z-index: 1001;
+
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+
+      overflow-y: auto;
+    }
+
+    .rightsidebarrail.sidebar-open {
+      transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      inset: 0;
+
+      background-color: rgba(0, 0, 0, 0.45);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+      z-index: 1000;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+</style>
+
+<!-- =========================
+     Sidebar Toggle
+========================== -->
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("rightSidebar");
+
+    const overlay = document.querySelector(".sidebar-overlay");
+
+    sidebar.classList.toggle("sidebar-open");
+
+    if (overlay) {
+      overlay.classList.toggle("active");
+    }
+  }
+</script>

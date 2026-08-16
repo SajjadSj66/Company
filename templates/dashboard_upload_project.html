@@ -1,0 +1,559 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .persian-rtl-dashboard {
+        width: 100%;
+        position: relative;
+        background-color: #fcfcfc;
+        overflow-x: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        min-height: 100vh;
+        text-align: right;
+        font-size: 22px;
+        color: #1d3363;
+        font-family: Vazir;
+      }
+      .maincontent {
+        min-width: 320px;
+        flex: 1 1 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 40px 40px;
+        box-sizing: border-box;
+        gap: 80px;
+      }
+      .headerbar {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .usercontrols {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .notificationbell {
+        height: 40px;
+        width: 40px;
+        border-radius: 100px;
+        background-color: #f8f9fa;
+        border: 1px solid #e8ecf0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        isolation: isolate;
+      }
+      .bell-icon {
+        height: 20px;
+        width: 20px;
+        position: relative;
+        z-index: 0;
+      }
+      .ellipse {
+        height: 8px;
+        width: 8px;
+        position: absolute;
+        margin: 0 !important;
+        top: 11px;
+        right: 11px;
+        border-radius: 50%;
+        background-color: #ff6b6b;
+        z-index: 1;
+      }
+      .greetingsection {
+        display: flex;
+        flex-direction: column;
+        align-items: flex;
+        gap: 4px;
+      }
+      .div {
+        position: relative;
+        font-weight: 800;
+      }
+      .div2 {
+        position: relative;
+        font-size: 13px;
+        color: #7e848c;
+      }
+      .empty-card {
+        width: 100%;
+        box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.03);
+        border-radius: 24px;
+        background-color: #fff;
+        border: 1px solid #e8ebf0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 64px;
+        gap: 32px;
+        text-align: center;
+        font-family: Vazir;
+        flex: 1 1 auto;
+      }
+      .illustration {
+        width: 160px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        isolation: isolate;
+      }
+      .ellipse2 {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        margin: 0 !important;
+        top: calc(50% - 50px);
+        left: calc(50% - 50px);
+        border-radius: 50%;
+        background-color: #f5f6fa;
+        z-index: 0;
+      }
+      .frame {
+        margin: 0 !important;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        z-index: 1;
+      }
+      .ellipse3 {
+        height: 4px;
+        width: 4px;
+        position: relative;
+        border-radius: 50%;
+        background-color: #f0c040;
+      }
+      .folder-plus-icon {
+        width: 64px;
+        height: 64px;
+        position: relative;
+        z-index: 2;
+      }
+      .ellipse6 {
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        margin: 0 !important;
+        top: 105px;
+        left: 105px;
+        border-radius: 50%;
+        background-color: #f0c040;
+        z-index: 3;
+      }
+      .copy-block {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .b {
+        align-self: stretch;
+        position: relative;
+      }
+      .div3 {
+        align-self: stretch;
+        position: relative;
+        font-size: 15px;
+        color: #626c7a;
+      }
+      .request-cta {
+        border-radius: 12px;
+        background-color: #f0c040;
+        display: flex;
+        align-items: flex-start;
+        padding: 16px 32px;
+        text-align: left;
+        font-size: 15px;
+      }
+      .b2 {
+        position: relative;
+      }
+      .rightsidebarrail {
+        align-self: stretch;
+        width: 260px;
+        flex-shrink: 0;
+        background-color: #1d3363;
+        border-left: 1px solid rgba(232, 236, 240, 0.1);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 40px 16px;
+        gap: 0px;
+        font-size: 16px;
+        color: #fff;
+        font-family: Vazir;
+      }
+      .menucontainer {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 40px;
+      }
+      .frame-parent {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+      .parent {
+        width: 86px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .azaryazdan {
+        align-self: stretch;
+        position: relative;
+        text-align: left;
+      }
+      .logo-icon {
+        height: 56px;
+        width: 56px;
+        position: relative;
+      }
+      .navitems {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+        font-size: 14px;
+        font-family: Vazir;
+      }
+      .sidebaritem {
+        align-self: stretch;
+        border-radius: 12px;
+        background-color: rgba(240, 192, 64, 0.13);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 12px 16px;
+        position: relative;
+        isolation: isolate;
+        gap: 12px;
+        color: #f0c040;
+      }
+      .b4 {
+        flex: 1;
+        position: relative;
+        z-index: 0;
+        flex-shrink: 0;
+      }
+      .layout-dashboard-icon {
+        height: 18px;
+        width: 18px;
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+      .rectangle {
+        height: calc(100% - 16px);
+        width: 4px;
+        position: absolute;
+        margin: 0 !important;
+        top: 8px;
+        right: 0px;
+        bottom: 8px;
+        border-radius: 2px;
+        background-color: #f0c040;
+        z-index: 2;
+        flex-shrink: 0;
+      }
+      .sidebaritem2 {
+        align-self: stretch;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 12px 16px;
+        gap: 12px;
+      }
+      .div4 {
+        flex: 1;
+        position: relative;
+        font-weight: 500;
+      }
+      .briefcase-icon {
+        height: 18px;
+        width: 18px;
+        position: relative;
+        opacity: 0.7;
+      }
+      .profilecontainer {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        font-size: 13px;
+        font-family: Vazir;
+      }
+      .line {
+        align-self: stretch;
+        height: 0px;
+        position: relative;
+        border-top: 1px solid rgba(255, 255, 255, 0.13);
+        box-sizing: border-box;
+      }
+      .userprofile {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+      }
+      .profiledetails {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+      }
+      .div9 {
+        position: relative;
+        font-size: 11px;
+        color: #7e848c;
+      }
+      .useravatarsmall-icon {
+        height: 38px;
+        width: 38px;
+        position: relative;
+        border-radius: 100px;
+        object-fit: cover;
+      }
+      .logoutbutton {
+        align-self: stretch;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.19);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        gap: 8px;
+        text-align: left;
+      }
+      .log-out-icon {
+        height: 14px;
+        width: 14px;
+        position: relative;
+      }
+
+      /* ===== Responsive ===== */
+
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background-color: #f8f9fa;
+        border: 1px solid #e8ecf0;
+        cursor: pointer;
+        padding: 0;
+      }
+      .hamburger-btn span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #1d3363;
+      }
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(17, 24, 39, 0.45);
+        z-index: 999;
+      }
+      .sidebar-overlay.active {
+        display: block;
+      }
+
+      @media (max-width: 1024px) {
+        .rightsidebarrail {
+          width: 220px;
+        }
+        .maincontent {
+          padding: 28px 24px 32px;
+          gap: 56px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hamburger-btn {
+          display: flex;
+        }
+        .rightsidebarrail {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 280px;
+          max-width: 82%;
+          height: 100vh;
+          overflow-y: auto;
+          transform: translateX(100%);
+          transition: transform 0.28s ease;
+          z-index: 1000;
+        }
+        .rightsidebarrail.sidebar-open {
+          transform: translateX(0);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .persian-rtl-dashboard {
+          font-size: 18px;
+        }
+        .maincontent {
+          padding: 20px 16px 24px;
+          gap: 32px;
+        }
+        .empty-card {
+          padding: 32px 20px;
+          gap: 20px;
+          border-radius: 20px;
+        }
+        .illustration {
+          width: 120px;
+          height: 120px;
+        }
+        .ellipse2 {
+          width: 76px;
+          height: 76px;
+          top: calc(50% - 38px);
+          left: calc(50% - 38px);
+        }
+        .folder-plus-icon {
+          width: 48px;
+          height: 48px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .headerbar {
+          gap: 12px;
+          direction: rtl;
+        }
+        .greetingsection {
+          font-size: 14px;
+        }
+        .request-cta {
+          align-self: stretch;
+          justify-content: center;
+        }
+      }
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir.woff2" %}') format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - Medium */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Medium.woff2" %}') format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - Bold */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Bold.woff2" %}') format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Vazir - thin */
+      @font-face {
+        font-family: "Vazir";
+        src: url('{% static "/font/Vazir-Thin.woff2" %}') format("woff2");
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="persian-rtl-dashboard">
+      <div class="maincontent">
+
+
+      {% include "includes/dashboard_headerbar.html" %}
+
+
+
+        <div class="empty-card">
+          <div class="illustration">
+            <div class="ellipse2"></div>
+            <div class="frame">
+              <div class="ellipse3"></div>
+              <div class="ellipse3"></div>
+              <div class="ellipse3"></div>
+            </div>
+            <img class="folder-plus-icon" alt="" src="{% static 'asets/icon/folder-plus.svg' %}" />
+
+            <div class="ellipse6"></div>
+          </div>
+          <div class="copy-block">
+            <b class="b">هنوز پروژه‌ای ندارید</b>
+            <div class="div3">
+              برای شروع یک پروژه جدید با تیم ما در ارتباط باشید و سفارش خود را
+              ثبت کنید.
+            </div>
+          </div>
+          <div class="request-cta">
+            <b class="b2">درخواست پروژه جدید</b>
+          </div>
+        </div>
+
+      </div>
+      <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+	  
+      {% include "includes/dashboard_rightsidebarrail.html" %}
+
+    </div>
+
+
+  </body>
+</html>

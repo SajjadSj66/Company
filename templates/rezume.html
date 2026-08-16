@@ -1,3610 +1,3384 @@
 {% load static %}
+{% load jformat %}
 <!DOCTYPE html>
 <html dir="rtl" lang="fa">
+
 <head>
-  	<meta charset="utf-8">
-  	<meta name="viewport" content="initial-scale=1, width=device-width">
-	<title>ارسال رزومه به آذریزدان</title>
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google Sans Flex:wght@600&display=swap" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" />
-  	
-  	<style>
-		a {
-		text-decoration: none !important;
-		}
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <title>ارسال رزومه به آذریزدان</title>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 
-		/* حفظ رنگ پیش‌فرض لینک‌ها */
-		a {
-		color: inherit;
-		}
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  <style>
+    a {
+      text-decoration: none !important;
+    }
 
+    /* حفظ رنگ پیش‌فرض لینک‌ها */
+    a {
+      color: inherit;
+    }
 
-/* ناو بار */
-.navbar-wrapper {
-  width: 100%;
-  height: 88px;
-  position: fixed;
-  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
-  text-align: left;
-  font-size: 16px;
-  color: #ebebeb;
-  font-family: Rubik;
-  align-items: center;
-  justify-self: center;
-  z-index: 1000;
-}
-.rectangle-parent {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 526px;
-  height: 88px;
-  overflow: hidden;
-}
-.frame-child {
-  position: absolute;
-  top: 0px;
-  left: -18px;
-  width: 422px;
-  height: 106px;
-  flex-shrink: 0;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.frame-wrapper {
-  position: absolute;
-  top: 18px;
-  left: 64px;
-  width: 293px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.cta-button-parent {
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.cta-button {
-  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
-  border-radius: 12px;
-  background-color: #1d3363;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 36px;
-  gap: 8px;
-}
-.phone-call-3-1 {
-  height: 16px;
-  width: 16px;
-  position: relative;
-}
-.button-label {
-  position: relative;
-}
-.frame-inner {
-  height: 48px;
-  width: 48px;
-  position: relative;
-  border-radius: 12px;
-}
-.frame-group {
-  position: absolute;
-  top: 16px;
-  border-radius: 16px;
-  width: 887px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 32px;
-  text-align: right;
-  font-size: 20px;
-  color: #fbf8f8;
-  font-family: "Google Sans Flex";
-}
-.parent {
-  display: flex;
-  align-items: center;
-  gap: 57px;
-}
-.div {
-  position: relative;
-  font-weight: 600;
-  cursor: pointer;
-}
-.div3 {
-  width: 69px;
-  position: relative;
-  font-weight: 600;
-  display: inline-block;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-.angle-small-down-2-2-parent,
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  cursor: pointer;
-  position: relative;
-}
-
-.angle-small-down-2-2-parent {
-  width: 97px;
-}
-
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  width: 110px;
-}
-
-.logo-icon {
-  height: 56px;
-  width: 56px;
-  position: relative;
-  right: 10px;
-}
-
-/* استایل‌های جدید برای دراپ‌منو */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 8px;
-  z-index: 1001;
-}
-
-.blog-dropdown {
-  right: 0;
-}
-
-.academy-dropdown {
-  right: 0;
-}
-
-.services-dropdown {
-  right: 0;
-}
-
-.services {
-  width: 100%;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 40px;
-}
-.component-44-parent {
-  height: 176px;
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-44 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.component-38:hover,
-.component-44:hover,
-.component-442:hover,
-.component-443:hover,
-.component-402:hover {
-  background-color: rgba(118, 130, 156, 0.6);
-}
-.div {
-  position: relative;
-  font-weight: 500;
-}
-
-.services-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-parent {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.component-38-parent :last-child {
-  border-bottom-right-radius: 12px;
-}
-.component-38-parent :first-child {
-  border-top-right-radius: 12px;
-}
-.component-44-parent :first-child {
-  border-top-left-radius: 12px;
-}
-.component-38 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.line-div {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-
-.academi {
-  width: 465px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 93%;
-  max-height: 90%;
-  overflow: hidden;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 110px;
-}
-.component-44-group {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.component-442 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div14 {
-  position: relative;
-  font-weight: 500;
-  white-space: pre-wrap;
-}
-.frame-child7 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.div15 {
-  position: relative;
-  font-weight: 500;
-}
-.academi-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-  flex-shrink: 0;
-}
-.component-38-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  flex-shrink: 0;
-}
-.component-402 {
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 24px 16px;
-}
-
-.blog {
-  width: 409px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-}
-.component-44-container {
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-443 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div20 {
-  position: relative;
-  font-weight: 500;
-}
-.frame-child13 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.blog-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-container {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
-.popup-overlay {
-  display: none;
-}
+    * {
+      font-family: Vazir;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
 
-/* کانتینر اصلی برای محدود کردن عرض به ۱۴۴۰ پیکسل */
-.azr-page-container {
-    max-width: 1440px;
-    margin: 0 auto;
-    width: 100%;
-}
-.azr-hero {
-  	align-self: stretch;
-  	background-color: #1d3363;
-  	overflow: hidden;
-  	display: flex;
-  	align-items: center;
-  	justify-content: space-between;
-  	padding: 96px 80px;
-  	gap: 20px;
-  	font-size: 13px;
-  	color: #a5b4fc;
-}
-.azr-hero-left-illustration {
-  	height: 450px;
-  	width: 560px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-  	position: relative;
-  	isolation: isolate;
-}
-.azr-ellipse {
-  	width: 400px;
-  	height: 400px;
-  	position: absolute;
-  	margin: 0 !important;
-  	top: calc(50% - 200px);
-  	left: calc(50% - 200px);
-  	filter: blur(100px);
-  	border-radius: 50%;
-  	background-color: #f0c040;
-  	opacity: 0.15;
-  	z-index: 0;
-}
-.azr-main-code-card {
-  	width: 440px;
-  	box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
-  	border-radius: 16px;
-  	background-color: #1e293b;
-  	border: 1px solid #2e4780;
-  	box-sizing: border-box;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	padding: 24px;
-  	gap: 16px;
-  	z-index: 1;
-  	font-size: 12px;
-}
-.azr-window-header {
-  	align-self: stretch;
-  	display: flex;
-  	align-items: center;
-  	justify-content: space-between;
-  	gap: 20px;
-}
-.azr-dots {
-  	display: flex;
-  	align-items: flex-start;
-  	gap: 6px;
-}
-.azr-dot-red {
-  	height: 10px;
-  	width: 10px;
-  	position: relative;
-  	border-radius: 50%;
-  	background-color: #ef4444;
-}
-.azr-dot-yellow {
-  	height: 10px;
-  	width: 10px;
-  	position: relative;
-  	border-radius: 50%;
-  	background-color: #f59e0b;
-}
-.azr-dot-green {
-  	height: 10px;
-  	width: 10px;
-  	position: relative;
-  	border-radius: 50%;
-  	background-color: #10b981;
-}
-.azr-code-content {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	gap: 12px;
-  	font-size: 13px;
-  	color: #34d399;
-  	font-family: 'Courier New', monospace;
-  	direction: ltr;
-  	text-align: left;
-}
-.azr-code-line {
-  	display: flex;
-  	align-items: flex-start;
-  	gap: 8px;
-  	min-height: 20px;
-  	width: 100%;
-  	direction: ltr;
-  	text-align: left;
-}
-.azr-code-line.azr-indent {
-  	padding: 0px 0px 0px 16px;
-}
-.azr-syntax-keyword {
-  	color: #f472b6;
-}
-.azr-syntax-variable {
-  	color: #60a5fa;
-}
-.azr-syntax-operator {
-  	color: #f472b6;
-}
-.azr-syntax-string {
-  	color: #a78bfa;
-}
-.azr-syntax-function {
-  	color: #34d399;
-}
-.azr-syntax-component {
-  	color: #f472b6;
-}
-.azr-syntax-prop {
-  	color: #fbcfe8;
-}
-.azr-syntax-jsx-tag {
-  	color: #f472b6;
-}
-.azr-syntax-return {
-  	color: #f59e0b;
-}
-.azr-cursor-blink {
-  	display: inline-block;
-  	width: 8px;
-  	height: 16px;
-  	background-color: #34d399;
-  	animation: azr-blink 1s step-end infinite;
-  	margin-left: 2px;
-  	vertical-align: middle;
-}
-@keyframes azr-blink {
-  	0%, 100% { opacity: 1; }
-  	50% { opacity: 0; }
-}
-.azr-floating-accent-1 {
-  	margin: 0 !important;
-  	position: absolute;
-  	top: 90px;
-    right: 380px;
-  	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.13);
-  	border-radius: 12px;
-  	background-color: #f0c040;
-  	display: flex;
-  	align-items: center;
-  	padding: 16px;
-  	gap: 12px;
-  	z-index: 2;
-  	color: #1d3363;
-}
-.azr-icon-container-sm {
-  	height: 20px;
-  	width: 20px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-}
-.azr-code-icon {
-  	width: 20px;
-  	height: 20px;
-  	position: relative;
-}
-.azr-floating-accent-2 {
-  	margin: 0 !important;
-  	position: absolute;
-  	top: 280px;
-  	right: 40px;
-  	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.13);
-  	border-radius: 12px;
-  	background-color: #2a457d;
-  	border: 1px solid #2e4780;
-  	display: flex;
-  	align-items: center;
-  	padding: 16px;
-  	gap: 12px;
-  	z-index: 3;
-  	color: #fff;
-}
-.azr-hero-right-text {
-  	width: 640px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	gap: 32px;
-  	text-align: right;
-  	font-size: 14px;
-  	color: #fff;
-}
-.azr-tag {
-    position: relative;
-  	border-radius: 100px;
-  	background-color: #fff5c3;
-  	border: 1px solid #f0c040;
-  	display: flex;
-  	align-items: center;
-  	padding: 8px 16px;
-  	color: #1d3363;
-}
-.azr-headline {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 56px;
-  	line-height: 120%;
-  	font-weight: 900;
-}
-.azr-paragraph {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 18px;
-  	line-height: 170%;
-  	color: #a5b4fc;
-}
-.azr-checklist {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	gap: 16px;
-  	font-size: 16px;
-}
-.azr-checklist-item {
-  	align-self: stretch;
-  	display: flex;
-  	align-items: center;
-  	justify-content: flex-end;
-  	gap: 12px;
-}
-.azr-checklist-text {
-  	flex: 1;
-  	position: relative;
-  	font-weight: 600;
-}
-.azr-check-icon-circle {
-  	height: 28px;
-  	width: 28px;
-  	border-radius: 14px;
-  	background-color: #f0c040;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-}
-.azr-check-icon {
-  	width: 14px;
-  	height: 14px;
-  	position: relative;
-}
-.azr-form-section {
-  	align-self: stretch;
-  	background-color: #fcfcfc;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	padding: 96px 80px;
-  	text-align: right;
-  	font-size: 28px;
-  	color: #1d3363;
-}
-.azr-form-card {
-  	width: 800px;
-  	box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.04);
-  	border-radius: 24px;
-  	background-color: #fff;
-  	border: 1px solid #e5e7eb;
-  	box-sizing: border-box;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	padding: 48px;
-  	gap: 36px;
-}
-.azr-form-header {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-end;
-  	gap: 12px;
-}
-.azr-form-title {
-  	align-self: stretch;
-  	position: relative;
-  	font-weight: 800;
-}
-.azr-form-subtitle {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 15px;
-  	color: #4b5563;
-}
-.azr-form-inputs-stack {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	gap: 24px;
-  	font-size: 14px;
-}
-.azr-form-row {
-  	align-self: stretch;
-  	display: flex;
-  	align-items: flex-start;
-  	gap: 24px;
-}
-.azr-form-field {
-  	flex: 1;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	gap: 8px;
-}
-.azr-form-label {
-  	align-self: stretch;
-  	position: relative;
-  	font-weight: 600;
-}
-/* ========== استایل فیلدهای فرم ========== */
-.azr-input-wrapper {
-  	align-self: stretch;
-  	border-radius: 12px;
-  	background-color: #fff;
-  	border: 2px solid #e8ecf1;
-  	display: flex;
-  	align-items: flex-start;
-  	padding: 14px 16px;
-  	color: #9ca3af;
-  	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  	position: relative;
-  	overflow: hidden;
-}
-.azr-input-wrapper::before {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	right: 0;
-  	left: 0;
-  	bottom: 0;
-  	background: linear-gradient(135deg, rgba(240, 192, 64, 0.03) 0%, rgba(29, 51, 99, 0.02) 100%);
-  	opacity: 0;
-  	transition: opacity 0.3s ease;
-  	border-radius: 12px;
-  	pointer-events: none;
-}
-.azr-input-wrapper:hover {
-  	border-color: #d1d5db;
-  	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-.azr-input-wrapper:focus-within {
-  	border-color: #1d3363;
-  	box-shadow: 0 0 0 4px rgba(29, 51, 99, 0.08), 0 4px 12px rgba(29, 51, 99, 0.06);
-  	background-color: #fafbfc;
-}
-.azr-input-wrapper:focus-within::before {
-  	opacity: 1;
-}
-.azr-input-wrapper.azr-error {
-  	border-color: #ef4444 !important;
-  	box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08) !important;
-  	animation: azr-shake 0.5s ease-in-out;
-}
-@keyframes azr-shake {
-  	0%, 100% { transform: translateX(0); }
-  	25% { transform: translateX(4px); }
-  	50% { transform: translateX(-4px); }
-  	75% { transform: translateX(4px); }
-}
-.azr-input-wrapper input {
-  	text-align: right;
-  	direction: rtl;
-}
-.azr-select-wrapper {
-  	align-self: stretch;
-  	border-radius: 12px;
-  	background-color: #fff;
-  	border: 2px solid #e8ecf1;
-  	display: flex;
-  	align-items: center;
-  	justify-content: space-between;
-  	padding: 14px 16px;
-  	gap: 0px;
-  	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  	position: relative;
-  	overflow: hidden;
-  	cursor: pointer;
-}
-.azr-select-wrapper::before {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	right: 0;
-  	left: 0;
-  	bottom: 0;
-  	background: linear-gradient(135deg, rgba(240, 192, 64, 0.03) 0%, rgba(29, 51, 99, 0.02) 100%);
-  	opacity: 0;
-  	transition: opacity 0.3s ease;
-  	border-radius: 12px;
-  	pointer-events: none;
-}
-.azr-select-wrapper:hover {
-  	border-color: #d1d5db;
-  	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-.azr-select-wrapper:focus-within {
-  	border-color: #1d3363;
-  	box-shadow: 0 0 0 4px rgba(29, 51, 99, 0.08), 0 4px 12px rgba(29, 51, 99, 0.06);
-  	background-color: #fafbfc;
-}
-.azr-select-wrapper:focus-within::before {
-  	opacity: 1;
-}
-.azr-select-wrapper.azr-error {
-  	border-color: #ef4444 !important;
-  	box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08) !important;
-  	animation: azr-shake 0.5s ease-in-out;
-}
-.azr-select-wrapper select {
-  	text-align: right;
-  	direction: rtl;
-  	appearance: none;
-  	background: transparent;
-  	cursor: pointer;
-  	padding-left: 0;
-  	padding-right: 0;
-  	width: 100%;
-  	position: relative;
-  	z-index: 1;
-}
-.azr-select-wrapper::after {
-  	content: '▾';
-  	position: absolute;
-  	left: 16px;
-  	top: 50%;
-  	transform: translateY(-50%);
-  	color: #6b7280;
-  	font-size: 14px;
-  	pointer-events: none;
-  	transition: transform 0.3s ease;
-  	z-index: 0;
-}
-.azr-select-wrapper:focus-within::after {
-  	transform: translateY(-50%) rotate(180deg);
-  	color: #1d3363;
-}
-.azr-textarea-wrapper {
-  	align-self: stretch;
-  	height: 100px;
-  	border-radius: 12px;
-  	background-color: #fff;
-  	border: 2px solid #e8ecf1;
-  	box-sizing: border-box;
-  	display: flex;
-  	align-items: flex-start;
-  	padding: 14px 16px;
-  	color: #9ca3af;
-  	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  	position: relative;
-  	overflow: hidden;
-}
-.azr-textarea-wrapper::before {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	right: 0;
-  	left: 0;
-  	bottom: 0;
-  	background: linear-gradient(135deg, rgba(240, 192, 64, 0.03) 0%, rgba(29, 51, 99, 0.02) 100%);
-  	opacity: 0;
-  	transition: opacity 0.3s ease;
-  	border-radius: 12px;
-  	pointer-events: none;
-}
-.azr-textarea-wrapper:hover {
-  	border-color: #d1d5db;
-  	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-.azr-textarea-wrapper:focus-within {
-  	border-color: #1d3363;
-  	box-shadow: 0 0 0 4px rgba(29, 51, 99, 0.08), 0 4px 12px rgba(29, 51, 99, 0.06);
-  	background-color: #fafbfc;
-}
-.azr-textarea-wrapper:focus-within::before {
-  	opacity: 1;
-}
-.azr-textarea-wrapper.azr-error {
-  	border-color: #ef4444 !important;
-  	box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08) !important;
-  	animation: azr-shake 0.5s ease-in-out;
-}
-.azr-textarea-wrapper textarea {
-  	text-align: right;
-  	direction: rtl;
-  	resize: vertical;
-  	min-height: 70px;
-}
-.azr-form-field-full {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	gap: 8px;
-}
-.azr-drag-drop-area {
-  	align-self: stretch;
-  	border-radius: 16px;
-  	background-color: #fff;
-  	border: 2px dashed #f0c040;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-  	padding: 32px;
-  	gap: 12px;
-  	text-align: center;
-  	font-size: 12px;
-  	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  	position: relative;
-  	overflow: hidden;
-  	cursor: pointer;
-}
-.azr-drag-drop-area::before {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	right: 0;
-  	left: 0;
-  	bottom: 0;
-  	background: radial-gradient(circle at center, rgba(240, 192, 64, 0.04) 0%, transparent 70%);
-  	opacity: 0;
-  	transition: opacity 0.3s ease;
-  	pointer-events: none;
-}
-.azr-drag-drop-area:hover {
-  	border-color: #f59e0b;
-  	background-color: #fffdf7;
-  	box-shadow: 0 4px 16px rgba(240, 192, 64, 0.1);
-  	transform: translateY(-1px);
-}
-.azr-drag-drop-area.azr-drag-over {
-  	border-color: #f59e0b;
-  	background-color: #fffdf7;
-  	box-shadow: 0 8px 24px rgba(240, 192, 64, 0.15);
-  	transform: scale(1.01);
-}
-.azr-drag-drop-area.azr-error {
-  	border-color: #ef4444 !important;
-  	box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08) !important;
-  	animation: azr-shake 0.5s ease-in-out;
-}
-.azr-icon-container-md {
-  	width: 40px;
-  	height: 40px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-}
-.azr-cloud-upload-icon {
-  	width: 40px;
-  	height: 40px;
-  	position: relative;
-}
-.azr-file-label {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 15px;
-}
-.azr-file-hint {
-  	align-self: stretch;
-  	position: relative;
-  	color: #4b5563;
-}
-/* ========== دکمه انتخاب فایل - هاور جذاب ========== */
-.azr-select-file-btn {
-  	border-radius: 8px;
-  	background: linear-gradient(135deg, #1d3363 0%, #2a457d 100%);
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	padding: 10px 20px;
-  	text-align: center;
-  	color: #fff;
-  	border: none;
-  	cursor: pointer;
-  	font-family: inherit;
-  	font-size: 13px;
-  	font-weight: 700;
-  	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  	position: relative;
-  	overflow: hidden;
-  	box-shadow: 0 2px 8px rgba(29, 51, 99, 0.2);
-  	letter-spacing: 0.3px;
-}
-.azr-select-file-btn::before {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	right: -100%;
-  	width: 100%;
-  	height: 100%;
-  	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  	transition: right 0.6s ease;
-}
-.azr-select-file-btn::after {
-  	content: '';
-  	position: absolute;
-  	inset: 0;
-  	border-radius: 8px;
-  	padding: 2px;
-  	-webkit-mask-composite: xor;
-  	mask-composite: exclude;
-  	opacity: 0;
-  	transition: opacity 0.4s ease;
-}
-.azr-select-file-btn:hover {
-  	background: linear-gradient(135deg, #2a457d 0%, #1d3363 100%);
-  	box-shadow: 0 8px 25px rgba(29, 51, 99, 0.4), 0 0 20px rgba(240, 192, 64, 0.2);
-  	transform: translateY(-3px);
-  	letter-spacing: 0.8px;
-}
-.azr-select-file-btn:hover::before {
-  	right: 100%;
-}
-.azr-select-file-btn:hover::after {
-  	opacity: 1;
-}
-.azr-select-file-btn:active {
-  	transform: translateY(-1px) scale(0.98);
-  	box-shadow: 0 4px 12px rgba(29, 51, 99, 0.3);
-  	transition: all 0.1s ease;
-}
-/* ========== دکمه سابمیت - هاور جذاب ========== */
-.azr-submit-btn {
-  	align-self: stretch;
-  	border-radius: 12px;
-  	background: linear-gradient(135deg, #f0c040 0%, #f59e0b 100%);
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	padding: 16px;
-  	text-align: center;
-  	font-size: 16px;
-  	border: none;
-  	cursor: pointer;
-  	font-family: inherit;
-  	color: #1d3363;
-  	font-weight: 700;
-  	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  	position: relative;
-  	overflow: hidden;
-  	box-shadow: 0 4px 16px rgba(240, 192, 64, 0.3);
-  	letter-spacing: 0.5px;
-}
-.azr-submit-btn::before {
-  	content: '';
-  	position: absolute;
-  	top: 50%;
-  	right: 50%;
-  	width: 0;
-  	height: 0;
-  	border-radius: 50%;
-  	transform: translate(-50%, -50%);
-  	transition: width 0.6s ease, height 0.6s ease;
-}
-.azr-submit-btn:hover {
-  	box-shadow: 0 8px 30px rgba(240, 192, 64, 0.5), 0 0 40px rgba(245, 158, 11, 0.3);
-  	transform: translateY(-4px) scale(1.02);
-  	letter-spacing: 1.5px;
-}
-.azr-submit-btn:hover::before {
-  	width: 600px;
-  	height: 600px;
-}
-.azr-submit-btn:active {
-  	transform: translateY(-2px) scale(0.98);
-  	box-shadow: 0 4px 12px rgba(240, 192, 64, 0.4);
-  	transition: all 0.1s ease;
-}
-/* ========== دکمه آپلود فایل - هاور جذاب ========== */
-.azr-upload-btn {
-  	border-radius: 8px;
-  	background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	padding: 10px 20px;
-  	text-align: center;
-  	color: #fff;
-  	border: none;
-  	cursor: pointer;
-  	font-family: inherit;
-  	font-size: 13px;
-  	font-weight: 700;
-  	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  	position: relative;
-  	overflow: hidden;
-  	box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
-  	letter-spacing: 0.3px;
-  	display: none; /* مخفی چون توی این فرم استفاده نشده */
-}
-.azr-upload-btn::before {
-  	content: '';
-  	position: absolute;
-  	top: 0;
-  	right: -100%;
-  	width: 100%;
-  	height: 100%;
-  	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  	transition: right 0.6s ease;
-}
-.azr-upload-btn:hover {
-  	background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  	box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4), 0 0 20px rgba(16, 185, 129, 0.2);
-  	transform: translateY(-3px);
-  	letter-spacing: 0.8px;
-}
-.azr-upload-btn:hover::before {
-  	right: 100%;
-}
-.azr-upload-btn:active {
-  	transform: translateY(-1px) scale(0.98);
-  	box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-  	transition: all 0.1s ease;
-}
-.azr-why-join-us {
-  	align-self: stretch;
-  	background-color: #1d3363;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	padding: 96px 80px;
-  	gap: 56px;
-  	text-align: center;
-  	color: #f0c040;
-}
-.azr-section-headers {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	gap: 16px;
-}
-.azr-section-label {
-  	align-self: stretch;
-  	position: relative;
-  	text-transform: uppercase;
-}
-.azr-section-title {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 36px;
-  	font-weight: 800;
-  	color: #fff;
-}
-.azr-benefits-horizontal-list {
-  	align-self: stretch;
-  	display: flex;
-  	align-items: flex-start;
-  	gap: 24px;
-  	text-align: right;
-  	font-size: 18px;
-  	color: #fff;
-}
-.azr-benefit-card {
-  	align-self: stretch;
-  	flex: 1;
-  	border-radius: 16px;
-  	background-color: #2a457d;
-  	border: 1px solid #2e4780;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	padding: 32px;
-  	gap: 20px;
-  	transition: all 0.25s ease;
-}
-.azr-benefit-card:hover {
-  	background-color: #334f8a;
-  	border-color: #4a68b0;
-  	box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  	transform: translateY(-4px);
-}
-.azr-icon-ring {
-    position: relative;
-    right: 190px;
-  	width: 48px;
-  	height: 48px;
-  	border-radius: 24px;
-  	background-color: #fff5c3;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-}
-.azr-icon-container-lg {
-  	width: 24px;
-  	height: 24px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	justify-content: center;
-}
-.azr-benefit-icon {
-  	width: 24px;
-  	height: 24px;
-  	position: relative;
-}
-.azr-benefit-text-stack {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	gap: 12px;
-}
-.azr-benefit-title {
-  	align-self: stretch;
-  	position: relative;
-}
-.azr-benefit-description {
-  	align-self: stretch;
-  	position: relative;
-  	font-size: 14px;
-  	line-height: 160%;
-  	color: #a5b4fc;
-}
-input, select, textarea {
-  	width: 100%;
-  	border: none;
-  	background: transparent;
-  	font-family: inherit;
-  	font-size: inherit;
-  	color: inherit;
-  	outline: none;
-}
-input::placeholder, textarea::placeholder {
-  	color: #9ca3af;
-}
-.azr-error-message {
-  	color: #ef4444;
-  	font-size: 12px;
-  	margin-top: 4px;
-  	display: none;
-}
-.azr-success-message {
-  	color: #10b981;
-  	font-size: 14px;
-  	font-weight: 600;
-  	text-align: center;
-  	width: 100%;
-}
+    /* کانتینر اصلی برای محدود کردن عرض به ۱۴۴۰ پیکسل */
+    .azr-page-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
+    .azr-hero {
+      align-self: stretch;
+      background-color: #1d3363;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 96px 80px;
+      gap: 20px;
+      font-size: 13px;
+      color: #a5b4fc;
+    }
 
+    .azr-hero-left-illustration {
+      height: 450px;
+      width: 560px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      isolation: isolate;
+    }
 
+    .azr-ellipse {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      margin: 0 !important;
+      top: calc(50% - 200px);
+      left: calc(50% - 200px);
+      filter: blur(100px);
+      border-radius: 50%;
+      background-color: #f0c040;
+      opacity: 0.15;
+      z-index: 0;
+    }
 
+    .azr-main-code-card {
+      width: 440px;
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
+      border-radius: 16px;
+      background-color: #1e293b;
+      border: 1px solid #2e4780;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+      gap: 16px;
+      z-index: 1;
+      font-size: 12px;
+    }
 
+    .azr-window-header {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-/* ریسپانسیو */
-/* ============================================= */
-/*      ریسپانسیو نهایی - کارت‌ها کاملاً فیت      */
-/* ============================================= */
+    .azr-dots {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
 
-/* تبلت بزرگ و لپ‌تاپ‌های کوچک (تا ۱۲۰۰ پیکسل) */
-@media screen and (max-width: 1200px) {
-  .azr-hero {
-    padding: 80px 40px;
-    gap: 30px;
-  }
-  
-  .azr-hero-right-text {
-    width: 55%;
-    gap: 24px;
-  }
-  
-  .azr-headline {
-    font-size: 42px;
-  }
-  
-  .azr-paragraph {
-    font-size: 16px;
-  }
-  
-  .azr-hero-left-illustration {
-    width: 45%;
-    height: 400px;
-  }
-  
-  .azr-main-code-card {
-    width: 380px;
-  }
-  
-  .azr-floating-accent-1 {
-    right: 300px;
-    top: 60px;
-  }
-  
-  .azr-floating-accent-2 {
-    right: 20px;
-    top: 260px;
-  }
-  
-  .azr-ellipse {
-    width: 320px;
-    height: 320px;
-    top: calc(50% - 160px);
-    left: calc(50% - 160px);
-  }
-  
-  /* سکشن فرم */
-  .azr-form-section {
-    padding: 80px 40px;
-  }
-  
-  .azr-form-card {
-    width: 90%;
-    max-width: 700px;
-    padding: 36px;
-  }
-  
-  /* سکشن مزایا */
-  .azr-why-join-us {
-    padding: 80px 60px;
-    gap: 48px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .azr-benefits-horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  
-  .azr-benefit-card {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 32px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
+    .azr-dot-red {
+      height: 10px;
+      width: 10px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #ef4444;
+    }
+
+    .azr-dot-yellow {
+      height: 10px;
+      width: 10px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #f59e0b;
+    }
+
+    .azr-dot-green {
+      height: 10px;
+      width: 10px;
+      position: relative;
+      border-radius: 50%;
+      background-color: #10b981;
+    }
+
+    .azr-code-content {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      color: #34d399;
+      font-family: Vazir;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .azr-code-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      min-height: 20px;
+      width: 100%;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .azr-code-line.azr-indent {
+      padding: 0px 0px 0px 16px;
+    }
+
+    .azr-syntax-keyword {
+      color: #f472b6;
+    }
+
+    .azr-syntax-variable {
+      color: #60a5fa;
+    }
+
+    .azr-syntax-operator {
+      color: #f472b6;
+    }
+
+    .azr-syntax-string {
+      color: #a78bfa;
+    }
+
+    .azr-syntax-function {
+      color: #34d399;
+    }
+
+    .azr-syntax-component {
+      color: #f472b6;
+    }
+
+    .azr-syntax-prop {
+      color: #fbcfe8;
+    }
+
+    .azr-syntax-jsx-tag {
+      color: #f472b6;
+    }
+
+    .azr-syntax-return {
+      color: #f59e0b;
+    }
+
+    .azr-cursor-blink {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background-color: #34d399;
+      animation: azr-blink 1s step-end infinite;
+      margin-left: 2px;
+      vertical-align: middle;
+    }
+
+    @keyframes azr-blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .azr-floating-accent-1 {
+      margin: 0 !important;
+      position: absolute;
+      top: 90px;
+      right: 380px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.13);
+      border-radius: 12px;
+      background-color: #f0c040;
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      gap: 12px;
+      z-index: 2;
+      color: #1d3363;
+    }
+
+    .azr-icon-container-sm {
+      height: 20px;
+      width: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .azr-code-icon {
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+
+    .azr-floating-accent-2 {
+      margin: 0 !important;
+      position: absolute;
+      top: 280px;
+      right: 40px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.13);
+      border-radius: 12px;
+      background-color: #2a457d;
+      border: 1px solid #2e4780;
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      gap: 12px;
+      z-index: 3;
+      color: #fff;
+    }
+
+    .azr-hero-right-text {
+      width: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+      text-align: right;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .azr-tag {
+      position: relative;
+      border-radius: 100px;
+      background-color: #fff5c3;
+      border: 1px solid #f0c040;
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      color: #1d3363;
+    }
+
+    .azr-headline {
+      align-self: stretch;
+      position: relative;
+      font-size: 56px;
+      line-height: 120%;
+      font-weight: 900;
+    }
+
+    .azr-paragraph {
+      align-self: stretch;
+      position: relative;
+      font-size: 18px;
+      line-height: 170%;
+      color: #a5b4fc;
+    }
+
+    .azr-checklist {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 16px;
+    }
+
+    .azr-checklist-item {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .azr-checklist-text {
+      flex: 1;
+      position: relative;
+      font-weight: 600;
+    }
+
+    .azr-check-icon-circle {
+      height: 28px;
+      width: 28px;
+      border-radius: 14px;
+      background-color: #f0c040;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .azr-check-icon {
+      width: 14px;
+      height: 14px;
+      position: relative;
+    }
+
+    .azr-form-section {
+      align-self: stretch;
+      background-color: #fcfcfc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 96px 80px;
+      text-align: right;
+      font-size: 28px;
+      color: #1d3363;
+    }
+
+    .azr-form-card {
+      width: 800px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.04);
+      border-radius: 24px;
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 48px;
+      gap: 36px;
+    }
+
+    .azr-form-header {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .azr-form-title {
+      align-self: stretch;
+      position: relative;
+      font-weight: 800;
+    }
+
+    .azr-form-subtitle {
+      align-self: stretch;
+      position: relative;
+      font-size: 15px;
+      color: #4b5563;
+    }
+
+    .azr-form-inputs-stack {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .azr-form-row {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .azr-form-field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .azr-form-label {
+      align-self: stretch;
+      position: relative;
+      font-weight: 600;
+    }
+
+    /* ========== استایل فیلدهای فرم ========== */
+    .azr-input-wrapper {
+      align-self: stretch;
+      border-radius: 12px;
+      background-color: #fff;
+      border: 2px solid #e8ecf1;
+      display: flex;
+      align-items: flex-start;
+      padding: 14px 16px;
+      color: #9ca3af;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .azr-input-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(240, 192, 64, 0.03) 0%, rgba(29, 51, 99, 0.02) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .azr-input-wrapper:hover {
+      border-color: #d1d5db;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .azr-input-wrapper:focus-within {
+      border-color: #1d3363;
+      box-shadow: 0 0 0 4px rgba(29, 51, 99, 0.08), 0 4px 12px rgba(29, 51, 99, 0.06);
+      background-color: #fafbfc;
+    }
+
+    .azr-input-wrapper:focus-within::before {
+      opacity: 1;
+    }
+
+    .azr-input-wrapper.azr-error {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08) !important;
+      animation: azr-shake 0.5s ease-in-out;
+    }
+
+    @keyframes azr-shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(4px);
+      }
+
+      50% {
+        transform: translateX(-4px);
+      }
+
+      75% {
+        transform: translateX(4px);
+      }
+    }
+
+    .azr-input-wrapper input {
+      text-align: right;
+      direction: rtl;
+    }
+
+    .azr-select-wrapper {
+      align-self: stretch;
+      border-radius: 12px;
+      background-color: #fff;
+      border: 2px solid #e8ecf1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      gap: 0px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .azr-select-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(240, 192, 64, 0.03) 0%, rgba(29, 51, 99, 0.02) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .azr-select-wrapper:hover {
+      border-color: #d1d5db;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .azr-select-wrapper:focus-within {
+      border-color: #1d3363;
+      box-shadow: 0 0 0 4px rgba(29, 51, 99, 0.08), 0 4px 12px rgba(29, 51, 99, 0.06);
+      background-color: #fafbfc;
+    }
+
+    .azr-select-wrapper:focus-within::before {
+      opacity: 1;
+    }
+
+    .azr-select-wrapper.azr-error {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08) !important;
+      animation: azr-shake 0.5s ease-in-out;
+    }
+
+    .azr-select-wrapper select {
+      text-align: right;
+      direction: rtl;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .azr-select-wrapper::after {
+      content: '▾';
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6b7280;
+      font-size: 14px;
+      pointer-events: none;
+      transition: transform 0.3s ease;
+      z-index: 0;
+    }
+
+    .azr-select-wrapper:focus-within::after {
+      transform: translateY(-50%) rotate(180deg);
+      color: #1d3363;
+    }
+
+    .azr-textarea-wrapper {
+      align-self: stretch;
+      height: 100px;
+      border-radius: 12px;
+      background-color: #fff;
+      border: 2px solid #e8ecf1;
+      box-sizing: border-box;
+      display: flex;
+      align-items: flex-start;
+      padding: 14px 16px;
+      color: #9ca3af;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .azr-textarea-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(240, 192, 64, 0.03) 0%, rgba(29, 51, 99, 0.02) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .azr-textarea-wrapper:hover {
+      border-color: #d1d5db;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .azr-textarea-wrapper:focus-within {
+      border-color: #1d3363;
+      box-shadow: 0 0 0 4px rgba(29, 51, 99, 0.08), 0 4px 12px rgba(29, 51, 99, 0.06);
+      background-color: #fafbfc;
+    }
+
+    .azr-textarea-wrapper:focus-within::before {
+      opacity: 1;
+    }
+
+    .azr-textarea-wrapper.azr-error {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08) !important;
+      animation: azr-shake 0.5s ease-in-out;
+    }
+
+    .azr-textarea-wrapper textarea {
+      text-align: right;
+      direction: rtl;
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .azr-form-field-full {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .azr-drag-drop-area {
+      align-self: stretch;
+      border-radius: 16px;
+      background-color: #fff;
+      border: 2px dashed #f0c040;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      gap: 12px;
+      text-align: center;
+      font-size: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .azr-drag-drop-area::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(240, 192, 64, 0.04) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .azr-drag-drop-area:hover {
+      border-color: #f59e0b;
+      background-color: #fffdf7;
+      box-shadow: 0 4px 16px rgba(240, 192, 64, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .azr-drag-drop-area.azr-drag-over {
+      border-color: #f59e0b;
+      background-color: #fffdf7;
+      box-shadow: 0 8px 24px rgba(240, 192, 64, 0.15);
+      transform: scale(1.01);
+    }
+
+    .azr-drag-drop-area.azr-error {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08) !important;
+      animation: azr-shake 0.5s ease-in-out;
+    }
+
+    .azr-icon-container-md {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .azr-cloud-upload-icon {
+      width: 40px;
+      height: 40px;
+      position: relative;
+    }
+
+    .azr-file-label {
+      align-self: stretch;
+      position: relative;
+      font-size: 15px;
+    }
+
+    .azr-file-hint {
+      align-self: stretch;
+      position: relative;
+      color: #4b5563;
+    }
+
+    /* ========== دکمه انتخاب فایل - هاور جذاب ========== */
+    .azr-select-file-btn {
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1d3363 0%, #2a457d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      text-align: center;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-family: Vazir;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(29, 51, 99, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .azr-select-file-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: right 0.6s ease;
+    }
+
+    .azr-select-file-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      padding: 2px;
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .azr-select-file-btn:hover {
+      background: linear-gradient(135deg, #2a457d 0%, #1d3363 100%);
+      box-shadow: 0 8px 25px rgba(29, 51, 99, 0.4), 0 0 20px rgba(240, 192, 64, 0.2);
+      transform: translateY(-3px);
+      letter-spacing: 0.8px;
+    }
+
+    .azr-select-file-btn:hover::before {
+      right: 100%;
+    }
+
+    .azr-select-file-btn:hover::after {
+      opacity: 1;
+    }
+
+    .azr-select-file-btn:active {
+      transform: translateY(-1px) scale(0.98);
+      box-shadow: 0 4px 12px rgba(29, 51, 99, 0.3);
+      transition: all 0.1s ease;
+    }
+
+    /* ========== دکمه سابمیت - هاور جذاب ========== */
+    .azr-submit-btn {
+      align-self: stretch;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f0c040 0%, #f59e0b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      text-align: center;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      font-family: Vazir;
+      color: #1d3363;
+      font-weight: 700;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(240, 192, 64, 0.3);
+      letter-spacing: 0.5px;
+    }
+
+    .azr-submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .azr-submit-btn:hover {
+      box-shadow: 0 8px 30px rgba(240, 192, 64, 0.5), 0 0 40px rgba(245, 158, 11, 0.3);
+      transform: translateY(-4px) scale(1.02);
+      letter-spacing: 1.5px;
+    }
+
+    .azr-submit-btn:hover::before {
+      width: 600px;
+      height: 600px;
+    }
+
+    .azr-submit-btn:active {
+      transform: translateY(-2px) scale(0.98);
+      box-shadow: 0 4px 12px rgba(240, 192, 64, 0.4);
+      transition: all 0.1s ease;
+    }
+
+    /* ========== دکمه آپلود فایل - هاور جذاب ========== */
+    .azr-upload-btn {
+      border-radius: 8px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      text-align: center;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-family: Vazir;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+      letter-spacing: 0.3px;
+      display: none;
+      /* مخفی چون توی این فرم استفاده نشده */
+    }
+
+    .azr-upload-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: right 0.6s ease;
+    }
+
+    .azr-upload-btn:hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4), 0 0 20px rgba(16, 185, 129, 0.2);
+      transform: translateY(-3px);
+      letter-spacing: 0.8px;
+    }
+
+    .azr-upload-btn:hover::before {
+      right: 100%;
+    }
+
+    .azr-upload-btn:active {
+      transform: translateY(-1px) scale(0.98);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      transition: all 0.1s ease;
+    }
+
+    .azr-why-join-us {
+      align-self: stretch;
+      background-color: #1d3363;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 96px 80px;
+      gap: 56px;
+      text-align: center;
+      color: #f0c040;
+    }
+
+    .azr-section-headers {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .azr-section-label {
+      align-self: stretch;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .azr-section-title {
+      align-self: stretch;
+      position: relative;
+      font-size: 36px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .azr-benefits-horizontal-list {
+      align-self: stretch;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      text-align: right;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .azr-benefit-card {
+      align-self: stretch;
+      flex: 1;
+      border-radius: 16px;
+      background-color: #2a457d;
+      border: 1px solid #2e4780;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px;
+      gap: 20px;
+      transition: all 0.25s ease;
+    }
+
+    .azr-benefit-card:hover {
+      background-color: #334f8a;
+      border-color: #4a68b0;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transform: translateY(-4px);
+    }
+
     .azr-icon-ring {
-    right: 0;
-    align-self: flex-end;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-  }
-  
-  .azr-section-title {
-    font-size: 32px;
-  }
+      position: relative;
+      right: 190px;
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      background-color: #fff5c3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-  /* فوتر */
-  .site-footer-wrapper {
-    padding: 60px 40px 30px;
-    gap: 40px;
-    top: 0;
-    box-sizing: border-box;
-  }
-}
+    .azr-icon-container-lg {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* تبلت (تا ۹۹۲ پیکسل) */
-@media screen and (max-width: 992px) {
-  .azr-hero {
-    flex-direction: column-reverse;
-    padding: 60px 30px;
-    gap: 40px;
-  }
-  
-  .azr-hero-right-text {
-    width: 100%;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .azr-headline {
-    font-size: 38px;
-    text-align: center;
-  }
-  
-  .azr-paragraph {
-    text-align: center;
-    font-size: 15px;
-  }
-  
-  .azr-checklist {
-    align-items: center;
-  }
-  
-  .azr-checklist-item {
-    justify-content: center;
-  }
-  
-  .azr-hero-left-illustration {
-    width: 100%;
-    height: auto;
-    min-height: 420px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .azr-main-code-card {
-    width: 90%;
-    max-width: 440px;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .azr-ellipse {
-    width: 350px;
-    height: 350px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .azr-floating-accent-1 {
-    position: absolute;
-    right: auto;
-    left: 5%;
-    top: 30px;
-    z-index: 3;
-  }
-  
-  .azr-floating-accent-2 {
-    position: absolute;
-    right: 5%;
-    top: auto;
-    bottom: 30px;
-    z-index: 3;
-  }
-  
-  /* فرم */
-  .azr-form-section {
-    padding: 60px 24px;
-  }
-  
-  .azr-form-card {
-    width: 100%;
-    max-width: 600px;
-    padding: 28px 24px;
-    gap: 28px;
-  }
-  
-  .azr-form-title {
-    font-size: 24px;
-  }
-  
-  .azr-form-row {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .azr-form-field {
-    width: 100%;
-  }
-  
-  /* مزایا */
-  .azr-why-join-us {
-    padding: 60px 30px;
-    gap: 40px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .azr-section-title {
-    font-size: 28px;
-  }
-  
-  .azr-benefits-horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  
-  .azr-benefit-card {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 24px 20px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .azr-icon-ring {
-    right: 0;
-    align-self: flex-end;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-  }
-  
-  .azr-icon-container-lg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .azr-benefit-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .azr-benefit-title {
-    font-size: 16px;
-  }
-  
-  .azr-benefit-description {
-    font-size: 13px;
-  }
-  
-  /* فوتر */
-  .footer-grid-row {
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-  
-  .brand-info-column {
-    width: 100%;
-    order: -1;
-  }
-  
-  .quick-links-column,
-  .contact-info-column {
-    width: calc(50% - 15px);
-  }
-}
+    .azr-benefit-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
 
-/* موبایل بزرگ (تا ۷۶۸ پیکسل) */
-@media screen and (max-width: 768px) {
-  .azr-hero {
-    padding: 40px 20px;
-    gap: 30px;
-  }
-  
-  .azr-headline {
-    font-size: 30px;
-    line-height: 130%;
-  }
-  
-  .azr-paragraph {
-    font-size: 14px;
-    line-height: 160%;
-  }
-  
-  .azr-tag {
-    font-size: 12px;
-    padding: 6px 14px;
-  }
-  
-  .azr-checklist {
-    gap: 12px;
-  }
-  
-  .azr-checklist-item {
-    font-size: 14px;
-  }
-  
-  .azr-hero-left-illustration {
-    min-height: 380px;
-  }
-  
-  .azr-main-code-card {
-    width: 95%;
-    padding: 16px;
-    gap: 10px;
-  }
-  
-  .azr-code-content {
-    font-size: 11px;
-    gap: 8px;
-  }
-  
-  .azr-ellipse {
-    width: 280px;
-    height: 280px;
-  }
-  
-  .azr-floating-accent-1,
-  .azr-floating-accent-2 {
-    padding: 12px;
-    font-size: 12px;
-    gap: 8px;
-  }
-  
-  .azr-floating-accent-1 {
-    left: 10px;
-    top: 20px;
-  }
-  
-  .azr-floating-accent-2 {
-    right: 10px;
-    bottom: 20px;
-  }
-  
-  /* فرم */
-  .azr-form-section {
-    padding: 40px 16px;
-  }
-  
-  .azr-form-card {
-    padding: 24px 16px;
-    gap: 24px;
-    border-radius: 16px;
-  }
-  
-  .azr-form-title {
-    font-size: 22px;
-  }
-  
-  .azr-form-subtitle {
-    font-size: 13px;
-  }
-  
-  .azr-form-label {
-    font-size: 13px;
-  }
-  
-  .azr-input-wrapper,
-  .azr-select-wrapper,
-  .azr-textarea-wrapper {
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-  
-  .azr-drag-drop-area {
-    padding: 24px 16px;
-  }
-  
-  .azr-file-label {
-    font-size: 13px;
-  }
-  
-  .azr-file-hint {
-    font-size: 11px;
-  }
-  
-  .azr-submit-btn {
-    padding: 14px;
-    font-size: 14px;
-  }
-  
-  /* مزایا */
-  .azr-why-join-us {
-    padding: 48px 20px;
-    gap: 32px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .azr-section-label {
-    font-size: 11px;
-  }
-  
-  .azr-section-title {
-    font-size: 24px;
-  }
-  
-  .azr-benefits-horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .azr-benefit-card {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 18px 14px;
-    gap: 12px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .azr-benefit-title {
-    font-size: 14px;
-  }
-  
-  .azr-benefit-description {
-    font-size: 12px;
-    line-height: 150%;
-  }
-  
-  .azr-icon-ring {
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
-    right: 0;
-    align-self: flex-end;
-  }
-  
-  .azr-icon-container-lg {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .azr-benefit-icon {
-    width: 18px;
-    height: 18px;
-  }
-}
+    .azr-benefit-text-stack {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
 
-/* موبایل کوچک (تا ۴۸۰ پیکسل) */
-@media screen and (max-width: 480px) {
-  .azr-hero {
-    padding: 30px 16px;
-    gap: 24px;
-  }
-  
-  .azr-headline {
-    font-size: 26px;
-    line-height: 140%;
-  }
-  
-  .azr-paragraph {
-    font-size: 13px;
-  }
-  
-  .azr-hero-left-illustration {
-    min-height: 340px;
-  }
-  
-  .azr-main-code-card {
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-  }
-  
-  .azr-code-content {
-    font-size: 10px;
-    gap: 6px;
-  }
-  
-  .azr-ellipse {
-    width: 240px;
-    height: 240px;
-  }
-  
-  .azr-floating-accent-1,
-  .azr-floating-accent-2 {
-    padding: 10px;
-    font-size: 11px;
-    border-radius: 8px;
-  }
-  
-  .azr-floating-accent-1 {
-    left: 1px;
-    top: 70px;
-  }
-  
-  .azr-floating-accent-2 {
-    right: 5px;
-    bottom: 70px;
-  }
-  
-  .azr-code-icon {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .azr-icon-container-sm {
-    height: 16px;
-    width: 16px;
-  }
-  
-  /* فرم */
-  .azr-form-section {
-    padding: 30px 12px;
-  }
-  
-  .azr-form-card {
-    padding: 20px 14px;
-    gap: 20px;
-    border-radius: 12px;
-  }
-  
-  .azr-form-title {
-    font-size: 20px;
-  }
-  
-  .azr-input-wrapper,
-  .azr-select-wrapper {
-    padding: 10px 12px;
-    font-size: 12px;
-    border-radius: 8px;
-  }
-  
-  .azr-textarea-wrapper {
-    height: 80px;
-    padding: 10px 12px;
-    font-size: 12px;
-    border-radius: 8px;
-  }
-  
-  .azr-drag-drop-area {
-    padding: 20px 12px;
-    border-radius: 12px;
-  }
-  
-  .azr-select-file-btn {
-    padding: 8px 16px;
-    font-size: 11px;
-  }
-  
-  .azr-submit-btn {
-    padding: 12px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-  
-  /* مزایا */
-  .azr-why-join-us {
-    padding: 36px 12px;
-    gap: 24px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .azr-section-title {
-    font-size: 20px;
-  }
-  
-  .azr-benefits-horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .azr-benefit-card {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 14px 10px;
-    gap: 8px;
-    border-radius: 12px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .azr-benefit-title {
-    font-size: 12px;
-  }
-  
-  .azr-benefit-description {
-    font-size: 10px;
-    line-height: 140%;
-  }
-  
-  .azr-icon-ring {
-    width: 28px;
-    height: 28px;
-    border-radius: 14px;
-    right: 0;
-    align-self: flex-end;
-  }
-  
-  .azr-icon-container-lg {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .azr-benefit-icon {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .azr-benefit-text-stack {
-    gap: 6px;
-  }
-  
-  /* فوتر */
-  .quick-links-column,
-  .contact-info-column {
-    width: 100%;
-  }
-  
-  .brand-info-column {
-    text-align: center;
-  }
-  
-  .brand-description-text {
-    text-align: center;
-  }
-}
-/* ============================================= */
-/*           ریسپانسیو فوتر - تمام سایزها         */
-/* ============================================= */
+    .azr-benefit-title {
+      align-self: stretch;
+      position: relative;
+    }
 
-/* ============================================= */
-/*      ریسپانسیو نهایی - کارت‌ها کاملاً فیت      */
-/* ============================================= */
+    .azr-benefit-description {
+      align-self: stretch;
+      position: relative;
+      font-size: 14px;
+      line-height: 160%;
+      color: #a5b4fc;
+    }
 
-/* تبلت بزرگ و لپ‌تاپ‌های کوچک (تا ۱۲۰۰ پیکسل) */
-@media screen and (max-width: 1200px) {
-  .azr-hero {
-    padding: 80px 40px;
-    gap: 30px;
-  }
-  
-  .azr-hero-right-text {
-    width: 55%;
-    gap: 24px;
-  }
-  
-  .azr-headline {
-    font-size: 42px;
-  }
-  
-  .azr-paragraph {
-    font-size: 16px;
-  }
-  
-  .azr-hero-left-illustration {
-    width: 45%;
-    height: 400px;
-  }
-  
-  .azr-main-code-card {
-    width: 380px;
-  }
-  
-  .azr-floating-accent-1 {
-    right: 300px;
-    top: 60px;
-  }
-  
-  .azr-floating-accent-2 {
-    right: 20px;
-    top: 260px;
-  }
-  
-  .azr-ellipse {
-    width: 320px;
-    height: 320px;
-    top: calc(50% - 160px);
-    left: calc(50% - 160px);
-  }
-  
-  /* سکشن فرم */
-  .azr-form-section {
-    padding: 80px 40px;
-  }
-  
-  .azr-form-card {
-    width: 90%;
-    max-width: 700px;
-    padding: 36px;
-  }
-  
-  /* استایل سلکت در ریسپانسیو */
-  .azr-select-wrapper {
-    padding: 14px 16px;
-    font-size: 14px;
-  }
-  
-  .azr-select-wrapper select {
-    width: 100%;
-    font-size: 14px;
-    padding: 0;
-  }
-  
-  .azr-select-wrapper select option {
-    font-size: 14px;
-    padding: 8px;
-    white-space: normal;
-    word-wrap: break-word;
-  }
-  
-  /* سکشن مزایا */
-  .azr-why-join-us {
-    padding: 80px 60px;
-    gap: 48px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .azr-benefits-horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  
-  .azr-benefit-card {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 32px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .azr-icon-ring {
-    right: 0;
-    align-self: flex-end;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-  }
-  
-  .azr-section-title {
-    font-size: 32px;
-  }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-family: Vazir;
+      font-size: inherit;
+      color: inherit;
+      outline: none;
+    }
 
-  /* فوتر */
-  .site-footer-wrapper {
-    padding: 60px 40px 30px;
-    gap: 40px;
-    top: 0;
-    box-sizing: border-box;
-  }
-}
+    input::placeholder,
+    textarea::placeholder {
+      color: #9ca3af;
+    }
 
-/* تبلت (تا ۹۹۲ پیکسل) */
-@media screen and (max-width: 992px) {
-  .azr-hero {
-    flex-direction: column-reverse;
-    padding: 60px 30px;
-    gap: 40px;
-  }
-  
-  .azr-hero-right-text {
-    width: 100%;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .azr-headline {
-    font-size: 38px;
-    text-align: center;
-  }
-  
-  .azr-paragraph {
-    text-align: center;
-    font-size: 15px;
-  }
-  
-  .azr-checklist {
-    align-items: center;
-  }
-  
-  .azr-checklist-item {
-    justify-content: center;
-  }
-  
-  .azr-hero-left-illustration {
-    width: 100%;
-    height: auto;
-    min-height: 420px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .azr-main-code-card {
-    width: 90%;
-    max-width: 440px;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .azr-ellipse {
-    width: 350px;
-    height: 350px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .azr-floating-accent-1 {
-    position: absolute;
-    right: auto;
-    left: 5%;
-    top: 30px;
-    z-index: 3;
-  }
-  
-  .azr-floating-accent-2 {
-    position: absolute;
-    right: 5%;
-    top: auto;
-    bottom: 30px;
-    z-index: 3;
-  }
-  
-  /* فرم */
-  .azr-form-section {
-    padding: 60px 24px;
-  }
-  
-  .azr-form-card {
-    width: 100%;
-    max-width: 600px;
-    padding: 28px 24px;
-    gap: 28px;
-  }
-  
-  .azr-form-title {
-    font-size: 24px;
-  }
-  
-  .azr-form-row {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .azr-form-field {
-    width: 100%;
-  }
-  
-  /* استایل سلکت در تبلت */
-  .azr-select-wrapper {
-    padding: 14px 16px;
-    font-size: 14px;
-  }
-  
-  .azr-select-wrapper select {
-    width: 100%;
-    font-size: 14px;
-    padding: 0;
-  }
-  
-  .azr-select-wrapper select option {
-    font-size: 13px;
-    padding: 10px 8px;
-    white-space: normal;
-    word-wrap: break-word;
-    line-height: 1.4;
-  }
-  
-  /* مزایا */
-  .azr-why-join-us {
-    padding: 60px 30px;
-    gap: 40px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .azr-section-title {
-    font-size: 28px;
-  }
-  
-  .azr-benefits-horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  
-  .azr-benefit-card {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 24px 20px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .azr-icon-ring {
-    right: 0;
-    align-self: flex-end;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-  }
-  
-  .azr-icon-container-lg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .azr-benefit-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .azr-benefit-title {
-    font-size: 16px;
-  }
-  
-  .azr-benefit-description {
-    font-size: 13px;
-  }
-  
-  /* فوتر */
-  .footer-grid-row {
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-  
-  .brand-info-column {
-    width: 100%;
-    order: -1;
-  }
-  
-  .quick-links-column,
-  .contact-info-column {
-    width: calc(50% - 15px);
-  }
-}
+    .azr-error-message {
+      color: #ef4444;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
 
-/* موبایل بزرگ (تا ۷۶۸ پیکسل) */
-@media screen and (max-width: 768px) {
-  .azr-hero {
-    padding: 40px 20px;
-    gap: 30px;
-  }
-  
-  .azr-headline {
-    font-size: 30px;
-    line-height: 130%;
-  }
-  
-  .azr-paragraph {
-    font-size: 14px;
-    line-height: 160%;
-  }
-  
-  .azr-tag {
-    font-size: 12px;
-    padding: 6px 14px;
-  }
-  
-  .azr-checklist {
-    gap: 12px;
-  }
-  
-  .azr-checklist-item {
-    font-size: 14px;
-  }
-  
-  .azr-hero-left-illustration {
-    min-height: 380px;
-  }
-  
-  .azr-main-code-card {
-    width: 95%;
-    padding: 16px;
-    gap: 10px;
-  }
-  
-  .azr-code-content {
-    font-size: 11px;
-    gap: 8px;
-  }
-  
-  .azr-ellipse {
-    width: 280px;
-    height: 280px;
-  }
-  
-  .azr-floating-accent-1,
-  .azr-floating-accent-2 {
-    padding: 12px;
-    font-size: 12px;
-    gap: 8px;
-  }
-  
-  .azr-floating-accent-1 {
-    left: 10px;
-    top: 20px;
-  }
-  
-  .azr-floating-accent-2 {
-    right: 10px;
-    bottom: 20px;
-  }
-  
-  /* فرم */
-  .azr-form-section {
-    padding: 40px 16px;
-  }
-  
-  .azr-form-card {
-    padding: 24px 16px;
-    gap: 24px;
-    border-radius: 16px;
-  }
-  
-  .azr-form-title {
-    font-size: 22px;
-  }
-  
-  .azr-form-subtitle {
-    font-size: 13px;
-  }
-  
-  .azr-form-label {
-    font-size: 13px;
-  }
-  
-  .azr-input-wrapper,
-  .azr-textarea-wrapper {
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-  
-  /* استایل سلکت در موبایل بزرگ */
-  .azr-select-wrapper {
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-  
-  .azr-select-wrapper select {
-    width: 100%;
-    font-size: 13px;
-    padding: 0;
-  }
-  
-  .azr-select-wrapper select option {
-    font-size: 12px;
-    padding: 10px 8px;
-    white-space: normal;
-    word-wrap: break-word;
-    line-height: 1.4;
-  }
-  
-  .azr-drag-drop-area {
-    padding: 24px 16px;
-  }
-  
-  .azr-file-label {
-    font-size: 13px;
-  }
-  
-  .azr-file-hint {
-    font-size: 11px;
-  }
-  
-  .azr-submit-btn {
-    padding: 14px;
-    font-size: 14px;
-  }
-  
-  /* مزایا */
-  .azr-why-join-us {
-    padding: 48px 20px;
-    gap: 32px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .azr-section-label {
-    font-size: 11px;
-  }
-  
-  .azr-section-title {
-    font-size: 24px;
-  }
-  
-  .azr-benefits-horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .azr-benefit-card {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 18px 14px;
-    gap: 12px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .azr-benefit-title {
-    font-size: 14px;
-  }
-  
-  .azr-benefit-description {
-    font-size: 12px;
-    line-height: 150%;
-  }
-  
-  .azr-icon-ring {
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
-    right: 0;
-    align-self: flex-end;
-  }
-  
-  .azr-icon-container-lg {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .azr-benefit-icon {
-    width: 18px;
-    height: 18px;
-  }
-}
+    .azr-success-message {
+      color: #10b981;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      width: 100%;
+    }
 
-/* موبایل کوچک (تا ۴۸۰ پیکسل) */
-@media screen and (max-width: 480px) {
-  .azr-hero {
-    padding: 30px 16px;
-    gap: 24px;
-  }
-  
-  .azr-headline {
-    font-size: 26px;
-    line-height: 140%;
-  }
-  
-  .azr-paragraph {
-    font-size: 13px;
-  }
-  
-  .azr-hero-left-illustration {
-    min-height: 340px;
-  }
-  
-  .azr-main-code-card {
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-  }
-  
-  .azr-code-content {
-    font-size: 10px;
-    gap: 6px;
-  }
-  
-  .azr-ellipse {
-    width: 240px;
-    height: 240px;
-  }
-  
-  .azr-floating-accent-1,
-  .azr-floating-accent-2 {
-    padding: 10px;
-    font-size: 11px;
-    border-radius: 8px;
-  }
-  
-  .azr-floating-accent-1 {
-    left: 1px;
-    top: 70px;
-  }
-  
-  .azr-floating-accent-2 {
-    right: 5px;
-    bottom: 70px;
-  }
-  
-  .azr-code-icon {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .azr-icon-container-sm {
-    height: 16px;
-    width: 16px;
-  }
-  
-  /* فرم */
-  .azr-form-section {
-    padding: 30px 12px;
-  }
-  
-  .azr-form-card {
-    padding: 20px 14px;
-    gap: 20px;
-    border-radius: 12px;
-  }
-  
-  .azr-form-title {
-    font-size: 20px;
-  }
-  
-  .azr-input-wrapper {
-    padding: 10px 12px;
-    font-size: 12px;
-    border-radius: 8px;
-  }
-  
-  /* استایل سلکت در موبایل کوچک */
-  .azr-select-wrapper {
-    padding: 10px 12px;
-    font-size: 12px;
-    border-radius: 8px;
-  }
-  
-  .azr-select-wrapper select {
-    width: 100%;
-    font-size: 12px;
-    padding: 0;
-  }
-  
-  .azr-select-wrapper select option {
-    font-size: 11px;
-    padding: 10px 8px;
-    white-space: normal;
-    word-wrap: break-word;
-    line-height: 1.4;
-    min-height: 35px;
-  }
-  
-  .azr-textarea-wrapper {
-    height: 80px;
-    padding: 10px 12px;
-    font-size: 12px;
-    border-radius: 8px;
-  }
-  
-  .azr-drag-drop-area {
-    padding: 20px 12px;
-    border-radius: 12px;
-  }
-  
-  .azr-select-file-btn {
-    padding: 8px 16px;
-    font-size: 11px;
-  }
-  
-  .azr-submit-btn {
-    padding: 12px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-  
-  /* مزایا */
-  .azr-why-join-us {
-    padding: 36px 12px;
-    gap: 24px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .azr-section-title {
-    font-size: 20px;
-  }
-  
-  .azr-benefits-horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .azr-benefit-card {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    padding: 14px 10px;
-    gap: 8px;
-    border-radius: 12px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .azr-benefit-title {
-    font-size: 12px;
-  }
-  
-  .azr-benefit-description {
-    font-size: 10px;
-    line-height: 140%;
-  }
-  
-  .azr-icon-ring {
-    width: 28px;
-    height: 28px;
-    border-radius: 14px;
-    right: 0;
-    align-self: flex-end;
-  }
-  
-  .azr-icon-container-lg {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .azr-benefit-icon {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .azr-benefit-text-stack {
-    gap: 6px;
-  }
-  
-  /* فوتر */
-  .quick-links-column,
-  .contact-info-column {
-    width: 100%;
-  }
-  
-  .brand-info-column {
-    text-align: center;
-  }
-  
-  .brand-description-text {
-    text-align: center;
-  }
-}
 
-/* ============================================= */
-/*           ریسپانسیو فوتر - تمام سایزها         */
-/* ============================================= */
 
-/* تبلت بزرگ (تا ۱۲۰۰ پیکسل) */
-@media screen and (max-width: 1200px) {
-  .site-footer-wrapper {
-    padding: 60px 40px 30px;
-    gap: 40px;
-    top: 0;
-  }
-  
-  .footer-grid-row {
-    gap: 30px;
-  }
-  
-  .brand-info-column {
-    width: 350px;
-  }
-  
-  .quick-links-column {
-    width: 160px;
-  }
-  
-  .contact-info-column {
-    width: 250px;
-  }
-}
 
-/* تبلت (تا ۹۹۲ پیکسل) */
-@media screen and (max-width: 992px) {
-  .site-footer-wrapper {
-    padding: 50px 30px 25px;
-    gap: 35px;
-  }
-  
-  .footer-grid-row {
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-  
-  .brand-info-column {
-    width: 100%;
-    order: -1;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .brand-description-text {
-    text-align: center;
-  }
-  
-  .quick-links-column,
-  .contact-info-column {
-    width: calc(50% - 15px);
-    min-width: 200px;
-  }
-  
-  .copyright-bottom-bar {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    padding: 24px 0px 0px;
-  }
-}
 
-/* موبایل بزرگ (تا ۷۶۸ پیکسل) */
-@media screen and (max-width: 768px) {
-  .site-footer-wrapper {
-    padding: 40px 20px 20px;
-    gap: 30px;
-    align-items: center;
-  }
-  
-  .footer-grid-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-    width: 100%;
-  }
-  
-  .brand-info-column {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-  }
-  
-  .brand-logo-wrapper {
-    justify-content: center;
-  }
-  
-  .brand-description-text {
-    text-align: center;
-    font-size: 13px;
-    line-height: 170%;
-  }
-  
-  .quick-links-column {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    gap: 14px;
-  }
-  
-  .footer-heading-title {
-    text-align: center;
-  }
-  
-  .footer-heading-title::after {
-    right: 50%;
-    transform: translateX(50%);
-  }
-  
-  .footer-link-item {
-    text-align: center;
-  }
-  
-  .footer-link-item:hover {
-    transform: translateX(0) scale(1.05);
-  }
-  
-  .contact-info-column {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    gap: 14px;
-  }
-  
-  .contact-address-text {
-    text-align: center;
-  }
-  
-  .copyright-bottom-bar {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
-    padding: 20px 0px 0px;
-    font-size: 12px;
-  }
-  
-  .social-icons-group {
-    justify-content: center;
-  }
-  
-  .social-icon-circle {
-    height: 38px;
-    width: 38px;
-  }
-  
-  .social-icon-inner-lg {
-    height: 20px;
-    width: 20px;
-  }
-  
-  .social-svg-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .social-icon-inner-sm {
-    height: 14px;
-    width: 14px;
-  }
-  
-  .social-svg-icon-sm {
-    width: 14px;
-    height: 14px;
-  }
-}
 
-/* موبایل کوچک (تا ۴۸۰ پیکسل) */
-@media screen and (max-width: 480px) {
-  .site-footer-wrapper {
-    padding: 30px 16px 16px;
-    gap: 25px;
-    align-items: center;
-  }
-  
-  .footer-grid-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    width: 100%;
-  }
-  
-  .brand-info-column {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-  }
-  
-  .brand-name-gradient {
-    font-size: 18px;
-  }
-  
-  .brand-logo-image {
-    height: 40px;
-    width: 40px;
-  }
-  
-  .brand-description-text {
-    font-size: 12px;
-    line-height: 160%;
-    text-align: center;
-  }
-  
-  .quick-links-column {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-  }
-  
-  .footer-heading-title {
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  .footer-link-item {
-    font-size: 12px;
-    text-align: center;
-  }
-  
-  .contact-info-column {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-  }
-  
-  .contact-address-text {
-    font-size: 12px;
-    text-align: center;
-  }
-  
-  .copyright-bottom-bar {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    text-align: center;
-    padding: 16px 0px 0px;
-    font-size: 11px;
-  }
-  
-  .social-icons-group {
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .social-icon-circle {
-    height: 34px;
-    width: 34px;
-    border-radius: 10px;
-  }
-  
-  .social-icon-inner-lg {
-    height: 18px;
-    width: 18px;
-  }
-  
-  .social-svg-icon {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .social-icon-inner-sm {
-    height: 12px;
-    width: 12px;
-  }
-  
-  .social-svg-icon-sm {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .copyright-text-content {
-    font-size: 11px;
-    text-align: center;
-  }
-}
+    /* ریسپانسیو */
+    /* ============================================= */
+    /*      ریسپانسیو نهایی - کارت‌ها کاملاً فیت      */
+    /* ============================================= */
 
-/* ============================================= */
-/*              پایان ریسپانسیو فوتر              */
-/* ============================================= */
-    </style>
+    /* تبلت بزرگ و لپ‌تاپ‌های کوچک (تا ۱۲۰۰ پیکسل) */
+    @media screen and (max-width: 1200px) {
+      .azr-hero {
+        padding: 80px 40px;
+        gap: 30px;
+      }
+
+      .azr-hero-right-text {
+        width: 55%;
+        gap: 24px;
+      }
+
+      .azr-headline {
+        font-size: 42px;
+      }
+
+      .azr-paragraph {
+        font-size: 16px;
+      }
+
+      .azr-hero-left-illustration {
+        width: 45%;
+        height: 400px;
+      }
+
+      .azr-main-code-card {
+        width: 380px;
+      }
+
+      .azr-floating-accent-1 {
+        right: 300px;
+        top: 60px;
+      }
+
+      .azr-floating-accent-2 {
+        right: 20px;
+        top: 260px;
+      }
+
+      .azr-ellipse {
+        width: 320px;
+        height: 320px;
+        top: calc(50% - 160px);
+        left: calc(50% - 160px);
+      }
+
+      /* سکشن فرم */
+      .azr-form-section {
+        padding: 80px 40px;
+      }
+
+      .azr-form-card {
+        width: 90%;
+        max-width: 700px;
+        padding: 36px;
+      }
+
+      /* سکشن مزایا */
+      .azr-why-join-us {
+        padding: 80px 60px;
+        gap: 48px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .azr-benefits-horizontal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      .azr-benefit-card {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 32px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .azr-icon-ring {
+        right: 0;
+        align-self: flex-end;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+      }
+
+      .azr-section-title {
+        font-size: 32px;
+      }
+
+      /* فوتر */
+      .site-footer-wrapper {
+        padding: 60px 40px 30px;
+        gap: 40px;
+        top: 0;
+        box-sizing: border-box;
+      }
+    }
+
+    /* تبلت (تا ۹۹۲ پیکسل) */
+    @media screen and (max-width: 992px) {
+      .azr-hero {
+        flex-direction: column-reverse;
+        padding: 60px 30px;
+        gap: 40px;
+      }
+
+      .azr-hero-right-text {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+      }
+
+      .azr-headline {
+        font-size: 38px;
+        text-align: center;
+      }
+
+      .azr-paragraph {
+        text-align: center;
+        font-size: 15px;
+      }
+
+      .azr-checklist {
+        align-items: center;
+      }
+
+      .azr-checklist-item {
+        justify-content: center;
+      }
+
+      .azr-hero-left-illustration {
+        width: 100%;
+        height: auto;
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .azr-main-code-card {
+        width: 90%;
+        max-width: 440px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .azr-ellipse {
+        width: 350px;
+        height: 350px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .azr-floating-accent-1 {
+        position: absolute;
+        right: auto;
+        left: 5%;
+        top: 30px;
+        z-index: 3;
+      }
+
+      .azr-floating-accent-2 {
+        position: absolute;
+        right: 5%;
+        top: auto;
+        bottom: 30px;
+        z-index: 3;
+      }
+
+      /* فرم */
+      .azr-form-section {
+        padding: 60px 24px;
+      }
+
+      .azr-form-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 28px 24px;
+        gap: 28px;
+      }
+
+      .azr-form-title {
+        font-size: 24px;
+      }
+
+      .azr-form-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .azr-form-field {
+        width: 100%;
+      }
+
+      /* مزایا */
+      .azr-why-join-us {
+        padding: 60px 30px;
+        gap: 40px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .azr-section-title {
+        font-size: 28px;
+      }
+
+      .azr-benefits-horizontal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      .azr-benefit-card {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 24px 20px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .azr-icon-ring {
+        right: 0;
+        align-self: flex-end;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+      }
+
+      .azr-icon-container-lg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .azr-benefit-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .azr-benefit-title {
+        font-size: 16px;
+      }
+
+      .azr-benefit-description {
+        font-size: 13px;
+      }
+
+      /* فوتر */
+      .footer-grid-row {
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .brand-info-column {
+        width: 100%;
+        order: -1;
+      }
+
+      .quick-links-column,
+      .contact-info-column {
+        width: calc(50% - 15px);
+      }
+    }
+
+    /* موبایل بزرگ (تا ۷۶۸ پیکسل) */
+    @media screen and (max-width: 768px) {
+      .azr-hero {
+        padding: 40px 20px;
+        gap: 30px;
+      }
+
+      .azr-headline {
+        font-size: 30px;
+        line-height: 130%;
+      }
+
+      .azr-paragraph {
+        font-size: 14px;
+        line-height: 160%;
+      }
+
+      .azr-tag {
+        font-size: 12px;
+        padding: 6px 14px;
+      }
+
+      .azr-checklist {
+        gap: 12px;
+      }
+
+      .azr-checklist-item {
+        font-size: 14px;
+      }
+
+      .azr-hero-left-illustration {
+        min-height: 380px;
+      }
+
+      .azr-main-code-card {
+        width: 95%;
+        padding: 16px;
+        gap: 10px;
+      }
+
+      .azr-code-content {
+        font-size: 11px;
+        gap: 8px;
+      }
+
+      .azr-ellipse {
+        width: 280px;
+        height: 280px;
+      }
+
+      .azr-floating-accent-1,
+      .azr-floating-accent-2 {
+        padding: 12px;
+        font-size: 12px;
+        gap: 8px;
+      }
+
+      .azr-floating-accent-1 {
+        left: 10px;
+        top: 20px;
+      }
+
+      .azr-floating-accent-2 {
+        right: 10px;
+        bottom: 20px;
+      }
+
+      /* فرم */
+      .azr-form-section {
+        padding: 40px 16px;
+      }
+
+      .azr-form-card {
+        padding: 24px 16px;
+        gap: 24px;
+        border-radius: 16px;
+      }
+
+      .azr-form-title {
+        font-size: 22px;
+      }
+
+      .azr-form-subtitle {
+        font-size: 13px;
+      }
+
+      .azr-form-label {
+        font-size: 13px;
+      }
+
+      .azr-input-wrapper,
+      .azr-select-wrapper,
+      .azr-textarea-wrapper {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+
+      .azr-drag-drop-area {
+        padding: 24px 16px;
+      }
+
+      .azr-file-label {
+        font-size: 13px;
+      }
+
+      .azr-file-hint {
+        font-size: 11px;
+      }
+
+      .azr-submit-btn {
+        padding: 14px;
+        font-size: 14px;
+      }
+
+      /* مزایا */
+      .azr-why-join-us {
+        padding: 48px 20px;
+        gap: 32px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .azr-section-label {
+        font-size: 11px;
+      }
+
+      .azr-section-title {
+        font-size: 24px;
+      }
+
+      .azr-benefits-horizontal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .azr-benefit-card {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 18px 14px;
+        gap: 12px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .azr-benefit-title {
+        font-size: 14px;
+      }
+
+      .azr-benefit-description {
+        font-size: 12px;
+        line-height: 150%;
+      }
+
+      .azr-icon-ring {
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        right: 0;
+        align-self: flex-end;
+      }
+
+      .azr-icon-container-lg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .azr-benefit-icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* موبایل کوچک (تا ۴۸۰ پیکسل) */
+    @media screen and (max-width: 480px) {
+      .azr-hero {
+        padding: 30px 16px;
+        gap: 24px;
+      }
+
+      .azr-headline {
+        font-size: 26px;
+        line-height: 140%;
+      }
+
+      .azr-paragraph {
+        font-size: 13px;
+      }
+
+      .azr-hero-left-illustration {
+        min-height: 340px;
+      }
+
+      .azr-main-code-card {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      .azr-code-content {
+        font-size: 10px;
+        gap: 6px;
+      }
+
+      .azr-ellipse {
+        width: 240px;
+        height: 240px;
+      }
+
+      .azr-floating-accent-1,
+      .azr-floating-accent-2 {
+        padding: 10px;
+        font-size: 11px;
+        border-radius: 8px;
+      }
+
+      .azr-floating-accent-1 {
+        left: 1px;
+        top: 70px;
+      }
+
+      .azr-floating-accent-2 {
+        right: 5px;
+        bottom: 70px;
+      }
+
+      .azr-code-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .azr-icon-container-sm {
+        height: 16px;
+        width: 16px;
+      }
+
+      /* فرم */
+      .azr-form-section {
+        padding: 30px 12px;
+      }
+
+      .azr-form-card {
+        padding: 20px 14px;
+        gap: 20px;
+        border-radius: 12px;
+      }
+
+      .azr-form-title {
+        font-size: 20px;
+      }
+
+      .azr-input-wrapper,
+      .azr-select-wrapper {
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+
+      .azr-textarea-wrapper {
+        height: 80px;
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+
+      .azr-drag-drop-area {
+        padding: 20px 12px;
+        border-radius: 12px;
+      }
+
+      .azr-select-file-btn {
+        padding: 8px 16px;
+        font-size: 11px;
+      }
+
+      .azr-submit-btn {
+        padding: 12px;
+        font-size: 13px;
+        border-radius: 8px;
+      }
+
+      /* مزایا */
+      .azr-why-join-us {
+        padding: 36px 12px;
+        gap: 24px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .azr-section-title {
+        font-size: 20px;
+      }
+
+      .azr-benefits-horizontal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .azr-benefit-card {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 14px 10px;
+        gap: 8px;
+        border-radius: 12px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .azr-benefit-title {
+        font-size: 12px;
+      }
+
+      .azr-benefit-description {
+        font-size: 10px;
+        line-height: 140%;
+      }
+
+      .azr-icon-ring {
+        width: 28px;
+        height: 28px;
+        border-radius: 14px;
+        right: 0;
+        align-self: flex-end;
+      }
+
+      .azr-icon-container-lg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .azr-benefit-icon {
+        width: 14px;
+        height: 14px;
+      }
+
+      .azr-benefit-text-stack {
+        gap: 6px;
+      }
+
+      /* فوتر */
+      .quick-links-column,
+      .contact-info-column {
+        width: 100%;
+      }
+
+      .brand-info-column {
+        text-align: center;
+      }
+
+      .brand-description-text {
+        text-align: center;
+      }
+    }
+
+    /* ============================================= */
+    /*           ریسپانسیو فوتر - تمام سایزها         */
+    /* ============================================= */
+
+    /* ============================================= */
+    /*      ریسپانسیو نهایی - کارت‌ها کاملاً فیت      */
+    /* ============================================= */
+
+    /* تبلت بزرگ و لپ‌تاپ‌های کوچک (تا ۱۲۰۰ پیکسل) */
+    @media screen and (max-width: 1200px) {
+      .azr-hero {
+        padding: 80px 40px;
+        gap: 30px;
+      }
+
+      .azr-hero-right-text {
+        width: 55%;
+        gap: 24px;
+      }
+
+      .azr-headline {
+        font-size: 42px;
+      }
+
+      .azr-paragraph {
+        font-size: 16px;
+      }
+
+      .azr-hero-left-illustration {
+        width: 45%;
+        height: 400px;
+      }
+
+      .azr-main-code-card {
+        width: 380px;
+      }
+
+      .azr-floating-accent-1 {
+        right: 300px;
+        top: 60px;
+      }
+
+      .azr-floating-accent-2 {
+        right: 20px;
+        top: 260px;
+      }
+
+      .azr-ellipse {
+        width: 320px;
+        height: 320px;
+        top: calc(50% - 160px);
+        left: calc(50% - 160px);
+      }
+
+      /* سکشن فرم */
+      .azr-form-section {
+        padding: 80px 40px;
+      }
+
+      .azr-form-card {
+        width: 90%;
+        max-width: 700px;
+        padding: 36px;
+      }
+
+      /* استایل سلکت در ریسپانسیو */
+      .azr-select-wrapper {
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+
+      .azr-select-wrapper select {
+        width: 100%;
+        font-size: 14px;
+        padding: 0;
+      }
+
+      .azr-select-wrapper select option {
+        font-size: 14px;
+        padding: 8px;
+        white-space: normal;
+        word-wrap: break-word;
+      }
+
+      /* سکشن مزایا */
+      .azr-why-join-us {
+        padding: 80px 60px;
+        gap: 48px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .azr-benefits-horizontal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      .azr-benefit-card {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 32px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .azr-icon-ring {
+        right: 0;
+        align-self: flex-end;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+      }
+
+      .azr-section-title {
+        font-size: 32px;
+      }
+
+      /* فوتر */
+      .site-footer-wrapper {
+        padding: 60px 40px 30px;
+        gap: 40px;
+        top: 0;
+        box-sizing: border-box;
+      }
+    }
+
+    /* تبلت (تا ۹۹۲ پیکسل) */
+    @media screen and (max-width: 992px) {
+      .azr-hero {
+        flex-direction: column-reverse;
+        padding: 60px 30px;
+        gap: 40px;
+      }
+
+      .azr-hero-right-text {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+      }
+
+      .azr-headline {
+        font-size: 38px;
+        text-align: center;
+      }
+
+      .azr-paragraph {
+        text-align: center;
+        font-size: 15px;
+      }
+
+      .azr-checklist {
+        align-items: center;
+      }
+
+      .azr-checklist-item {
+        justify-content: center;
+      }
+
+      .azr-hero-left-illustration {
+        width: 100%;
+        height: auto;
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .azr-main-code-card {
+        width: 90%;
+        max-width: 440px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .azr-ellipse {
+        width: 350px;
+        height: 350px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .azr-floating-accent-1 {
+        position: absolute;
+        right: auto;
+        left: 5%;
+        top: 30px;
+        z-index: 3;
+      }
+
+      .azr-floating-accent-2 {
+        position: absolute;
+        right: 5%;
+        top: auto;
+        bottom: 30px;
+        z-index: 3;
+      }
+
+      /* فرم */
+      .azr-form-section {
+        padding: 60px 24px;
+      }
+
+      .azr-form-card {
+        width: 100%;
+        max-width: 600px;
+        padding: 28px 24px;
+        gap: 28px;
+      }
+
+      .azr-form-title {
+        font-size: 24px;
+      }
+
+      .azr-form-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .azr-form-field {
+        width: 100%;
+      }
+
+      /* استایل سلکت در تبلت */
+      .azr-select-wrapper {
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+
+      .azr-select-wrapper select {
+        width: 100%;
+        font-size: 14px;
+        padding: 0;
+      }
+
+      .azr-select-wrapper select option {
+        font-size: 13px;
+        padding: 10px 8px;
+        white-space: normal;
+        word-wrap: break-word;
+        line-height: 1.4;
+      }
+
+      /* مزایا */
+      .azr-why-join-us {
+        padding: 60px 30px;
+        gap: 40px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .azr-section-title {
+        font-size: 28px;
+      }
+
+      .azr-benefits-horizontal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      .azr-benefit-card {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 24px 20px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .azr-icon-ring {
+        right: 0;
+        align-self: flex-end;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+      }
+
+      .azr-icon-container-lg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .azr-benefit-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .azr-benefit-title {
+        font-size: 16px;
+      }
+
+      .azr-benefit-description {
+        font-size: 13px;
+      }
+
+      /* فوتر */
+      .footer-grid-row {
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .brand-info-column {
+        width: 100%;
+        order: -1;
+      }
+
+      .quick-links-column,
+      .contact-info-column {
+        width: calc(50% - 15px);
+      }
+    }
+
+    /* موبایل بزرگ (تا ۷۶۸ پیکسل) */
+    @media screen and (max-width: 768px) {
+      .azr-hero {
+        padding: 40px 20px;
+        gap: 30px;
+      }
+
+      .azr-headline {
+        font-size: 30px;
+        line-height: 130%;
+      }
+
+      .azr-paragraph {
+        font-size: 14px;
+        line-height: 160%;
+      }
+
+      .azr-tag {
+        font-size: 12px;
+        padding: 6px 14px;
+      }
+
+      .azr-checklist {
+        gap: 12px;
+      }
+
+      .azr-checklist-item {
+        font-size: 14px;
+      }
+
+      .azr-hero-left-illustration {
+        min-height: 380px;
+      }
+
+      .azr-main-code-card {
+        width: 95%;
+        padding: 16px;
+        gap: 10px;
+      }
+
+      .azr-code-content {
+        font-size: 11px;
+        gap: 8px;
+      }
+
+      .azr-ellipse {
+        width: 280px;
+        height: 280px;
+      }
+
+      .azr-floating-accent-1,
+      .azr-floating-accent-2 {
+        padding: 12px;
+        font-size: 12px;
+        gap: 8px;
+      }
+
+      .azr-floating-accent-1 {
+        left: 10px;
+        top: 20px;
+      }
+
+      .azr-floating-accent-2 {
+        right: 10px;
+        bottom: 20px;
+      }
+
+      /* فرم */
+      .azr-form-section {
+        padding: 40px 16px;
+      }
+
+      .azr-form-card {
+        padding: 24px 16px;
+        gap: 24px;
+        border-radius: 16px;
+      }
+
+      .azr-form-title {
+        font-size: 22px;
+      }
+
+      .azr-form-subtitle {
+        font-size: 13px;
+      }
+
+      .azr-form-label {
+        font-size: 13px;
+      }
+
+      .azr-input-wrapper,
+      .azr-textarea-wrapper {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+
+      /* استایل سلکت در موبایل بزرگ */
+      .azr-select-wrapper {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+
+      .azr-select-wrapper select {
+        width: 100%;
+        font-size: 13px;
+        padding: 0;
+      }
+
+      .azr-select-wrapper select option {
+        font-size: 12px;
+        padding: 10px 8px;
+        white-space: normal;
+        word-wrap: break-word;
+        line-height: 1.4;
+      }
+
+      .azr-drag-drop-area {
+        padding: 24px 16px;
+      }
+
+      .azr-file-label {
+        font-size: 13px;
+      }
+
+      .azr-file-hint {
+        font-size: 11px;
+      }
+
+      .azr-submit-btn {
+        padding: 14px;
+        font-size: 14px;
+      }
+
+      /* مزایا */
+      .azr-why-join-us {
+        padding: 48px 20px;
+        gap: 32px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .azr-section-label {
+        font-size: 11px;
+      }
+
+      .azr-section-title {
+        font-size: 24px;
+      }
+
+      .azr-benefits-horizontal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .azr-benefit-card {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 18px 14px;
+        gap: 12px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .azr-benefit-title {
+        font-size: 14px;
+      }
+
+      .azr-benefit-description {
+        font-size: 12px;
+        line-height: 150%;
+      }
+
+      .azr-icon-ring {
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        right: 0;
+        align-self: flex-end;
+      }
+
+      .azr-icon-container-lg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .azr-benefit-icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* موبایل کوچک (تا ۴۸۰ پیکسل) */
+    @media screen and (max-width: 480px) {
+      .azr-hero {
+        padding: 30px 16px;
+        gap: 24px;
+      }
+
+      .azr-headline {
+        font-size: 26px;
+        line-height: 140%;
+      }
+
+      .azr-paragraph {
+        font-size: 13px;
+      }
+
+      .azr-hero-left-illustration {
+        min-height: 340px;
+      }
+
+      .azr-main-code-card {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      .azr-code-content {
+        font-size: 10px;
+        gap: 6px;
+      }
+
+      .azr-ellipse {
+        width: 240px;
+        height: 240px;
+      }
+
+      .azr-floating-accent-1,
+      .azr-floating-accent-2 {
+        padding: 10px;
+        font-size: 11px;
+        border-radius: 8px;
+      }
+
+      .azr-floating-accent-1 {
+        left: 1px;
+        top: 70px;
+      }
+
+      .azr-floating-accent-2 {
+        right: 5px;
+        bottom: 70px;
+      }
+
+      .azr-code-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .azr-icon-container-sm {
+        height: 16px;
+        width: 16px;
+      }
+
+      /* فرم */
+      .azr-form-section {
+        padding: 30px 12px;
+      }
+
+      .azr-form-card {
+        padding: 20px 14px;
+        gap: 20px;
+        border-radius: 12px;
+      }
+
+      .azr-form-title {
+        font-size: 20px;
+      }
+
+      .azr-input-wrapper {
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+
+      /* استایل سلکت در موبایل کوچک */
+      .azr-select-wrapper {
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+
+      .azr-select-wrapper select {
+        width: 100%;
+        font-size: 12px;
+        padding: 0;
+      }
+
+      .azr-select-wrapper select option {
+        font-size: 11px;
+        padding: 10px 8px;
+        white-space: normal;
+        word-wrap: break-word;
+        line-height: 1.4;
+        min-height: 35px;
+      }
+
+      .azr-textarea-wrapper {
+        height: 80px;
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+
+      .azr-drag-drop-area {
+        padding: 20px 12px;
+        border-radius: 12px;
+      }
+
+      .azr-select-file-btn {
+        padding: 8px 16px;
+        font-size: 11px;
+      }
+
+      .azr-submit-btn {
+        padding: 12px;
+        font-size: 13px;
+        border-radius: 8px;
+      }
+
+      /* مزایا */
+      .azr-why-join-us {
+        padding: 36px 12px;
+        gap: 24px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .azr-section-title {
+        font-size: 20px;
+      }
+
+      .azr-benefits-horizontal-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .azr-benefit-card {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 14px 10px;
+        gap: 8px;
+        border-radius: 12px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .azr-benefit-title {
+        font-size: 12px;
+      }
+
+      .azr-benefit-description {
+        font-size: 10px;
+        line-height: 140%;
+      }
+
+      .azr-icon-ring {
+        width: 28px;
+        height: 28px;
+        border-radius: 14px;
+        right: 0;
+        align-self: flex-end;
+      }
+
+      .azr-icon-container-lg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .azr-benefit-icon {
+        width: 14px;
+        height: 14px;
+      }
+
+      .azr-benefit-text-stack {
+        gap: 6px;
+      }
+
+      /* فوتر */
+      .quick-links-column,
+      .contact-info-column {
+        width: 100%;
+      }
+
+      .brand-info-column {
+        text-align: center;
+      }
+
+      .brand-description-text {
+        text-align: center;
+      }
+    }
+
+    /* ============================================= */
+    /*           ریسپانسیو فوتر - تمام سایزها         */
+    /* ============================================= */
+
+    /* تبلت بزرگ (تا ۱۲۰۰ پیکسل) */
+    @media screen and (max-width: 1200px) {
+      .site-footer-wrapper {
+        padding: 60px 40px 30px;
+        gap: 40px;
+        top: 0;
+      }
+
+      .footer-grid-row {
+        gap: 30px;
+      }
+
+      .brand-info-column {
+        width: 350px;
+      }
+
+      .quick-links-column {
+        width: 160px;
+      }
+
+      .contact-info-column {
+        width: 250px;
+      }
+    }
+
+    /* تبلت (تا ۹۹۲ پیکسل) */
+    @media screen and (max-width: 992px) {
+      .site-footer-wrapper {
+        padding: 50px 30px 25px;
+        gap: 35px;
+      }
+
+      .footer-grid-row {
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .brand-info-column {
+        width: 100%;
+        order: -1;
+        align-items: center;
+        text-align: center;
+      }
+
+      .brand-description-text {
+        text-align: center;
+      }
+
+      .quick-links-column,
+      .contact-info-column {
+        width: calc(50% - 15px);
+        min-width: 200px;
+      }
+
+      .copyright-bottom-bar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 24px 0px 0px;
+      }
+    }
+
+    /* موبایل بزرگ (تا ۷۶۸ پیکسل) */
+    @media screen and (max-width: 768px) {
+      .site-footer-wrapper {
+        padding: 40px 20px 20px;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .footer-grid-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+        width: 100%;
+      }
+
+      .brand-info-column {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .brand-logo-wrapper {
+        justify-content: center;
+      }
+
+      .brand-description-text {
+        text-align: center;
+        font-size: 13px;
+        line-height: 170%;
+      }
+
+      .quick-links-column {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+      }
+
+      .footer-heading-title {
+        text-align: center;
+      }
+
+      .footer-heading-title::after {
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      .footer-link-item {
+        text-align: center;
+      }
+
+      .footer-link-item:hover {
+        transform: translateX(0) scale(1.05);
+      }
+
+      .contact-info-column {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+      }
+
+      .contact-address-text {
+        text-align: center;
+      }
+
+      .copyright-bottom-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+        padding: 20px 0px 0px;
+        font-size: 12px;
+      }
+
+      .social-icons-group {
+        justify-content: center;
+      }
+
+      .social-icon-circle {
+        height: 38px;
+        width: 38px;
+      }
+
+      .social-icon-inner-lg {
+        height: 20px;
+        width: 20px;
+      }
+
+      .social-svg-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .social-icon-inner-sm {
+        height: 14px;
+        width: 14px;
+      }
+
+      .social-svg-icon-sm {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    /* موبایل کوچک (تا ۴۸۰ پیکسل) */
+    @media screen and (max-width: 480px) {
+      .site-footer-wrapper {
+        padding: 30px 16px 16px;
+        gap: 25px;
+        align-items: center;
+      }
+
+      .footer-grid-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        width: 100%;
+      }
+
+      .brand-info-column {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+
+      .brand-name-gradient {
+        font-size: 18px;
+      }
+
+      .brand-logo-image {
+        height: 40px;
+        width: 40px;
+      }
+
+      .brand-description-text {
+        font-size: 12px;
+        line-height: 160%;
+        text-align: center;
+      }
+
+      .quick-links-column {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .footer-heading-title {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .footer-link-item {
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .contact-info-column {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .contact-address-text {
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .copyright-bottom-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        text-align: center;
+        padding: 16px 0px 0px;
+        font-size: 11px;
+      }
+
+      .social-icons-group {
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .social-icon-circle {
+        height: 34px;
+        width: 34px;
+        border-radius: 10px;
+      }
+
+      .social-icon-inner-lg {
+        height: 18px;
+        width: 18px;
+      }
+
+      .social-svg-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .social-icon-inner-sm {
+        height: 12px;
+        width: 12px;
+      }
+
+      .social-svg-icon-sm {
+        width: 12px;
+        height: 12px;
+      }
+
+      .copyright-text-content {
+        font-size: 11px;
+        text-align: center;
+      }
+    }
+
+    /* Vazir - Medium */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - Bold */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - thin */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ============================================= */
+    /*              پایان ریسپانسیو فوتر              */
+    /* ============================================= */
+  </style>
 </head>
+
 <body>
 
-		<!-- navbar -->
-		{% include "includes/navbar.html" %}
-    <div class="azr-page-container">
-    		<div class="azr-hero">
+  <!-- navbar -->
+  {% include "includes/navbar.html" %}
+  <div class="azr-page-container">
+    <div class="azr-hero">
 
-<div class="azr-hero-right-text">
-        				<div class="azr-tag">
-          					<b class="button-label">فرصت‌های شغلی در آذر یزدان</b>
-        				</div>
-        				<div class="azr-headline">به تیم آذر یزدان بپیوندید</div>
-        				<div class="azr-paragraph">اگر به ساخت محصولات دیجیتال، برنامه‌نویسی و حل چالش‌های جدید علاقه دارید، رزومه خود را برای ما ارسال کنید. ما در آذر یزدان منتظر تخصص و خلاقیت شما هستیم.</div>
-        				<div class="azr-checklist">
-          					<div class="azr-checklist-item">
-                                <div class="azr-check-icon-circle">
-              							<img class="azr-check-icon" src="{% static 'asets/tic.svg' %}" alt="">
-              							
-            						</div>
-            						<div class="azr-checklist-text">پروژه‌های چالش‌برانگیز و نوآورانه در سطح ملی و بین‌المللی</div>
-            						
-          					</div>
-          					<div class="azr-checklist-item">
-                                <div class="azr-check-icon-circle">
-              							<img class="azr-check-icon" src="{% static 'asets/tic.svg' %}" alt="">
-              							
-            						</div>
-            						<div class="azr-checklist-text">استفاده از جدیدترین تکنولوژی‌ها و متدولوژی‌های روز توسعه نرم‌افزار</div>
-            						
-          					</div>
-          					<div class="azr-checklist-item">
-                                <div class="azr-check-icon-circle">
-              							<img class="azr-check-icon" src="{% static 'asets/tic.svg' %}" alt="">
-              							
-            							</div>
-            						<div class="azr-checklist-text">محیط کاری دوستانه، صمیمی، شفاف و کاملا حرفه‌ای</div>
-            						
-          					</div>
-        				</div>
-      			</div>
+      <div class="azr-hero-right-text">
+        <div class="azr-tag">
+          <b class="button-label">فرصت‌های شغلی در آذر یزدان</b>
+        </div>
+        <div class="azr-headline">به تیم آذر یزدان بپیوندید</div>
+        <div class="azr-paragraph">اگر به ساخت محصولات دیجیتال، برنامه‌نویسی و حل چالش‌های جدید علاقه دارید، رزومه خود
+          را برای ما ارسال کنید. ما در آذر یزدان منتظر تخصص و خلاقیت شما هستیم.</div>
+        <div class="azr-checklist">
+          <div class="azr-checklist-item">
+            <div class="azr-check-icon-circle">
+              <img class="azr-check-icon" src="{% static 'asets/tic.svg' %}" alt="">
 
-      			<div class="azr-hero-left-illustration">
-        				<div class="azr-ellipse">
-        				</div>
-        				<div class="azr-main-code-card">
-          					<div class="azr-window-header">
-            						<div class="azr-dots">
-              							<div class="azr-dot-red">
-              							</div>
-              							<div class="azr-dot-yellow">
-              							</div>
-              							<div class="azr-dot-green">
-              							</div>
-            						</div>
-            						<div class="button-label">yazdan-app.tsx</div>
-          					</div>
-          					<div class="azr-code-content" id="azrCodeContent">
-            						<!-- کدها با جاوااسکریپت تایپ میشن -->
-          					</div>
-        				</div>
-        				<div class="azr-floating-accent-1">
-          				
-          					<b class="button-label">React & Next.js</b>
-                            	<div class="azr-icon-container-sm">
-            						<img class="azr-code-icon" src="{% static 'asets/code.png' %}" alt="">
-            						
-          					</div>
-        				</div>
-        				<div class="azr-floating-accent-2">
-          					
-          					<b class="button-label">تکنولوژی مدرن</b>
-                            <div class="azr-icon-container-sm">
-            						<img class="azr-code-icon" src="{% static 'asets/sparkles.svg' %}" alt="">
-            						
-          					</div>
-        				</div>
-      			</div>
-      			
-    		</div>
-    		<div class="azr-form-section">
-      			<div class="azr-form-card">
-        				<div class="azr-form-header">
-          					<div class="azr-form-title">فرم ارسال رزومه</div>
-          					<div class="azr-form-subtitle">اطلاعات خود را وارد کنید تا تیم فنی و منابع انسانی ما با شما تماس بگیرد.</div>
-        				</div>
-        				<form method="post" action="{% url "users:collaboration" %}" id="azrResumeForm" class="azr-form-inputs-stack" enctype="multipart/form-data" novalidate>
-          					{% csrf_token %}
-							<div class="azr-form-row">
-									<div class="azr-form-field">
-              							<div class="azr-form-label">نام و نام خانوادگی *</div>
-              							<div class="azr-input-wrapper" id="azrNameWrapper">
-                								<input type="text" id="full_name" name="full_name" placeholder="نام خود را وارد کنید" required>
-              							</div>
-              							<div class="azr-error-message" id="azrNameError">این فیلد الزامی است.</div>
-            						</div>
+            </div>
+            <div class="azr-checklist-text">پروژه‌های چالش‌برانگیز و نوآورانه در سطح ملی و بین‌المللی</div>
 
-            						<div class="azr-form-field">
-              							<div class="azr-form-label">ایمیل *</div>
-              							<div class="azr-input-wrapper" id="azrEmailWrapper">
-                								<input type="email" name="email" id="azrEmail" placeholder="name@example.com" required>
-              							</div>
-              							<div class="azr-error-message" id="azrEmailError">لطفاً یک ایمیل معتبر وارد کنید.</div>
-            						</div>
-            						
-          					</div>
-          					<div class="azr-form-row">
+          </div>
+          <div class="azr-checklist-item">
+            <div class="azr-check-icon-circle">
+              <img class="azr-check-icon" src="{% static 'asets/tic.svg' %}" alt="">
 
-                                <div class="azr-form-field">
-              							<div class="azr-form-label">شماره تماس *</div>
-              							<div class="azr-input-wrapper" id="azrPhoneWrapper">
-                								<input type="tel" id="phone" name="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required pattern="[0-9]{10,11}">
-              							</div>
-              							<div class="azr-error-message" id="azrPhoneError">شماره تماس معتبر وارد کنید (حداقل ۱۰ رقم).</div>
-            						</div>
+            </div>
+            <div class="azr-checklist-text">استفاده از جدیدترین تکنولوژی‌ها و متدولوژی‌های روز توسعه نرم‌افزار</div>
 
-            						<div class="azr-form-field">
-              							<div class="azr-form-label">موقعیت شغلی مورد نظر *</div>
-              							<div class="azr-select-wrapper" id="azrPositionWrapper">
-                								<select id="work_choices" name="work_choices" required>
-                  									<option value="">انتخاب کنید (مثلاً توسعه‌دهنده فرانت‌اند)</option>
-                  									<option value="frontend">توسعه‌دهنده فرانت‌اند</option>
-                  									<option value="backend">توسعه‌دهنده بک‌اند</option>
-                  									<option value="fullstack">فول‌استک</option>
-                  									<option value="designer">طراح UI/UX</option>
-                								</select>
-              							</div>
-              							<div class="azr-error-message" id="azrPositionError">لطفاً یک موقعیت شغلی انتخاب کنید.</div>
-            						</div>
-            						
-          					</div>
-          					<div class="azr-form-field-full">
-            						<div class="azr-form-label">لینکدین، گیت‌هاب یا وب‌سایت نمونه کار</div>
-            						<div class="azr-input-wrapper">
-              							<input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/username">
-            						</div>
-          					</div>
-          					<div class="azr-form-field-full">
-            						<div class="azr-form-label">فایل رزومه *</div>
-            						<div class="azr-drag-drop-area" id="azrDropArea">
-              							<div class="azr-icon-container-md">
-                								<img class="azr-cloud-upload-icon" src="{% static 'asets/cloud-upload.svg' %}" alt="">
-              							</div>
-              							<b class="azr-file-label" id="azrFileLabel">رزومه خود را اینجا رها کنید، یا دکمه انتخاب فایل را بزنید</b>
-              							<div class="azr-file-hint">فرمت‌های مجاز: PDF، DOC — حداکثر ۱۰ مگابایت</div>
-              							<button type="button" class="azr-select-file-btn" id="azrSelectFileBtn">
-                								<b class="button-label">انتخاب فایل</b>
-              							</button>
-              							<input type="file" id="resume_file" name="resume_file" accept=".pdf,.doc,.docx" style="display: none;" required>
-            						</div>
-            						<div class="azr-error-message" id="azrFileError">لطفاً فایل رزومه خود را آپلود کنید.</div>
-          					</div>
-          					<div class="azr-form-field-full">
-            						<div class="azr-form-label">توضیحات کوتاه / انگیزه همکاری</div>
-            						<div class="azr-textarea-wrapper">
-              							<textarea id="message" name="message" placeholder="اگر توضیح خاصی وجود دارد، اینجا بنویسید..." rows="4"></textarea>
-            						</div>
-          					</div>
-          					<button type="submit" class="azr-submit-btn" id="azrSubmitBtn">
-            						ارسال رزومه و درخواست همکاری
-          					</button>
-          					<div id="azrFormSuccess" class="azr-success-message" style="display: none;">✅ رزومه شما با موفقیت ارسال شد. به زودی با شما تماس می‌گیریم.</div>
-        				</form>
-      			</div>
-    		</div>
-    		<div class="azr-why-join-us">
-      			<div class="azr-section-headers">
-        				<b class="azr-section-label">چرا آذر یزدان؟</b>
-        				<div class="azr-section-title">مزایای همکاری با ما</div>
-      			</div>
-      			<div class="azr-benefits-horizontal-list">
+          </div>
+          <div class="azr-checklist-item">
+            <div class="azr-check-icon-circle">
+              <img class="azr-check-icon" src="{% static 'asets/tic.svg' %}" alt="">
 
-                    <div class="azr-benefit-card">
-          					<div class="azr-icon-ring">
-            						<div class="azr-icon-container-lg">
-              							<img class="azr-benefit-icon" src="{% static 'asets/sparkles (1).svg' %}" alt="">
-              							
-            						</div>
-          					</div>
-          					<div class="azr-benefit-text-stack">
-            						<b class="azr-benefit-title">محیط کاری خلاق</b>
-            						<div class="azr-benefit-description">در محیطی پویا، خلاق و به دور از فرآیندهای دست‌وپاگیر همکاری کنید.</div>
-          					</div>
-        				</div>
-        				
-<div class="azr-benefit-card">
-          					<div class="azr-icon-ring">
-            						<div class="azr-icon-container-lg">
-              							<img class="azr-benefit-icon" src="{% static 'asets/trending-upabi.svg' %}" alt="">
-              							
-            						</div>
-          					</div>
-          					<div class="azr-benefit-text-stack">
-            						<b class="azr-benefit-title">یادگیری و رشد مستمر</b>
-            						<div class="azr-benefit-description">با منتورینگ اختصاصی و برنامه‌های آموزشی مسیر شغلی روشنی بسازید.</div>
-          					</div>
-        				</div>
+            </div>
+            <div class="azr-checklist-text">محیط کاری دوستانه، صمیمی، شفاف و کاملا حرفه‌ای</div>
 
-        				<div class="azr-benefit-card">
-          					<div class="azr-icon-ring">
-            						<div class="azr-icon-container-lg">
-              							<img class="azr-benefit-icon" src="{% static 'asets/code.png' %}" alt="">
-              							
-            						</div>
-          					</div>
-          					<div class="azr-benefit-text-stack">
-            						<b class="azr-benefit-title">تکنولوژی‌های روز</b>
-            						<div class="azr-benefit-description">با مدرن‌ترین ابزارها، پشته‌های فناوری روز و بهترین ابزارها کار کنید.</div>
-          					</div>
-        				</div>
-        				
-        				
-                        <div class="azr-benefit-card">
-          					<div class="azr-icon-ring">
-            						<div class="azr-icon-container-lg">
-              							<img class="azr-benefit-icon" src="{% static 'asets/usersabi.svg' %}" alt="">
-              							
-            						</div>
-          					</div>
-          					<div class="azr-benefit-text-stack">
-            						<b class="azr-benefit-title">همکاری با تیم حرفه‌ای</b>
-            						<div class="azr-benefit-description">در کنار متخصصان با تجربه رشد کنید و از دانش جمعی تیم لذت ببرید.</div>
-          					</div>
-        				</div>
-      			</div>
-    		</div>
-    	</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="azr-hero-left-illustration">
+        <div class="azr-ellipse">
+        </div>
+        <div class="azr-main-code-card">
+          <div class="azr-window-header">
+            <div class="azr-dots">
+              <div class="azr-dot-red">
+              </div>
+              <div class="azr-dot-yellow">
+              </div>
+              <div class="azr-dot-green">
+              </div>
+            </div>
+            <div class="button-label">yazdan-app.tsx</div>
+          </div>
+          <div class="azr-code-content" id="azrCodeContent">
+            <!-- کدها با جاوااسکریپت تایپ میشن -->
+          </div>
+        </div>
+        <div class="azr-floating-accent-1">
+
+          <b class="button-label">React & Next.js</b>
+          <div class="azr-icon-container-sm">
+            <img class="azr-code-icon" src="{% static 'asets/code.png' %}" alt="">
+
+          </div>
+        </div>
+        <div class="azr-floating-accent-2">
+
+          <b class="button-label">تکنولوژی مدرن</b>
+          <div class="azr-icon-container-sm">
+            <img class="azr-code-icon" src="{% static 'asets/sparkles.svg' %}" alt="">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="azr-form-section">
+      <div class="azr-form-card">
+        <div class="azr-form-header">
+          <div class="azr-form-title">فرم ارسال رزومه</div>
+          <div class="azr-form-subtitle">اطلاعات خود را وارد کنید تا تیم فنی و منابع انسانی ما با شما تماس بگیرد.</div>
+        </div>
+        <form method="post" action="{% url 'users:collaboration' %}" id="azrResumeForm" class="azr-form-inputs-stack"
+          enctype="multipart/form-data" novalidate>
+          {% csrf_token %}
+          <div class="azr-form-row">
+            <div class="azr-form-field">
+              <div class="azr-form-label">نام و نام خانوادگی *</div>
+              <div class="azr-input-wrapper" id="azrNameWrapper">
+                <input type="text" id="full_name" name="full_name" placeholder="نام خود را وارد کنید" required>
+              </div>
+              <div class="azr-error-message" id="azrNameError">این فیلد الزامی است.</div>
+            </div>
+
+            <div class="azr-form-field">
+              <div class="azr-form-label">ایمیل *</div>
+              <div class="azr-input-wrapper" id="azrEmailWrapper">
+                <input type="email" name="email" id="azrEmail" placeholder="name@example.com" required>
+              </div>
+              <div class="azr-error-message" id="azrEmailError">لطفاً یک ایمیل معتبر وارد کنید.</div>
+            </div>
+
+          </div>
+          <div class="azr-form-row">
+
+            <div class="azr-form-field">
+              <div class="azr-form-label">شماره تماس *</div>
+              <div class="azr-input-wrapper" id="azrPhoneWrapper">
+                <input type="tel" id="phone" name="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required pattern="[0-9]{10,11}">
+              </div>
+              <div class="azr-error-message" id="azrPhoneError">شماره تماس معتبر وارد کنید (حداقل ۱۰ رقم).</div>
+            </div>
+
+            <div class="azr-form-field">
+              <div class="azr-form-label">موقعیت شغلی مورد نظر *</div>
+              <div class="azr-select-wrapper" id="azrPositionWrapper">
+                <select id="work_choices" name="work_choices" required>
+                  <option value="">انتخاب کنید (مثلاً توسعه‌دهنده فرانت‌اند)</option>
+                  <option value="frontend">توسعه‌دهنده فرانت‌اند</option>
+                  <option value="backend">توسعه‌دهنده بک‌اند</option>
+                  <option value="fullstack">فول‌استک</option>
+                  <option value="designer">طراح UI/UX</option>
+                </select>
+              </div>
+              <div class="azr-error-message" id="azrPositionError">لطفاً یک موقعیت شغلی انتخاب کنید.</div>
+            </div>
+
+          </div>
+          <div class="azr-form-field-full">
+            <div class="azr-form-label">لینکدین، گیت‌هاب یا وب‌سایت نمونه کار</div>
+            <div class="azr-input-wrapper">
+              <input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/username">
+            </div>
+          </div>
+          <div class="azr-form-field-full">
+            <div class="azr-form-label">فایل رزومه *</div>
+            <div class="azr-drag-drop-area" id="azrDropArea">
+              <div class="azr-icon-container-md">
+                <img class="azr-cloud-upload-icon" src="{% static 'asets/cloud-upload.svg' %}" alt="">
+              </div>
+              <b class="azr-file-label" id="azrFileLabel">رزومه خود را اینجا رها کنید، یا دکمه انتخاب فایل را بزنید</b>
+              <div class="azr-file-hint">فرمت‌های مجاز: PDF، DOC — حداکثر ۱۰ مگابایت</div>
+              <button type="button" class="azr-select-file-btn" id="azrSelectFileBtn">
+                <b class="button-label">انتخاب فایل</b>
+              </button>
+              <input type="file" id="resume_file" name="resume_file" accept=".pdf,.doc,.docx" style="display: none;"
+                required>
+            </div>
+            <div class="azr-error-message" id="azrFileError">لطفاً فایل رزومه خود را آپلود کنید.</div>
+          </div>
+          <div class="azr-form-field-full">
+            <div class="azr-form-label">توضیحات کوتاه / انگیزه همکاری</div>
+            <div class="azr-textarea-wrapper">
+              <textarea id="message" name="message" placeholder="اگر توضیح خاصی وجود دارد، اینجا بنویسید..."
+                rows="4"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="azr-submit-btn" id="azrSubmitBtn">
+            ارسال رزومه و درخواست همکاری
+          </button>
+          <div id="azrFormSuccess" class="azr-success-message" style="display: none;">✅ رزومه شما با موفقیت ارسال شد. به
+            زودی با شما تماس می‌گیریم.</div>
+        </form>
+      </div>
+    </div>
+    <div class="azr-why-join-us">
+      <div class="azr-section-headers">
+        <b class="azr-section-label">چرا آذر یزدان؟</b>
+        <div class="azr-section-title">مزایای همکاری با ما</div>
+      </div>
+      <div class="azr-benefits-horizontal-list">
+
+        <div class="azr-benefit-card">
+          <div class="azr-icon-ring">
+            <div class="azr-icon-container-lg">
+              <img class="azr-benefit-icon" src="{% static 'asets/sparkles (1).svg' %}" alt="">
+
+            </div>
+          </div>
+          <div class="azr-benefit-text-stack">
+            <b class="azr-benefit-title">محیط کاری خلاق</b>
+            <div class="azr-benefit-description">در محیطی پویا، خلاق و به دور از فرآیندهای دست‌وپاگیر همکاری کنید.</div>
+          </div>
+        </div>
+
+        <div class="azr-benefit-card">
+          <div class="azr-icon-ring">
+            <div class="azr-icon-container-lg">
+              <img class="azr-benefit-icon" src="{% static 'asets/trending-upabi.svg' %}" alt="">
+
+            </div>
+          </div>
+          <div class="azr-benefit-text-stack">
+            <b class="azr-benefit-title">یادگیری و رشد مستمر</b>
+            <div class="azr-benefit-description">با منتورینگ اختصاصی و برنامه‌های آموزشی مسیر شغلی روشنی بسازید.</div>
+          </div>
+        </div>
+
+        <div class="azr-benefit-card">
+          <div class="azr-icon-ring">
+            <div class="azr-icon-container-lg">
+              <img class="azr-benefit-icon" src="{% static 'asets/code.png' %}" alt="">
+
+            </div>
+          </div>
+          <div class="azr-benefit-text-stack">
+            <b class="azr-benefit-title">تکنولوژی‌های روز</b>
+            <div class="azr-benefit-description">با مدرن‌ترین ابزارها، پشته‌های فناوری روز و بهترین ابزارها کار کنید.
+            </div>
+          </div>
+        </div>
 
 
-			<!-- فوتر  -->
-		{% include "includes/footer.html" %}
-    <script>
+        <div class="azr-benefit-card">
+          <div class="azr-icon-ring">
+            <div class="azr-icon-container-lg">
+              <img class="azr-benefit-icon" src="{% static 'asets/usersabi.svg' %}" alt="">
+
+            </div>
+          </div>
+          <div class="azr-benefit-text-stack">
+            <b class="azr-benefit-title">همکاری با تیم حرفه‌ای</b>
+            <div class="azr-benefit-description">در کنار متخصصان با تجربه رشد کنید و از دانش جمعی تیم لذت ببرید.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- فوتر  -->
+  {% include "includes/footer.html" %}
+  <script src="{% static 'js/index.js' %}">
+  </script>
+  <script>
     // ========== انیمیشن تایپ کد ==========
-    (function() {
-        const codeContent = document.getElementById('azrCodeContent');
-        
-        const codeLines = [
-            { html: '<span class="azr-syntax-keyword">const</span> <span class="azr-syntax-variable">AzarYazdan</span> <span class="azr-syntax-operator">=</span> <span class="azr-syntax-function">() =&gt; {</span>', indent: false },
-            { html: '<span class="azr-syntax-keyword">const</span> <span class="azr-syntax-variable">motivation</span> <span class="azr-syntax-operator">=</span> <span class="azr-syntax-string">"Innovation"</span>', indent: true },
-            { html: '<span class="azr-syntax-return">return</span> <span class="azr-syntax-jsx-tag">&lt;Team</span> <span class="azr-syntax-prop">energy={motivation}</span> <span class="azr-syntax-jsx-tag">/&gt;</span>', indent: true },
-            { html: '<span class="azr-syntax-keyword">}</span>', indent: false }
-        ];
-        
-        let currentLineIndex = 0;
-        let currentCharIndex = 0;
-        let isTyping = true;
-        let typingTimeout;
-        
-        function initializeLines() {
-            codeContent.innerHTML = '';
-            codeLines.forEach((line, index) => {
-                const lineDiv = document.createElement('div');
-                lineDiv.className = 'azr-code-line' + (line.indent ? ' azr-indent' : '');
-                lineDiv.id = 'azrCodeLine' + index;
-                lineDiv.innerHTML = '<span class="azr-cursor-blink" style="display:none;"></span>';
-                codeContent.appendChild(lineDiv);
-            });
+    (function () {
+      const codeContent = document.getElementById('azrCodeContent');
+
+      const codeLines = [
+        { html: '<span class="azr-syntax-keyword">const</span> <span class="azr-syntax-variable">AzarYazdan</span> <span class="azr-syntax-operator">=</span> <span class="azr-syntax-function">() =&gt; {</span>', indent: false },
+        { html: '<span class="azr-syntax-keyword">const</span> <span class="azr-syntax-variable">motivation</span> <span class="azr-syntax-operator">=</span> <span class="azr-syntax-string">"Innovation"</span>', indent: true },
+        { html: '<span class="azr-syntax-return">return</span> <span class="azr-syntax-jsx-tag">&lt;Team</span> <span class="azr-syntax-prop">energy={motivation}</span> <span class="azr-syntax-jsx-tag">/&gt;</span>', indent: true },
+        { html: '<span class="azr-syntax-keyword">}</span>', indent: false }
+      ];
+
+      let currentLineIndex = 0;
+      let currentCharIndex = 0;
+      let isTyping = true;
+      let typingTimeout;
+
+      function initializeLines() {
+        codeContent.innerHTML = '';
+        codeLines.forEach((line, index) => {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'azr-code-line' + (line.indent ? ' azr-indent' : '');
+          lineDiv.id = 'azrCodeLine' + index;
+          lineDiv.innerHTML = '<span class="azr-cursor-blink" style="display:none;"></span>';
+          codeContent.appendChild(lineDiv);
+        });
+      }
+
+      function getPlainText(html) {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+        return temp.textContent || temp.innerText || '';
+      }
+
+      function showCursorAt(lineIndex, charIndex) {
+        for (let i = 0; i < codeLines.length; i++) {
+          const line = document.getElementById('azrCodeLine' + i);
+          if (line) {
+            const cursor = line.querySelector('.azr-cursor-blink');
+            if (cursor) cursor.style.display = 'none';
+          }
         }
-        
-        function getPlainText(html) {
-            const temp = document.createElement('div');
-            temp.innerHTML = html;
-            return temp.textContent || temp.innerText || '';
-        }
-        
-        function showCursorAt(lineIndex, charIndex) {
-            for (let i = 0; i < codeLines.length; i++) {
-                const line = document.getElementById('azrCodeLine' + i);
-                if (line) {
-                    const cursor = line.querySelector('.azr-cursor-blink');
-                    if (cursor) cursor.style.display = 'none';
-                }
-            }
-            
-            const currentLine = document.getElementById('azrCodeLine' + lineIndex);
-            if (currentLine) {
-                const cursor = currentLine.querySelector('.azr-cursor-blink');
-                if (cursor) {
-                    const plainText = getPlainText(codeLines[lineIndex].html);
-                    if (charIndex >= plainText.length) {
-                        cursor.style.display = 'inline-block';
-                    } else {
-                        cursor.style.display = 'none';
-                    }
-                }
-            }
-        }
-        
-        function typeNextChar() {
-            if (currentLineIndex >= codeLines.length) {
-                isTyping = false;
-                currentLineIndex = codeLines.length - 1;
-                const lastLinePlain = getPlainText(codeLines[currentLineIndex].html);
-                currentCharIndex = lastLinePlain.length;
-                showCursorAt(currentLineIndex, currentCharIndex);
-                typingTimeout = setTimeout(eraseChar, 1000);
-                return;
-            }
-            
-            const currentLineData = codeLines[currentLineIndex];
-            const plainText = getPlainText(currentLineData.html);
-            
-            if (currentCharIndex < plainText.length) {
-                const lineElement = document.getElementById('azrCodeLine' + currentLineIndex);
-                if (lineElement) {
-                    const fullHTML = currentLineData.html;
-                    let visibleHTML = '';
-                    let charCount = 0;
-                    let insideTag = false;
-                    let tagBuffer = '';
-                    
-                    for (let i = 0; i < fullHTML.length; i++) {
-                        if (fullHTML[i] === '<') {
-                            insideTag = true;
-                            tagBuffer = '<';
-                        } else if (fullHTML[i] === '>') {
-                            insideTag = false;
-                            tagBuffer += '>';
-                            visibleHTML += tagBuffer;
-                            tagBuffer = '';
-                        } else if (insideTag) {
-                            tagBuffer += fullHTML[i];
-                        } else {
-                            charCount++;
-                            visibleHTML += fullHTML[i];
-                            if (charCount > currentCharIndex) break;
-                        }
-                    }
-                    
-                    if (insideTag && tagBuffer) {
-                        visibleHTML += tagBuffer;
-                    }
-                    
-                    lineElement.innerHTML = visibleHTML + '<span class="azr-cursor-blink" style="display:none;"></span>';
-                }
-                
-                currentCharIndex++;
-                showCursorAt(currentLineIndex, currentCharIndex);
-                
-                const speed = Math.floor(Math.random() * 50) + 30;
-                typingTimeout = setTimeout(typeNextChar, speed);
+
+        const currentLine = document.getElementById('azrCodeLine' + lineIndex);
+        if (currentLine) {
+          const cursor = currentLine.querySelector('.azr-cursor-blink');
+          if (cursor) {
+            const plainText = getPlainText(codeLines[lineIndex].html);
+            if (charIndex >= plainText.length) {
+              cursor.style.display = 'inline-block';
             } else {
-                showCursorAt(currentLineIndex, currentCharIndex);
-                currentLineIndex++;
-                currentCharIndex = 0;
-                typingTimeout = setTimeout(typeNextChar, 200);
+              cursor.style.display = 'none';
             }
+          }
         }
-        
-        function eraseChar() {
-            if (currentLineIndex < 0) {
-                isTyping = true;
-                currentLineIndex = 0;
-                currentCharIndex = 0;
-                initializeLines();
-                typingTimeout = setTimeout(typeNextChar, 500);
-                return;
+      }
+
+      function typeNextChar() {
+        if (currentLineIndex >= codeLines.length) {
+          isTyping = false;
+          currentLineIndex = codeLines.length - 1;
+          const lastLinePlain = getPlainText(codeLines[currentLineIndex].html);
+          currentCharIndex = lastLinePlain.length;
+          showCursorAt(currentLineIndex, currentCharIndex);
+          typingTimeout = setTimeout(eraseChar, 1000);
+          return;
+        }
+
+        const currentLineData = codeLines[currentLineIndex];
+        const plainText = getPlainText(currentLineData.html);
+
+        if (currentCharIndex < plainText.length) {
+          const lineElement = document.getElementById('azrCodeLine' + currentLineIndex);
+          if (lineElement) {
+            const fullHTML = currentLineData.html;
+            let visibleHTML = '';
+            let charCount = 0;
+            let insideTag = false;
+            let tagBuffer = '';
+
+            for (let i = 0; i < fullHTML.length; i++) {
+              if (fullHTML[i] === '<') {
+                insideTag = true;
+                tagBuffer = '<';
+              } else if (fullHTML[i] === '>') {
+                insideTag = false;
+                tagBuffer += '>';
+                visibleHTML += tagBuffer;
+                tagBuffer = '';
+              } else if (insideTag) {
+                tagBuffer += fullHTML[i];
+              } else {
+                charCount++;
+                visibleHTML += fullHTML[i];
+                if (charCount > currentCharIndex) break;
+              }
             }
-            
-            const currentLineData = codeLines[currentLineIndex];
-            const plainText = getPlainText(currentLineData.html);
-            
-            if (currentCharIndex > 0) {
-                currentCharIndex--;
-                
-                const lineElement = document.getElementById('azrCodeLine' + currentLineIndex);
-                if (lineElement) {
-                    if (currentCharIndex === 0) {
-                        lineElement.innerHTML = '<span class="azr-cursor-blink" style="display:inline-block;"></span>';
-                    } else {
-                        const fullHTML = currentLineData.html;
-                        let visibleHTML = '';
-                        let charCount = 0;
-                        let insideTag = false;
-                        let tagBuffer = '';
-                        
-                        for (let i = 0; i < fullHTML.length; i++) {
-                            if (fullHTML[i] === '<') {
-                                insideTag = true;
-                                tagBuffer = '<';
-                            } else if (fullHTML[i] === '>') {
-                                insideTag = false;
-                                tagBuffer += '>';
-                                visibleHTML += tagBuffer;
-                                tagBuffer = '';
-                            } else if (insideTag) {
-                                tagBuffer += fullHTML[i];
-                            } else {
-                                charCount++;
-                                if (charCount <= currentCharIndex) {
-                                    visibleHTML += fullHTML[i];
-                                } else {
-                                    break;
-                                }
-                            }
-                        }
-                        
-                        if (insideTag && tagBuffer) {
-                            visibleHTML += tagBuffer;
-                        }
-                        
-                        lineElement.innerHTML = visibleHTML + '<span class="azr-cursor-blink" style="display:inline-block;"></span>';
-                    }
-                }
-                
-                showCursorAt(currentLineIndex, currentCharIndex);
-                
-                const speed = Math.floor(Math.random() * 20) + 15;
-                typingTimeout = setTimeout(eraseChar, speed);
+
+            if (insideTag && tagBuffer) {
+              visibleHTML += tagBuffer;
+            }
+
+            lineElement.innerHTML = visibleHTML + '<span class="azr-cursor-blink" style="display:none;"></span>';
+          }
+
+          currentCharIndex++;
+          showCursorAt(currentLineIndex, currentCharIndex);
+
+          const speed = Math.floor(Math.random() * 50) + 30;
+          typingTimeout = setTimeout(typeNextChar, speed);
+        } else {
+          showCursorAt(currentLineIndex, currentCharIndex);
+          currentLineIndex++;
+          currentCharIndex = 0;
+          typingTimeout = setTimeout(typeNextChar, 200);
+        }
+      }
+
+      function eraseChar() {
+        if (currentLineIndex < 0) {
+          isTyping = true;
+          currentLineIndex = 0;
+          currentCharIndex = 0;
+          initializeLines();
+          typingTimeout = setTimeout(typeNextChar, 500);
+          return;
+        }
+
+        const currentLineData = codeLines[currentLineIndex];
+        const plainText = getPlainText(currentLineData.html);
+
+        if (currentCharIndex > 0) {
+          currentCharIndex--;
+
+          const lineElement = document.getElementById('azrCodeLine' + currentLineIndex);
+          if (lineElement) {
+            if (currentCharIndex === 0) {
+              lineElement.innerHTML = '<span class="azr-cursor-blink" style="display:inline-block;"></span>';
             } else {
-                const lineElement = document.getElementById('azrCodeLine' + currentLineIndex);
-                if (lineElement) {
-                    lineElement.innerHTML = '<span class="azr-cursor-blink" style="display:none;"></span>';
+              const fullHTML = currentLineData.html;
+              let visibleHTML = '';
+              let charCount = 0;
+              let insideTag = false;
+              let tagBuffer = '';
+
+              for (let i = 0; i < fullHTML.length; i++) {
+                if (fullHTML[i] === '<') {
+                  insideTag = true;
+                  tagBuffer = '<';
+                } else if (fullHTML[i] === '>') {
+                  insideTag = false;
+                  tagBuffer += '>';
+                  visibleHTML += tagBuffer;
+                  tagBuffer = '';
+                } else if (insideTag) {
+                  tagBuffer += fullHTML[i];
+                } else {
+                  charCount++;
+                  if (charCount <= currentCharIndex) {
+                    visibleHTML += fullHTML[i];
+                  } else {
+                    break;
+                  }
                 }
-                
-                currentLineIndex--;
-                if (currentLineIndex >= 0) {
-                    const prevLinePlain = getPlainText(codeLines[currentLineIndex].html);
-                    currentCharIndex = prevLinePlain.length;
-                    showCursorAt(currentLineIndex, currentCharIndex);
-                }
-                typingTimeout = setTimeout(eraseChar, 100);
+              }
+
+              if (insideTag && tagBuffer) {
+                visibleHTML += tagBuffer;
+              }
+
+              lineElement.innerHTML = visibleHTML + '<span class="azr-cursor-blink" style="display:inline-block;"></span>';
             }
+          }
+
+          showCursorAt(currentLineIndex, currentCharIndex);
+
+          const speed = Math.floor(Math.random() * 20) + 15;
+          typingTimeout = setTimeout(eraseChar, speed);
+        } else {
+          const lineElement = document.getElementById('azrCodeLine' + currentLineIndex);
+          if (lineElement) {
+            lineElement.innerHTML = '<span class="azr-cursor-blink" style="display:none;"></span>';
+          }
+
+          currentLineIndex--;
+          if (currentLineIndex >= 0) {
+            const prevLinePlain = getPlainText(codeLines[currentLineIndex].html);
+            currentCharIndex = prevLinePlain.length;
+            showCursorAt(currentLineIndex, currentCharIndex);
+          }
+          typingTimeout = setTimeout(eraseChar, 100);
         }
-        
-        initializeLines();
-        typingTimeout = setTimeout(typeNextChar, 500);
+      }
+
+      initializeLines();
+      typingTimeout = setTimeout(typeNextChar, 500);
     })();
 
     // ========== اعتبارسنجی فرم و مدیریت فایل ==========
-    (function() {
-        // گرفتن المنت‌ها با idهای صحیح
-        const form = document.getElementById('azrResumeForm');
-        const emailInput = document.getElementById('azrEmail');
-        const fullNameInput = document.getElementById('full_name');
-        const positionSelect = document.getElementById('work_choices');
-        const phoneInput = document.getElementById('phone');
-        const resumeFileInput = document.getElementById('resume_file');
-        const fileLabel = document.getElementById('azrFileLabel');
-        const dropArea = document.getElementById('azrDropArea');
-        const selectFileBtn = document.getElementById('azrSelectFileBtn');
-        const submitBtn = document.getElementById('azrSubmitBtn');
-        const successDiv = document.getElementById('azrFormSuccess');
+    (function () {
+      // گرفتن المنت‌ها با idهای صحیح
+      const form = document.getElementById('azrResumeForm');
+      const emailInput = document.getElementById('azrEmail');
+      const fullNameInput = document.getElementById('full_name');
+      const positionSelect = document.getElementById('work_choices');
+      const phoneInput = document.getElementById('phone');
+      const resumeFileInput = document.getElementById('resume_file');
+      const fileLabel = document.getElementById('azrFileLabel');
+      const dropArea = document.getElementById('azrDropArea');
+      const selectFileBtn = document.getElementById('azrSelectFileBtn');
+      const submitBtn = document.getElementById('azrSubmitBtn');
+      const successDiv = document.getElementById('azrFormSuccess');
 
-        const emailWrapper = document.getElementById('azrEmailWrapper');
-        const nameWrapper = document.getElementById('azrNameWrapper');
-        const positionWrapper = document.getElementById('azrPositionWrapper');
-        const phoneWrapper = document.getElementById('azrPhoneWrapper');
-        const emailError = document.getElementById('azrEmailError');
-        const nameError = document.getElementById('azrNameError');
-        const positionError = document.getElementById('azrPositionError');
-        const phoneError = document.getElementById('azrPhoneError');
-        const fileError = document.getElementById('azrFileError');
+      const emailWrapper = document.getElementById('azrEmailWrapper');
+      const nameWrapper = document.getElementById('azrNameWrapper');
+      const positionWrapper = document.getElementById('azrPositionWrapper');
+      const phoneWrapper = document.getElementById('azrPhoneWrapper');
+      const emailError = document.getElementById('azrEmailError');
+      const nameError = document.getElementById('azrNameError');
+      const positionError = document.getElementById('azrPositionError');
+      const phoneError = document.getElementById('azrPhoneError');
+      const fileError = document.getElementById('azrFileError');
 
-        function showError(inputWrapper, errorEl) {
-            if (inputWrapper) inputWrapper.classList.add('azr-error');
-            if (errorEl) errorEl.style.display = 'block';
-        }
+      function showError(inputWrapper, errorEl) {
+        if (inputWrapper) inputWrapper.classList.add('azr-error');
+        if (errorEl) errorEl.style.display = 'block';
+      }
 
-        function clearError(inputWrapper, errorEl) {
-            if (inputWrapper) inputWrapper.classList.remove('azr-error');
-            if (errorEl) errorEl.style.display = 'none';
-        }
+      function clearError(inputWrapper, errorEl) {
+        if (inputWrapper) inputWrapper.classList.remove('azr-error');
+        if (errorEl) errorEl.style.display = 'none';
+      }
 
-        function clearAllErrors() {
-            clearError(emailWrapper, emailError);
-            clearError(nameWrapper, nameError);
-            clearError(positionWrapper, positionError);
-            clearError(phoneWrapper, phoneError);
+      function clearAllErrors() {
+        clearError(emailWrapper, emailError);
+        clearError(nameWrapper, nameError);
+        clearError(positionWrapper, positionError);
+        clearError(phoneWrapper, phoneError);
+        clearError(dropArea, fileError);
+      }
+
+      // ========== رویداد کلیک روی دکمه انتخاب فایل ==========
+      if (selectFileBtn) {
+        selectFileBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          if (resumeFileInput) {
+            resumeFileInput.click();
+          }
+        });
+      }
+
+      // ========== رویداد کلیک روی کل منطقه دراپ ==========
+      if (dropArea) {
+        dropArea.addEventListener('click', function (e) {
+          // اگر روی دکمه انتخاب فایل کلیک شده، نادیده بگیر
+          if (e.target === selectFileBtn || (selectFileBtn && selectFileBtn.contains(e.target))) {
+            return;
+          }
+          if (resumeFileInput) {
+            resumeFileInput.click();
+          }
+        });
+      }
+
+      // ========== رویداد change برای فایل ==========
+      if (resumeFileInput) {
+        resumeFileInput.addEventListener('change', function (e) {
+          const file = e.target.files[0];
+          if (file) {
+            if (fileLabel) {
+              fileLabel.textContent = file.name;
+            }
+            if (dropArea) {
+              dropArea.style.borderColor = '#10b981';
+            }
             clearError(dropArea, fileError);
-        }
+          } else {
+            if (fileLabel) {
+              fileLabel.textContent = 'رزومه خود را اینجا رها کنید، یا دکمه انتخاب فایل را بزنید';
+            }
+            if (dropArea) {
+              dropArea.style.borderColor = '#f0c040';
+            }
+          }
+        });
+      }
 
-        // ========== رویداد کلیک روی دکمه انتخاب فایل ==========
-        if (selectFileBtn) {
-            selectFileBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                if (resumeFileInput) {
-                    resumeFileInput.click();
-                }
-            });
-        }
+      // ========== رویدادهای درگ و دراپ ==========
+      if (dropArea) {
+        dropArea.addEventListener('dragover', function (e) {
+          e.preventDefault();
+          this.classList.add('azr-drag-over');
+        });
 
-        // ========== رویداد کلیک روی کل منطقه دراپ ==========
-        if (dropArea) {
-            dropArea.addEventListener('click', function(e) {
-                // اگر روی دکمه انتخاب فایل کلیک شده، نادیده بگیر
-                if (e.target === selectFileBtn || (selectFileBtn && selectFileBtn.contains(e.target))) {
-                    return;
-                }
-                if (resumeFileInput) {
-                    resumeFileInput.click();
-                }
-            });
-        }
+        dropArea.addEventListener('dragleave', function (e) {
+          e.preventDefault();
+          this.classList.remove('azr-drag-over');
+        });
 
-        // ========== رویداد change برای فایل ==========
-        if (resumeFileInput) {
-            resumeFileInput.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    if (fileLabel) {
-                        fileLabel.textContent = file.name;
-                    }
-                    if (dropArea) {
-                        dropArea.style.borderColor = '#10b981';
-                    }
-                    clearError(dropArea, fileError);
-                } else {
-                    if (fileLabel) {
-                        fileLabel.textContent = 'رزومه خود را اینجا رها کنید، یا دکمه انتخاب فایل را بزنید';
-                    }
-                    if (dropArea) {
-                        dropArea.style.borderColor = '#f0c040';
-                    }
-                }
-            });
-        }
+        dropArea.addEventListener('drop', function (e) {
+          e.preventDefault();
+          this.classList.remove('azr-drag-over');
+          const files = e.dataTransfer.files;
+          if (files.length > 0 && resumeFileInput) {
+            resumeFileInput.files = files;
+            if (fileLabel) {
+              fileLabel.textContent = files[0].name;
+            }
+            this.style.borderColor = '#10b981';
+            clearError(this, fileError);
+          }
+        });
+      }
 
-        // ========== رویدادهای درگ و دراپ ==========
-        if (dropArea) {
-            dropArea.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                this.classList.add('azr-drag-over');
-            });
+      // ========== اعتبارسنجی ایمیل ==========
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
 
-            dropArea.addEventListener('dragleave', function(e) {
-                e.preventDefault();
-                this.classList.remove('azr-drag-over');
-            });
+      // ========== ارسال فرم ==========
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          clearAllErrors();
+          let isValid = true;
 
-            dropArea.addEventListener('drop', function(e) {
-                e.preventDefault();
-                this.classList.remove('azr-drag-over');
-                const files = e.dataTransfer.files;
-                if (files.length > 0 && resumeFileInput) {
-                    resumeFileInput.files = files;
-                    if (fileLabel) {
-                        fileLabel.textContent = files[0].name;
-                    }
-                    this.style.borderColor = '#10b981';
-                    clearError(this, fileError);
-                }
-            });
-        }
-
-        // ========== اعتبارسنجی ایمیل ==========
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        // ========== ارسال فرم ==========
-if (form) {
-    form.addEventListener('submit', function(e) {
-        clearAllErrors();
-        let isValid = true;
-
-        // بررسی نام
-        if (!fullNameInput || fullNameInput.value.trim() === '') {
+          // بررسی نام
+          if (!fullNameInput || fullNameInput.value.trim() === '') {
             showError(nameWrapper, nameError);
             isValid = false;
-        }
+          }
 
-        // بررسی ایمیل
-        if (!emailInput || !isValidEmail(emailInput.value.trim())) {
+          // بررسی ایمیل
+          if (!emailInput || !isValidEmail(emailInput.value.trim())) {
             showError(emailWrapper, emailError);
             isValid = false;
-        }
+          }
 
-        // بررسی موقعیت شغلی
-        if (!positionSelect || positionSelect.value === '') {
+          // بررسی موقعیت شغلی
+          if (!positionSelect || positionSelect.value === '') {
             showError(positionWrapper, positionError);
             isValid = false;
-        }
+          }
 
-        // بررسی شماره تماس
-        if (phoneInput) {
+          // بررسی شماره تماس
+          if (phoneInput) {
             const phoneVal = phoneInput.value.trim();
             if (phoneVal === '' || !/^[0-9]{10,11}$/.test(phoneVal)) {
-                showError(phoneWrapper, phoneError);
-                isValid = false;
+              showError(phoneWrapper, phoneError);
+              isValid = false;
             }
-        }
+          }
 
-        // بررسی فایل رزومه
-        if (!resumeFileInput || resumeFileInput.files.length === 0) {
+          // بررسی فایل رزومه
+          if (!resumeFileInput || resumeFileInput.files.length === 0) {
             showError(dropArea, fileError);
             isValid = false;
-        }
+          }
 
-        // اگه فرم خطا داشت، جلوی ارسال رو بگیر
-        if (!isValid) {
+          // اگه فرم خطا داشت، جلوی ارسال رو بگیر
+          if (!isValid) {
             e.preventDefault();
-        }
-        // اگه خطا نداشت، فرم به روش عادی ارسال میشه
-    });
-}
+          }
+          // اگه خطا نداشت، فرم به روش عادی ارسال میشه
+        });
+      }
 
-        // ========== پاک کردن خطاها هنگام تایپ ==========
-        if (emailInput) {
-            emailInput.addEventListener('input', function() {
-                clearError(emailWrapper, emailError);
-            });
-        }
-        if (fullNameInput) {
-            fullNameInput.addEventListener('input', function() {
-                clearError(nameWrapper, nameError);
-            });
-        }
-        if (positionSelect) {
-            positionSelect.addEventListener('change', function() {
-                clearError(positionWrapper, positionError);
-            });
-        }
-        if (phoneInput) {
-            phoneInput.addEventListener('input', function() {
-                clearError(phoneWrapper, phoneError);
-            });
-        }
+      // ========== پاک کردن خطاها هنگام تایپ ==========
+      if (emailInput) {
+        emailInput.addEventListener('input', function () {
+          clearError(emailWrapper, emailError);
+        });
+      }
+      if (fullNameInput) {
+        fullNameInput.addEventListener('input', function () {
+          clearError(nameWrapper, nameError);
+        });
+      }
+      if (positionSelect) {
+        positionSelect.addEventListener('change', function () {
+          clearError(positionWrapper, positionError);
+        });
+      }
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function () {
+          clearError(phoneWrapper, phoneError);
+        });
+      }
     })();
 
-    // ========== راه‌اندازی دراپ‌منوها ==========
-	(function() {
-		// تابع باز و بسته کردن دراپ‌منو
-		function toggleDropdown(triggerId, dropdownId) {
-			var trigger = document.getElementById(triggerId);
-			var dropdown = document.getElementById(dropdownId);
-			
-			if (trigger && dropdown) {
-				trigger.addEventListener("click", function(e) {
-					e.stopPropagation();
-					
-					// بستن همه دراپ‌منوهای دیگر
-					document.querySelectorAll('.dropdown-content').forEach(function(el) {
-						if (el.id !== dropdownId) {
-							el.style.display = 'none';
-						}
-					});
-					
-					// باز و بسته کردن دراپ‌منو فعلی
-					if (dropdown.style.display === 'flex') {
-						dropdown.style.display = 'none';
-					} else {
-						dropdown.style.display = 'flex';
-					}
-				});
-			}
-		}
-		
-		// بستن دراپ‌منو با کلیک خارج از آن
-		document.addEventListener("click", function() {
-			document.querySelectorAll('.dropdown-content').forEach(function(el) {
-				el.style.display = 'none';
-			});
-		});
-		
-		// جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
-		document.querySelectorAll('.dropdown-content').forEach(function(el) {
-			el.addEventListener("click", function(e) {
-				e.stopPropagation();
-			});
-		});
-		
-		// راه‌اندازی دراپ‌منوها
-		toggleDropdown('frameContainer', 'blogDropdown');
-		toggleDropdown('frameContainer1', 'academyDropdown');
-		toggleDropdown('frameContainer2', 'servicesDropdown');
-	})();
-</script>
+
+  </script>
 </body>
+
 </html>

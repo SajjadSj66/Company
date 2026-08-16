@@ -1,369 +1,78 @@
 {% load static %}
-<style>
-	       /* footer */
-        /* فوتر  */
-.site-footer-wrapper {
-  width: 100%;
-  position: relative;
-  background-color: #1d3363;
-  border-top: 1px solid #1d3363;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 80px 80px 40px;
-  gap: 64px;
-  text-align: left;
-  font-size: 14px;
-  color: #ebebeb;
-  font-family: Rubik;
-  top: 120px;
-}
 
-.footer-grid-row {
-  align-self: stretch;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-}
+<footer class="site-footer">
+            <div class="footer-grid">
+                <div class="about-col">
+                    <div class="brand-header"><span class="brand-name">آذر
+                            یزدان</span><div class="brand-logo"><div
+                                class="logo-inner">
+                                <a href="{% url 'home' %}">
+                                <img src="{% static 'asets/logo.svg' %}"
+                                    alt></a></div></div></div>
+                    <p class="about-desc">برترین آژانس خلاقیت دیجیتال کشور با
+                        رویکرد آموزش پروژه‌محور و مهارت‌محور جهت آماده‌سازی نسل
+                        آینده رهبران فناوری و مارکتینگ.</p>
+                </div>
+                <div class="links-col">
+                    <a href="{% url 'services' %}">
+                        <span class="col-heading">خدمات ما</span>
+                    </a>
+                        <nav class="footer-links">
+                            <a href="{% url 'services_web' %}">طراحی وب</a>
+                            <a href="{% url 'services_seo' %}">سئو و بهینه‌سازی</a>
+                            <a>تولید محتوا</a>
+                            <a>برندینگ</a>
+                        </nav>
+                </div>
+                <div class="links-col">
+                    <span class="col-heading">بیشتر بدانید</span>
+                    <nav class="footer-links">
+                        <a href="{% url 'template_list' %}" >پروژه ها</a>
+                        <a href="{% url 'courses:course_list' %}" >آکادمی</a>
+                        <a href="{% url 'users:blog_home' %}">مقالات</a>
+                        <a href="{% url 'users:contact_page' %}">تماس با ما</a>
+                    </nav>
+                </div>
+                <div class="contact-col">
+                    <span class="col-heading">ارتباط با ما</span>
+                    <div class="contact-items"><div class="contact-line">آدرس: تبریز، هفده شهریور جدید کوی نوبری پلاک 18
+</div><div
+                            class="contact-line">تلفن:04135579396
+</div><div
+                            class="contact-line">ایمیل:info@yazdancode.com</div></div>
+                    <div class="certs-box"><div class="certs-label">مجوز های ما</div>
+                    <div class="cert-thumbnails">
+                        <div
+                                class="cert-thumb">
 
-.quick-links-column {
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
+                              <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=751865&Code=zaRCefkffz9lXT0auB8OFRFlcsDaPI8r'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=751865&Code=zaRCefkffz9lXT0auB8OFRFlcsDaPI8r' alt='' style='cursor:pointer' code='zaRCefkffz9lXT0auB8OFRFlcsDaPI8r'></a>  
+                            </div>
+                            <div
+                            
+                                class="cert-thumb">
 
-.footer-heading-title {
-  position: relative;
-  font-size: 16px;
-  color: #f0c040;
-  transition: color 0.3s ease;
-  position: relative;
-  padding-bottom: 4px;
-}
-
-.footer-heading-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 2px;
-  background-color: #f0c040;
-  transition: width 0.3s ease;
-}
-
-.footer-heading-title:hover::after {
-  width: 100%;
-}
-
-.footer-link-item {
-  position: relative;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  padding: 4px 0;
-  position: relative;
-}
-
-.footer-link-item:hover {
-  color: #f0c040;
-  transform: translateX(-5px);
-}
-
-.contact-info-column {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.contact-address-text {
-  position: relative;
-  text-align: right;
-  transition: color 0.3s ease;
-}
-
-.brand-info-column {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  font-size: 22px;
-}
-
-.brand-logo-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: transform 0.3s ease;
-}
-
-.brand-logo-wrapper:hover {
-  transform: scale(1.05);
-}
-
-.brand-name-gradient {
-  position: relative;
-  font-weight: 800;
-  background: linear-gradient(45deg, #f0c040, #ffd700, #f0c040);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
-}
-
-.brand-logo-image {
-  height: 56px;
-  width: 56px;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.brand-logo-wrapper:hover .brand-logo-image {
-  transform: rotate(10deg);
-}
-
-.brand-description-text {
-  align-self: stretch;
-  position: relative;
-  font-size: 14px;
-  line-height: 180%;
-  text-align: right;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
-
-.brand-description-text:hover {
-  opacity: 1;
-}
-
-.copyright-bottom-bar {
-  align-self: stretch;
-  border-top: 1px solid rgba(240, 192, 64, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px 0px 0px;
-  gap: 20px;
-  font-size: 13px;
-  color: #9ca3af;
-}
-
-.social-icons-group {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.social-icon-circle {
-  height: 42px;
-  width: 42px;
-  box-shadow: 0px 6px 16px rgba(240, 192, 64, 0.4);
-  border-radius: 12px;
-  background-color: #f0c040;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.social-icon-circle::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition:
-    width 0.6s,
-    height 0.6s;
-}
-
-.social-icon-circle:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 12px 24px rgba(240, 192, 64, 0.6);
-  background-color: #ffd700;
-}
-
-.social-icon-circle:hover::before {
-  width: 100px;
-  height: 100px;
-}
-
-.social-icon-circle:active {
-  transform: translateY(-2px);
-}
-
-.social-icon-inner-lg {
-  height: 24px;
-  width: 24px;
-  overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  transition: transform 0.3s ease;
-}
-
-.social-icon-circle:hover .social-icon-inner-lg {
-  transform: scale(1.1);
-}
-
-.social-svg-icon {
-  width: 24px;
-  height: 24px;
-  position: relative;
-}
-
-.social-icon-inner-sm {
-  height: 16px;
-  width: 16px;
-  overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  transition: transform 0.3s ease;
-}
-
-.social-icon-circle:hover .social-icon-inner-sm {
-  transform: scale(1.1);
-}
-
-.social-svg-icon-sm {
-  width: 16px;
-  height: 16px;
-  position: relative;
-}
-
-.copyright-text-content {
-  position: relative;
-}
-
-/* Additional polish for links */
-.footer-link-item,
-.contact-info-column .footer-link-item {
-  position: relative;
-  overflow: hidden;
-}
-
-.footer-link-item::before,
-.contact-info-column .footer-link-item::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 1px;
-  background-color: #f0c040;
-  transition: width 0.3s ease;
-}
-
-.footer-link-item:hover::before,
-.contact-info-column .footer-link-item:hover::before {
-  width: 100%;
-}
-
-/* Contact info specific hover */
-.contact-address-text:hover {
-  color: #f0c040;
-}
-
-/* Smooth scrollbar styling */
-@media (max-width: 768px) {
-  .site-footer-wrapper {
-    padding: 40px 20px 20px;
-    gap: 40px;
-  }
-
-  .footer-grid-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .quick-links-column,
-  .contact-info-column,
-  .brand-info-column {
-    width: 100%;
-    align-items: center;
-  }
-
-  .brand-description-text,
-  .contact-address-text {
-    text-align: center;
-  }
-
-  .copyright-bottom-bar {
-    flex-direction: column;
-    text-align: center;
-    gap: 16px;
-  }
-}
-</style>
-<div class="site-footer-wrapper">
-			<div class="footer-grid-row">
-				<div class="brand-info-column">
-					<div class="brand-logo-wrapper">
-						<img class="brand-logo-image" src="{% static 'asets/logo.svg' %}" alt="logo">
-						<div class="brand-name-gradient">آذر یزدان</div>
-					</div>
-					<div class="brand-description-text">برترین آژانس خلاقیت دیجیتال کشور با
-						رویکرد آموزش پروژه‌محور و مهارت‌محور جهت آماده‌سازی نسل آینده رهبران
-						فناوری و مارکتینگ
-					</div>
-				</div>
-				<div class="contact-info-column">
-					<b class="footer-heading-title">ارتباط با ما</b>
-					<div class="contact-address-text">تبریز-جاده کرجان-پارک علم و فناوری تبریز</div>
-					<div class="footer-link-item">تلفن : 04135579396</div>
-					<div class="footer-link-item">ایمیل: info@yazdancode.com</div>
-				</div>
-				<div class="quick-links-column">
-					<b class="footer-heading-title">دسترسی سریع</b>
-					<a href="{% url "shop:services" %}" style="text-decoration:none;" class="footer-link-item">خدمات ما</a>
-					<div class="footer-link-item">پروژه ها</div>
-					<div class="footer-link-item">آکادمی</div>
-					<a href="{% url "users:contact_page" %}" style="text-decoration:none;" class="footer-link-item">تماس با ما</a>
-				</div>
-			</div>
-			<div class="copyright-bottom-bar">
-				<div class="copyright-text-content">© ۱۴۰۵ تمامی حقوق برای شرکت آذر یزدان
-					محفوظ است. طراحی و توسعه توسط شرکت آذر یزدان
-				</div>
-				<div class="social-icons-group">
-					<div class="social-icon-circle">
-						<div class="social-icon-inner-sm">
-							<img class="social-svg-icon-sm" src="{% static 'asets/linkedin.svg' %}" alt="linkedin">
-						</div>
-					</div>
-					<div class="social-icon-circle">
-						<div class="social-icon-inner-lg">
-							<img class="social-svg-icon" src="{% static 'asets/twitter.svg' %}" alt="twitter">
-						</div>
-					</div>
-					<div class="social-icon-circle">
-						<div class="social-icon-inner-lg">
-							<img class="social-svg-icon" src="{% static 'asets/instagram.svg' %}" alt="instagram">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                               <a href="https://eastp.ir/" alt=""> <img src="{% static 'img/park.jpg' %}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-strip">
+                <div class="social-icons">
+                    <div class="social-circle"><div class="social-dot">
+                        <a href="https://t.me/+JOGfOfUWO2Q4NzVk">
+                        <img
+                                src="{% static 'asets/twitter.svg' %}" alt></a></div></div>
+                    <div class="social-circle"><div class="social-dot">
+                        <a href="https://www.instagram.com/azaryazdan.company">
+                        <img
+                                src="{% static 'asets/instagram.svg' %}" alt></a></div></div>
+                    <div class="social-circle"><div class="social-dot">
+                        <a href="https://www.linkedin.com/company/azar-yazdan/">
+                        <img
+                                src="{% static 'asets/linkedin.svg' %}" alt></a></div></div>
+                </div>
+                <div class="copyright-text">© ۱۴۰۵ تمامی حقوق برای شرکت آذر
+                    یزدان محفوظ است. طراحی و توسعه توسط شرکت آذر یزدان</div>
+            </div>
+        </footer>

@@ -1,13 +1,16 @@
 {% load static %}
+{% load jformat %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>شروع پروژه با آذریزدان</title>
-        <title>Document</title>
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شروع پروژه با آذریزدان</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <style>
         :root {
             --navy: #1D3363;
             --gold: #F0C040;
@@ -18,45 +21,17 @@
             --card-bg: #ffffff;
             --card-border: #eceae5;
         }
+
         a {
-		text-decoration: none !important;
-		}
-
-		/* حفظ رنگ پیش‌فرض لینک‌ها */
-		a {
-		color: inherit;
-		}
-
-        @font-face {
-            font-family: "Google Sans Flex";
-            src: url(../fonts/GoogleSansFlex.ttf);
+            text-decoration: none !important;
         }
 
-        @font-face {
-            font-family: "Vazir-Bold";
-            src: url(../fonts/Vazir-Bold.ttf);
+        /* حفظ رنگ پیش‌فرض لینک‌ها */
+        a {
+            color: inherit;
         }
 
 
-        @font-face {
-            font-family: "Vazir-Light";
-            src: url(../fonts/Vazir-Light.ttf);
-        }
-
-        @font-face {
-            font-family: "Vazir-Meduim";
-            src: url(../fonts/Vazir-Medium.ttf);
-        }
-
-        @font-face {
-            font-family: "Vazir-Thin";
-            src: url(../fonts/Vazir-Thin.ttf);
-        }
-
-        @font-face {
-            font-family: "Vazir";
-            src: url(../fonts/Vazir.ttf);
-        }
 
         * {
             margin: 0;
@@ -68,381 +43,15 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            font-family: Vazir;
             direction: rtl;
             width: 100%;
         }
 
 
-        
-/* ناو بار */
-.navbar-wrapper {
-  width: 100%;
-  height: 88px;
-  position: fixed;
-  background: linear-gradient(40deg, #f0c040 33.4%, #1d3363 33.5%);
-  text-align: left;
-  font-size: 16px;
-  color: #ebebeb;
-  font-family: Rubik;
-  align-items: center;
-  justify-self: center;
-  z-index: 1000;
-}
-.rectangle-parent {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 526px;
-  height: 88px;
-  overflow: hidden;
-}
-.frame-child {
-  position: absolute;
-  top: 0px;
-  left: -18px;
-  width: 422px;
-  height: 106px;
-  flex-shrink: 0;
-}
 
-.frame-wrapper {
-  position: absolute;
-  top: 18px;
-  left: 64px;
-  width: 293px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.cta-button-parent {
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.cta-button {
-  box-shadow: 0px 8px 20px rgba(26, 42, 78, 0.25);
-  border-radius: 12px;
-  background-color: #1d3363;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 36px;
-  gap: 8px;
-}
-.phone-call-3-1 {
-  height: 16px;
-  width: 16px;
-  position: relative;
-}
-.button-label {
-  position: relative;
-}
-.frame-inner {
-  height: 48px;
-  width: 48px;
-  position: relative;
-  border-radius: 12px;
-}
-.frame-group {
-  position: absolute;
-  top: 16px;
-  border-radius: 16px;
-  width: 887px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 32px;
-  text-align: right;
-  font-size: 20px;
-  color: #fbf8f8;
-  font-family: "Google Sans Flex";
-}
-.parent {
-  display: flex;
-  align-items: center;
-  gap: 57px;
-}
-.div {
-  position: relative;
-  font-weight: 600;
-  cursor: pointer;
-}
-.div3 {
-  width: 69px;
-  position: relative;
-  font-weight: 600;
-  display: inline-block;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-.angle-small-down-2-2-parent,
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  cursor: pointer;
-  position: relative;
-}
-
-.angle-small-down-2-2-parent {
-  width: 97px;
-}
-
-.angle-small-down-2-2-container,
-.dropdown-trigger {
-  width: 110px;
-}
-
-.logo-icon {
-  height: 56px;
-  width: 56px;
-  position: relative;
-  right: 10px;
-}
-
-/* استایل‌های جدید برای دراپ‌منو */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 8px;
-  z-index: 1001;
-}
-
-.blog-dropdown {
-  right: 0;
-}
-
-.academy-dropdown {
-  right: 0;
-}
-
-.services-dropdown {
-  right: 0;
-}
-
-.services {
-  width: 100%;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 40px;
-}
-.component-44-parent {
-  height: 176px;
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-44 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.component-38:hover,
-.component-44:hover,
-.component-442:hover,
-.component-443:hover,
-.component-402:hover {
-  background-color: rgba(118, 130, 156, 0.6);
-}
-.div {
-  position: relative;
-  font-weight: 500;
-}
-
-.services-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-  flex-shrink: 0;
-}
-.component-38-parent {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.component-38-parent :last-child {
-  border-bottom-right-radius: 12px;
-}
-.component-38-parent :first-child {
-  border-top-right-radius: 12px;
-}
-.component-44-parent :first-child {
-  border-top-left-radius: 12px;
-}
-.component-38 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-  flex-shrink: 0;
-}
-.line-div {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-
-.academi {
-  width: 465px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 93%;
-  max-height: 90%;
-  overflow: hidden;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-  left: 110px;
-}
-.component-44-group {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.component-442 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div14 {
-  position: relative;
-  font-weight: 500;
-  white-space: pre-wrap;
-}
-.frame-child7 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.div15 {
-  position: relative;
-  font-weight: 500;
-}
-.academi-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-  flex-shrink: 0;
-}
-.component-38-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  flex-shrink: 0;
-}
-.component-402 {
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 24px 16px;
-}
-
-.blog {
-  width: 409px;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  background-color: rgba(29, 51, 99, 0.5);
-  display: flex;
-  align-items: flex-start;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-  text-align: right;
-  font-size: 16px;
-  color: #fff;
-  font-family: "Google Sans Flex";
-  top: 23px;
-}
-.component-44-container {
-  width: 197px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.component-443 {
-  align-self: stretch;
-  backdrop-filter: blur(50px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 16px;
-}
-.div20 {
-  position: relative;
-  font-weight: 500;
-}
-.frame-child13 {
-  align-self: stretch;
-  height: 1px;
-  position: relative;
-  border-top: 1px solid #737a88;
-  box-sizing: border-box;
-}
-.blog-child {
-  align-self: stretch;
-  flex: 1;
-  position: relative;
-  border-right: 1px solid #6b7280;
-}
-.component-38-container {
-  width: 211px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-/* حذف استایل popup-overlay چون دیگه استفاده نمیشه */
-.popup-overlay {
-  display: none;
-}
-
-
-
-/* salma */
- /* --- New Section Class (Width 1440px Centered) --- */
+        /* salma */
+        /* --- New Section Class (Width 1440px Centered) --- */
         .hero-section--new {
             width: 100%;
             max-width: 1440px;
@@ -460,7 +69,7 @@
             text-align: right;
             font-size: 52px;
             color: #1d3363;
-            font-family: Inter, sans-serif;
+
             top: 96px;
         }
 
@@ -555,7 +164,7 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
-            font-family: Inter, sans-serif;
+
             letter-spacing: -0.2px;
             position: relative;
             overflow: hidden;
@@ -687,7 +296,7 @@
         .form-moshavere-wrap {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 80px 120px 120px 120px;
+            padding: 120px 0px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -836,7 +445,7 @@
         }
 
         .form-moshavere-left-form-steps {
-        
+
             padding: 20px 24px;
             border-radius: 12px;
             background: #F8F8FA;
@@ -859,1487 +468,1370 @@
         .process-section {
             max-width: 1440px;
             justify-self: center;
-  	width: 100%;
-  	position: relative;
-  	background-color: #f8f8fa;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	padding: 96px 120px;
-  	box-sizing: border-box;
-  	gap: 56px;
-  	text-align: left;
-  	font-size: 32px;
-  	color: #1d3363;
-  	font-family: Inter;
-}
-.section-title {
-  	align-self: stretch;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	gap: 12px;
-}
-.div-step {
-  	position: relative;
-  	font-weight: 800;
-}
-.rectangle-step {
-  	width: 64px;
-  	height: 4px;
-  	position: relative;
-  	border-radius: 2px;
-  	background-color: #f0c040;
-}
-.steps-container-rtl {
-  	align-self: stretch;
-  	display: flex;
-  	align-items: center;
-  	justify-content: space-between;
-  	gap: 0px;
-  	text-align: center;
-  	font-size: 20px;
-}
-.step-block {
-  	width: 320px;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	gap: 16px;
-}
-.frame-step {
-  	width: 56px;
-  	height: 56px;
-  	border-radius: 28px;
-  	background-color: #f0c040;
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	text-align: left;
-}
-.b-step {
-  	position: relative;
-  	font-size: 18px;
-}
-.div3-step {
-  	position: relative;
-  	font-size: 14px;
-  	line-height: 160%;
-  	color: #606c80;
-}
-.line-step {
-  	height: 0px;
-  	width: 120px;
-  	position: relative;
-  	border-top: 2px dashed #e8e8e8;
-  	box-sizing: border-box;
-}
-/* sectionman */
-/* SECTION 4 : CTA BANNER  */
-      .cta-wrapper {
-        max-width: 1440px;
-        justify-self: center;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 80px 0px;
-        width: 100%;
-        background: #ffffff;
-      }
+            width: 100%;
+            position: relative;
+            background-color: #f8f8fa;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 96px 120px;
+            box-sizing: border-box;
+            gap: 56px;
+            text-align: left;
+            font-size: 32px;
+            color: #1d3363;
 
-      .cta-container {
-        width: 100%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-self: center;
-       
-        gap: 32px;
-        isolation: isolate;
-      
-        min-height: 334px;
-        background: #1d3363;
-     
-       
-        
-      }
+        }
 
-      .cta-text-block {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        width: 1080px;
-        max-width: 100%;
-      }
+        .section-title {
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
 
-      .cta-text-block h2 {
-        width: 100%;
-        font-weight: 800;
-        font-size: 36px;
-        line-height: 44px;
-        text-align: center;
-        color: #ffffff;
-        font-family: "Vazirmatn", sans-serif;
-      }
+        .div-step {
+            position: relative;
+            font-weight: 800;
+        }
 
-      .cta-text-block p {
-        width: 100%;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
-        text-align: center;
-        color: #fbebb5;
-        font-family: "Vazirmatn", sans-serif;
-      }
+        .rectangle-step {
+            width: 64px;
+            height: 4px;
+            position: relative;
+            border-radius: 2px;
+            background-color: #f0c040;
+        }
 
-      .cta-buttons {
-        direction: ltr;
-        position: relative;
-        z-index: 3;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 16px;
-        padding-top: 16px;
-      }
+        .steps-container-rtl {
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0px;
+            text-align: center;
+            font-size: 20px;
+        }
 
-      .cta-btn-primary {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 14px 32px;
-        gap: 8px;
-        height: 47px;
-        background: #f0c040;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.0392157);
-        border-radius: 12px;
-        border: none;
-        cursor: pointer;
-        font-family: "Vazirmatn", sans-serif;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-        color: #1d3363;
-        white-space: nowrap;
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        position: relative;
-        overflow: hidden;
-      }
+        .step-block {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
 
-      .cta-btn-primary::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s ease, height 0.6s ease;
-      }
+        .frame-step {
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            background-color: #f0c040;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
 
-      .cta-btn-primary:hover {
-        background: #e5b330;
-        box-shadow: 0px 8px 24px rgba(240, 192, 64, 0.5);
-        transform: translateY(-2px);
-      }
+        .b-step {
+            position: relative;
+            font-size: 18px;
+        }
 
-      .cta-btn-primary:hover::before {
-        width: 300px;
-        height: 300px;
-      }
+        .div3-step {
+            position: relative;
+            font-size: 14px;
+            line-height: 160%;
+            color: #606c80;
+        }
 
-      .cta-btn-primary:active {
-        transform: translateY(0px);
-        box-shadow: 0px 2px 8px rgba(240, 192, 64, 0.3);
-        transition: all 0.1s ease;
-      }
+        .line-step {
+            height: 0px;
+            width: 120px;
+            position: relative;
+            border-top: 2px dashed #e8e8e8;
+            box-sizing: border-box;
+        }
 
-      .cta-btn-secondary {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 14px 32px;
-        gap: 8px;
-        height: 47px;
-        border: 1.5px solid #2f4a7f;
-        border-radius: 12px;
-        background: transparent;
-        cursor: pointer;
-        font-family: "Vazirmatn", sans-serif;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-        color: #ffffff;
-        white-space: nowrap;
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        position: relative;
-        overflow: hidden;
-      }
+        /* sectionman */
+        /* SECTION 4 : CTA BANNER  */
+        .cta-wrapper {
+            max-width: 1440px;
+            justify-self: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 80px 0px;
+            width: 100%;
+            background: #ffffff;
+        }
 
-      .cta-btn-secondary::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
-        transition: left 0.5s ease;
-      }
+        .cta-container {
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
 
-      .cta-btn-secondary:hover {
-        background: #f0c040;
-        color: #1d3363;
-        border-color: #f0c040;
-        box-shadow: 0px 8px 24px rgba(240, 192, 64, 0.35);
-        transform: translateY(-2px);
-      }
+            gap: 32px;
+            isolation: isolate;
 
-      .cta-btn-secondary:hover::before {
-        left: 100%;
-      }
-
-      .cta-btn-secondary:active {
-        transform: translateY(0px);
-        box-shadow: 0px 2px 8px rgba(240, 192, 64, 0.2);
-        transition: all 0.1s ease;
-      }
+            min-height: 334px;
+            background: #1d3363;
 
 
 
+        }
+
+        .cta-text-block {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            width: 1080px;
+            max-width: 100%;
+        }
+
+        .cta-text-block h2 {
+            width: 100%;
+            font-weight: 800;
+            font-size: 36px;
+            line-height: 44px;
+            text-align: center;
+            color: #ffffff;
+
+        }
+
+        .cta-text-block p {
+            width: 100%;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+            color: #fbebb5;
+
+        }
+
+        .cta-buttons {
+            direction: ltr;
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+            padding-top: 16px;
+        }
+
+        .cta-btn-primary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 32px;
+            gap: 8px;
+            height: 47px;
+            background: #f0c040;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.0392157);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            color: #1d3363;
+            white-space: nowrap;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn-primary::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-btn-primary:hover {
+            background: #e5b330;
+            box-shadow: 0px 8px 24px rgba(240, 192, 64, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-btn-primary:active {
+            transform: translateY(0px);
+            box-shadow: 0px 2px 8px rgba(240, 192, 64, 0.3);
+            transition: all 0.1s ease;
+        }
+
+        .cta-btn-secondary {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 14px 32px;
+            gap: 8px;
+            height: 47px;
+            border: 1.5px solid #2f4a7f;
+            border-radius: 12px;
+            background: transparent;
+            cursor: pointer;
+
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            color: #ffffff;
+            white-space: nowrap;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn-secondary::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-btn-secondary:hover {
+            background: #f0c040;
+            color: #1d3363;
+            border-color: #f0c040;
+            box-shadow: 0px 8px 24px rgba(240, 192, 64, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-secondary:hover::before {
+            left: 100%;
+        }
+
+        .cta-btn-secondary:active {
+            transform: translateY(0px);
+            box-shadow: 0px 2px 8px rgba(240, 192, 64, 0.2);
+            transition: all 0.1s ease;
+        }
 
 
-      
 
 
-/* ریسپانسیو سلما */
-/* ========================================
+
+
+
+
+        /* ریسپانسیو سلما */
+        /* ========================================
    RESPONSIVE DESIGN - ALL SIZES COMPLETE
    ======================================== */
-   /* ========================================
-   RESPONSIVE DESIGN - ALL SIZES COMPLETE
-   ======================================== */
 
-/* ========================================
-   TABLET (768px - 1024px)
-   ======================================== */
-@media screen and (max-width: 1024px) {
-    /* هیرو سکشن */
-    .hero-section--new {
-        padding: 64px 40px;
-        gap: 40px;
-        top: 88px;
-    }
-
-    .hero-text-block--new {
+   @media (max-width: 1230px) {
+    .form-moshavere-content{
         width: 100%;
-        max-width: 700px;
+        display: block;
     }
-
-    .hero-heading {
-        font-size: 36px;
-        line-height: 1.4;
-    }
-
-    .hero-description {
-        font-size: 16px;
-    }
-
-    .hero-cta-btn--new {
-        padding: 16px 40px;
-        font-size: 16px;
-    }
-
-    /* کارت‌های متریک - دو تا بالا، یکی پایین وسط */
-    .metric-cards-container--new {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 20px;
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .metric-card--new:nth-child(1),
-    .metric-card--new:nth-child(2) {
-        grid-row: 1;
-    }
-
-    .metric-card--new:nth-child(3) {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        max-width: 300px;
-        justify-self: center;
+    .form-moshavere-wrap{
         width: 100%;
     }
-
-    /* فرم مشاوره */
-    .form-moshavere-wrap {
-        padding: 60px 40px 80px;
-        gap: 40px;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
+    .form-moshavere-left-form{
+        margin-top: 100px;
     }
-
-    .form-moshavere-title {
-        width: 100%;
-    }
-
-    .form-moshavere-title h2 {
-        font-size: 28px;
-    }
-
-    .form-moshavere-content {
-        width: 100%;
-        max-width: 100%;
-        flex-direction: column;
-        gap: 48px;
-        box-sizing: border-box;
-    }
-
-    .form-moshavere-right-form {
-        width: 100%;
-        box-sizing: border-box;
-        overflow: visible;
-    }
-
-    .form-moshavere-right-form form {
-        width: 100%;
-        height: auto;
-        padding: 32px;
-        box-sizing: border-box;
-    }
-
-    .form-moshavere-input-group {
-        width: 100%;
-        height: auto;
-        position: relative;
-        overflow: visible;
-    }
-
-    .form-moshavere-input-group label,
-    .form-moshavere-input-group input,
-    .form-moshavere-input-group select,
-    .form-moshavere-input-group textarea {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* ریسپانسیو کردن select و option ها در تبلت */
-    .form-moshavere-input-group select {
-        width: 100%;
-        max-width: 100%;
-        padding: 10px 14px;
-        font-size: 14px;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D3363' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: left 12px center;
-        background-size: 16px;
-        cursor: pointer;
-    }
-
-    .form-moshavere-input-group select option {
-        font-size: 14px;
-        padding: 10px;
-        background: #fff;
-        color: #1D2430;
-        white-space: normal;
-        word-wrap: break-word;
-        max-width: 100%;
-    }
-
-    .form-moshavere-input-group select:focus {
-        position: relative;
-        z-index: 100;
-    }
-
-    .form-moshavere-submitInput {
-        width: 100%;
-    }
-
-    .form-moshavere-left-form {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .form-moshavere-left-form-conent-row {
-        text-align: right;
-    }
-
-    .form-moshavere-left-form-footer-card {
-        text-align: right;
-        border-left: 4px solid #E8E8E8;
-    }
-
-    .form-moshavere-left-form-steps {
-        text-align: right;
-        border-left: 4px solid var(--gold);
-    }
-
-    /* مسیر همکاری - افقی مثل دسکتاپ */
-    .process-section {
-        padding: 64px 24px;
-        gap: 40px;
-    }
-
-    .section-title {
-        text-align: center;
-    }
-
-    .steps-container-rtl {
-        display: flex;
+    .form-moshavere-left-form-conent{
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0;
-        flex-wrap: nowrap;
     }
+    
+   }
+        @media screen and (max-width: 1024px) {
 
-    .step-block {
-        width: auto;
-        min-width: 180px;
-        flex: 1;
-        text-align: center;
-        padding: 0 8px;
-    }
+            /* هیرو سکشن */
+            .hero-section--new {
+                padding: 64px 40px;
+                gap: 40px;
+                top: 88px;
+            }
 
-    .frame-step {
-        width: 52px;
-        height: 52px;
-        margin: 0 auto;
-    }
+            .hero-text-block--new {
+                width: 100%;
+                max-width: 700px;
+            }
 
-    .b-step {
-        font-size: 17px;
-    }
+            .hero-heading {
+                font-size: 36px;
+                line-height: 1.4;
+            }
 
-    .div3-step {
-        font-size: 13px;
-        line-height: 1.5;
-    }
+            .hero-description {
+                font-size: 16px;
+            }
 
-    .line-step {
-        width: 60px;
-        height: 0px;
-        border-top: 2px dashed #e8e8e8;
-        flex-shrink: 0;
-    }
+            .hero-cta-btn--new {
+                padding: 16px 40px;
+                font-size: 16px;
+            }
 
-    /* CTA بنر */
-    .cta-wrapper {
-        padding: 60px 0px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+            /* کارت‌های متریک - دو تا بالا، یکی پایین وسط */
+            .metric-cards-container--new {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 20px;
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+            }
 
-    .cta-container {
-        width: 100%;
-        padding: 48px 40px;
-        gap: 28px;
-        min-height: auto;
-        box-sizing: border-box;
-        border-radius: 0;
-    }
+            .metric-card--new:nth-child(1),
+            .metric-card--new:nth-child(2) {
+                grid-row: 1;
+            }
 
-    .cta-text-block {
-        width: 100%;
-        max-width: 700px;
-        gap: 14px;
-    }
+            .metric-card--new:nth-child(3) {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                max-width: 300px;
+                justify-self: center;
+                width: 100%;
+            }
 
-    .cta-text-block h2 {
-        font-size: 30px;
-        line-height: 1.4;
-    }
+            /* فرم مشاوره */
+            .form-moshavere-wrap {
+                padding: 60px 40px 80px;
+                gap: 40px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
 
-    .cta-text-block p {
-        font-size: 15px;
-        line-height: 1.7;
-    }
+            .form-moshavere-title {
+                width: 100%;
+            }
 
-    .cta-buttons {
-        direction: rtl;
-        padding-top: 12px;
-    }
+            .form-moshavere-title h2 {
+                font-size: 28px;
+            }
 
-    .cta-btn-primary {
-        padding: 14px 36px;
-        font-size: 16px;
-        height: 48px;
-    }
+            .form-moshavere-content {
+                width: 100%;
+                max-width: 100%;
+                flex-direction: column;
+                gap: 48px;
+                box-sizing: border-box;
+            }
 
-    /* فوتر */
-    .site-footer-wrapper {
-        padding: 60px 40px 30px;
-        gap: 48px;
-        top: 60px;
-    }
+            .form-moshavere-right-form {
+                width: 100%;
+                box-sizing: border-box;
+                overflow: visible;
+            }
 
-    .footer-grid-row {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 40px;
-    }
+            .form-moshavere-right-form form {
+                width: 100%;
+                height: auto;
+                padding: 32px;
+                box-sizing: border-box;
+            }
 
-    .brand-info-column {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-        order: -1;
-    }
+            .form-moshavere-input-group {
+                width: 100%;
+                height: auto;
+                position: relative;
+                overflow: visible;
+            }
 
-    .brand-description-text {
-        text-align: center;
-    }
+            .form-moshavere-input-group label,
+            .form-moshavere-input-group input,
+            .form-moshavere-input-group select,
+            .form-moshavere-input-group textarea {
+                width: 100%;
+                box-sizing: border-box;
+            }
 
-    .quick-links-column,
-    .contact-info-column {
-        width: calc(50% - 20px);
-        min-width: 250px;
-        align-items: center;
-        text-align: center;
-    }
+            /* ریسپانسیو کردن select و option ها در تبلت */
+            .form-moshavere-input-group select {
+                width: 100%;
+                max-width: 100%;
+                padding: 10px 14px;
+                font-size: 14px;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D3363' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: left 12px center;
+                background-size: 16px;
+                cursor: pointer;
+            }
 
-    .contact-address-text {
-        text-align: center;
-    }
-}
+            .form-moshavere-input-group select option {
+                font-size: 14px;
+                padding: 10px;
+                background: #fff;
+                color: #1D2430;
+                white-space: normal;
+                word-wrap: break-word;
+                max-width: 100%;
+            }
 
-/* ========================================
+            .form-moshavere-input-group select:focus {
+                position: relative;
+                z-index: 100;
+            }
+
+            .form-moshavere-submitInput {
+                width: 100%;
+            }
+
+            .form-moshavere-left-form {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .form-moshavere-left-form-conent-row {
+                text-align: right;
+            }
+
+            .form-moshavere-left-form-footer-card {
+                text-align: right;
+                border-left: 4px solid #E8E8E8;
+            }
+
+            .form-moshavere-left-form-steps {
+                text-align: right;
+                border-left: 4px solid var(--gold);
+            }
+
+            /* مسیر همکاری - افقی مثل دسکتاپ */
+            .process-section {
+                padding: 64px 24px;
+                gap: 40px;
+            }
+
+            .section-title {
+                text-align: center;
+            }
+
+            .steps-container-rtl {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0;
+                flex-wrap: nowrap;
+            }
+
+            .step-block {
+                width: auto;
+                min-width: 180px;
+                flex: 1;
+                text-align: center;
+                padding: 0 8px;
+            }
+
+            .frame-step {
+                width: 52px;
+                height: 52px;
+                margin: 0 auto;
+            }
+
+            .b-step {
+                font-size: 17px;
+            }
+
+            .div3-step {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .line-step {
+                width: 60px;
+                height: 0px;
+                border-top: 2px dashed #e8e8e8;
+                flex-shrink: 0;
+            }
+
+            /* CTA بنر */
+            .cta-wrapper {
+                padding: 60px 0px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .cta-container {
+                width: 100%;
+                padding: 48px 40px;
+                gap: 28px;
+                min-height: auto;
+                box-sizing: border-box;
+                border-radius: 0;
+            }
+
+            .cta-text-block {
+                width: 100%;
+                max-width: 700px;
+                gap: 14px;
+            }
+
+            .cta-text-block h2 {
+                font-size: 30px;
+                line-height: 1.4;
+            }
+
+            .cta-text-block p {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .cta-buttons {
+                direction: rtl;
+                padding-top: 12px;
+            }
+
+            .cta-btn-primary {
+                padding: 14px 36px;
+                font-size: 16px;
+                height: 48px;
+            }
+
+            /* فوتر */
+            .site-footer-wrapper {
+                padding: 60px 40px 30px;
+                gap: 48px;
+                top: 60px;
+            }
+
+            .footer-grid-row {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 40px;
+            }
+
+            .brand-info-column {
+                width: 100%;
+                align-items: center;
+                text-align: center;
+                order: -1;
+            }
+
+            .brand-description-text {
+                text-align: center;
+            }
+
+            .quick-links-column,
+            .contact-info-column {
+                width: calc(50% - 20px);
+                min-width: 250px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .contact-address-text {
+                text-align: center;
+            }
+        }
+
+        /* ========================================
    MOBILE LANDSCAPE & LARGE PHONES (600px - 768px)
    ======================================== */
-@media screen and (max-width: 768px) {
-    /* هیرو سکشن */
-    .hero-section--new {
-        padding: 48px 20px;
-        gap: 32px;
-        top: 80px;
-    }
-
-    .hero-text-block--new {
-        width: 100%;
-    }
-
-    .hero-heading {
-        font-size: 28px;
-        line-height: 1.4;
-    }
-
-    .hero-description {
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    .hero-cta-btn--new {
-        padding: 14px 32px;
-        font-size: 15px;
-        border-radius: 16px;
-        width: 100%;
-        max-width: 320px;
-    }
-
-    /* کارت‌های متریک - دو تا بالا، یکی پایین وسط */
-    .metric-cards-container--new {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 16px;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .metric-card--new:nth-child(1),
-    .metric-card--new:nth-child(2) {
-        grid-row: 1;
-    }
-
-    .metric-card--new:nth-child(3) {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        max-width: 390px;
-        justify-self: center;
-        width: 100%;
-    }
-
-    .metric-card--new {
-        padding: 20px;
-        gap: 12px;
-    }
-
-    .metric-value {
-        font-size: 22px;
-    }
-
-    .metric-label {
-        font-size: 14px;
-    }
-
-    .icon-circle--new {
-        width: 36px;
-        height: 36px;
-    }
-
-    .clock-icon {
-        width: 18px;
-        height: 18px;
-    }
-
-    .tech-grid-overlay--new {
-        opacity: 0.02;
-    }
-
-    /* فرم مشاوره */
-    .form-moshavere-wrap {
-        padding: 40px 16px 60px;
-        gap: 32px;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    .form-moshavere-title {
-        width: 100%;
-    }
-
-    .form-moshavere-title h2 {
-        font-size: 24px;
-    }
-
-    .form-moshavere-content {
-        width: 100%;
-        gap: 40px;
-        box-sizing: border-box;
-    }
-
-    .form-moshavere-right-form {
-        width: 100%;
-        box-sizing: border-box;
-        overflow: visible;
-    }
-
-    .form-moshavere-right-form form {
-        width: 100%;
-        padding: 24px 20px;
-        gap: 20px;
-        border-radius: 16px;
-        box-sizing: border-box;
-    }
-
-    .form-moshavere-input-group {
-        width: 100%;
-        height: auto;
-        position: relative;
-        overflow: visible;
-    }
-
-    .form-moshavere-input-group label {
-        font-size: 13px;
-        width: 100%;
-    }
-
-    .form-moshavere-input-group input,
-    .form-moshavere-input-group select,
-    .form-moshavere-input-group textarea {
-        width: 100%;
-        padding: 10px 12px;
-        font-size: 14px;
-        border-radius: 10px;
-        box-sizing: border-box;
-    }
-
-    /* ریسپانسیو کردن select و option ها در موبایل */
-    .form-moshavere-input-group select {
-        font-size: 13px;
-        padding: 8px 12px;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D3363' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: left 10px center;
-        background-size: 14px;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        cursor: pointer;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .form-moshavere-input-group select option {
-        font-size: 13px;
-        padding: 8px;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    .form-moshavere-input-group select:focus {
-        position: relative;
-        z-index: 100;
-    }
-
-    .form-moshavere-submitInput {
-        width: 100%;
-        padding: 14px;
-        font-size: 15px;
-        border-radius: 12px;
-    }
-
-    .form-moshavere-left-form {
-        width: 100%;
-        gap: 24px;
-        box-sizing: border-box;
-    }
-
-    .form-moshavere-left-form-title {
-        font-size: 20px;
-    }
-
-    .form-moshavere-left-form-conent {
-        gap: 24px;
-    }
-
-    .form-moshavere-left-form-conent-row {
-        text-align: right;
-    }
-
-    .form-moshavere-left-form-conent-row img {
-        width: 28px;
-        height: 28px;
-    }
-
-    .form-moshavere-left-form-footer-card {
-        padding: 20px;
-        font-size: 13px;
-        text-align: right;
-        border-left: 4px solid #E8E8E8;
-    }
-
-    .form-moshavere-left-form-steps {
-        padding: 16px 20px;
-        text-align: right;
-        border-left: 4px solid var(--gold);
-    }
-
-    .form-moshavere-left-form-steps b {
-        font-size: 14px;
-    }
-
-    .form-moshavere-left-form-steps p {
-        font-size: 12px;
-    }
-
-    /* مسیر همکاری - افقی مثل دسکتاپ */
-    .process-section {
-        padding: 48px 16px;
-        gap: 32px;
-    }
-
-    .section-title {
-        text-align: center;
-    }
-
-    .section-title .div-step {
-        font-size: 26px;
-    }
-
-    .rectangle-step {
-        width: 48px;
-        height: 3px;
-    }
-
-    .steps-container-rtl {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0;
-        flex-wrap: nowrap;
-    }
-
-    .step-block {
-        width: auto;
-        min-width: 150px;
-        flex: 1;
-        text-align: center;
-        padding: 0 4px;
-    }
-
-    .frame-step {
-        width: 44px;
-        height: 44px;
-        margin: 0 auto;
-    }
-
-    .frame-step .div-step {
-        font-size: 15px;
-    }
-
-    .b-step {
-        font-size: 14px;
-    }
-
-    .div3-step {
-        font-size: 11px;
-        line-height: 1.4;
-    }
-
-    .line-step {
-        width: 30px;
-        height: 0px;
-        border-top: 2px dashed #e8e8e8;
-        flex-shrink: 0;
-    }
-
-    /* CTA بنر */
-    .cta-wrapper {
-        padding: 48px 0px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .cta-container {
-        width: 100%;
-        padding: 40px 24px;
-        gap: 24px;
-        min-height: auto;
-        box-sizing: border-box;
-        background: #1d3363;
-    }
-
-    .cta-text-block {
-        width: 100%;
-        max-width: 100%;
-        gap: 12px;
-    }
-
-    .cta-text-block h2 {
-        font-size: 26px;
-        line-height: 1.4;
-        padding: 0 8px;
-    }
-
-    .cta-text-block p {
-        font-size: 14px;
-        line-height: 1.7;
-        padding: 0 8px;
-        color: #fbebb5;
-    }
-
-    .cta-buttons {
-        direction: rtl;
-        padding-top: 8px;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .cta-btn-primary,
-    .cta-btn-secondary {
-        width: auto;
-        min-width: 220px;
-        padding: 14px 32px;
-        font-size: 15px;
-        height: 46px;
-    }
-
-    /* فوتر */
-    .site-footer-wrapper {
-        padding: 40px 20px 24px;
-        gap: 36px;
-        top: 40px;
-    }
-
-    .footer-grid-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 32px;
-    }
-
-    .brand-info-column {
-        width: 100%;
-        align-items: center;
-        gap: 16px;
-    }
-
-    .brand-logo-wrapper {
-        justify-content: center;
-    }
-
-    .brand-name-gradient {
-        font-size: 20px;
-    }
-
-    .brand-description-text {
-        text-align: center;
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-    .quick-links-column,
-    .contact-info-column {
-        width: 100%;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .footer-heading-title {
-        text-align: center;
-        font-size: 15px;
-    }
-
-    .footer-heading-title::after {
-        right: 50%;
-        transform: translateX(50%);
-    }
-
-    .footer-link-item {
-        text-align: center;
-    }
-
-    .footer-link-item:hover {
-        transform: translateX(0) scale(1.05);
-    }
-
-    .contact-address-text {
-        text-align: center;
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-    .copyright-bottom-bar {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-        padding: 24px 0px 0px;
-    }
-
-    .copyright-text-content {
-        font-size: 12px;
-    }
-
-    .social-icons-group {
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .social-icon-circle {
-        width: 38px;
-        height: 38px;
-    }
-
-    .social-icon-inner-lg {
-        width: 20px;
-        height: 20px;
-    }
-
-    .social-svg-icon {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-/* ========================================
+        @media screen and (max-width: 768px) {
+
+            /* هیرو سکشن */
+            .hero-section--new {
+                padding: 48px 20px;
+                gap: 32px;
+                top: 80px;
+            }
+
+            .hero-text-block--new {
+                width: 100%;
+            }
+
+            .hero-heading {
+                font-size: 28px;
+                line-height: 1.4;
+            }
+
+            .hero-description {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .hero-cta-btn--new {
+                padding: 14px 32px;
+                font-size: 15px;
+                border-radius: 16px;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            /* کارت‌های متریک - دو تا بالا، یکی پایین وسط */
+            .metric-cards-container--new {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 16px;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .metric-card--new:nth-child(1),
+            .metric-card--new:nth-child(2) {
+                grid-row: 1;
+            }
+
+            .metric-card--new:nth-child(3) {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                max-width: 390px;
+                justify-self: center;
+                width: 100%;
+            }
+
+            .metric-card--new {
+                padding: 20px;
+                gap: 12px;
+            }
+
+            .metric-value {
+                font-size: 22px;
+            }
+
+            .metric-label {
+                font-size: 14px;
+            }
+
+            .icon-circle--new {
+                width: 36px;
+                height: 36px;
+            }
+
+            .clock-icon {
+                width: 18px;
+                height: 18px;
+            }
+
+            .tech-grid-overlay--new {
+                opacity: 0.02;
+            }
+
+            /* فرم مشاوره */
+            .form-moshavere-wrap {
+                padding: 40px 16px 60px;
+                gap: 32px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+
+            .form-moshavere-title {
+                width: 100%;
+            }
+
+            .form-moshavere-title h2 {
+                font-size: 24px;
+            }
+
+            .form-moshavere-content {
+                width: 100%;
+                gap: 40px;
+                box-sizing: border-box;
+            }
+
+            .form-moshavere-right-form {
+                width: 100%;
+                box-sizing: border-box;
+                overflow: visible;
+            }
+
+            .form-moshavere-right-form form {
+                width: 100%;
+                padding: 24px 20px;
+                gap: 20px;
+                border-radius: 16px;
+                box-sizing: border-box;
+            }
+
+            .form-moshavere-input-group {
+                width: 100%;
+                height: auto;
+                position: relative;
+                overflow: visible;
+            }
+
+            .form-moshavere-input-group label {
+                font-size: 13px;
+                width: 100%;
+            }
+
+            .form-moshavere-input-group input,
+            .form-moshavere-input-group select,
+            .form-moshavere-input-group textarea {
+                width: 100%;
+                padding: 10px 12px;
+                font-size: 14px;
+                border-radius: 10px;
+                box-sizing: border-box;
+            }
+
+            /* ریسپانسیو کردن select و option ها در موبایل */
+            .form-moshavere-input-group select {
+                font-size: 13px;
+                padding: 8px 12px;
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D3363' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: left 10px center;
+                background-size: 14px;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                cursor: pointer;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .form-moshavere-input-group select option {
+                font-size: 13px;
+                padding: 8px;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            .form-moshavere-input-group select:focus {
+                position: relative;
+                z-index: 100;
+            }
+
+            .form-moshavere-submitInput {
+                width: 100%;
+                padding: 14px;
+                font-size: 15px;
+                border-radius: 12px;
+            }
+
+            .form-moshavere-left-form {
+                width: 100%;
+                gap: 24px;
+                box-sizing: border-box;
+            }
+
+            .form-moshavere-left-form-title {
+                font-size: 20px;
+            }
+
+            .form-moshavere-left-form-conent {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .form-moshavere-left-form-conent-row {
+                text-align: right;
+            }
+
+            .form-moshavere-left-form-conent-row img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .form-moshavere-left-form-footer-card {
+                padding: 20px;
+                font-size: 13px;
+                text-align: right;
+                border-left: 4px solid #E8E8E8;
+            }
+
+            .form-moshavere-left-form-steps {
+                padding: 16px 20px;
+                text-align: right;
+                border-left: 4px solid var(--gold);
+            }
+
+            .form-moshavere-left-form-steps b {
+                font-size: 14px;
+            }
+
+            .form-moshavere-left-form-steps p {
+                font-size: 12px;
+            }
+
+            /* مسیر همکاری - افقی مثل دسکتاپ */
+            .process-section {
+                padding: 48px 16px;
+                gap: 32px;
+            }
+
+            .section-title {
+                text-align: center;
+            }
+
+            .section-title .div-step {
+                font-size: 26px;
+            }
+
+            .rectangle-step {
+                width: 48px;
+                height: 3px;
+            }
+
+            .steps-container-rtl {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0;
+                flex-wrap: nowrap;
+            }
+
+            .step-block {
+                width: auto;
+                min-width: 150px;
+                flex: 1;
+                text-align: center;
+                padding: 0 4px;
+            }
+
+            .frame-step {
+                width: 44px;
+                height: 44px;
+                margin: 0 auto;
+            }
+
+            .frame-step .div-step {
+                font-size: 15px;
+            }
+
+            .b-step {
+                font-size: 14px;
+            }
+
+            .div3-step {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+
+            .line-step {
+                width: 30px;
+                height: 0px;
+                border-top: 2px dashed #e8e8e8;
+                flex-shrink: 0;
+            }
+
+            /* CTA بنر */
+            .cta-wrapper {
+                padding: 48px 0px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .cta-container {
+                width: 100%;
+                padding: 40px 24px;
+                gap: 24px;
+                min-height: auto;
+                box-sizing: border-box;
+                background: #1d3363;
+            }
+
+            .cta-text-block {
+                width: 100%;
+                max-width: 100%;
+                gap: 12px;
+            }
+
+            .cta-text-block h2 {
+                font-size: 26px;
+                line-height: 1.4;
+                padding: 0 8px;
+            }
+
+            .cta-text-block p {
+                font-size: 14px;
+                line-height: 1.7;
+                padding: 0 8px;
+                color: #fbebb5;
+            }
+
+            .cta-buttons {
+                direction: rtl;
+                padding-top: 8px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-btn-primary,
+            .cta-btn-secondary {
+                width: auto;
+                min-width: 220px;
+                padding: 14px 32px;
+                font-size: 15px;
+                height: 46px;
+            }
+
+
+        }
+
+        /* ========================================
    SMALL MOBILE (<480px)
    ======================================== */
-@media screen and (max-width: 480px) {
-    /* هیرو سکشن */
-    .hero-section--new {
-        padding: 40px 16px;
-        gap: 24px;
-        top: 72px;
-    }
+        @media screen and (max-width: 480px) {
 
-    .hero-heading {
-        font-size: 22px;
-    }
+            /* هیرو سکشن */
+            .hero-section--new {
+                padding: 40px 16px;
+                gap: 24px;
+                top: 72px;
+            }
 
-    .hero-description {
-        font-size: 14px;
-    }
+            .hero-heading {
+                font-size: 22px;
+            }
 
-    .hero-cta-btn--new {
-        padding: 12px 24px;
-        font-size: 14px;
-        border-radius: 14px;
-        max-width: 100%;
-    }
+            .hero-description {
+                font-size: 14px;
+            }
 
-    /* کارت‌های متریک - دو تا بالا، یکی پایین وسط */
-    .metric-cards-container--new {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 12px;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-    }
+            .hero-cta-btn--new {
+                padding: 12px 24px;
+                font-size: 14px;
+                border-radius: 14px;
+                max-width: 100%;
+            }
 
-    .metric-card--new:nth-child(1),
-    .metric-card--new:nth-child(2) {
-        grid-row: 1;
-    }
+            /* کارت‌های متریک - دو تا بالا، یکی پایین وسط */
+            .metric-cards-container--new {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 12px;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+            }
 
-    .metric-card--new:nth-child(3) {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        max-width: 180px;
-        justify-self: center;
-        width: 100%;
-    }
+            .metric-card--new:nth-child(1),
+            .metric-card--new:nth-child(2) {
+                grid-row: 1;
+            }
 
-    .metric-card--new {
-        padding: 16px;
-        gap: 8px;
-    }
+            .metric-card--new:nth-child(3) {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                max-width: 180px;
+                justify-self: center;
+                width: 100%;
+            }
 
-    .metric-value {
-        font-size: 18px;
-    }
+            .metric-card--new {
+                padding: 16px;
+                gap: 8px;
+            }
 
-    .metric-label {
-        font-size: 12px;
-    }
+            .metric-value {
+                font-size: 18px;
+            }
 
-    .icon-circle--new {
-        width: 32px;
-        height: 32px;
-    }
+            .metric-label {
+                font-size: 12px;
+            }
 
-    .clock-icon {
-        width: 16px;
-        height: 16px;
-    }
+            .icon-circle--new {
+                width: 32px;
+                height: 32px;
+            }
 
-    /* فرم مشاوره */
-    .form-moshavere-wrap {
-        padding: 32px 12px 48px;
-        gap: 24px;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
+            .clock-icon {
+                width: 16px;
+                height: 16px;
+            }
 
-    .form-moshavere-title h2 {
-        font-size: 22px;
-        position: relative;
-        top: 12px;
-    }
+            /* فرم مشاوره */
+            .form-moshavere-wrap {
+                padding: 32px 12px 48px;
+                gap: 24px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
 
-    .form-moshavere-right-form {
-        overflow: visible;
-    }
+            .form-moshavere-title h2 {
+                font-size: 22px;
+                position: relative;
+                top: 12px;
+            }
 
-    .form-moshavere-right-form form {
-        padding: 20px 16px;
-        gap: 16px;
-        border-radius: 14px;
-        box-sizing: border-box;
-    }
+            .form-moshavere-right-form {
+                overflow: visible;
+            }
 
-    .form-moshavere-input-group {
-        position: relative;
-        overflow: visible;
-    }
+            .form-moshavere-right-form form {
+                padding: 20px 16px;
+                gap: 16px;
+                border-radius: 14px;
+                box-sizing: border-box;
+            }
 
-    .form-moshavere-input-group label {
-        font-size: 12px;
-    }
+            .form-moshavere-input-group {
+                position: relative;
+                overflow: visible;
+            }
 
-    .form-moshavere-input-group input,
-    .form-moshavere-input-group select,
-    .form-moshavere-input-group textarea {
-        font-size: 13px;
-        padding: 8px 10px;
-        border-radius: 8px;
-    }
+            .form-moshavere-input-group label {
+                font-size: 12px;
+            }
 
-    /* ریسپانسیو کردن select و option ها در موبایل کوچک */
-    .form-moshavere-input-group select {
-        font-size: 12px;
-        padding: 8px 10px;
-        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D3363' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: left 8px center;
-        background-size: 12px;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        cursor: pointer;
-        max-width: 100%;
-        width: 100%;
-    }
+            .form-moshavere-input-group input,
+            .form-moshavere-input-group select,
+            .form-moshavere-input-group textarea {
+                font-size: 13px;
+                padding: 8px 10px;
+                border-radius: 8px;
+            }
 
-    .form-moshavere-input-group select option {
-        font-size: 12px;
-        padding: 6px 8px;
-        max-width: calc(100vw - 80px);
-        word-break: break-all;
-    }
+            /* ریسپانسیو کردن select و option ها در موبایل کوچک */
+            .form-moshavere-input-group select {
+                font-size: 12px;
+                padding: 8px 10px;
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D3363' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: left 8px center;
+                background-size: 12px;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                cursor: pointer;
+                max-width: 100%;
+                width: 100%;
+            }
 
-    .form-moshavere-input-group select:focus {
-        position: relative;
-        z-index: 100;
-    }
+            .form-moshavere-input-group select option {
+                font-size: 12px;
+                padding: 6px 8px;
+                max-width: calc(100vw - 80px);
+                word-break: break-all;
+            }
 
-    .form-moshavere-submitInput {
-        font-size: 14px;
-        padding: 12px;
-        border-radius: 10px;
-        height: 44px;
-    }
+            .form-moshavere-input-group select:focus {
+                position: relative;
+                z-index: 100;
+            }
 
-    .form-moshavere-left-form-title {
-        font-size: 18px;
-    }
+            .form-moshavere-submitInput {
+                font-size: 14px;
+                padding: 12px;
+                border-radius: 10px;
+                height: 44px;
+            }
 
-    .form-moshavere-left-form-conent-row {
-        text-align: right;
-    }
+            .form-moshavere-left-form-title {
+                font-size: 18px;
+            }
 
-    .form-moshavere-left-form-footer-card {
-        font-size: 12px;
-        padding: 16px;
-        text-align: right;
-        border-left: 4px solid #E8E8E8;
-    }
+            .form-moshavere-left-form-conent-row {
+                text-align: right;
+            }
 
-    .form-moshavere-left-form-steps {
-        text-align: right;
-        border-left: 4px solid var(--gold);
-    }
+            .form-moshavere-left-form-footer-card {
+                font-size: 12px;
+                padding: 16px;
+                text-align: right;
+                border-left: 4px solid #E8E8E8;
+            }
 
-    /* مسیر همکاری - افقی مثل دسکتاپ */
-    .process-section {
-        padding: 40px 8px;
-        gap: 24px;
-    }
+            .form-moshavere-left-form-steps {
+                text-align: right;
+                border-left: 4px solid var(--gold);
+            }
 
-    .section-title .div-step {
-        font-size: 22px;
-    }
+            /* مسیر همکاری - افقی مثل دسکتاپ */
+            .process-section {
+                padding: 40px 8px;
+                gap: 24px;
+            }
 
-    .steps-container-rtl {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0;
-        flex-wrap: nowrap;
-    }
+            .section-title .div-step {
+                font-size: 22px;
+            }
 
-    .step-block {
-        width: auto;
-        min-width: 90px;
-        flex: 1;
-        text-align: center;
-        padding: 0 2px;
-    }
+            .steps-container-rtl {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0;
+                flex-wrap: nowrap;
+            }
 
-    .frame-step {
-        width: 36px;
-        height: 36px;
-        margin: 0 auto;
-    }
+            .step-block {
+                width: auto;
+                min-width: 90px;
+                flex: 1;
+                text-align: center;
+                padding: 0 2px;
+            }
 
-    .frame-step .div-step {
-        font-size: 13px;
-    }
+            .frame-step {
+                width: 36px;
+                height: 36px;
+                margin: 0 auto;
+            }
 
-    .b-step {
-        font-size: 11px;
-    }
+            .frame-step .div-step {
+                font-size: 13px;
+            }
 
-    .div3-step {
-        font-size: 9px;
-        line-height: 1.3;
-    }
+            .b-step {
+                font-size: 11px;
+            }
 
-    .line-step {
-        width: 15px;
-        height: 0px;
-        border-top: 2px dashed #e8e8e8;
-        flex-shrink: 0;
-    }
+            .div3-step {
+                font-size: 9px;
+                line-height: 1.3;
+            }
 
-    /* CTA بنر */
-    .cta-wrapper {
-        padding: 40px 0px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+            .line-step {
+                width: 15px;
+                height: 0px;
+                border-top: 2px dashed #e8e8e8;
+                flex-shrink: 0;
+            }
 
-    .cta-container {
-        width: 100%;
-        padding: 36px 16px;
-        gap: 20px;
-        min-height: auto;
-        box-sizing: border-box;
-        background: #1d3363;
-    }
+            /* CTA بنر */
+            .cta-wrapper {
+                padding: 40px 0px;
+                width: 100%;
+                box-sizing: border-box;
+            }
 
-    .cta-text-block {
-        width: 100%;
-        gap: 10px;
-    }
+            .cta-container {
+                width: 100%;
+                padding: 36px 16px;
+                gap: 20px;
+                min-height: auto;
+                box-sizing: border-box;
+                background: #1d3363;
+            }
 
-    .cta-text-block h2 {
-        font-size: 22px;
-        line-height: 1.5;
-        padding: 0 4px;
-    }
+            .cta-text-block {
+                width: 100%;
+                gap: 10px;
+            }
 
-    .cta-text-block p {
-        font-size: 13px;
-        line-height: 1.6;
-        padding: 0 4px;
-        color: #fbebb5;
-    }
+            .cta-text-block h2 {
+                font-size: 22px;
+                line-height: 1.5;
+                padding: 0 4px;
+            }
 
-    .cta-buttons {
-        direction: rtl;
-        padding-top: 6px;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
+            .cta-text-block p {
+                font-size: 13px;
+                line-height: 1.6;
+                padding: 0 4px;
+                color: #fbebb5;
+            }
 
-    .cta-btn-primary,
-    .cta-btn-secondary {
-        width: 100%;
-        max-width: 280px;
-        padding: 12px 24px;
-        font-size: 14px;
-        height: 44px;
-        border-radius: 10px;
-        justify-content: center;
-    }
+            .cta-buttons {
+                direction: rtl;
+                padding-top: 6px;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
 
-    /* فوتر */
-    .site-footer-wrapper {
-        padding: 32px 16px 20px;
-        gap: 28px;
-        top: 32px;
-    }
+            .cta-btn-primary,
+            .cta-btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                padding: 12px 24px;
+                font-size: 14px;
+                height: 44px;
+                border-radius: 10px;
+                justify-content: center;
+            }
 
-    .footer-grid-row {
-        gap: 24px;
-    }
+        }
 
-    .brand-info-column {
-        gap: 12px;
-    }
-
-    .brand-name-gradient {
-        font-size: 18px;
-    }
-
-    .brand-logo-image {
-        width: 40px;
-        height: 40px;
-    }
-
-    .brand-description-text {
-        font-size: 12px;
-    }
-
-    .quick-links-column,
-    .contact-info-column {
-        gap: 10px;
-    }
-
-    .footer-heading-title {
-        font-size: 14px;
-    }
-
-    .footer-link-item {
-        font-size: 13px;
-    }
-
-    .contact-address-text {
-        font-size: 12px;
-    }
-
-    .copyright-bottom-bar {
-        padding: 20px 0px 0px;
-        gap: 16px;
-    }
-
-    .copyright-text-content {
-        font-size: 11px;
-    }
-
-    .social-icons-group {
-        gap: 8px;
-    }
-
-    .social-icon-circle {
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
-    }
-
-    .social-icon-inner-lg {
-        width: 18px;
-        height: 18px;
-    }
-
-    .social-icon-inner-sm {
-        width: 14px;
-        height: 14px;
-    }
-}
-
-/* ========================================
+        /* ========================================
    EXTRA SMALL (<360px)
    ======================================== */
-@media screen and (max-width: 360px) {
-    /* مسیر همکاری - افقی خیلی فشرده */
-    .process-section {
-        padding: 32px 4px;
-        gap: 20px;
-    }
+        @media screen and (max-width: 360px) {
 
-    .section-title .div-step {
-        font-size: 20px;
-    }
+            /* مسیر همکاری - افقی خیلی فشرده */
+            .process-section {
+                padding: 32px 4px;
+                gap: 20px;
+            }
 
-    .step-block {
-        min-width: 70px;
-        padding: 0 1px;
-    }
+            .section-title .div-step {
+                font-size: 20px;
+            }
 
-    .frame-step {
-        width: 32px;
-        height: 32px;
-    }
+            .step-block {
+                min-width: 70px;
+                padding: 0 1px;
+            }
 
-    .frame-step .div-step {
-        font-size: 12px;
-    }
+            .frame-step {
+                width: 32px;
+                height: 32px;
+            }
 
-    .b-step {
-        font-size: 10px;
-    }
+            .frame-step .div-step {
+                font-size: 12px;
+            }
 
-    .div3-step {
-        font-size: 8px;
-        line-height: 1.2;
-    }
+            .b-step {
+                font-size: 10px;
+            }
 
-    .line-step {
-        width: 10px;
-    }
-}
+            .div3-step {
+                font-size: 8px;
+                line-height: 1.2;
+            }
 
-/* ========================================
+            .line-step {
+                width: 10px;
+            }
+        }
+
+        /* ========================================
    FIX FORM OVERFLOW & SCROLL ISSUES
    ======================================== */
-@media screen and (max-width: 1024px) {
-    .form-moshavere-wrap,
-    .form-moshavere-content,
-    .form-moshavere-right-form,
-    .form-moshavere-left-form {
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
+        @media screen and (max-width: 1024px) {
 
-    .form-moshavere-right-form form {
-        max-width: 100%;
-    }
-}
+            .form-moshavere-wrap,
+            .form-moshavere-content,
+            .form-moshavere-right-form,
+            .form-moshavere-left-form {
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
 
-/* ========================================
+            .form-moshavere-right-form form {
+                max-width: 100%;
+            }
+        }
+
+        /* ========================================
    EXTRA UX IMPROVEMENTS FOR ALL DEVICES
    ======================================== */
-@media (hover: none) and (pointer: coarse) {
-    .hero-cta-btn--new:active,
-    .cta-btn-primary:active,
-    .cta-btn-secondary:active {
-        transform: scale(0.96);
-        transition: transform 0.1s ease;
-    }
+        @media (hover: none) and (pointer: coarse) {
 
-    .metric-card--new:active {
-        transform: scale(0.98);
-        transition: transform 0.15s ease;
-    }
+            .hero-cta-btn--new:active,
+            .cta-btn-primary:active,
+            .cta-btn-secondary:active {
+                transform: scale(0.96);
+                transition: transform 0.1s ease;
+            }
 
-    .form-moshavere-submitInput,
-    .hero-cta-btn--new,
-    .cta-btn-primary,
-    .cta-btn-secondary {
-        min-height: 44px;
-    }
+            .metric-card--new:active {
+                transform: scale(0.98);
+                transition: transform 0.15s ease;
+            }
 
-    .footer-link-item {
-        padding: 8px 12px;
-        margin: -4px 0;
-    }
-}
+            .form-moshavere-submitInput,
+            .hero-cta-btn--new,
+            .cta-btn-primary,
+            .cta-btn-secondary {
+                min-height: 44px;
+            }
 
-/* ========================================
+        }
+
+        /* ========================================
    iOS SELECT FIX
    ======================================== */
-@supports (-webkit-overflow-scrolling: touch) {
-    .form-moshavere-input-group select {
-        font-size: 16px !important; /* جلوگیری از زوم خودکار iOS */
-    }
-}
+        @supports (-webkit-overflow-scrolling: touch) {
+            .form-moshavere-input-group select {
+                font-size: 16px !important;
+                /* جلوگیری از زوم خودکار iOS */
+            }
+        }
 
-.hero-cta-btn--new:focus-visible,
-.cta-btn-primary:focus-visible,
-.cta-btn-secondary:focus-visible,
-.form-moshavere-submitInput:focus-visible {
-    outline: 3px solid #1D3363;
-    outline-offset: 2px;
-}
+        .hero-cta-btn--new:focus-visible,
+        .cta-btn-primary:focus-visible,
+        .cta-btn-secondary:focus-visible,
+        .form-moshavere-submitInput:focus-visible {
+            outline: 3px solid #1D3363;
+            outline-offset: 2px;
+        }
 
-.form-moshavere-input-group input:focus,
-.form-moshavere-input-group select:focus,
-.form-moshavere-input-group textarea:focus {
-    border-color: #F0C040;
-    box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.1);
-    outline: none;
-}
+        .form-moshavere-input-group input:focus,
+        .form-moshavere-input-group select:focus,
+        .form-moshavere-input-group textarea:focus {
+            border-color: #F0C040;
+            box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.1);
+            outline: none;
+        }
 
-@media (prefers-reduced-motion: no-preference) {
-    .metric-card--new,
-    .hero-cta-btn--new,
-    .cta-btn-primary,
-    .cta-btn-secondary,
-    .social-icon-circle {
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
-    }
-}
+        @media (prefers-reduced-motion: no-preference) {
+
+            .metric-card--new,
+            .hero-cta-btn--new,
+            .cta-btn-primary,
+            .cta-btn-secondary,
+            .social-icon-circle {
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            }
+        }
+
+        /* Vazir - Medium */
+        @font-face {
+            font-family: 'Vazir';
+            src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Vazir - Bold */
+        @font-face {
+            font-family: 'Vazir';
+            src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Vazir - thin */
+        @font-face {
+            font-family: 'Vazir';
+            src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
     </style>
-    </head>
+</head>
 
-    <body>
+<body>
 
-        	<!-- navbar -->
-		{% include "includes/navbar.html" %}
+    <!-- navbar -->
+    {% include "includes/navbar.html" %}
 
-<!-- salma -->
-   <div class="hero-section--new">
+    <!-- salma -->
+    <div class="hero-section--new">
         <!-- Tech Grid Overlay: same structure, new class names -->
         <div class="tech-grid-overlay--new">
             <div class="grid-row">
@@ -2431,19 +1923,18 @@
         <!-- Text Block -->
         <div class="hero-text-block--new">
             <h1 class="hero-heading">پروژه موفق شما از اینجا شروع می‌شود</h1>
-            <p class="hero-description">با تیم متخصص ما، ایده‌های خود را به واقعیت تبدیل کنید. مشاوره رایگان برای شروع بهترین مسیر.</p>
+            <p class="hero-description">با تیم متخصص ما، ایده‌های خود را به واقعیت تبدیل کنید. مشاوره رایگان برای شروع
+                بهترین مسیر.</p>
         </div>
 
         <!-- CTA Button: Changed to <button> -->
-        <button class="hero-cta-btn--new">
-            دریافت مشاوره رایگان
-        </button>
+
 
         <!-- Metric Cards Container -->
         <div class="metric-cards-container--new">
             <div class="metric-card--new">
                 <div class="metric-card-header">
-                     <div class="metric-value">۲۴ ساعته</div>
+                    <div class="metric-value">۲۴ ساعته</div>
                     <div class="icon-circle--new">
                         <img class="clock-icon" src="{% static 'asets/check.svg' %}">
                     </div>
@@ -2452,21 +1943,21 @@
             </div>
             <div class="metric-card--new">
                 <div class="metric-card-header">
-                       <div class="metric-value">۹۸٪</div>
+                    <div class="metric-value">۹۸٪</div>
                     <div class="icon-circle--new">
                         <img class="clock-icon" src="{% static 'asets/heart.svg' %}">
                     </div>
-                 
+
                 </div>
                 <div class="metric-label">رضایت مشتریان</div>
             </div>
             <div class="metric-card--new">
                 <div class="metric-card-header">
-                     <div class="metric-value">۱۵۰+</div>
+                    <div class="metric-value">۱۵۰+</div>
                     <div class="icon-circle--new">
                         <img class="clock-icon" src="{% static 'asets/clocktalayi.svg' %}">
                     </div>
-                   
+
                 </div>
                 <div class="metric-label">پروژه موفق</div>
             </div>
@@ -2475,255 +1966,253 @@
 
 
 
-        <div class="form-moshavere-wrap">
-            <div class="form-moshavere-title">
-                <h2>فرم درخواست مشاوره</h2>
+    <div class="form-moshavere-wrap">
+        <div class="form-moshavere-title">
+            <h2>فرم درخواست مشاوره</h2>
+        </div>
+        <div class="form-moshavere-content">
+            <div class="form-moshavere-right-form">
+                <form method="post" action="{% url 'users:contact_request' %}">
+                    {% csrf_token %}
+                    <div class="form-moshavere-input-group">
+                        <label for="name">نام و نام خانوادگی</label>
+                        <input type="text" name="full_name" placeholder="مثال: رضا احمدی">
+                    </div>
+                    <div class="form-moshavere-input-group">
+                        <label for="emailOrNumber">ایمیل یا شماره
+                            تماس</label>
+                        <input type="text" name="phone_or_email" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹ یا info@company.com">
+                    </div>
+                    <div class="form-moshavere-input-group">
+                        <label for="company">نام شرکت</label>
+                        <input type="text" name="work_name" placeholder="مثال: شرکت نوآوران (اختیاری)">
+                    </div>
+                    <div class="form-moshavere-input-group">
+                        <label for="projectType">نوع پروژه</label>
+                        <select name="project_choices">
+                            <option value="">انتخاب کنید...</option>
+                            <option value="company">سایت شرکتی</option>
+                            <option value="store"> سایت فروشگاهی </option>
+                            <option value="personal">سایت شخصی</option>
+                        </select>
+                    </div>
+                    <div class="form-moshavere-input-group">
+                        <label for="description">توضیحات پروژه</label>
+                        <textarea rows="3" name="message" placeholder="درباره پروژه خود بنویسید..."></textarea>
+                    </div>
+                    <input class="form-moshavere-submitInput" type="submit" value="ارسال درخواست مشاوره">
+                </form>
             </div>
-            <div class="form-moshavere-content">
-                <div class="form-moshavere-right-form">
-                    <form method="post" action="{% url "users:contact_request" %}">
-                      {% csrf_token %}
-                        <div class="form-moshavere-input-group">
-                            <label for="name">نام و نام خانوادگی</label>
-                            <input type="text" name="full_name" placeholder="مثال: رضا احمدی">
-                        </div>
-                        <div class="form-moshavere-input-group">
-                            <label for="emailOrNumber">ایمیل یا شماره
-                                تماس</label>
-                            <input type="text" name="phone_or_email"
-                                placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹ یا info@company.com">
-                        </div>
-                        <div class="form-moshavere-input-group">
-                            <label for="company">نام شرکت</label>
-                            <input type="text" name="work_name"
-                                placeholder="مثال: شرکت نوآوران (اختیاری)">
-                        </div>
-                        <div class="form-moshavere-input-group">
-                            <label for="projectType">نوع پروژه</label>
-                            <select name="project_choices">
-                                <option value="">انتخاب کنید...</option>
-                                <option value="company">سایت شرکتی</option>
-                                <option value="store"> سایت فروشگاهی </option>
-                                <option value="personal">سایت شخصی</option>
-                            </select>
-                        </div>
-                        <div class="form-moshavere-input-group">
-                            <label for="description">توضیحات پروژه</label>
-                            <textarea rows="3" name="message"
-                                placeholder="درباره پروژه خود بنویسید..."></textarea>
-                        </div>
-                        <input class="form-moshavere-submitInput" type="submit"
-                            value="ارسال درخواست مشاوره">
-                    </form>
+            <div class="form-moshavere-left-form">
+                <div class="form-moshavere-left-form-title">
+                    چرا مشاوره با ما؟
                 </div>
-                <div class="form-moshavere-left-form">
-                    <div class="form-moshavere-left-form-title">
-                        چرا مشاوره با ما؟
-                    </div>
-                    <div class="form-moshavere-left-form-conent">
-                        <div class="form-moshavere-left-form-conent-row">
-                            <img src="{% static 'asets/icon-star.png' %}" alt>
-                            <div>
-                                <div><b>جلسه استراتژی رایگان</b></div>
-                                <div>بررسی کامل اهداف تجاری و تحلیل نیازهای فنی
-                                    کسب‌و‌کار شما</div>
-                            </div>
-                        </div>
-                        <div class="form-moshavere-left-form-conent-row">
-                            <img src="{% static 'asets/icon-star.png' %}" alt>
-                            <div>
-                                <div><b>توصیه‌های تخصصی</b></div>
-                                <div>ارائه راه‌حل‌های بهینه بر اساس آخرین
-                                    روندهای فناوری دنیا</div>
-                            </div>
-                        </div>
-                        <div class="form-moshavere-left-form-conent-row">
-                            <img src="{% static 'asets/icon-star.png' %}" alt>
-                            <div>
-                                <div><b>نقشه راه شفاف پروژه</b></div>
-                                <div>تعیین زمان‌بندی دقیق، فازهای توسعه و تخمین
-                                    هزینه‌ها</div>
-                            </div>
-                        </div>
-                        <div class="form-moshavere-left-form-conent-row">
-                            <img src="{% static 'asets/icon-star.png' %}" alt>
-                            <div>
-                                <div><b>پشتیبانی مداوم</b></div>
-                                <div>همراهی شما از اولین ایده تا پیاده‌سازی و
-                                    توسعه‌های آتی</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-moshavere-left-form-footer-card">
-                        <div>"همکاری با این تیم بهترین تصمیم برای کسب‌وکار ما
-                            بود. سرعت، دقت و پشتیبانی فوق‌العاده آن‌ها
-                            بی‌نظیر است."</div>
+                <div class="form-moshavere-left-form-conent">
+                    <div class="form-moshavere-left-form-conent-row">
+                        <img src="{% static 'asets/icon-star.png' %}" alt>
                         <div>
-                            <b>علی رضایی</b>
-                            <div>
-                                <small>مدیر فنی، پلتفرم راهکار</small>
-                            </div>
+                            <div><b>جلسه استراتژی رایگان</b></div>
+                            <div>بررسی کامل اهداف تجاری و تحلیل نیازهای فنی
+                                کسب‌و‌کار شما</div>
                         </div>
                     </div>
-                    <div class="form-moshavere-left-form-steps">
-                        <b>🔒 اطلاعات شما محفوظ است</b>
-                        <p>
-                            اطلاعات ارسال شده فقط برای بررسی پروژه و ارائه
-                            بهترین پیشنهاد استفاده خواهد شد.
-                        </p>
+                    <div class="form-moshavere-left-form-conent-row">
+                        <img src="{% static 'asets/icon-star.png' %}" alt>
+                        <div>
+                            <div><b>توصیه‌های تخصصی</b></div>
+                            <div>ارائه راه‌حل‌های بهینه بر اساس آخرین
+                                روندهای فناوری دنیا</div>
+                        </div>
                     </div>
+                    <div class="form-moshavere-left-form-conent-row">
+                        <img src="{% static 'asets/icon-star.png' %}" alt>
+                        <div>
+                            <div><b>نقشه راه شفاف پروژه</b></div>
+                            <div>تعیین زمان‌بندی دقیق، فازهای توسعه و تخمین
+                                هزینه‌ها</div>
+                        </div>
+                    </div>
+                    <div class="form-moshavere-left-form-conent-row">
+                        <img src="{% static 'asets/icon-star.png' %}" alt>
+                        <div>
+                            <div><b>پشتیبانی مداوم</b></div>
+                            <div>همراهی شما از اولین ایده تا پیاده‌سازی و
+                                توسعه‌های آتی</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-moshavere-left-form-footer-card">
+                    <div>"همکاری با این تیم بهترین تصمیم برای کسب‌وکار ما
+                        بود. سرعت، دقت و پشتیبانی فوق‌العاده آن‌ها
+                        بی‌نظیر است."</div>
+                    <div>
+                        <b>علی رضایی</b>
+                        <div>
+                            <small>مدیر فنی، پلتفرم راهکار</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-moshavere-left-form-steps">
+                    <b>🔒 اطلاعات شما محفوظ است</b>
+                    <p>
+                        اطلاعات ارسال شده فقط برای بررسی پروژه و ارائه
+                        بهترین پیشنهاد استفاده خواهد شد.
+                    </p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- sectionman -->
+    <!-- sectionman -->
 
-        <div class="process-section">
-            <div class="section-title">
-                <div class="div-step">مسیر همکاری ما</div>
-                <div class="rectangle-step">
-                </div>
-            </div>
-            <div class="steps-container-rtl">
-
-                 <div class="step-block">
-                    <div class="frame-step">
-                        <div class="div-step">۱</div>
-                    </div>
-                    <b class="b-step">ثبت درخواست</b>
-                    <div class="div3-step">تکمیل فرم مشاوره و ارسال خلاصه اولیه
-                        اهداف</div>
-                </div>
-
-                <div class="line-step">
-                </div>
-                <div class="step-block">
-                    <div class="frame-step">
-                        <div class="div-step">۲</div>
-                    </div>
-                    <b class="b-step">جلسه مشاوره</b>
-                    <div class="div3-step">گفتگو تلفنی یا حضوری برای تدوین راهبرد
-                        پروژه</div>
-                </div>
-                <div class="line-step">
-                </div>
-               
-
-                <div class="step-block">
-                    <div class="frame-step">
-                        <div class="div-step">۳</div>
-                    </div>
-                    <b class="b-step">شروع پروژه</b>
-                    <div class="div3-step">طراحی، توسعه و تحویل پروژه شما با بالاترین
-                        کیفیت</div>
-                </div>
-
+    <div class="process-section">
+        <div class="section-title">
+            <div class="div-step">مسیر همکاری ما</div>
+            <div class="rectangle-step">
             </div>
         </div>
+        <div class="steps-container-rtl">
 
-        <!-- sectionman -->
-          <!--  SECTION 4 : CTA BANNER  -->
+            <div class="step-block">
+                <div class="frame-step">
+                    <div class="div-step">۱</div>
+                </div>
+                <b class="b-step">ثبت درخواست</b>
+                <div class="div3-step">تکمیل فرم مشاوره و ارسال خلاصه اولیه
+                    اهداف</div>
+            </div>
+
+            <div class="line-step">
+            </div>
+            <div class="step-block">
+                <div class="frame-step">
+                    <div class="div-step">۲</div>
+                </div>
+                <b class="b-step">جلسه مشاوره</b>
+                <div class="div3-step">گفتگو تلفنی یا حضوری برای تدوین راهبرد
+                    پروژه</div>
+            </div>
+            <div class="line-step">
+            </div>
+
+
+            <div class="step-block">
+                <div class="frame-step">
+                    <div class="div-step">۳</div>
+                </div>
+                <b class="b-step">شروع پروژه</b>
+                <div class="div3-step">طراحی، توسعه و تحویل پروژه شما با بالاترین
+                    کیفیت</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- sectionman -->
+    <!--  SECTION 4 : CTA BANNER  -->
     <div class="cta-wrapper">
-      <div class="cta-container">
-        <div class="cta-text-block">
-          <h2>آماده شروع پروژه  خود هستید؟</h2>
-          <p>
-           با ما تماس بگیرید و قدم اول را برای دیجیتالی کردن اصولی کسب‌وکار خود بردارید. همکاران ما مشتاق گفتگو با شما هستند.
-          </p>
+        <div class="cta-container">
+            <div class="cta-text-block">
+                <h2>آماده شروع پروژه خود هستید؟</h2>
+                <p>
+                    با ما تماس بگیرید و قدم اول را برای دیجیتالی کردن اصولی کسب‌وکار خود بردارید. همکاران ما مشتاق گفتگو
+                    با شما هستند.
+                </p>
+            </div>
+            <div class="cta-buttons">
+                <a href="{% url 'users:contact_page' %}" class="cta-btn-primary">همین الان شروع کنید </a>
+
+            </div>
         </div>
-        <div class="cta-buttons">
-          <button class="cta-btn-primary">همین الان شروع کنید </button>
-         
-        </div>
-      </div>
     </div>
 
 
     <!-- فوتر  -->
-		{% include "includes/footer.html" %}
+    {% include "includes/footer.html" %}
+    <script src="{% static 'js/index.js' %}"></script>
     <script>
-      // اعتبارسنجی فرم مشاوره
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('.form-moshavere-right-form form');
-        if (!form) return;
+        // اعتبارسنجی فرم مشاوره
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.form-moshavere-right-form form');
+            if (!form) return;
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // دریافت فیلدها
-            const fullName = form.querySelector('input[name="full_name"]');
-            const phoneOrEmail = form.querySelector('input[name="phone_or_email"]');
-            const workName = form.querySelector('input[name="work_name"]');
-            const projectType = form.querySelector('select[name="project_choices"]');
-            const message = form.querySelector('textarea[name="message"]');
-            
-            let isValid = true;
-            let errorMessage = '';
-            
-            // حذف خطاهای قبلی
-            form.querySelectorAll('.validation-error').forEach(el => el.remove());
-            form.querySelectorAll('.input-error').forEach(el => {
-                el.style.borderColor = '';
-                el.style.border = '';
-            });
-            
-            // 1. اعتبارسنجی نام و نام خانوادگی (اجباری، حداقل 3 کاراکتر)
-            if (!fullName.value.trim() || fullName.value.trim().length < 3) {
-                isValid = false;
-                errorMessage += '• لطفاً نام و نام خانوادگی خود را وارد کنید (حداقل ۳ کاراکتر)\n';
-                fullName.style.borderColor = '#E2543D';
-                fullName.style.border = '1px solid #E2543D';
-                showFieldError(fullName, 'نام و نام خانوادگی الزامی است (حداقل ۳ کاراکتر)');
-            }
-            
-            // 2. اعتبارسنجی ایمیل یا شماره تماس (اجباری)
-            const contactValue = phoneOrEmail.value.trim();
-            if (!contactValue) {
-                isValid = false;
-                errorMessage += '• لطفاً ایمیل یا شماره تماس خود را وارد کنید\n';
-                phoneOrEmail.style.borderColor = '#E2543D';
-                phoneOrEmail.style.border = '1px solid #E2543D';
-                showFieldError(phoneOrEmail, 'ایمیل یا شماره تماس الزامی است');
-            } else {
-                // بررسی فرمت ایمیل یا شماره موبایل
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                const phonePattern = /^(\+98|0)?9\d{9}$/;
-                
-                if (!emailPattern.test(contactValue) && !phonePattern.test(contactValue.replace(/\s/g, ''))) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // دریافت فیلدها
+                const fullName = form.querySelector('input[name="full_name"]');
+                const phoneOrEmail = form.querySelector('input[name="phone_or_email"]');
+                const workName = form.querySelector('input[name="work_name"]');
+                const projectType = form.querySelector('select[name="project_choices"]');
+                const message = form.querySelector('textarea[name="message"]');
+
+                let isValid = true;
+                let errorMessage = '';
+
+                // حذف خطاهای قبلی
+                form.querySelectorAll('.validation-error').forEach(el => el.remove());
+                form.querySelectorAll('.input-error').forEach(el => {
+                    el.style.borderColor = '';
+                    el.style.border = '';
+                });
+
+                // 1. اعتبارسنجی نام و نام خانوادگی (اجباری، حداقل 3 کاراکتر)
+                if (!fullName.value.trim() || fullName.value.trim().length < 3) {
                     isValid = false;
-                    errorMessage += '• فرمت ایمیل یا شماره تماس صحیح نیست\n';
+                    errorMessage += '• لطفاً نام و نام خانوادگی خود را وارد کنید (حداقل ۳ کاراکتر)\n';
+                    fullName.style.borderColor = '#E2543D';
+                    fullName.style.border = '1px solid #E2543D';
+                    showFieldError(fullName, 'نام و نام خانوادگی الزامی است (حداقل ۳ کاراکتر)');
+                }
+
+                // 2. اعتبارسنجی ایمیل یا شماره تماس (اجباری)
+                const contactValue = phoneOrEmail.value.trim();
+                if (!contactValue) {
+                    isValid = false;
+                    errorMessage += '• لطفاً ایمیل یا شماره تماس خود را وارد کنید\n';
                     phoneOrEmail.style.borderColor = '#E2543D';
                     phoneOrEmail.style.border = '1px solid #E2543D';
-                    showFieldError(phoneOrEmail, 'فرمت ایمیل یا شماره تماس صحیح نیست');
+                    showFieldError(phoneOrEmail, 'ایمیل یا شماره تماس الزامی است');
+                } else {
+                    // بررسی فرمت ایمیل یا شماره موبایل
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    const phonePattern = /^(\+98|0)?9\d{9}$/;
+
+                    if (!emailPattern.test(contactValue) && !phonePattern.test(contactValue.replace(/\s/g, ''))) {
+                        isValid = false;
+                        errorMessage += '• فرمت ایمیل یا شماره تماس صحیح نیست\n';
+                        phoneOrEmail.style.borderColor = '#E2543D';
+                        phoneOrEmail.style.border = '1px solid #E2543D';
+                        showFieldError(phoneOrEmail, 'فرمت ایمیل یا شماره تماس صحیح نیست');
+                    }
                 }
-            }
-            
-            // 3. اعتبارسنجی نوع پروژه (اجباری)
-            if (!projectType.value) {
-                isValid = false;
-                errorMessage += '• لطفاً نوع پروژه را انتخاب کنید\n';
-                projectType.style.borderColor = '#E2543D';
-                projectType.style.border = '1px solid #E2543D';
-                showFieldError(projectType, 'لطفاً نوع پروژه را انتخاب کنید');
-            }
-            
-            // 4. اعتبارسنجی توضیحات پروژه (اجباری، حداقل 10 کاراکتر)
-            if (!message.value.trim() || message.value.trim().length < 10) {
-                isValid = false;
-                errorMessage += '• لطفاً توضیحات پروژه را وارد کنید (حداقل ۱۰ کاراکتر)\n';
-                message.style.borderColor = '#E2543D';
-                message.style.border = '1px solid #E2543D';
-                showFieldError(message, 'توضیحات پروژه الزامی است (حداقل ۱۰ کاراکتر)');
-            }
-            
-            // نمایش خطاهای کلی (اختیاری)
-            if (!isValid) {
-                // نمایش پیام خطا در بالای فرم
-                let errorContainer = form.querySelector('.form-error-container');
-                if (!errorContainer) {
-                    errorContainer = document.createElement('div');
-                    errorContainer.className = 'form-error-container';
-                    errorContainer.style.cssText = `
+
+                // 3. اعتبارسنجی نوع پروژه (اجباری)
+                if (!projectType.value) {
+                    isValid = false;
+                    errorMessage += '• لطفاً نوع پروژه را انتخاب کنید\n';
+                    projectType.style.borderColor = '#E2543D';
+                    projectType.style.border = '1px solid #E2543D';
+                    showFieldError(projectType, 'لطفاً نوع پروژه را انتخاب کنید');
+                }
+
+                // 4. اعتبارسنجی توضیحات پروژه (اجباری، حداقل 10 کاراکتر)
+                if (!message.value.trim() || message.value.trim().length < 10) {
+                    isValid = false;
+                    errorMessage += '• لطفاً توضیحات پروژه را وارد کنید (حداقل ۱۰ کاراکتر)\n';
+                    message.style.borderColor = '#E2543D';
+                    message.style.border = '1px solid #E2543D';
+                    showFieldError(message, 'توضیحات پروژه الزامی است (حداقل ۱۰ کاراکتر)');
+                }
+
+                // نمایش خطاهای کلی (اختیاری)
+                if (!isValid) {
+                    // نمایش پیام خطا در بالای فرم
+                    let errorContainer = form.querySelector('.form-error-container');
+                    if (!errorContainer) {
+                        errorContainer = document.createElement('div');
+                        errorContainer.className = 'form-error-container';
+                        errorContainer.style.cssText = `
                         background-color: #FFF0ED;
                         border-right: 4px solid #E2543D;
                         padding: 16px 20px;
@@ -2734,37 +2223,37 @@
                         line-height: 1.8;
                         text-align: right;
                     `;
-                    form.insertBefore(errorContainer, form.firstChild);
-                }
-                
-                errorContainer.innerHTML = `
+                        form.insertBefore(errorContainer, form.firstChild);
+                    }
+
+                    errorContainer.innerHTML = `
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
                         <span style="font-weight: 700; color: #E2543D;">⚠️ لطفاً موارد زیر را بررسی کنید:</span>
                     </div>
                     <div style="padding-right: 8px;">
-                        ${errorMessage.split('\n').filter(line => line.trim()).map(line => 
-                            `<div style="padding: 2px 0;">${line.replace('•', '•')}</div>`
-                        ).join('')}
+                        ${errorMessage.split('\n').filter(line => line.trim()).map(line =>
+                        `<div style="padding: 2px 0;">${line.replace('•', '•')}</div>`
+                    ).join('')}
                     </div>
                 `;
-                
-                // اسکرول به خطا
-                errorContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                return false;
-            }
-            
-            // اگر اعتبارسنجی موفق بود، فرم ارسال شود
-            form.submit();
-        });
-        
-        // تابع نمایش خطای کنار فیلد
-        function showFieldError(input, message) {
-            let errorEl = input.parentElement.querySelector('.validation-error');
-            if (!errorEl) {
-                errorEl = document.createElement('div');
-                errorEl.className = 'validation-error';
-                errorEl.style.cssText = `
+
+                    // اسکرول به خطا
+                    errorContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    return false;
+                }
+
+                // اگر اعتبارسنجی موفق بود، فرم ارسال شود
+                form.submit();
+            });
+
+            // تابع نمایش خطای کنار فیلد
+            function showFieldError(input, message) {
+                let errorEl = input.parentElement.querySelector('.validation-error');
+                if (!errorEl) {
+                    errorEl = document.createElement('div');
+                    errorEl.className = 'validation-error';
+                    errorEl.style.cssText = `
                     color: #E2543D;
                     font-size: 12px;
                     margin-top: 4px;
@@ -2773,117 +2262,72 @@
                     align-items: center;
                     gap: 4px;
                 `;
-                input.parentElement.appendChild(errorEl);
+                    input.parentElement.appendChild(errorEl);
+                }
+                errorEl.textContent = '⚠ ' + message;
             }
-            errorEl.textContent = '⚠ ' + message;
-        }
-        
-        // حذف خطاها هنگام تایپ یا تغییر
-        form.querySelectorAll('input, select, textarea').forEach(field => {
-            field.addEventListener('input', function() {
-                this.style.borderColor = '';
-                this.style.border = '';
-                const errorEl = this.parentElement.querySelector('.validation-error');
-                if (errorEl) errorEl.remove();
-                
-                // حذف خطای کلی اگر همه فیلدها پر شوند
-                const errorContainer = form.querySelector('.form-error-container');
-                if (errorContainer) {
-                    let allValid = true;
-                    form.querySelectorAll('input:not([type="submit"]), select, textarea').forEach(f => {
-                        if (f.type !== 'hidden') {
-                            // بررسی ساده برای پر بودن فیلدهای اجباری
-                            if (f.hasAttribute('required') || f.name === 'full_name' || 
-                                f.name === 'phone_or_email' || f.name === 'project_choices' || 
-                                f.name === 'message') {
-                                if (!f.value.trim()) allValid = false;
-                            }
-                            // بررسی ویژه برای ایمیل/شماره
-                            if (f.name === 'phone_or_email' && f.value.trim()) {
-                                const val = f.value.trim();
-                                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                const phonePattern = /^(\+98|0)?9\d{9}$/;
-                                if (!emailPattern.test(val) && !phonePattern.test(val.replace(/\s/g, ''))) {
+
+            // حذف خطاها هنگام تایپ یا تغییر
+            form.querySelectorAll('input, select, textarea').forEach(field => {
+                field.addEventListener('input', function () {
+                    this.style.borderColor = '';
+                    this.style.border = '';
+                    const errorEl = this.parentElement.querySelector('.validation-error');
+                    if (errorEl) errorEl.remove();
+
+                    // حذف خطای کلی اگر همه فیلدها پر شوند
+                    const errorContainer = form.querySelector('.form-error-container');
+                    if (errorContainer) {
+                        let allValid = true;
+                        form.querySelectorAll('input:not([type="submit"]), select, textarea').forEach(f => {
+                            if (f.type !== 'hidden') {
+                                // بررسی ساده برای پر بودن فیلدهای اجباری
+                                if (f.hasAttribute('required') || f.name === 'full_name' ||
+                                    f.name === 'phone_or_email' || f.name === 'project_choices' ||
+                                    f.name === 'message') {
+                                    if (!f.value.trim()) allValid = false;
+                                }
+                                // بررسی ویژه برای ایمیل/شماره
+                                if (f.name === 'phone_or_email' && f.value.trim()) {
+                                    const val = f.value.trim();
+                                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                    const phonePattern = /^(\+98|0)?9\d{9}$/;
+                                    if (!emailPattern.test(val) && !phonePattern.test(val.replace(/\s/g, ''))) {
+                                        allValid = false;
+                                    }
+                                }
+                                // بررسی ویژه برای نام
+                                if (f.name === 'full_name' && f.value.trim().length < 3) {
+                                    allValid = false;
+                                }
+                                // بررسی ویژه برای توضیحات
+                                if (f.name === 'message' && f.value.trim().length < 10) {
                                     allValid = false;
                                 }
                             }
-                            // بررسی ویژه برای نام
-                            if (f.name === 'full_name' && f.value.trim().length < 3) {
-                                allValid = false;
-                            }
-                            // بررسی ویژه برای توضیحات
-                            if (f.name === 'message' && f.value.trim().length < 10) {
-                                allValid = false;
-                            }
+                        });
+
+                        if (allValid) {
+                            errorContainer.remove();
                         }
-                    });
-                    
-                    if (allValid) {
-                        errorContainer.remove();
                     }
+                });
+
+                field.addEventListener('change', function () {
+                    this.dispatchEvent(new Event('input'));
+                });
+            });
+
+            // اضافه کردن required به فیلدهای اجباری (برای نمایش در مرورگر)
+            const requiredFields = ['full_name', 'phone_or_email', 'project_choices', 'message'];
+            requiredFields.forEach(name => {
+                const field = form.querySelector(`[name="${name}"]`);
+                if (field) {
+                    field.setAttribute('required', 'required');
                 }
             });
-            
-            field.addEventListener('change', function() {
-                this.dispatchEvent(new Event('input'));
-            });
         });
-        
-        // اضافه کردن required به فیلدهای اجباری (برای نمایش در مرورگر)
-        const requiredFields = ['full_name', 'phone_or_email', 'project_choices', 'message'];
-        requiredFields.forEach(name => {
-            const field = form.querySelector(`[name="${name}"]`);
-            if (field) {
-                field.setAttribute('required', 'required');
-            }
-        });
-    });
-        	// تابع باز و بسته کردن دراپ‌منو
-    		function toggleDropdown(triggerId, dropdownId) {
-      			var trigger = document.getElementById(triggerId);
-      			var dropdown = document.getElementById(dropdownId);
-      			
-      			if(trigger && dropdown) {
-        				trigger.addEventListener("click", function(e) {
-          					e.stopPropagation();
-          					
-          					// بستن همه دراپ‌منوهای دیگر
-          					document.querySelectorAll('.dropdown-content').forEach(function(el) {
-            						if(el.id !== dropdownId) {
-              							el.style.display = 'none';
-            						}
-          					});
-          					
-          					// باز و بسته کردن دراپ‌منو فعلی
-          					if(dropdown.style.display === 'flex') {
-            						dropdown.style.display = 'none';
-          					} else {
-            						dropdown.style.display = 'flex';
-          					}
-        				});
-      			}
-    		}
-    		
-    		// بستن دراپ‌منو با کلیک خارج از آن
-    		document.addEventListener("click", function() {
-      			document.querySelectorAll('.dropdown-content').forEach(function(el) {
-        				el.style.display = 'none';
-      			});
-    		});
-    		
-    		// جلوگیری از بسته شدن دراپ‌منو با کلیک روی خودش
-    		document.querySelectorAll('.dropdown-content').forEach(function(el) {
-      			el.addEventListener("click", function(e) {
-        				e.stopPropagation();
-      			});
-    		});
-    		
-    		// راه‌اندازی دراپ‌منوها
-    		toggleDropdown('frameContainer', 'blogDropdown');
-    		toggleDropdown('frameContainer1', 'academyDropdown');
-    		toggleDropdown('frameContainer2', 'servicesDropdown');
-
     </script>
-    </body>
+</body>
 
 </html>

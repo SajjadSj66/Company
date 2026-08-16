@@ -1,0 +1,2828 @@
+{% load static %}
+{% load jformat %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>درباره ما — داستان ما + مسیر توسعه</title>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <style>
+    a {
+      text-decoration: none !important;
+    }
+
+
+    /* حفظ رنگ پیش‌فرض لینک‌ها */
+    a {
+      color: inherit;
+    }
+
+    * {
+      font-family: Vazir margin;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Vazirmatn", "Vazir", "Tahoma", sans-serif;
+      background: #ffffff;
+      overflow-x: hidden;
+    }
+
+
+
+    /* ===================== GENERAL COMPONENTS ===================== */
+    .section-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f0c040;
+    }
+
+    .section-badge span {
+      font-weight: 700;
+      font-size: 14px;
+
+    }
+
+    /* ===================== SECTION 1 : ABOUT HERO ===================== */
+    .about-hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 100px 120px 90px;
+      gap: 28px;
+      width: 100%;
+      max-width: 1440px;
+      background: #16264a;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .about-hero .corner-mark {
+      position: absolute;
+      top: 48px;
+      left: 90px;
+      width: 26px;
+      height: 26px;
+      opacity: 0.5;
+    }
+
+    .about-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .about-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f0c040;
+    }
+
+    .about-badge span {
+      font-weight: 700;
+      font-size: 14px;
+      color: #f0c040;
+
+    }
+
+    .about-hero h1 {
+      max-width: 780px;
+      width: 100%;
+      font-weight: 800;
+      font-size: 44px;
+      line-height: 1.35;
+      text-align: center;
+      color: #ffffff;
+
+    }
+
+    .about-hero p {
+      max-width: 700px;
+      width: 100%;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.9;
+      text-align: center;
+      color: #b9c2d6;
+      margin-top: 4px;
+
+    }
+
+    .about-hero-image {
+      width: 100%;
+      max-width: 1150px;
+      height: auto;
+      aspect-ratio: 1150 / 400;
+      border-radius: 20px;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    .about-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    /* ===================== SECTION 2 : TIMELINE ===================== */
+    .timeline-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 100px 120px;
+      gap: 60px;
+      width: 100%;
+      max-width: 1440px;
+      background: #ffffff;
+      margin: 0 auto;
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timeline-header h2 {
+      font-weight: 800;
+      font-size: 32px;
+      color: #1d3363;
+      text-align: center;
+
+    }
+
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 1080px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      right: 50%;
+      top: 4px;
+      bottom: 4px;
+      width: 0;
+      border-right: 2px dashed #f0c040;
+      z-index: 0;
+    }
+
+    .timeline-row {
+      direction: ltr;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 36px 0;
+    }
+
+    .row-odd {
+      justify-content: space-around;
+    }
+
+    .row-odd .timeline-text {
+      text-align: right;
+      padding-right: 20px;
+    }
+
+    .row-odd .timeline-image {
+      padding-left: 20px;
+    }
+
+    .row-even {
+      justify-content: space-between;
+    }
+
+    .row-even .timeline-text {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .row-even .timeline-image {
+      padding-right: 20px;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      right: 50%;
+      top: 50%;
+      transform: translate(50%, -50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid #f0c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .timeline-marker span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1d3363;
+    }
+
+    .timeline-text {
+      order: var(--text-order);
+      direction: rtl;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      max-width: 380px;
+    }
+
+    .timeline-text .year {
+      font-weight: 800;
+      font-size: 20px;
+      color: #f0c040;
+      text-align: right;
+
+    }
+
+    .timeline-text .title {
+      font-weight: 800;
+      font-size: 20px;
+      color: #1d3363;
+      text-align: right;
+
+    }
+
+    .timeline-text .desc {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #6b7280;
+      text-align: right;
+
+    }
+
+    .timeline-image {
+      order: var(--image-order);
+      flex: 1 1 0;
+      height: 180px;
+      max-width: 380px;
+    }
+
+    .timeline-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .row-odd .timeline-text {
+      --text-order: 0;
+    }
+
+    .row-odd .timeline-image {
+      --image-order: 1;
+    }
+
+    .row-even .timeline-text {
+      --text-order: 1;
+    }
+
+    .row-even .timeline-image {
+      --image-order: 0;
+    }
+
+    /* ===================== SECTION 3 : MISSION ===================== */
+    .mission-section {
+      direction: ltr;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 90px 120px;
+      gap: 70px;
+      width: 100%;
+      max-width: 1440px;
+      background: #16264A;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .graphic-col {
+      order: 0;
+      position: relative;
+      flex: none;
+      width: 560px;
+      height: 340px;
+    }
+
+    .graphic-col .glow {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      left: 60px;
+      top: 40px;
+      background: radial-gradient(circle, rgba(120, 145, 200, 0.35) 0%, transparent 75%);
+      border-radius: 50%;
+      filter: blur(2px);
+    }
+
+    .graphic-col svg.lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .node {
+      position: absolute;
+      border-radius: 50%;
+      background: #F0C040;
+    }
+
+    .node.n1 {
+      width: 12px;
+      height: 12px;
+      left: 40px;
+      top: 150px;
+    }
+
+    .node.n2 {
+      width: 12px;
+      height: 12px;
+      left: 150px;
+      top: 210px;
+    }
+
+    .node.n3 {
+      width: 8px;
+      height: 8px;
+      left: 10px;
+      top: 260px;
+      background: transparent;
+      border: 2px solid #F0C040;
+    }
+
+    .floating-card {
+      direction: rtl;
+      position: absolute;
+      left: 150px;
+      top: 60px;
+      width: 210px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 18px;
+      background: #1C2E56;
+      border: 1px solid rgba(240, 192, 64, 0.25);
+      border-radius: 14px;
+      box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .floating-card .status-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .floating-card .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ADE80;
+      flex: none;
+    }
+
+    .floating-card .status-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #E5E9F2;
+
+    }
+
+    .floating-card .progress-track {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .floating-card .progress-fill {
+      width: 92%;
+      height: 100%;
+      background: #F0C040;
+      border-radius: 4px;
+    }
+
+    .floating-card .progress-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #A9B4CC;
+
+    }
+
+    .content-col {
+      order: 1;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      flex: 1 1 auto;
+    }
+
+    .mission-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mission-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #F0C040;
+    }
+
+    .mission-badge span {
+      font-weight: 700;
+      font-size: 14px;
+      color: #F0C040;
+
+    }
+
+    .content-col h2 {
+      width: 100%;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.4;
+      text-align: right;
+      color: #FFFFFF;
+
+    }
+
+    .content-col p {
+      width: 100%;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.9;
+      text-align: right;
+      color: #AEB8CC;
+
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      width: 100%;
+      margin-top: 6px;
+    }
+
+    .checklist .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checklist .check-item span.label {
+      font-weight: 500;
+      font-size: 15px;
+      color: #E5E9F2;
+
+    }
+
+    .checklist .check-item .check-icon {
+      width: 20px;
+      height: 20px;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1.5px solid #F0C040;
+    }
+
+    .checklist .check-item .check-icon svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    /* ===================== SECTION 4 : CULTURE GALLERY ===================== */
+    .culture-section {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 90px 120px;
+      background: #f4f5f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .culture-container {
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .culture-header {
+      text-align: center;
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .culture-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .culture-eyebrow .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f0c040;
+    }
+
+    .culture-eyebrow span.label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1d3363;
+
+    }
+
+    .culture-header h2 {
+      font-size: 30px;
+      line-height: 1.5;
+      font-weight: 800;
+      color: #1d3363;
+
+      max-width: 600px;
+    }
+
+    .culture-gallery {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 280px 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .gallery-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .center-image {
+      width: 100%;
+      height: 360px;
+      border-radius: 20px;
+    }
+
+    .right-column {
+      height: 360px;
+    }
+
+    .left-column {
+      height: 360px;
+    }
+
+    .top-right {
+      width: 100%;
+      height: 130px;
+      border-radius: 16px;
+    }
+
+    .bottom-right {
+      width: 100%;
+      height: 210px;
+      border-radius: 16px;
+    }
+
+    .top-left {
+      width: 100%;
+      height: 195px;
+      border-radius: 16px;
+    }
+
+    .bottom-left {
+      width: 100%;
+      height: 145px;
+      border-radius: 16px;
+    }
+
+    /* ===================== SECTION 5 : TEACHERS ===================== */
+    .teachers-section {
+      max-width: 1440px;
+      justify-self: center;
+      width: 100%;
+      position: relative;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px 80px 160px;
+      box-sizing: border-box;
+      gap: 48px;
+      text-align: right;
+      font-size: 20px;
+      color: #1d3363;
+
+      margin: 0 auto;
+    }
+
+    .section-header-area {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .badge-container {
+      border-radius: 100px;
+      background-color: #fef9e6;
+      display: flex;
+      align-items: flex-start;
+      padding: 6px 16px;
+      text-align: left;
+    }
+
+    .badge-text {
+      position: relative;
+      font-weight: 700;
+    }
+
+    .main-heading {
+      align-self: stretch;
+      position: relative;
+      font-size: 36px;
+      font-weight: 800;
+    }
+
+    .sub-description {
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+      font-size: 16px;
+      line-height: 160%;
+      color: #64748b;
+      display: inline-block;
+    }
+
+    /* کانتینر اسکرول افقی برای موبایل */
+    .teachers-scroll-container {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+
+    /* مخفی کردن اسکرول بار در مرورگرهای مختلف */
+    .teachers-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .teachers-scroll-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .cards-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      min-width: min-content;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    /* در دسکتاپ، ردیف‌ها جدا هستند و wrap می‌شوند */
+    @media (min-width: 1025px) {
+      .teachers-scroll-container {
+        overflow-x: visible;
+        scroll-snap-type: none;
+      }
+
+      .cards-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        min-width: auto;
+        padding: 0;
+        align-self: stretch;
+      }
+    }
+
+    .teacher-card {
+      height: 314px;
+      width: 257px;
+      flex: 0 0 257px;
+      position: relative;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      background-color: #ffffff;
+      overflow: hidden;
+      cursor: pointer;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .teacher-card:hover {
+      box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.12);
+    }
+
+    .teacher-photo {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
+    }
+
+    .teacher-glass-panel {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20%;
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(6px) saturate(180%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 16px 8px 14px;
+      box-sizing: border-box;
+      gap: 8px;
+      transition: all 0.5s ease-out;
+      z-index: 3;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .teacher-card:hover .teacher-glass-panel {
+      height: 170px;
+      background: rgba(255, 255, 255, 0.397);
+      backdrop-filter: blur(22px) saturate(180%);
+    }
+
+    .teacher-name {
+      font-weight: 800;
+      font-size: 15px;
+      color: #0f1a3a;
+      text-align: right;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+
+    .box-detail-ostad {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .teacher-role-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #816827;
+      background: rgba(253, 219, 125, 0.63);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(184, 134, 11, 0.3);
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-align: right;
+    }
+
+    .teacher-extra-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      width: 100%;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.3s ease;
+    }
+
+    .teacher-card:hover .teacher-extra-content {
+      max-height: 200px;
+      opacity: 1;
+      gap: 10px;
+    }
+
+    .teacher-bio-text {
+      font-size: 14px;
+      line-height: 170%;
+      color: rgb(21, 24, 78);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .skill-tags-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .skill-tag-item {
+      font-size: 10px;
+      font-weight: 600;
+      color: #475569;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      padding: 3px 9px;
+      border-radius: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    @media (max-width: 1200px) {
+      .teachers-section {
+        padding: 80px 40px 120px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .teachers-section {
+        padding: 60px 20px 100px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .teachers-section {
+        padding: 40px 10px 80px;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .teachers-section {
+        padding: 30px 8px 60px;
+        gap: 24px;
+      }
+
+      .teacher-name {
+        font-size: 13px;
+      }
+
+      .teacher-role-badge {
+        font-size: 8px;
+      }
+
+      .teacher-bio-text {
+        font-size: 12px;
+      }
+    }
+
+
+    /* ===================== SECTION 6 : VALUES ===================== */
+    .values-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 90px 120px;
+      gap: 44px;
+      width: 100%;
+      max-width: 1440px;
+      background: #efefef;
+      margin: 0 auto;
+    }
+
+    .values-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .values-header .section-badge span {
+      color: #1d3363;
+    }
+
+    .values-header h2 {
+      font-weight: 800;
+      font-size: 30px;
+      color: #1d3363;
+      text-align: center;
+
+    }
+
+    .values-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      width: 100%;
+      max-width: 1240px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .value-card {
+      flex: 1 1 220px;
+      min-width: 220px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 28px 24px;
+      background: #ffffff;
+      border: 1px solid #e7e7e7;
+      border-radius: 16px;
+      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.1);
+      border-color: #f0c040;
+    }
+
+    .value-card .icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+      background: #f0c040 !important;
+    }
+
+    .value-card:hover .icon-box {
+      transform: scale(1.1);
+    }
+
+    .value-card .icon-box svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .value-card .icon-box svg path,
+    .value-card .icon-box svg circle {
+      stroke: #1D3363 !important;
+    }
+
+    .value-card h3 {
+      width: 100%;
+      font-weight: 700;
+      font-size: 17px;
+      color: #1d3363;
+      text-align: right;
+
+    }
+
+    .value-card p {
+      width: 100%;
+      font-weight: 400;
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: #6b7280;
+      text-align: right;
+
+    }
+
+    /* ===================== SECTION 7 : STATS ===================== */
+    .stats-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 120px;
+      gap: 44px;
+      width: 100%;
+      max-width: 1440px;
+      background: #16264a;
+      margin: 0 auto;
+    }
+
+    .stats-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .stats-header .section-badge span {
+      color: #f0c040;
+    }
+
+    .stats-header h2 {
+      font-weight: 800;
+      font-size: 30px;
+      color: #ffffff;
+      text-align: center;
+
+    }
+
+    .stats-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      width: 100%;
+      max-width: 1240px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stat-card {
+      flex: 1 1 200px;
+      min-width: 180px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 36px 24px;
+      background: #24365f;
+      border: 2px solid #f0c040;
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(240, 192, 64, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0px 20px 40px rgba(240, 192, 64, 0.3);
+      border-color: #ffd700;
+      background: #2a3f6e;
+    }
+
+    .stat-card:hover::before {
+      left: 100%;
+    }
+
+    .stat-card .num {
+      font-weight: 800;
+      font-size: 38px;
+      color: #f0c040;
+
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover .num {
+      transform: scale(1.1);
+      color: #ffd700;
+    }
+
+    .stat-card .label {
+      font-weight: 600;
+      font-size: 15px;
+      color: #ffffff;
+      padding-bottom: 4px;
+      border-bottom: 2px solid rgba(240, 192, 64, 0.5);
+
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover .label {
+      border-bottom-color: #ffd700;
+    }
+
+    /* ===================== SECTION 8 : PROCESS ===================== */
+    .process-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 90px 120px;
+      gap: 50px;
+      width: 100%;
+      max-width: 1440px;
+      background: #ffffff;
+      margin: 0 auto;
+    }
+
+    .process-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .process-header .section-badge span {
+      color: #1d3363;
+    }
+
+    .process-header h2 {
+      font-weight: 800;
+      font-size: 30px;
+      color: #1d3363;
+      text-align: center;
+
+    }
+
+    .process-row {
+      direction: ltr;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      max-width: 1240px;
+      gap: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .process-step {
+      direction: rtl;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 28px 16px;
+      flex: 1 1 180px;
+      min-width: 160px;
+      background: #ffffff;
+      border: 1px solid #e7e7e7;
+      border-radius: 16px;
+      box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.04);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
+      position: relative;
+      margin: 8px;
+    }
+
+    .process-step::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background: #f0c040;
+      border-radius: 0 0 16px 16px;
+      transition: width 0.4s ease;
+    }
+
+    .process-step:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
+      border-color: #f0c040;
+    }
+
+    .process-step:hover::after {
+      width: 100%;
+    }
+
+    .process-step .icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f4f5f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    .process-step:hover .icon-circle {
+      background: #f0c040;
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .process-step .icon-circle svg {
+      width: 20px;
+      height: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .process-step h4 {
+      font-weight: 700;
+      font-size: 16px;
+      color: #1d3363;
+      text-align: center;
+
+      transition: color 0.3s ease;
+    }
+
+    .process-step:hover h4 {
+      color: #000;
+    }
+
+    .process-step p {
+      font-weight: 400;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: #8a93a6;
+      text-align: center;
+
+      transition: color 0.3s ease;
+    }
+
+    .process-step:hover p {
+      color: #4b5563;
+    }
+
+    .process-connector {
+      flex: 0 0 40px;
+      height: 0;
+      border-top: 2px dashed #f0c040;
+      margin: 0 8px;
+      align-self: center;
+      margin-top: 15px;
+      position: relative;
+    }
+
+    /* ===================== SECTION 9 : CLOSING CTA ===================== */
+    .closing-cta {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 90px 120px;
+      gap: 20px;
+      width: 100%;
+      max-width: 1440px;
+      background: #16264a;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .closing-cta .corner-mark {
+      position: absolute;
+      top: 46px;
+      left: 100px;
+      width: 26px;
+      height: 26px;
+      opacity: 0.5;
+    }
+
+    .closing-cta .section-badge span {
+      color: #f0c040;
+    }
+
+    .closing-cta h2 {
+      width: 100%;
+      max-width: 900px;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.4;
+      text-align: center;
+      color: #ffffff;
+
+    }
+
+    .closing-cta p {
+      width: 100%;
+      max-width: 760px;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.9;
+      text-align: center;
+      color: #aeb8cc;
+
+    }
+
+    .closing-cta .btn-row {
+      direction: ltr;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .closing-cta .btn-primary {
+      order: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      background: #f0c040;
+      border-radius: 12px;
+      border: none;
+      font-weight: 700;
+      font-size: 15px;
+      color: #1d3363;
+      cursor: pointer;
+      white-space: nowrap;
+
+      transition: all 0.3s ease;
+    }
+
+    .closing-cta .btn-primary:hover {
+      background: #ffd700;
+      transform: translateY(-3px);
+      box-shadow: 0px 10px 25px rgba(240, 192, 64, 0.4);
+    }
+
+    .closing-cta .btn-outline {
+      order: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      color: #ffffff;
+      cursor: pointer;
+      white-space: nowrap;
+
+      transition: all 0.3s ease;
+    }
+
+    .closing-cta .btn-outline:hover {
+      border-color: #f0c040;
+      color: #f0c040;
+      transform: translateY(-3px);
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ===================== RESPONSIVE STYLES ===================== */
+
+    /* Large Tablet & Small Desktop (1024px - 1200px) */
+    @media (max-width: 1200px) {
+      .about-hero {
+        padding: 80px 60px 70px;
+      }
+
+      .about-hero h1 {
+        font-size: 38px;
+        max-width: 90%;
+      }
+
+      .timeline-section {
+        padding: 80px 60px;
+      }
+
+      .mission-section {
+        padding: 70px 60px;
+        gap: 40px;
+      }
+
+      .graphic-col {
+        width: 400px;
+        height: 280px;
+      }
+
+      .floating-card {
+        left: 100px;
+        top: 40px;
+        width: 180px;
+      }
+
+      .culture-section {
+        padding: 70px 60px;
+      }
+
+      .teachers-section {
+        padding: 80px 40px 120px;
+      }
+
+      .values-section {
+        padding: 70px 60px;
+      }
+
+      .stats-section {
+        padding: 60px 60px;
+      }
+
+      .process-section {
+        padding: 70px 60px;
+      }
+
+      .closing-cta {
+        padding: 70px 60px;
+      }
+
+      .process-connector {
+        flex: 0 0 20px;
+      }
+    }
+
+    /* Tablet (768px - 1024px) */
+    @media (max-width: 1024px) {
+      .about-hero {
+        padding: 60px 40px 50px;
+      }
+
+      .about-hero h1 {
+        font-size: 32px;
+      }
+
+      .about-hero p {
+        font-size: 14px;
+        max-width: 90%;
+      }
+
+      .about-hero .corner-mark {
+        top: 30px;
+        left: 40px;
+      }
+
+      .about-hero-image {
+        aspect-ratio: 16 / 9;
+      }
+
+      .timeline-section {
+        padding: 60px 40px;
+        gap: 40px;
+      }
+
+      .timeline::before {
+        right: 20px;
+      }
+
+      .timeline-row {
+        flex-direction: column !important;
+        gap: 20px;
+        padding: 24px 0;
+        align-items: flex-start;
+      }
+
+      .timeline-marker {
+        right: 20px;
+      }
+
+      /* تغییر ترتیب: عکس بالا، متن پایین */
+      .timeline-row .timeline-image {
+        order: -1 !important;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 !important;
+        margin-right: 40px;
+        width: calc(100% - 40px);
+      }
+
+      .timeline-row .timeline-text {
+        order: 1 !important;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 40px 0 0 !important;
+        text-align: right !important;
+        align-items: flex-start;
+      }
+
+      .timeline-text {
+        align-items: flex-start;
+        text-align: right !important;
+      }
+
+      .timeline-image {
+        height: 200px;
+      }
+
+      .mission-section {
+        flex-direction: column;
+        padding: 60px 40px;
+        gap: 30px;
+      }
+
+      .graphic-col {
+        width: 100%;
+        height: 250px;
+      }
+
+      .floating-card {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .content-col {
+        align-items: center;
+        text-align: center;
+      }
+
+      .content-col h2,
+      .content-col p {
+        text-align: center;
+      }
+
+      .checklist {
+        align-items: center;
+      }
+
+      .culture-gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .center-image {
+        grid-column: span 2;
+        height: 300px;
+        display: none;
+      }
+
+      .right-column,
+      .left-column {
+        height: auto;
+      }
+
+      .top-right,
+      .bottom-right,
+      .top-left,
+      .bottom-left {
+        height: 180px;
+      }
+
+      .teachers-section {
+        padding: 60px 20px 100px;
+      }
+
+      .main-heading {
+        font-size: 28px;
+      }
+
+      .values-section {
+        padding: 60px 40px;
+      }
+
+      .values-grid {
+        gap: 16px;
+      }
+
+      .value-card {
+        flex: 1 1 45%;
+        min-width: 200px;
+      }
+
+      .stats-section {
+        padding: 50px 40px;
+      }
+
+      .stats-grid {
+        gap: 16px;
+      }
+
+      .stat-card {
+        flex: 1 1 45%;
+        min-width: 160px;
+      }
+
+      .process-section {
+        padding: 60px 40px;
+        gap: 30px;
+      }
+
+      .process-row {
+        gap: 16px;
+      }
+
+      .process-connector {
+        display: none;
+      }
+
+      .process-step {
+        flex: 1 1 45%;
+        min-width: 180px;
+        margin: 0;
+      }
+
+      .closing-cta {
+        padding: 60px 40px;
+      }
+
+      .closing-cta h2 {
+        font-size: 28px;
+      }
+
+      .closing-cta .corner-mark {
+        top: 30px;
+        left: 40px;
+      }
+
+      .site-footer {
+        padding: 40px 30px 24px;
+      }
+
+      .footer-grid {
+        gap: 24px;
+      }
+
+      .about-col {
+        flex: 1 1 100%;
+      }
+
+      .links-col {
+        flex: 1 1 45%;
+      }
+
+      .contact-col {
+        flex: 1 1 45%;
+      }
+    }
+
+    /* Mobile Landscape & Large Mobile (480px - 768px) */
+    @media (max-width: 768px) {
+      .about-hero {
+        padding: 40px 20px 40px;
+      }
+
+      .about-hero h1 {
+        font-size: 26px;
+      }
+
+      .about-hero p {
+        font-size: 13px;
+      }
+
+      .about-hero .corner-mark {
+        display: none;
+      }
+
+      .about-hero-image {
+        aspect-ratio: 4 / 3;
+        border-radius: 12px;
+      }
+
+      .timeline-section {
+        padding: 40px 20px;
+        gap: 30px;
+      }
+
+      .timeline-header h2 {
+        font-size: 24px;
+      }
+
+      .timeline::before {
+        right: 15px;
+      }
+
+      .timeline-marker {
+        right: 15px;
+        width: 22px;
+        height: 22px;
+      }
+
+      .timeline-marker span {
+        width: 6px;
+        height: 6px;
+      }
+
+      .timeline-row .timeline-image {
+        margin-right: 30px;
+        width: calc(100% - 30px);
+        height: 180px;
+      }
+
+      .timeline-row .timeline-text {
+        padding-right: 30px !important;
+      }
+
+      .timeline-text .year,
+      .timeline-text .title {
+        font-size: 16px;
+      }
+
+      .timeline-text .desc {
+        font-size: 12px;
+      }
+
+      .timeline-image {
+        border-radius: 12px;
+      }
+
+      .mission-section {
+        padding: 40px 20px;
+        gap: 24px;
+      }
+
+      .graphic-col {
+        height: 200px;
+      }
+
+      .content-col h2 {
+        font-size: 24px;
+      }
+
+      .content-col p {
+        font-size: 13px;
+      }
+
+      .checklist .check-item span.label {
+        font-size: 13px;
+      }
+
+      .culture-section {
+        padding: 40px 20px;
+      }
+
+      .culture-header h2 {
+        font-size: 24px;
+      }
+
+      .culture-gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .center-image {
+        grid-column: span 1;
+        height: 250px;
+      }
+
+      .right-column,
+      .left-column {
+        display: contents;
+      }
+
+      .top-right,
+      .bottom-right,
+      .top-left,
+      .bottom-left {
+        height: 200px;
+        width: 100%;
+      }
+
+      .teachers-section {
+        padding: 40px 10px 80px;
+        gap: 30px;
+      }
+
+      .main-heading {
+        font-size: 24px;
+      }
+
+      .sub-description {
+        font-size: 14px;
+        max-width: 100%;
+      }
+
+      /* اسکرول افقی فعال */
+      .teachers-scroll-container {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        /* -webkit-overflow-scrolling: touch; */
+        cursor: grab;
+        margin: 0 -10px;
+        padding: 0 10px 10px;
+      }
+
+      .teachers-scroll-container:active {
+        cursor: grabbing;
+      }
+
+      .cards-row {
+
+        gap: 16px;
+        padding: 0 10px;
+      }
+
+      .teacher-card {
+        flex: 0 0 240px;
+        width: 240px;
+        scroll-snap-align: start;
+      }
+
+      .values-section {
+        padding: 40px 20px;
+        gap: 24px;
+      }
+
+      .values-header h2 {
+        font-size: 24px;
+      }
+
+      .values-grid {
+        gap: 12px;
+      }
+
+      .value-card {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
+
+      .stats-section {
+        padding: 40px 20px;
+        gap: 24px;
+      }
+
+      .stats-header h2 {
+        font-size: 24px;
+      }
+
+      .stats-grid {
+        gap: 12px;
+      }
+
+      .stat-card {
+        flex: 1 1 45%;
+        min-width: 140px;
+        padding: 24px 16px;
+      }
+
+      .stat-card .num {
+        font-size: 30px;
+      }
+
+      .stat-card .label {
+        font-size: 13px;
+      }
+
+      .process-section {
+        padding: 40px 20px;
+        gap: 24px;
+      }
+
+      .process-header h2 {
+        font-size: 24px;
+      }
+
+      .process-row {
+        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+        display: grid;
+      }
+
+      .process-step {
+        flex: 1 1 100%;
+        min-width: 100%;
+        padding: 20px 16px;
+      }
+
+      .closing-cta {
+        padding: 40px 20px;
+        gap: 16px;
+      }
+
+      .closing-cta h2 {
+        font-size: 24px;
+      }
+
+      .closing-cta p {
+        font-size: 13px;
+      }
+
+      .closing-cta .btn-row {
+        gap: 12px;
+      }
+
+      .closing-cta .btn-primary,
+      .closing-cta .btn-outline {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+
+      .site-footer {
+        padding: 30px 20px 20px;
+      }
+
+      .footer-grid {
+        gap: 20px;
+      }
+
+      .about-col,
+      .links-col,
+      .contact-col {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .brand-header {
+        justify-content: center;
+      }
+
+      .about-desc {
+        text-align: center;
+        max-width: 100%;
+      }
+
+      .col-heading {
+        text-align: center;
+      }
+
+      .footer-links {
+        align-items: center;
+      }
+
+      .contact-items {
+        align-items: center;
+        text-align: center;
+      }
+
+      .certs-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cert-thumbnails {
+        justify-content: center;
+      }
+
+      .footer-strip {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .copyright-text {
+        text-align: center;
+      }
+    }
+
+    /* Small Mobile (320px - 480px) */
+    @media (max-width: 480px) {
+      .about-hero {
+        padding: 30px 16px 30px;
+      }
+
+      .about-hero h1 {
+        font-size: 22px;
+      }
+
+      .about-hero p {
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .about-badge span {
+        font-size: 12px;
+      }
+
+      .timeline-section {
+        padding: 30px 16px;
+        gap: 20px;
+      }
+
+      .timeline-header h2 {
+        font-size: 20px;
+      }
+
+      .timeline-row .timeline-image {
+        margin-right: 25px;
+        width: calc(100% - 25px);
+        height: 150px;
+      }
+
+      .timeline-row .timeline-text {
+        padding-right: 25px !important;
+      }
+
+      .timeline-row {
+        padding: 16px 0;
+      }
+
+      .mission-section {
+        padding: 30px 16px;
+        gap: 20px;
+      }
+
+      .graphic-col {
+        height: 180px;
+      }
+
+      .content-col h2 {
+        font-size: 20px;
+      }
+
+      .content-col p {
+        font-size: 12px;
+      }
+
+      .checklist .check-item span.label {
+        font-size: 12px;
+      }
+
+      .culture-section {
+        padding: 30px 16px;
+      }
+
+      .culture-header h2 {
+        font-size: 20px;
+      }
+
+      .center-image {
+        height: 220px;
+      }
+
+      .top-right,
+      .bottom-right,
+      .top-left,
+      .bottom-left {
+        height: 160px;
+      }
+
+      .teachers-section {
+        padding: 30px 8px 60px;
+        gap: 24px;
+      }
+
+      .main-heading {
+        font-size: 20px;
+      }
+
+      .sub-description {
+        font-size: 12px;
+      }
+
+      .teachers-scroll-container {
+        margin: 0 -8px;
+        padding: 0 8px 8px;
+      }
+
+      .cards-row {
+        gap: 12px;
+      }
+
+      .teacher-card {
+        flex: 0 0 220px;
+        width: 220px;
+        height: 280px;
+      }
+
+      .teacher-name {
+        font-size: 13px;
+      }
+
+      .teacher-role-badge {
+        font-size: 8px;
+      }
+
+      .teacher-bio-text {
+        font-size: 12px;
+      }
+
+      .values-section {
+        padding: 30px 16px;
+        gap: 20px;
+      }
+
+      .values-header h2 {
+        font-size: 20px;
+      }
+
+      .value-card {
+        padding: 20px 16px;
+      }
+
+      .value-card h3 {
+        font-size: 15px;
+      }
+
+      .value-card p {
+        font-size: 12px;
+      }
+
+      .stats-section {
+        padding: 30px 16px;
+        gap: 20px;
+      }
+
+      .stats-header h2 {
+        font-size: 20px;
+      }
+
+      .stat-card {
+        flex: 1 1 100%;
+        min-width: 100%;
+        padding: 20px 16px;
+      }
+
+      .stat-card .num {
+        font-size: 32px;
+      }
+
+      .stat-card .label {
+        font-size: 14px;
+      }
+
+      .process-section {
+        padding: 30px 16px;
+        gap: 20px;
+      }
+
+      .process-header h2 {
+        font-size: 20px;
+      }
+
+      .process-step {
+        padding: 16px 12px;
+      }
+
+      .process-step h4 {
+        font-size: 14px;
+      }
+
+      .process-step p {
+        font-size: 11px;
+      }
+
+      .closing-cta {
+        padding: 30px 16px;
+        gap: 14px;
+      }
+
+      .closing-cta h2 {
+        font-size: 20px;
+      }
+
+      .closing-cta p {
+        font-size: 12px;
+      }
+
+      .closing-cta .btn-primary,
+      .closing-cta .btn-outline {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 13px;
+      }
+
+      .closing-cta .btn-row {
+        width: 100%;
+      }
+
+      .site-footer {
+        padding: 24px 16px 16px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .brand-logo {
+        width: 44px;
+        height: 44px;
+      }
+
+      .logo-inner,
+      .logo-inner img {
+        width: 32px;
+        height: 32px;
+      }
+
+      .about-desc {
+        font-size: 12px;
+        line-height: 1.8;
+      }
+
+      .col-heading {
+        font-size: 14px;
+      }
+
+      .footer-links a,
+      .contact-line {
+        font-size: 12px;
+      }
+
+      .cert-thumb {
+        width: 48px;
+        height: 48px;
+      }
+
+      .cert-thumb::after {
+        width: 24px;
+        height: 24px;
+      }
+
+      .social-circle {
+        width: 38px;
+        height: 38px;
+      }
+
+      .social-dot img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .copyright-text {
+        font-size: 11px;
+      }
+    }
+
+    /* Ultra Small Mobile (below 360px) */
+    @media (max-width: 360px) {
+      .about-hero h1 {
+        font-size: 20px;
+      }
+
+      .about-hero p {
+        font-size: 11px;
+      }
+
+      .timeline-row .timeline-image {
+        height: 130px;
+      }
+
+      .teacher-card {
+        flex: 0 0 200px;
+        width: 200px;
+        height: 260px;
+      }
+
+      .stat-card .num {
+        font-size: 28px;
+      }
+    }
+
+    /* Vazir - Medium */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Medium.woff2" %}') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - Bold */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Bold.woff2" %}') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Vazir - thin */
+    @font-face {
+      font-family: 'Vazir';
+      src: url('{% static "/font/Vazir-Thin.woff2" %}') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include "includes/navbar.html" %}
+
+
+  <!-- ============ SECTION 1 : ABOUT HERO ============ -->
+  <div class="about-hero">
+    <svg class="corner-mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 2V14M4 2H16" stroke="#F0C040" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="22" cy="20" r="2.5" fill="#F0C040" />
+    </svg>
+    <div class="about-badge">
+      <span>درباره آژانس راستین</span>
+      <div class="dot"></div>
+    </div>
+    <h1>داستان ما؛ آمیزه‌ای از هنر طراحی، مهندسی نرم‌افزار و شور ارتقای کسب‌وکارها</h1>
+    <p>ما معتقدیم هر ایده بزرگ شایسته یک پیاده‌سازی بی‌نقص است. راستین خانه‌ای است برای نوابغ خلاق، توسعه‌دهندگان وب و
+      استراتژیست‌های بازار دیجیتال که با هم مرزهای ناممکن را فرومی‌ریزند.</p>
+    <div class="about-hero-image">
+      <img src="{% static 'asets/teaaam.png' %}" alt="تیم دور میز کار - فضای اداری مدرن" />
+    </div>
+  </div>
+
+  <!-- ============ SECTION 2 : TIMELINE ============ -->
+  <div class="timeline-section">
+    <div class="timeline-header">
+      <div class="about-badge" style="color: #1d3363">
+        <span style="color: #1d3363">مسیر توسعه ما</span>
+        <div class="dot"></div>
+      </div>
+      <h2>ماجرای رشد و تکامل راستین از آغاز تا امروز</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-row row-odd">
+        <div class="timeline-marker"><span></span></div>
+        <div class="timeline-image">
+          <img src="{% static 'asets/401.jpg' %}" alt="تیم دور میز کار، دفتر اولیه - ۱۳۹۸" />
+        </div>
+        <div class="timeline-text">
+          <div class="year">۱۳۹۸</div>
+          <div class="title">تولد یک رؤیا</div>
+          <div class="desc">آژانس با ۳ نفر پرشور و یک اتاق کوچک کار خود را با تمرکز بر توسعه وب آغاز کرد.</div>
+        </div>
+      </div>
+      <div class="timeline-row row-even">
+        <div class="timeline-marker"><span></span></div>
+        <div class="timeline-image">
+          <img src="{% static 'asets/402.jpg' %}" alt="برد استراتژی کمپین مارکتینگ - ۱۳۹۹" />
+        </div>
+        <div class="timeline-text">
+          <div class="year">۱۳۹۹</div>
+          <div class="title">ورود به دنیای بازاریابی</div>
+          <div class="desc">اولین کمپین‌های خلاق دیجیتال را راه‌اندازی کردیم و خدمات سئو اضافه شدند.</div>
+        </div>
+      </div>
+      <div class="timeline-row row-odd">
+        <div class="timeline-marker"><span></span></div>
+        <div class="timeline-image">
+          <img src="{% static 'asets/403.jpg' %}" alt="تیم جدید در حال کار مشترک - ۱۴۰۰" />
+        </div>
+        <div class="timeline-text">
+          <div class="year">۱۴۰۰</div>
+          <div class="title">بزرگ‌تر شدن خانواده ما</div>
+          <div class="desc">تیم ما به ۱۵ متخصص رسید و وارد دفتر جدید و پویا شدیم.</div>
+        </div>
+      </div>
+      <div class="timeline-row row-even">
+        <div class="timeline-marker"><span></span></div>
+        <div class="timeline-image">
+          <img src="{% static 'asets/404.png' %}" alt="جایزه سازمانی روی میز دفتر - ۱۴۰۱" />
+        </div>
+        <div class="timeline-text">
+          <div class="year">۱۴۰۱</div>
+          <div class="title">جوایز و پروژه‌های ملی</div>
+          <div class="desc">به عنوان آژانس برتر سال خلاق انتخاب شدیم و میزبان برندهای مطرح کشوری بودیم.</div>
+        </div>
+      </div>
+      <div class="timeline-row row-odd">
+        <div class="timeline-marker"><span></span></div>
+        <div class="timeline-image">
+          <img src="{% static 'asets/405.png' %}" alt="شبکه دیجیتال و تصویرسازی هوش مصنوعی - ۱۴۰۲" />
+        </div>
+        <div class="timeline-text">
+          <div class="year">۱۴۰۲</div>
+          <div class="title">فناوری‌های نوین و هوش مصنوعی</div>
+          <div class="desc">واحد تخصصی توسعه ابزارهای هوش مصنوعی و یادگیری ماشین را تأسیس کردیم.</div>
+        </div>
+      </div>
+      <div class="timeline-row row-even">
+        <div class="timeline-marker"><span></span></div>
+        <div class="timeline-image">
+          <img src="{% static 'asets/406.png' %}" alt="دفتر جدید و فضای کاری روشن - ۱۴۰۳" />
+        </div>
+        <div class="timeline-text">
+          <div class="year">۱۴۰۳</div>
+          <div class="title">پرواز فرامرزی</div>
+          <div class="desc">هم‌اکنون با تیمی از نوابغ خلاق، مرزهای دیجیتال را جابجا می‌کنیم.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 3 : MISSION ============ -->
+  <div class="mission-section">
+    <div class="graphic-col">
+      <div class="glow"></div>
+      <svg class="lines" viewBox="0 0 560 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="46" y1="156" x2="156" y2="216" stroke="#5A6C94" stroke-width="1.2" />
+        <line x1="156" y1="216" x2="260" y2="66" stroke="#5A6C94" stroke-width="1.2" />
+        <line x1="16" y1="266" x2="150" y2="216" stroke="#5A6C94" stroke-width="1.2" stroke-dasharray="4 5" />
+      </svg>
+      <div class="node n1"></div>
+      <div class="node n2"></div>
+      <div class="node n3"></div>
+      <div class="floating-card">
+        <div class="status-row">
+          <div class="status-dot"></div>
+          <span class="status-text">سیستم بسترهای هوشمند فعال</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-label">٪۹۹.۹ بهینه‌سازی داده‌ها</span>
+      </div>
+    </div>
+    <div class="content-col">
+      <div class="mission-badge">
+        <span>مأموریت ما چیست؟</span>
+        <div class="dot"></div>
+      </div>
+      <h2>توسعه بسترهای هوشمند برای هموار کردن مسیر تحول دیجیتال شما</h2>
+      <p>تلاش ما بر این است که فناوری‌های نوین و بازاریابی داده‌محور را از حالت ابزارهای پیچیده خارج کرده و به یک مزیت
+        رقابتی پایدار تبدیل کنیم.</p>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 10 10" fill="none">
+              <path d="M1 5L3.5 7.5L9 1.5" stroke="#F0C040" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
+          <span class="label">احترام عمیق به هویت کسب‌وکار شما</span>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 10 10" fill="none">
+              <path d="M1 5L3.5 7.5L9 1.5" stroke="#F0C040" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
+          <span class="label">مهندسی با بالاترین معیارهای امنیت و مقیاس‌پذیری</span>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 10 10" fill="none">
+              <path d="M1 5L3.5 7.5L9 1.5" stroke="#F0C040" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
+          <span class="label">بازاریابی مبتنی بر آمار دقیق و بهینه‌سازی مداوم</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 4 : CULTURE GALLERY ============ -->
+  <div class="culture-section">
+    <div class="culture-container">
+      <header class="culture-header">
+        <div class="culture-eyebrow">
+          <div class="dot"></div>
+          <span class="label">زندگی در راستین</span>
+        </div>
+        <h2>فرهنگ تیمی پویا و سرشار از خلاقیت ما</h2>
+      </header>
+      <div class="culture-gallery">
+        <div class="gallery-column right-column">
+          <div class="gallery-item top-right"><img src="{% static 'img/mohit.png' %}" alt="محیط کاری تیم" /></div>
+          <div class="gallery-item bottom-right"><img src="{% static 'img/ekip.png' %}" alt="اعضای تیم" /></div>
+        </div>
+        <div class="gallery-item center-image"><img src="{% static 'img/team.png' %}" alt="جلسه تیمی" /></div>
+        <div class="gallery-column left-column">
+          <div class="gallery-item top-left"><img src="{% static 'img/sherkat.png' %}" alt="همکاری تیمی" /></div>
+          <div class="gallery-item bottom-left"><img src="{% static 'img/tablet.png' %}" alt="طراحی و خلاقیت" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 5 : TEACHERS ============ -->
+  <div class="teachers-section">
+    <div class="section-header-area">
+      <div class="badge-container"><b class="badge-text">مدرسان عالی‌رتبه</b></div>
+      <div class="main-heading">از کسانی یاد بگیرید که هر روز در بازار دیزاین می‌کنند و می‌سازند</div>
+      <div class="sub-description">سازمانی می‌نشینند.</div>
+    </div>
+
+    <!-- کانتینر اسکرول افقی -->
+    <div class="teachers-scroll-container">
+      <div class="cards-row">
+        <!-- استاد ۱ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/gahremany.png' %}" alt="نسیم یوسفی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس قهرمانی</div>
+              <div class="teacher-role-badge">متخصص فرانت اند</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">i love back-end developers!</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">React</span>
+                <span class="skill-tag-item">Next JS</span>
+                <span class="skill-tag-item">TypeScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۲ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/parnian.png' %}" alt="سارا رضایی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس پرنیان</div>
+              <div class="teacher-role-badge">متخصص وردپرس</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">با بیش از 3 سال تجربه در حوزه طراحی وب</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">html</span>
+                <span class="skill-tag-item">css</span>
+                <span class="skill-tag-item">wordpress</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۳ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/shayan.png' %}" alt="امیر مرادی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس رضایی</div>
+              <div class="teacher-role-badge">مهندس بک اند لاراول</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">متخصص React و Next.js، مدرس دوره‌های پیشرفته توسعه وب.</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">React</span>
+                <span class="skill-tag-item">TypeScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۴ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/jadidi.png' %}" alt="لیلا احمدی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس جدیدی</div>
+              <div class="teacher-role-badge">متخصص بک اند جنگو</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">فعالیت در حوزه طراحی و توسعه وب‌سایت با فریم‌ورک جنگو</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">Django</span>
+                <span class="skill-tag-item">FastAPI</span>
+                <span class="skill-tag-item">DRF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۵ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/gaderi.jpeg' %}" alt="حسین کرمی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس قادری</div>
+              <div class="teacher-role-badge">متخصص بک‌اند</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">فعالیت در حوزه طراحی و توسعه وب و بازی‌سازی با موتور Unity</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">Asp.net core</span>
+                <span class="skill-tag-item">SQL Server</span>
+                <span class="skill-tag-item">Unity 3D</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۶ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/taha.png' %}" alt="مینا نوروزی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس فرامرزی</div>
+              <div class="teacher-role-badge">متخصص AI</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">خلق هویت بصری برای برندهای مطرح، مدرس نرم‌افزارهای Adobe.</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">Photoshop</span>
+                <span class="skill-tag-item">Branding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۷ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/' %}" alt="مهندس طباطبایی">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس طباطبایی</div>
+              <div class="teacher-role-badge">متخصص UI/UX</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">راهبر تولید محتوا در دیجی‌کالا، استراتژیست بازاریابی دیجیتال.</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">SEO</span>
+                <span class="skill-tag-item">Content</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- استاد ۸ -->
+        <div class="teacher-card">
+          <img class="teacher-photo" src="{% static 'img/' %}" alt="مهندس ذریه">
+          <div class="teacher-glass-panel">
+            <div class="box-detail-ostad">
+              <div class="teacher-name">مهندس ذریه</div>
+              <div class="teacher-role-badge">متخصص سئو</div>
+            </div>
+            <div class="teacher-extra-content">
+              <div class="teacher-bio-text">راهبر تولید محتوا در دیجی‌کالا، استراتژیست بازاریابی دیجیتال.</div>
+              <div class="skill-tags-row">
+                <span class="skill-tag-item">SEO</span>
+                <span class="skill-tag-item">Content</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 6 : VALUES ============ -->
+  <div class="values-section">
+    <div class="values-header">
+      <div class="section-badge"><span>قطب‌نمای اخلاقی ما</span>
+        <div class="dot"></div>
+      </div>
+      <h2>ارزش‌هایی که مسیر خدمات ما را روشن می‌کنند</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" stroke-width="1.6" stroke-linejoin="round" />
+          </svg></div>
+        <h3>خلاقیت بی‌مرز</h3>
+        <p>هر ایده یک فرصت است برای به چالش کشیدن هنجارها و خلق تجربه‌ای کاملاً متمایز.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none">
+            <path d="M2 12C2 12 5.5 5 12 5C18.5 5 22 12 22 12C22 12 18.5 19 12 19C5.5 19 2 12 2 12Z"
+              stroke-width="1.6" />
+            <circle cx="12" cy="12" r="3" stroke-width="1.6" />
+          </svg></div>
+        <h3>شفافیت و صداقت</h3>
+        <p>اعتماد گران‌بهاترین دارایی ماست. همواره بی‌پرده و واضح با شرکایمان سخن می‌گوییم.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 5.5C4 4.67 4.67 4 5.5 4H11V20H5.5C4.67 20 4 19.33 4 18.5V5.5Z" stroke-width="1.6" />
+            <path d="M20 5.5C20 4.67 19.33 4 18.5 4H13V20H18.5C19.33 20 20 19.33 20 18.5V5.5Z" stroke-width="1.6" />
+          </svg></div>
+        <h3>یادگیری مداوم</h3>
+        <p>دنیای فناوری متوقف نمی‌شود و ما نیز هر روز تشنه یادگیری مهارت‌های نو هستیم.</p>
+      </div>
+      <div class="value-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3L20 6V11C20 16 16.5 19.5 12 21C7.5 19.5 4 16 4 11V6L12 3Z" stroke-width="1.6"
+              stroke-linejoin="round" />
+            <path d="M9 11.5L11 13.5L15.5 9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg></div>
+        <h3>کیفیت بی‌افول</h3>
+        <p>هر کدی که می‌نویسیم و هر طرحی که می‌کشیم اعتبار آژانس ما را بر پای خود دارد.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 7 : STATS ============ -->
+  <div class="stats-section">
+    <div class="stats-header">
+      <div class="section-badge"><span>رشد ما در قاب اعداد</span>
+        <div class="dot"></div>
+      </div>
+      <h2>دستاوردهای درخشان آژانس راستین در یک نگاه</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="num">۸+</div>
+        <div class="label">سال تجربه مستمر</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">۲۵</div>
+        <div class="label">عضو پرتلاش تیم</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">۱۲۰+</div>
+        <div class="label">مشتری راضی</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">۱۵۰+</div>
+        <div class="label">پروژه موفق</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 8 : PROCESS ============ -->
+  <div class="process-section">
+    <div class="process-header">
+      <div class="section-badge"><span>متدولوژی کارآیی بالا</span>
+        <div class="dot"></div>
+      </div>
+      <h2>مراحل همکاری هموار و مطمئن ما با شما</h2>
+    </div>
+    <div class="process-row">
+      <div class="process-step">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7" stroke="#4B5563" stroke-width="1.8" />
+            <path d="M21 21L16 16" stroke="#4B5563" stroke-width="1.8" stroke-linecap="round" />
+          </svg></div>
+        <h4>درک کردن</h4>
+        <p>شنیدن نیازها و کشف عمیق اهداف</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 3L3 5V19L9 17L15 19L21 17V3L15 5L9 3Z" stroke="#4B5563" stroke-width="1.6"
+              stroke-linejoin="round" />
+            <path d="M9 3V17M15 5V19" stroke="#4B5563" stroke-width="1.6" />
+          </svg></div>
+        <h4>استراتژی</h4>
+        <p>ترسیم نقشه راه دقیق و هدفمند</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="#4B5563" stroke-width="1.6" />
+            <circle cx="9" cy="10" r="1.2" fill="#4B5563" />
+            <circle cx="14" cy="9" r="1.2" fill="#4B5563" />
+            <circle cx="15" cy="14" r="1.2" fill="#4B5563" />
+          </svg></div>
+        <h4>طراحی</h4>
+        <p>خلق رابط کاربری فاخر و هنری</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none">
+            <path d="M8 6L3 12L8 18" stroke="#4B5563" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M16 6L21 12L16 18" stroke="#4B5563" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg></div>
+        <h4>توسعه</h4>
+        <p>کدنویسی تمیز با کارآیی حداکثری</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 17L9 11L13 15L21 7" stroke="#4B5563" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M15 7H21V13" stroke="#4B5563" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg></div>
+        <h4>رشد</h4>
+        <p>بهینه‌سازی دائم و پایش عملکرد</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 9 : CLOSING CTA ============ -->
+  <div class="closing-cta">
+    <svg class="corner-mark" viewBox="0 0 26 26" fill="none">
+      <path d="M4 2V14M4 2H16" stroke="#F0C040" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="22" cy="20" r="2.5" fill="#F0C040" />
+    </svg>
+    <div class="section-badge"><span>شروع سفر دیجیتال شما</span>
+      <div class="dot"></div>
+    </div>
+    <h2>بیایید با هم چیزی واقعاً ارزشمند و ماندگار بسازیم</h2>
+    <p>تیم مشاوران و مهندسان ما آماده شنیدن ایده بلندپروازانه شما هستند. اولین فنجان قهوه را با ما بنوشید و نقشه راه
+      توسعه کسب‌وکار دیجیتال خود را ترسیم کنید.</p>
+    <div class="btn-row">
+      <a href="{% url 'users:contact_request' %}" class="btn-primary">مشاوره رایگان تخصصی</a>
+      <a href="{% url 'shop:template_list' %}" class="btn-outline">دیدن نمونه کارها</a>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  {% include "includes/footer.html" %}
+  <script src="{% static 'js/index.js' %}"></script>
+
+  <!-- ========== چت‌بات ========== -->
+  {% include 'chatbot.html' %}
+</body>
+
+</html>

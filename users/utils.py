@@ -12,14 +12,61 @@ def generate_otp():
     return f"{random.randint(100000, 999999)}"
 
 
-def send_sms(phone, code):
-    """ارسال کد تایید (در کنسول چاپ می‌شود)"""
-    print("=" * 50)
-    print(f"📱 ارسال کد تایید به {phone}")
-    print(f"🔑 کد: {code}")
-    print("=" * 50)
-    return True
+import requests
+from django.conf import settings
 
+
+class SmsIrError(Exception):
+    """خطای مربوط به ارسال پیامک از طریق SMS.ir"""
+    pass
+
+
+def send_sms(phone, code):
+    """
+    ارسال کد تایید از طریق SMS.ir (سرویس Verify/OTP)
+    در صورت موفقیت True برمی‌گرداند، در غیر این صورت SmsIrError raise می‌کند
+    """
+    # گرفتن و پاک‌سازی API key از settings
+    api_key = getattr(settings, "SMSIR_API_KEY", "")
+    api_key = api_key.strip() if isinstance(api_key, str) else ""
+    if not api_key:
+        raise SmsIrError("API key برای SMS.ir تنظیم نشده یا خالی است")
+
+    template_id = getattr(settings, "SMSIR_TEMPLATE_ID", 0)
+    if not template_id:
+        raise SmsIrError("Template ID برای SMS.ir تنظیم نشده است")
+
+    url = "https://api.sms.ir/v1/send/verify"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "X-API-KEY": api_key,
+    }
+
+    payload = {
+        "mobile": phone,
+        "templateId": int(template_id),
+        "parameters": [{"name": "code", "value": str(code)}],
+    }
+
+    try:
+        response = requests.post(url, json=payload, headers=headers, timeout=10)
+    except requests.exceptions.RequestException as e:
+        raise SmsIrError(f"خطا در اتصال به SMS.ir: {e}")
+
+    # بررسی کد وضعیت HTTP
+    try:
+        data = response.json()
+    except ValueError:
+        raise SmsIrError(f"پاسخ نامعتبر از SMS.ir (status {response.status_code})")
+
+    # ساختار پاسخ SMS.ir: status == 1 یعنی موفق
+    if response.status_code != 200 or data.get("status") != 1:
+        message = data.get("message", "خطای نامشخص")
+        raise SmsIrError(f"ارسال پیامک ناموفق بود: {message} (status={data.get('status')})")
+
+    return True
 
 def get_or_create_user_by_phone(phone):
     """

@@ -17,8 +17,6 @@ import requests
 logger = logging.getLogger(__name__)
 
 
-def home(request):
-    return render(request, 'marahelsefaresh.html')
 
 
 @csrf_exempt
@@ -208,103 +206,206 @@ def template_list_view(request):
     return render(request, 'product.html', context)
 
 
+def get_file_url(field):
+    """
+    گرفتن URL امن از ImageField / FileField
+    """
+    if not field:
+        return None
+
+    try:
+        if hasattr(field, "name") and field.name:
+            return field.url
+    except (ValueError, AttributeError):
+        return None
+
+    return None
+
+
 @csrf_exempt
 def template_data_view(request, template_id):
-    """API برای دریافت دیتای یک قالب با ID"""
-    try:
-        template = get_object_or_404(Template, id=template_id, is_active=True)
+    """API برای دریافت اطلاعات کامل یک قالب"""
 
-        # ===== بخش‌های دسکتاپ =====
-        desktop_sections = []
+    try:
+        # -----------------------------
+        # دریافت قالب
+        # -----------------------------
+        template = Template.objects.get(
+            id=template_id,
+            is_active=True
+        )
+
+        # -----------------------------
+        # Desktop
+        # -----------------------------
         desktop_fields = [
-            ('home', 'صفحه اصلی', template.desktop_home),
-            ('store', 'صفحه فروشگاه', template.desktop_store),
-            ('about', 'درباره ما', template.desktop_about),
-            ('blog', 'وبلاگ', template.desktop_blog),
-            ('cart', 'سبد خرید', template.desktop_cart),
-            ('login', 'لاگین', template.desktop_login),
-            ('dash', 'داشبورد', template.desktop_dash),
+            ("home", "صفحه اصلی", template.desktop_home),
+            ("store", "صفحه فروشگاه", template.desktop_store),
+            ("about", "درباره ما", template.desktop_about),
+            ("blog", "وبلاگ", template.desktop_blog),
+            ("cart", "سبد خرید", template.desktop_cart),
+            ("login", "لاگین", template.desktop_login),
+            ("dash", "داشبورد", template.desktop_dash),
         ]
+
+        desktop_sections = []
 
         for key, name, field in desktop_fields:
-            if field and hasattr(field, 'name') and field.name:
+
+            image_url = get_file_url(field)
+
+            if image_url:
                 desktop_sections.append({
-                    'name': name,
-                    'key': key,
-                    'image': field.url
+                    "name": name,
+                    "key": key,
+                    "image": image_url,
                 })
 
-        # ===== بخش‌های تبلت =====
-        tablet_sections = []
+        # -----------------------------
+        # Tablet
+        # -----------------------------
         tablet_fields = [
-            ('home', 'صفحه اصلی', template.tablet_home),
-            ('store', 'صفحه فروشگاه', template.tablet_store),
-            ('about', 'درباره ما', template.tablet_about),
-            ('blog', 'وبلاگ', template.tablet_blog),
-            ('cart', 'سبد خرید', template.tablet_cart),
-            ('login', 'لاگین', template.tablet_login),
-            ('dash', 'داشبورد', template.tablet_dash),
+            ("home", "صفحه اصلی", template.tablet_home),
+            ("store", "صفحه فروشگاه", template.tablet_store),
+            ("about", "درباره ما", template.tablet_about),
+            ("blog", "وبلاگ", template.tablet_blog),
+            ("cart", "سبد خرید", template.tablet_cart),
+            ("login", "لاگین", template.tablet_login),
+            ("dash", "داشبورد", template.tablet_dash),
         ]
+
+        tablet_sections = []
 
         for key, name, field in tablet_fields:
-            if field and hasattr(field, 'name') and field.name:
+
+            image_url = get_file_url(field)
+
+            if image_url:
                 tablet_sections.append({
-                    'name': name,
-                    'key': key,
-                    'image': field.url
+                    "name": name,
+                    "key": key,
+                    "image": image_url,
                 })
 
-        # ===== بخش‌های موبایل =====
-        mobile_sections = []
+        # -----------------------------
+        # Mobile
+        # -----------------------------
         mobile_fields = [
-            ('home', 'صفحه اصلی', template.mobile_home),
-            ('store', 'صفحه فروشگاه', template.mobile_store),
-            ('about', 'درباره ما', template.mobile_about),
-            ('blog', 'وبلاگ', template.mobile_blog),
-            ('cart', 'سبد خرید', template.mobile_cart),
-            ('login', 'لاگین', template.mobile_login),
-            ('dash', 'داشبورد', template.mobile_dash),
+            ("home", "صفحه اصلی", template.mobile_home),
+            ("store", "صفحه فروشگاه", template.mobile_store),
+            ("about", "درباره ما", template.mobile_about),
+            ("blog", "وبلاگ", template.mobile_blog),
+            ("cart", "سبد خرید", template.mobile_cart),
+            ("login", "لاگین", template.mobile_login),
+            ("dash", "داشبورد", template.mobile_dash),
         ]
 
+        mobile_sections = []
+
         for key, name, field in mobile_fields:
-            if field and hasattr(field, 'name') and field.name:
+
+            image_url = get_file_url(field)
+
+            if image_url:
                 mobile_sections.append({
-                    'name': name,
-                    'key': key,
-                    'image': field.url
+                    "name": name,
+                    "key": key,
+                    "image": image_url,
                 })
 
+        # -----------------------------
+        # Response
+        # -----------------------------
+
         data = {
-            'id': template.id,
-            'title': template.title,
-            'slug': template.slug,
-            'description': template.description,
-            'image': template.image.url if template.image and hasattr(template.image, 'name') and template.image.name else None,
-            'desktop_image': template.desktop_image.url if template.desktop_image and hasattr(template.desktop_image, 'name') and template.desktop_image.name else None,
-            'tablet_image': template.tablet_image.url if template.tablet_image and hasattr(template.tablet_image, 'name') and template.tablet_image.name else None,
-            'mobile_image': template.mobile_image.url if template.mobile_image and hasattr(template.mobile_image, 'name') and template.mobile_image.name else None,
-            'desktop_sections': desktop_sections,
-            'tablet_sections': tablet_sections,
-            'mobile_sections': mobile_sections,
-            'is_popular': template.is_popular,
+            "id": template.id,
+            "title": template.title,
+            "slug": template.slug,
+            "description": template.description,
+
+            "image": get_file_url(template.image),
+
+            "desktop_image": get_file_url(
+                template.desktop_image
+            ),
+
+            "tablet_image": get_file_url(
+                template.tablet_image
+            ),
+
+            "mobile_image": get_file_url(
+                template.mobile_image
+            ),
+
+            "desktop_sections": desktop_sections,
+            "tablet_sections": tablet_sections,
+            "mobile_sections": mobile_sections,
+
+            "is_popular": template.is_popular,
         }
 
-        # دیباگ: لاگ بگیرید
-        print(
-            f"📸 Template {template.id} - Desktop sections: {len(desktop_sections)}")
-        print(
-            f"📸 Template {template.id} - Tablet sections: {len(tablet_sections)}")
-        print(
-            f"📸 Template {template.id} - Mobile sections: {len(mobile_sections)}")
+        # -----------------------------
+        # Debug
+        # -----------------------------
 
-        return JsonResponse(data, safe=False)
+        print("=" * 60)
+        print(f"Template ID: {template.id}")
+        print(f"Template title: {template.title}")
+
+        print(
+            f"Desktop sections: {len(desktop_sections)}"
+        )
+
+        print(
+            f"Tablet sections: {len(tablet_sections)}"
+        )
+
+        print(
+            f"Mobile sections: {len(mobile_sections)}"
+        )
+
+        print(
+            f"Desktop image: {data['desktop_image']}"
+        )
+
+        print(
+            f"Tablet image: {data['tablet_image']}"
+        )
+
+        print(
+            f"Mobile image: {data['mobile_image']}"
+        )
+
+        print("=" * 60)
+
+        return JsonResponse(data)
 
     except Template.DoesNotExist:
-        return JsonResponse({'error': 'قالب یافت نشد'}, status=404)
-    except Exception as e:
-        print(f"❌ Error in template_data_view: {e}")  # دیباگ
-        return JsonResponse({'error': str(e)}, status=500)
 
+        return JsonResponse(
+            {
+                "error": "قالب یافت نشد"
+            },
+            status=404
+        )
+
+    except Exception as e:
+
+        import traceback
+
+        print("=" * 60)
+        print("❌ ERROR IN TEMPLATE DATA VIEW")
+        print(f"Template ID: {template_id}")
+        print(f"Error: {str(e)}")
+        traceback.print_exc()
+        print("=" * 60)
+
+        return JsonResponse(
+            {
+                "error": str(e)
+            },
+            status=500
+        )
 
 def plan_list(request):
     """نمایش لیست طرح‌ها (همون trahi.html)"""
@@ -669,3 +770,6 @@ def services_digital_view(request):
     else:
         form = DigitalMarketinfForm()
     return render(request, 'digital-marketing.html', {'form': form})
+
+def services_support_view(request):
+    return render(request, 'services-support.html')

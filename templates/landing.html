@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1, width=device-width">
 		<title>صفحه اصلی آذریزدان</title>
-		<link rel="stylesheet" href="{% static "css/index.css" %}" />
+		<link rel="stylesheet" href="{% static 'css/index.css' %}" />
 		<link rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" />
 		<link rel="stylesheet"
@@ -17,6 +17,8 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,800&family=Rubik:wght@400&display=swap"
 			rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+		<link rel="stylesheet" href="{% static 'css/footer.css' %}">	
 	</head>
 	<body>
 		<!-- navbar -->
@@ -56,12 +58,12 @@
 				</div>
 				<div class="hero-right-buttons-wrapper">
 					<div class="hero-right-cta-btn">
-						<div class="hero-right-btn-text">دریافت مشاوره</div>
+						<a href="{% url 'users:contact_page' %}"><div class="hero-right-btn-text">دریافت مشاوره</div></a>
 						<img class="hero-right-academy-icon" src="{% static 'asets/angle-small-left 2.svg' %}"
 							alt>
 					</div>
 					<div class="hero-right-academy-btn">
-						<div class="hero-right-btn-text">آکادمی </div>
+						<a href="{% url 'courses:course_list' %}"><div class="hero-right-btn-text">آکادمی </div></a>
 						<img class="hero-right-academy-icon1" src="{% static 'asets/angle-small-left 2.svg' %}"
 							alt>
 					</div>
@@ -96,7 +98,7 @@
 					<div class="logo-box"><img src="{% static 'asets/spotify.png' %}" alt="spotify"></div>
 					<div class="logo-box"><img src="{% static 'asets/the-firm.png' %}"
 							alt="the-firm"></div>
-					<div class="logo-box"><img src="{% static "asets/uber.png" %}" alt="uber"></div>
+					<div class="logo-box"><img src="{% static 'asets/uber.png' %}" alt="uber"></div>
 				</div>
 			</div>
 
@@ -112,6 +114,7 @@
 			</p>
 
 			<!-- ===== Cards ===== -->
+			<div class="grid-rows-desktop">
 			<div class="grid-rows">
 				<div class="card">
 					<div class="card-inner">
@@ -168,8 +171,7 @@
 				<div class="card">
 					<div class="card-inner">
 						<div class="icon-wrap">
-							<img src="{% static 'asets/artificial-intelligence.png' %}"
-								alt="artificial-intelligence">
+							<img src="{% static 'asets/artificial-intelligence.png' %}" alt="artificial-intelligence">
 						</div>
 						<h3>تولید محتوا و بازاریابی محتوا</h3>
 						<p>محتوای تولید می‌کنیم که هم برای کاربران ارزشمند است و هم موتورهای جستجو
@@ -189,6 +191,90 @@
 					<a href="#" class="cta">مشاهده</a>
 				</div>
 			</div>
+		</div>
+		<div class="grid-rows-mobile">
+			<div class="grid-rows-mobile-card">
+				<div class="card">
+					<div class="card-inner">
+						<div class="icon-wrap">
+							<img src="{% static 'asets/web-design.png' %}" alt="web-design">
+						</div>
+						<h3>طراحی رابط و تجربه کاربری (UI/UX)</h3>
+						<p>یک طراحی زیبا زمانی ارزشمند است که کاربران را به انجام اقدام موردنظر
+							هدایت کند...</p>
+					</div>
+					<a href="#" class="cta">مشاهده</a>
+				</div>
+			</div>
+			<div class="grid-rows-mobile-card">
+				<div class="card">
+					<div class="card-inner">
+						<div class="icon-wrap">
+							<img src="{% static 'asets/web-programming.png' %}" alt="web-programming">
+
+						</div>
+						<h3>طراحی سایت اختصاصی</h3>
+						<p>وب‌سایتی سریع، امن و کاملاً ریسپانسیو برای کسب‌و‌کار خود طراحی کنید؛
+							آذر یزدان با بررسی کسب و کار شما...
+						</p>
+					</div>
+					<a href="#" class="cta">مشاهده</a>
+				</div>
+			</div>
+			<div class="grid-rows-mobile-card">
+				<div class="card">
+					<div class="card-inner">
+						<div class="icon-wrap">
+							<img src="{% static 'asets/seo.png' %}" alt="seo">
+						</div>
+						<h3>خدمات سئو (SEO)</h3>
+						<p>با اجرای کامل سئو داخلی، سئو تکنیکال، سئو خارجی و استراتژی محتوایی،
+							جایگاه وب‌سایت شما را در نتایج گوگل
+							ارتقا خواهد داد.</p>
+					</div>
+					<a href="#" class="cta">مشاهده</a>
+				</div>
+			</div>
+			<div class="grid-rows-mobile-card">
+				<div class="card">
+					<div class="card-inner">
+						<div class="icon-wrap">
+							<img src="{% static 'asets/chat-arrow-grow.png' %}" alt="cro-image">
+						</div>
+						<h3>تحلیل داده و بهینه‌سازی نرخ تبدیل (CRO)</h3>
+						<p>رفتار کاربران را با ابزارهایی مانند Google Analytics بررسی و نرخ تبدیل
+							شما را افزایش می‌دهیم...</p>
+					</div>
+					<a href="#" class="cta">مشاهده</a>
+				</div>
+			</div>
+			<div class="grid-rows-mobile-card">
+				<div class="card">
+					<div class="card-inner">
+						<div class="icon-wrap">
+							<img src="{% static 'asets/artificial-intelligence.png' %}" alt="artificial-intelligence">
+						</div>
+						<h3>تولید محتوا و بازاریابی محتوا</h3>
+						<p>محتوای تولید می‌کنیم که هم برای کاربران ارزشمند است و هم موتورهای جستجو
+							را جذب می‌کند...</p>
+					</div>
+					<a href="#" class="cta">مشاهده</a>
+				</div>
+			</div>
+			<div class="grid-rows-mobile-card">
+				<div class="card">
+					<div class="card-inner">
+						<div class="icon-wrap">
+							<img src="{% static 'asets/customer-service.png' %}" alt="customer-service">
+						</div>
+						<h3>تبلیغات دیجیتال و مدیریت کمپین</h3>
+						<p>کمپین‌های تبلیغاتی در Google Ads، اینستاگرام، تلگرام و سایر کانال‌های
+							دیجیتال...</p>
+					</div>
+					<a href="#" class="cta">مشاهده</a>
+				</div>
+			</div>
+		</div>
 		</div>
 		<!-- saghar section -->
 		<section class="values-section-unique">
@@ -305,7 +391,7 @@
 				<p>
 					پروژه‌های منتخب ما در زمینه طراحی وب، سئو، برندینگ و بازاریابی دیجیتال
 				</p>
-				<button class="cta-btn">
+				<a href="{% url 'template_list' %}" class="cta-btn">
 					مشاهده همه پروژه‌ها
 					<svg
 						viewBox="0 0 24 24"
@@ -316,7 +402,7 @@
 						stroke-linejoin="round">
 						<polyline points="15 18 9 12 15 6" />
 					</svg>
-				</button>
+				</a>
 			</div>
 
 			<div class="carousel-wrapper-unique">
@@ -548,7 +634,7 @@
 
 		<div class="banner-container">
 			<div class="action-card">
-				<a href="https://example.com/moshavereh" class="free-consultation-btn">
+				<a href="{% url 'users:contact_request' %}" class="free-consultation-btn">
 					<span class="consultation-label">مشاوره رایگان</span>
 					<!-- آیکون مشاوره رایگان -->
 					<svg class="arrow-left-icon" width="24" height="24" viewBox="0 0 24 24"
@@ -604,7 +690,7 @@
 					پاسخ به رایج‌ترین پرسش‌های شما درباره فرآیند توسعه، روش‌های بازاریابی
 					دیجیتال، زمان‌بندی و پشتیبانی فنی پروژه‌ها در آژانس دیجیتال ما.
 				</p>
-				<a href="#" class="contact-cta-button">تماس با ما</a>
+				<a href="{% url 'users:contact_page' %}" class="contact-cta-button">تماس با ما</a>
 
 				<div class="illustration-wrapper">
 					<svg width="532" height="505" viewBox="0 0 532 505" fill="none"
@@ -772,261 +858,183 @@
 		</div>
 
 		<!-- salma section 4 -->
-		<div class="blog-section-wrapper">
+	<div class="blog-section-wrapper">
 
-			<!-- HEADER ROW -->
-			<div class="blog-top-bar">
+		<!-- HEADER ROW -->
+		<div class="blog-top-bar">
 
-				<div class="header-text-group">
-					<div class="section-heading">آخرین مقالات</div>
-					<div class="section-subheading">جدیدترین نوشته‌ها و مقالات تخصصی ما در حوزه
-						فناوری و دیجیتال مارکتینگ</div>
-				</div>
-
-				<a href="{% url 'users:blog_home' %}" style="text-decoration:none;">
-					<div class="view-all-button">
-						<div class="view-all-label">مشاهده همه مقالات</div>
-						<img class="arrow-icon" src="{% static 'asets/angle-small-left 2.svg' %}" alt="arrow">
-
-					</div>
-				</a>
-
+			<div class="header-text-group">
+				<div class="section-heading">آخرین مقالات</div>
+				<div class="section-subheading">جدیدترین نوشته‌ها و مقالات تخصصی ما در حوزه
+					فناوری و دیجیتال مارکتینگ</div>
 			</div>
 
-			<!-- CONTENT SPREAD -->
-			<div class="articles-layout">
+			<a href="#" class="view-all-button">
+				<div class="view-all-label">مشاهده همه مقالات</div>
+				<img class="arrow-icon" src="{% static '/asets/angle-small-left 2.svg' %}" alt="arrow">
+			</a>
 
-				<!-- FEATURED CARD -->
-				{% if featured_articles %}
-					{% with first_article=featured_articles.0 %}
-					<a class="hero-article-card" href="{% url 'users:article_detail' first_article.slug %}">
-						<div class="featured-image-container">
-
-							<div class="overlay-badge">
-								<b class="overlay-badge-text">{{ first_article.category.get_name_display|default:"توسعه وب" }}</b>
-							</div>
-							<img class="featured-image-icon" src="{{ first_article.image_url|default:'/asets/featured-image.png' }}"
-								alt="{{ first_article.title }}">
-
-						</div>
-						<div class="featured-text-block">
-							<div class="featured-meta-row">
-								<b class="featured-badge-label">مقاله ویژه</b>
-								<div class="meta-left-group">
-									<div class="info-pair">
-										<div class="icon-wrapper-lg">
-											<img class="meta-icon-lg" src="{% static 'asets/clock.svg' %}" alt="clock">
-										</div>
-										<div class="info-text">{{ first_article.read_time|default:"۸" }} دقیقه مطالعه</div>
-
-									</div>
-									<div class="info-pair">
-										<div class="icon-wrapper-lg">
-											<img class="meta-icon-lg" src="{% static 'asets/calendar.svg' %}" alt="calendar">
-										</div>
-										<div class="info-text">{{ first_article.published_at|jformat:"%Y/%m/%d"|default:"۱۵ تیر ۱۴۰۴" }}</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="featured-main-title">{{ first_article.title|default:"راهنمای جامع طراحی وب‌سایت‌های مدرن با فریم‌ورک‌های جاوااسکریپت" }}</div>
-							<div class="featured-description">{{ first_article.excerpt|default:"در این مقاله به بررسی جامع فریم‌ورک‌های محبوب جاوااسکریپت و نحوه استفاده از آن‌ها در پروژه‌های واقعی می‌پردازیم تا بهترین کارایی و تجربه کاربری را به ارمغان آوریم..." }}</div>
-						</div>
-					</a>
-					{% endwith %}
-				{% else %}
-				<!-- نمایش مقاله پیش‌فرض اگر مقاله‌ای وجود نداشت -->
-				<a class="hero-article-card" href="#">
-					<div class="featured-image-container">
-						<div class="overlay-badge">
-							<b class="overlay-badge-text">توسعه وب</b>
-						</div>
-						<img class="featured-image-icon" src="{% static 'asets/featured-image.png' %}" alt="featured">
-					</div>
-					<div class="featured-text-block">
-						<div class="featured-meta-row">
-							<b class="featured-badge-label">مقاله ویژه</b>
-							<div class="meta-left-group">
-								<div class="info-pair">
-									<div class="icon-wrapper-lg">
-										<img class="meta-icon-lg" src="{% static 'asets/clock.svg' %}" alt="clock">
-									</div>
-									<div class="info-text">۸ دقیقه مطالعه</div>
-								</div>
-								<div class="info-pair">
-									<div class="icon-wrapper-lg">
-										<img class="meta-icon-lg" src="{% static 'asets/calendar.svg' %}" alt="calendar">
-									</div>
-									<div class="info-text">۱۵ تیر ۱۴۰۴</div>
-								</div>
-							</div>
-						</div>
-						<div class="featured-main-title">راهنمای جامع طراحی وب‌سایت‌های مدرن با فریم‌ورک‌های جاوااسکریپت</div>
-						<div class="featured-description">در این مقاله به بررسی جامع فریم‌ورک‌های محبوب جاوااسکریپت و نحوه استفاده از آن‌ها در پروژه‌های واقعی می‌پردازیم تا بهترین کارایی و تجربه کاربری را به ارمغان آوریم...</div>
-					</div>
-				</a>
-				{% endif %}
-
-				<!-- SMALL CARDS COLUMN -->
-				<div class="side-cards-stack">
-
-					{% if featured_articles %}
-						{% for article in featured_articles|slice:"1:4" %}
-						<!-- CARD -->
-						<a class="blog-card-item" href="{% url 'users:article_detail' article.slug %}">
-							<div class="card-image-wrapper">
-								<img src="{{ article.image_url|default:'/asets/magale1.png' }}" alt="{{ article.title }}">
-							</div>
-							<div class="card-text-block">
-								<div class="card-top-meta">
-
-									<div class="meta-details">
-										<div class="info-pair">
-											<div class="icon-wrapper">
-												<img class="meta-icon" src="{% static 'asets/clock.svg' %}" alt="clock">
-											</div>
-											<div class="info-text">{{ article.read_time|default:"۵" }} دقیقه مطالعه</div>
-
-										</div>
-
-										<div class="info-pair">
-											<div class="icon-wrapper">
-												<img class="meta-icon" src="{% static 'asets/calendar.svg' %}" alt="calendar">
-											</div>
-											<div class="info-text">{{ article.published_at|jformat:"%Y/%m/%d"|default:"۱۲ تیر ۱۴۰۴" }}</div>
-
-										</div>
-									</div>
-									<div class="category-badge">
-										<div class="category-label">{{ article.category.get_name_display|default:"سئو و بازاریابی" }}</div>
-									</div>
-								</div>
-								<div class="card-text-content">
-									<b class="card-title">{{ article.title|default:"استراتژی‌های نوین سئو برای افزایش ترافیک ارگانیک" }}</b>
-									<div class="card-excerpt">{{ article.excerpt|default:"تکنیک‌های پیشرفته بهینه‌سازی موتور جستجو که به کسب‌وکار شما کمک می‌کند در صدر نتایج قرار بگیرید..." }}</div>
-								</div>
-							</div>
-						</a>
-						{% endfor %}
-					{% else %}
-					<!-- کارت‌های پیش‌فرض اگر مقاله‌ای وجود نداشت -->
-					<!-- CARD 1 -->
-					<a class="blog-card-item" href="#">
-						<div class="card-image-wrapper">
-							<img src="{% static 'asets/magale1.png' %}" alt="thumbnail">
-						</div>
-						<div class="card-text-block">
-							<div class="card-top-meta">
-
-								<div class="meta-details">
-									<div class="info-pair">
-										<div class="icon-wrapper">
-											<img class="meta-icon" src="{% static 'asets/clock.svg' %}" alt="clock">
-										</div>
-										<div class="info-text">۵ دقیقه مطالعه</div>
-
-									</div>
-
-									<div class="info-pair">
-										<div class="icon-wrapper">
-											<img class="meta-icon" src="{% static 'asets/calendar.svg' %}" alt="calendar">
-										</div>
-										<div class="info-text">۱۲ تیر ۱۴۰۴</div>
-
-									</div>
-								</div>
-								<div class="category-badge">
-									<div class="category-label">سئو و بازاریابی</div>
-								</div>
-							</div>
-							<div class="card-text-content">
-								<b class="card-title">استراتژی‌های نوین سئو برای افزایش ترافیک
-									ارگانیک</b>
-								<div class="card-excerpt">تکنیک‌های پیشرفته بهینه‌سازی موتور جستجو که به
-									کسب‌وکار شما کمک می‌کند در صدر نتایج قرار بگیرید...</div>
-							</div>
-						</div>
-					</a>
-
-					<!-- CARD 2 (featured-highlight) -->
-					<a class="blog-card-item featured-highlight" href="#">
-						<div class="card-image-wrapper">
-							<img src="{% static 'asets/magale2.png' %}" alt="thumbnail">
-						</div>
-						<div class="card-text-block">
-							<div class="card-top-meta">
-
-								<div class="meta-details">
-									<div class="info-pair">
-										<div class="icon-wrapper">
-											<img class="meta-icon" src="{% static 'asets/clock.svg' %}" alt="clock">
-										</div>
-										<div class="info-text">۶ دقیقه مطالعه</div>
-
-									</div>
-									<div class="info-pair">
-										<div class="icon-wrapper">
-											<img class="meta-icon" src="{% static 'asets/calendar.svg' %}" alt="calendar">
-										</div>
-										<div class="info-text">۱۰ تیر ۱۴۰۴</div>
-
-									</div>
-
-								</div>
-								<div class="category-badge">
-									<div class="category-label">طراحی UI/UX</div>
-								</div>
-							</div>
-							<div class="card-text-content">
-								<b class="card-title">اصول طراحی رابط کاربری برای اپلیکیشن‌های
-									موبایل</b>
-								<div class="card-excerpt">نکات کلیدی طراحی تجربه کاربری موبایل و الگوهای
-									تعامل مدرن برای بهبود نرخ تبدیل کاربران...</div>
-							</div>
-						</div>
-					</a>
-
-					<!-- CARD 3 -->
-					<a class="blog-card-item" href="#">
-						<div class="card-image-wrapper">
-							<img src="{% static 'asets/thumbnail (2).png' %}" alt="thumbnail">
-						</div>
-						<div class="card-text-block">
-							<div class="card-top-meta">
-
-								<div class="meta-details">
-									<div class="info-pair">
-										<div class="icon-wrapper">
-											<img class="meta-icon" src="{% static 'asets/clock.svg' %}" alt="clock">
-										</div>
-										<div class="info-text">۴ دقیقه مطالعه</div>
-
-									</div>
-									<div class="info-pair">
-										<div class="icon-wrapper">
-											<img class="meta-icon" src="{% static 'asets/calendar.svg' %}" alt="calendar">
-										</div>
-										<div class="info-text">۸ تیر ۱۴۰۴</div>
-
-									</div>
-								</div>
-								<div class="category-badge">
-									<div class="category-label">هوش مصنوعی</div>
-								</div>
-							</div>
-							<div class="card-text-content">
-								<b class="card-title">کاربردهای هوش مصنوعی در بازاریابی دیجیتال</b>
-								<div class="card-excerpt">چگونه از ابزارهای هوش مصنوعی و یادگیری ماشین
-									در کمپین‌های تبلیغاتی هوشمند استفاده کنیم...</div>
-							</div>
-						</div>
-					</a>
-					{% endif %}
-
-				</div>
-
-			</div>
 		</div>
+
+		<!-- CONTENT SPREAD -->
+		<div class="articles-layout">
+			<!-- FEATURED CARD -->
+			<a class="hero-article-card" href="#">
+				<div class="featured-image-container">
+
+					<div class="overlay-badge">
+						<b class="overlay-badge-text">توسعه وب</b>
+					</div>
+					<img class="featured-image-icon" src="{% static '/asets/featured-image.png' %}" alt="featured">
+
+				</div>
+				<div class="featured-text-block">
+					<div class="featured-meta-row">
+						<b class="featured-badge-label">مقاله ویژه</b>
+						<div class="meta-left-group">
+							<div class="info-pair">
+								<div class="icon-wrapper-lg">
+									<img class="meta-icon-lg" src="{% static '/asets/clock.svg' %}" alt="clock">
+								</div>
+								<div class="info-text">۸ دقیقه مطالعه</div>
+
+							</div>
+							<div class="info-pair">
+								<div class="icon-wrapper-lg">
+									<img class="meta-icon-lg" src="{% static '/asets/calendar.svg' %}" alt="calendar">
+								</div>
+								<div class="info-text">۱۵ تیر ۱۴۰۴</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="featured-main-title">راهنمای جامع طراحی وب‌سایت‌های مدرن با
+						فریم‌ورک‌های جاوااسکریپت</div>
+					<div class="featured-description">در این مقاله به بررسی جامع فریم‌ورک‌های
+						محبوب جاوااسکریپت و نحوه استفاده از آن‌ها در پروژه‌های واقعی می‌پردازیم
+						تا بهترین کارایی و تجربه کاربری را به ارمغان آوریم...</div>
+				</div>
+			</a>
+
+			<!-- SMALL CARDS COLUMN -->
+			<div class="side-cards-stack">
+
+				<!-- CARD 1 -->
+				<a class="blog-card-item" href="#">
+					<div class="card-image-wrapper">
+						<img src="{% static '/asets/magale1.png' %}" alt="thumbnail">
+					</div>
+					<div class="card-text-block">
+						<div class="card-top-meta">
+
+							<div class="meta-details">
+								<div class="info-pair">
+									<div class="icon-wrapper">
+										<img class="meta-icon" src="{% static '/asets/clock.svg' %}" alt="clock">
+									</div>
+									<div class="info-text">۵ دقیقه مطالعه</div>
+
+								</div>
+
+								<div class="info-pair">
+									<div class="icon-wrapper">
+										<img class="meta-icon" src="{% static '/asets/calendar.svg' %}" alt="calendar">
+									</div>
+									<div class="info-text">۱۲ تیر ۱۴۰۴</div>
+
+								</div>
+							</div>
+							<div class="category-badge">
+								<div class="category-label">سئو و بازاریابی</div>
+							</div>
+						</div>
+						<div class="card-text-content">
+							<b class="card-title">استراتژی‌های نوین سئو برای افزایش ترافیک
+								ارگانیک</b>
+							<div class="card-excerpt">تکنیک‌های پیشرفته بهینه‌سازی موتور جستجو که به
+								کسب‌وکار شما کمک می‌کند در صدر نتایج قرار بگیرید...</div>
+						</div>
+					</div>
+				</a>
+
+				<!-- CARD 2 (featured-highlight) -->
+				<a class="blog-card-item featured-highlight" href="#">
+					<div class="card-image-wrapper">
+						<img src="{% static '/asets/magale2.png' %}" alt="thumbnail">
+					</div>
+					<div class="card-text-block">
+						<div class="card-top-meta">
+
+							<div class="meta-details">
+								<div class="info-pair">
+									<div class="icon-wrapper">
+										<img class="meta-icon" src="{% static '/asets/clock.svg' %}" alt="clock">
+									</div>
+									<div class="info-text">۶ دقیقه مطالعه</div>
+
+								</div>
+								<div class="info-pair">
+									<div class="icon-wrapper">
+										<img class="meta-icon" src="{% static '/asets/calendar.svg' %}" alt="calendar">
+									</div>
+									<div class="info-text">۱۰ تیر ۱۴۰۴</div>
+
+								</div>
+
+							</div>
+							<div class="category-badge">
+								<div class="category-label">طراحی UI/UX</div>
+							</div>
+						</div>
+						<div class="card-text-content">
+							<b class="card-title">اصول طراحی رابط کاربری برای اپلیکیشن‌های
+								موبایل</b>
+							<div class="card-excerpt">نکات کلیدی طراحی تجربه کاربری موبایل و الگوهای
+								تعامل مدرن برای بهبود نرخ تبدیل کاربران...</div>
+						</div>
+					</div>
+				</a>
+
+				<!-- CARD 3 -->
+				<a class="blog-card-item" href="#">
+					<div class="card-image-wrapper">
+						<img src="{% static '/asets/thumbnail (2).png' %}" alt="thumbnail">
+					</div>
+					<div class="card-text-block">
+						<div class="card-top-meta">
+
+							<div class="meta-details">
+								<div class="info-pair">
+									<div class="icon-wrapper">
+										<img class="meta-icon" src="{% static '/asets/clock.svg' %}" alt="clock">
+									</div>
+									<div class="info-text">۴ دقیقه مطالعه</div>
+
+								</div>
+								<div class="info-pair">
+									<div class="icon-wrapper">
+										<img class="meta-icon" src="{% static '/asets/calendar.svg' %}" alt="calendar">
+									</div>
+									<div class="info-text">۸ تیر ۱۴۰۴</div>
+
+								</div>
+							</div>
+							<div class="category-badge">
+								<div class="category-label">هوش مصنوعی</div>
+							</div>
+						</div>
+						<div class="card-text-content">
+							<b class="card-title">کاربردهای هوش مصنوعی در بازاریابی دیجیتال</b>
+							<div class="card-excerpt">چگونه از ابزارهای هوش مصنوعی و یادگیری ماشین
+								در کمپین‌های تبلیغاتی هوشمند استفاده کنیم...</div>
+						</div>
+					</div>
+				</a>
+
+			</div>
+
+		</div>
+	</div>
 
 		<!-- salma section 5 -->
 
@@ -1055,14 +1063,15 @@
 				<div class="angle-icon">
 					<img src="{% static 'asets/angle-small-left 2.svg' %}" alt>
 				</div>
-				<span class="btn-text">مشاهده بیشتر</span>
+				<a href="{% url 'services_web' %}"><span class="btn-text">مشاهده بیشتر</span></a>
 			</div>
 		</div>
 
 		<!-- فوتر  -->
 		{% include "includes/footer.html" %}
-		<script src="{% static "js/index.js" %}" >
-    		
+		<script src="{% static 'js/index.js' %}" >
   	</script>
+	<!-- ========== چت‌بات ========== -->
+	{% include 'chatbot.html' %}
 	</body>
 </html>

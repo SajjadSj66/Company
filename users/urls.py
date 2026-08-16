@@ -14,7 +14,14 @@ urlpatterns = [
     path('course-registration/', views.course_registration_view,
          name='course_registration'),
     path('contact-request/', views.contact_request_view, name='contact_request'),
+    path('study-request/', views.study_request_view, name='study_request'),
+
     path('dashboard/', views.dashboard_view, name='dashboard'),
+    path('dashboard2/', views.dashboard2_view, name='dashboard2'),
+    path('dashboard3/', views.dashboard3_view, name='dashboard3'),
+    path('dashboard_upload_project/', views.dashboard_upload_project_view, name='dashboard_upload_project'),
+    path('dashboard4/', views.dashboard4_view, name='dashboard4'),
+
     path('collaboration/', views.collaboration_view, name='collaboration'),
     path('blog/', views.blog_home, name='blog_home'),
     path('blog/filter/', views.blog_filter, name='blog_filter'),
