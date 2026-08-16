@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'shop',
     'django_jalali',
     'chatbot',
+    'myadmin',
 ]
 
 MIDDLEWARE = [

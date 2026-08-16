@@ -14,58 +14,177 @@ class CollaborationAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'display_name', 'slug',
-                    'article_count', 'is_active', 'order']
-    list_filter = ['is_active']
-    search_fields = ['name', 'description']
-    list_editable = ['is_active', 'order']
-    readonly_fields = ['slug']
+    list_display = [
+        'name',
+        'slug',
+        'article_count',
+        'created_at',
+    ]
 
-    def display_name(self, obj):
-        return obj.get_name_display()
-    display_name.short_description = 'نام فارسی'
+    search_fields = [
+        'name',
+        'description',
+    ]
 
-    def article_count(self, obj):
-        return obj.articles.filter(is_published=True).count()
-    article_count.short_description = 'تعداد مقالات'
+    readonly_fields = [
+        'created_at',
+    ]
+
+    prepopulated_fields = {
+        'slug': ('name',)
+    }
+
+    ordering = [
+        '-created_at'
+    ]
 
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
-    prepopulated_fields = {'slug': ('name',)}
+    list_display = [
+        'name',
+        'slug',
+        'article_count',
+        'created_at',
+    ]
+
+    search_fields = [
+        'name',
+        'description',
+    ]
+
+    readonly_fields = [
+        'created_at',
+    ]
+
+    prepopulated_fields = {
+        'slug': ('name',)
+    }
+
+    ordering = [
+        '-created_at'
+    ]
 
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'author',
-                    'published_at', 'is_published', 'views', 'likes']
-    list_filter = ['is_published', 'category', 'tags', 'created_at']
-    search_fields = ['title', 'content', 'excerpt']
-    prepopulated_fields = {'slug': ('title',)}
-    filter_horizontal = ['tags']
-    readonly_fields = ['views', 'likes', 'created_at', 'updated_at']
-    list_editable = ['is_published']
+
+    list_display = [
+        'title',
+        'category',
+        'author',
+        'status',
+        'is_published',
+        'is_featured',
+        'published_date',
+        'views',
+        'likes',
+    ]
+
+    list_filter = [
+        'status',
+        'is_published',
+        'is_featured',
+        'category',
+        'tags',
+        'published_date',
+    ]
+
+    search_fields = [
+        'title',
+        'content',
+        'excerpt',
+        'seo_title',
+        'seo_description',
+        'seo_keywords',
+    ]
+
+    prepopulated_fields = {
+        'slug': ('title',)
+    }
+
+    filter_horizontal = [
+        'tags',
+    ]
+
+    readonly_fields = [
+        'views',
+        'likes',
+    ]
+
+    list_editable = [
+        'status',
+        'is_published',
+        'is_featured',
+    ]
+
+    date_hierarchy = 'published_date'
 
     fieldsets = (
-        ('اطلاعات اصلی', {
-            'fields': ('title', 'slug', 'category', 'tags', 'author', 'image', 'image_alt')
-        }),
-        ('محتوا', {
-            'fields': ('excerpt', 'content')
-        }),
-        ('تنظیمات انتشار', {
-            'fields': ('is_published', 'is_featured', 'published_at', 'read_time')
-        }),
-        ('آمار', {
-            'fields': ('views', 'likes')
-        }),
-        ('SEO', {
-            'fields': ('seo_title', 'seo_description', 'seo_keywords'),
-            'classes': ('collapse',)
-        }),
-    )
+        (
+            'اطلاعات اصلی',
+            {
+                'fields': (
+                    'title',
+                    'slug',
+                    'category',
+                    'tags',
+                    'author',
+                    'image',
+                )
+            }
+        ),
 
+        (
+            'محتوا',
+            {
+                'fields': (
+                    'excerpt',
+                    'content',
+                )
+            }
+        ),
+
+        (
+            'تنظیمات انتشار',
+            {
+                'fields': (
+                    'status',
+                    'is_published',
+                    'is_featured',
+                    'published_date',
+                    'publish_time',
+                    'read_time',
+                )
+            }
+        ),
+
+        (
+            'آمار مقاله',
+            {
+                'fields': (
+                    'views',
+                    'likes',
+                )
+            }
+        ),
+
+        (
+            'SEO',
+            {
+                'fields': (
+                    'seo_title',
+                    'seo_description',
+                    'seo_keywords',
+                    'canonical_url',
+                    'schema',
+                ),
+                'classes': (
+                    'collapse',
+                )
+            }
+        ),
+    )
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):

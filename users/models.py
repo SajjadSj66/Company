@@ -134,7 +134,7 @@ class Tag(models.Model):
     slug = models.SlugField('اسلاگ',max_length=50,unique=True,allow_unicode=True)
     icon = models.ImageField('آیکون', upload_to='tags/', blank=True, null=True)
     description = models.TextField('توضیحات', blank=True)
-    created_at = models.DateTimeField('تاریخ ایجاد', auto_now_add=True)
+    created_at = models.DateTimeField('تاریخ ایجاد', auto_now=True)
     
     class Meta:
             verbose_name = 'دسته‌بندی'
@@ -182,7 +182,7 @@ class Article(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='articles',verbose_name='دسته‌بندی')
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='articles',verbose_name='نویسنده')
     tags = models.ManyToManyField(Tag,related_name='articles',blank=True,verbose_name='برچسب‌ها')
-    status = models.CharField('وضعیت', max_length=40, choices=STATUS_CHOICES)
+    status = models.CharField('وضعیت', max_length=40, choices=STATUS_CHOICES, default="prepublish")
 
     # اطلاعات مقاله
     read_time = models.PositiveSmallIntegerField('زمان مطالعه (دقیقه)', default=5)
@@ -197,8 +197,8 @@ class Article(models.Model):
     seo_title = models.CharField('عنوان SEO', max_length=150, blank=True)
     seo_description = models.CharField('توضیحات SEO', max_length=200, blank=True)
     seo_keywords = models.CharField('کلمات کلیدی SEO', max_length=200, blank=True)
-    canonical_url = models.URLField('url متعارف')
-    schema = models.CharField('نشانه گذاری', max_length=50, choices=SCHEMA_CHOICES)
+    canonical_url = models.URLField('url متعارف', default="")
+    schema = models.CharField('نشانه گذاری', max_length=50, choices=SCHEMA_CHOICES, default="article")
 
     
     published_date = models.DateTimeField('تاریخ انتشار',blank=True, null=True)
@@ -207,7 +207,7 @@ class Article(models.Model):
     class Meta:
         verbose_name = 'مقاله'
         verbose_name_plural = 'مقالات'
-        ordering = ['-published_at']
+        ordering = ['-published_date']
         
 
     def __str__(self):

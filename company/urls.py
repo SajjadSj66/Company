@@ -8,7 +8,7 @@ from shop.views import *
 urlpatterns = [
     path('', home_view, name='home'),
     path('sijeey/', admin.site.urls),
-    path('admin-dashboard/', include("admin.urls")),
+    path('admin-dashboard/', include("myadmin.urls")),
     path("users/", include("users.urls")),
     path('course/', include("educate.urls")),
     # path('shop/', include("shop.urls")),
