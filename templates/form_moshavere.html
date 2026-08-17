@@ -6,7 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شروع پروژه با آذریزدان</title>
+    <title>{% block title %}{{ SEO_TITLE }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ SEO_DESCRIPTION }}{% endblock %}">
+
+    {% if SEO_INDEXABLE %}
+        <meta name="robots" content="index, follow">
+    {% else %}
+        <meta name="robots" content="noindex, nofollow">
+    {% endif %}
+
+    {% if SEO_OG_IMAGE %}
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ SEO_OG_IMAGE }}">
+    {% endif %}
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">

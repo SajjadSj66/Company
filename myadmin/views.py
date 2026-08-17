@@ -778,7 +778,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
 from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse, HttpResponseForbidden
+from django.http import JsonResponse, HttpResponseForbidden, HttpResponse
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_POST
 
@@ -998,3 +998,65 @@ def site_settings_view(request):
         "form": form,
         "settings": settings_obj,
     })
+
+@login_required
+@permission_required("app.change_readingsettings", raise_exception=True)
+def reading_settings_view(request):
+    settings_obj = ReadingSettings.load()
+
+    if request.method == "POST":
+        form = ReadingSettingsForm(request.POST, instance=settings_obj)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "تغییرات با موفقیت ذخیره شد.")
+            return redirect("settings:reading_settings")
+        else:
+            messages.error(request, "لطفاً خطاهای فرم را برطرف کنید.")
+    else:
+        form = ReadingSettingsForm(instance=settings_obj)
+
+    return render(request, "settings/reading_settings.html", {"form": form})
+
+
+def robots_txt(request):
+    """robots.txt پویا بر اساس تنظیمات خواندن"""
+    settings_obj = ReadingSettings.load()
+    if settings_obj.allow_search_indexing:
+        content = "User-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n"
+    else:
+        content = "User-agent: *\nDisallow: /\n"
+    return HttpResponse(content, content_type="text/plain")
+
+@login_required
+@permission_required("app.change_seosettings", raise_exception=True)
+def seo_settings_view(request):
+    settings_obj = SEOSettings.load()
+
+    if request.method == "POST":
+        form = SEOSettingsForm(request.POST, request.FILES, instance=settings_obj)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "تنظیمات سئو با موفقیت ذخیره شد.")
+            return redirect("settings:seo_settings")
+        else:
+            messages.error(request, "لطفاً خطاهای فرم را برطرف کنید.")
+    else:
+        form = SEOSettingsForm(instance=settings_obj)
+
+    return render(request, "settings/seo_settings.html", {"form": form})
+
+
+def robots_txt(request):
+    """
+    خروجی robots.txt واقعی سایت.
+    منطق: اگه ایندکس‌شدن غیرفعال بود، هر چی کاربر نوشته رو نادیده می‌گیریم
+    و کل سایت رو می‌بندیم. در غیر این‌صورت متن دستی کاربر رو نشون می‌دیم.
+    """
+    settings_obj = SEOSettings.load()
+
+    if not settings_obj.allow_search_indexing:
+        content = "User-agent: *\nDisallow: /\n"
+    else:
+        content = settings_obj.robots_txt_content or "User-agent: *\nAllow: /\n"
+
+    return HttpResponse(content, content_type="text/plain")

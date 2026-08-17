@@ -515,7 +515,7 @@ def home_view(request):
     courses = Course.objects.filter(is_active=True).order_by('-created_at')[:3]
     featured_articles = Article.objects.filter(
         is_published=True
-    ).order_by('-published_at')[:3]
+    ).order_by('-published_date')[:3]
 
     context = {
         'courses': courses,

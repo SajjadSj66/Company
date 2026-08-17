@@ -4,6 +4,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from shop.views import *
+from myadmin import views as settings_views
+from django.contrib.sitemaps.views import sitemap
+from myadmin.sitemaps import PostSitemap
+
+sitemaps = {"posts": PostSitemap}
+
 
 urlpatterns = [
     path('', home_view, name='home'),
@@ -21,7 +27,10 @@ urlpatterns = [
     path('services-support/', services_support_view, name='services_support'),
     path('templates/', template_list_view, name='template_list'),
     # ========== چت‌بات ==========
-    path('chatbot/', include('chatbot.urls')),  
+    path('chatbot/', include('chatbot.urls')), 
+    path("robots.txt", settings_views.robots_txt, name="robots_txt"),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
+
 ]
 
 if settings.DEBUG:

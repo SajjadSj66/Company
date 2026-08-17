@@ -3,8 +3,18 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-<title>درخواست تماس | آموزشگاه و طراحی سایت</title>
+  <title>{% block title %}{{ SEO_TITLE }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ SEO_DESCRIPTION }}{% endblock %}">
+
+  {% if SEO_INDEXABLE %}
+      <meta name="robots" content="index, follow">
+  {% else %}
+      <meta name="robots" content="noindex, nofollow">
+  {% endif %}
+
+  {% if SEO_OG_IMAGE %}
+      <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ SEO_OG_IMAGE }}">
+  {% endif %}
 <style>
   :root {
     --bg: #f7f7f8;

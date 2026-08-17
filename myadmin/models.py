@@ -197,3 +197,151 @@ class SiteSettings(models.Model):
 class Writen(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categories')
     template = models.ForeignKey(Template, on_delete=models.CASCADE, related_name="templates")
+
+
+class ReadingSettings(models.Model):
+    class HomepageDisplay(models.TextChoices):
+        LATEST_POSTS = "latest_posts", _("آخرین نوشته‌ها")
+        STATIC_PAGE = "static_page", _("صفحه ثابت")
+
+    homepage_display = models.CharField(
+        _("صفحه نخست نمایش می‌دهد"),
+        max_length=20,
+        choices=HomepageDisplay.choices,
+        default=HomepageDisplay.LATEST_POSTS,
+    )
+    posts_per_page = models.PositiveIntegerField(
+        _("تعداد نوشته در هر صفحه"), default=10
+    )
+
+    # این فیلد کل سایت رو کنترل می‌کنه
+    allow_search_indexing = models.BooleanField(
+        _("قابلیت مشاهده برای موتورهای جستجو"),
+        default=True,
+        help_text=_("در صورت غیرفعال بودن، کل صفحات سایت از ایندکس گوگل و سایر موتورهای جستجو خارج می‌شوند."),
+    )
+
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = _("تنظیمات خواندن")
+        verbose_name_plural = _("تنظیمات خواندن")
+
+    def __str__(self):
+        return "تنظیمات خواندن"
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+        from django.core.cache import cache
+        cache.delete("reading_settings")  # کش رو پاک کن تا تغییرات فوری اعمال بشه
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    @classmethod
+    def load(cls):
+        from django.core.cache import cache
+        obj = cache.get("reading_settings")
+        if obj is None:
+            obj, _created = cls.objects.get_or_create(pk=1)
+            cache.set("reading_settings", obj, 3600)
+        return obj
+
+
+class SEOSettings(models.Model):
+    # ---------- بخش اول: تنظیمات عمومی سئو ----------
+    class TitleSeparator(models.TextChoices):
+        DASH = "-", "- (خط تیره)"
+        PIPE = "|", "| (پایپ)"
+        DOT = "•", "• (نقطه)"
+        COLON = ":", ": (دو نقطه)"
+
+    title_separator = models.CharField(
+        _("جداکننده عنوان"), max_length=5,
+        choices=TitleSeparator.choices, default=TitleSeparator.DASH,
+    )
+
+    # این فیلد یک "قالب" هست، یعنی متنی که کاربر خودش می‌نویسه
+    # می‌تونی بعداً پلیس‌هولدرهایی مثل {site_name} رو هم توش پشتیبانی کنی
+    homepage_title_template = models.CharField(
+        _("قالب عنوان سئوی صفحه اصلی"), max_length=255
+    )
+    homepage_meta_description = models.TextField(
+        _("توضیحات سئوی صفحه اصلی"), max_length=320,
+        help_text=_("حداکثر ۱۶۰ تا ۳۲۰ کاراکتر توصیه می‌شود.")
+    )
+
+    # ---------- بخش دوم: شبکه‌های اجتماعی و Open Graph ----------
+    og_image = models.ImageField(
+        _("تصویر پیش‌فرض اشتراک‌گذاری (OG Image)"),
+        upload_to="seo/og/", blank=True, null=True,
+        help_text=_("اندازه پیشنهادی ۱۲۰۰×۶۳۰ پیکسل")
+    )
+    instagram_url = models.URLField(_("اینستاگرام"), blank=True)
+    linkedin_url = models.URLField(_("لینکدین"), blank=True)
+
+    # ---------- بخش سوم: نقشه سایت و ربات‌ها ----------
+    sitemap_auto_generate = models.BooleanField(
+        _("تولید خودکار XML Sitemap"), default=True,
+        help_text=_("ساخت و به‌روزرسانی خودکار sitemap.xml")
+    )
+    # این تنها منبع تصمیم‌گیری درباره ایندکس شدن کل سایت است
+    allow_search_indexing = models.BooleanField(
+        _("قابلیت مشاهده برای موتورهای جستجو"), default=True,
+        help_text=_("در صورت غیرفعال بودن، کل سایت noindex می‌شود.")
+    )
+    robots_txt_content = models.TextField(
+        _("ویرایشگر Robots.txt"), blank=True,
+        default="User-agent: *\nAllow: /\n",
+        help_text=_("این متن فقط زمانی اعمال می‌شود که «قابلیت مشاهده» فعال باشد.")
+    )
+
+    # ---------- بخش چهارم: Schema پیش‌فرض سازمان ----------
+    class SchemaType(models.TextChoices):
+        ORGANIZATION = "Organization", _("سازمان (Organization)")
+        LOCAL_BUSINESS = "LocalBusiness", _("کسب‌وکار محلی (LocalBusiness)")
+        PERSON = "Person", _("شخص (Person)")
+        WEBSITE = "WebSite", _("وب‌سایت (WebSite)")
+
+    schema_type = models.CharField(
+        _("نوع Schema سازمان"), max_length=20,
+        choices=SchemaType.choices, default=SchemaType.ORGANIZATION,
+    )
+    schema_phone = models.CharField(
+        _("شماره تماس سازمان"), max_length=20, blank=True
+    )
+
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = _("تنظیمات سئو")
+        verbose_name_plural = _("تنظیمات سئو")
+
+    def __str__(self):
+        return "تنظیمات سئو"
+
+    # ---------- الگوی Singleton (مثل تنظیمات قبلی) ----------
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+        from django.core.cache import cache
+        cache.delete("seo_settings")
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    @classmethod
+    def load(cls):
+        from django.core.cache import cache
+        obj = cache.get("seo_settings")
+        if obj is None:
+            obj, _created = cls.objects.get_or_create(pk=1)
+            cache.set("seo_settings", obj, 3600)
+        return obj
+
+    def clean(self):
+        if self.schema_phone and not self.schema_phone.startswith("+"):
+            raise ValidationError({
+                "schema_phone": _("شماره باید با کد کشور شروع شود، مثل +98...")
+            })

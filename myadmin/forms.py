@@ -240,3 +240,59 @@ class SiteSettingsForm(forms.ModelForm):
             if not favicon.name.lower().endswith(valid_ext):
                 raise forms.ValidationError("فرمت فایل باید PNG یا ICO باشد.")
         return favicon
+
+
+class ReadingSettingsForm(forms.ModelForm):
+    class Meta:
+        model = ReadingSettings
+        fields = ["homepage_display", "posts_per_page", "allow_search_indexing"]
+        widgets = {
+            "homepage_display": forms.Select(attrs={"class": "form-select"}),
+            "posts_per_page": forms.NumberInput(attrs={"class": "form-control", "min": 1, "max": 100}),
+            "allow_search_indexing": forms.CheckboxInput(attrs={"class": "form-check-input toggle-switch"}),
+        }
+
+    def clean_posts_per_page(self):
+        value = self.cleaned_data["posts_per_page"]
+        if value < 1 or value > 100:
+            raise forms.ValidationError("تعداد نوشته باید بین ۱ تا ۱۰۰ باشد.")
+        return value
+
+class SEOSettingsForm(forms.ModelForm):
+    class Meta:
+        model = SEOSettings
+        fields = [
+            "title_separator", "homepage_title_template", "homepage_meta_description",
+            "og_image", "instagram_url", "linkedin_url",
+            "sitemap_auto_generate", "allow_search_indexing", "robots_txt_content",
+            "schema_type", "schema_phone",
+        ]
+        widgets = {
+            "title_separator": forms.Select(attrs={"class": "form-select"}),
+            "homepage_title_template": forms.TextInput(attrs={"class": "form-control"}),
+            "homepage_meta_description": forms.Textarea(attrs={"class": "form-control", "rows": 4}),
+            "og_image": forms.ClearableFileInput(attrs={"class": "form-control"}),
+            "instagram_url": forms.URLInput(attrs={"class": "form-control", "dir": "ltr"}),
+            "linkedin_url": forms.URLInput(attrs={"class": "form-control", "dir": "ltr"}),
+            "sitemap_auto_generate": forms.CheckboxInput(attrs={"class": "form-check-input toggle-switch"}),
+            "allow_search_indexing": forms.CheckboxInput(attrs={"class": "form-check-input toggle-switch"}),
+            "robots_txt_content": forms.Textarea(attrs={
+                "class": "form-control font-monospace", "rows": 6, "dir": "ltr"
+            }),
+            "schema_type": forms.Select(attrs={"class": "form-select"}),
+            "schema_phone": forms.TextInput(attrs={"class": "form-control", "dir": "ltr", "placeholder": "+98..."}),
+        }
+
+    def clean_homepage_meta_description(self):
+        desc = self.cleaned_data.get("homepage_meta_description", "")
+        if len(desc) > 320:
+            raise forms.ValidationError("توضیحات نباید بیشتر از ۳۲۰ کاراکتر باشد.")
+        return desc
+
+    def clean_og_image(self):
+        image = self.cleaned_data.get("og_image")
+        if image and hasattr(image, "size"):
+            max_size_mb = 2
+            if image.size > max_size_mb * 1024 * 1024:
+                raise forms.ValidationError(f"حجم تصویر نباید بیشتر از {max_size_mb} مگابایت باشد.")
+        return image

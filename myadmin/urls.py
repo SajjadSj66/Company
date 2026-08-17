@@ -69,5 +69,6 @@ urlpatterns = [
     path("<int:pk>/approve/", views.comment_approve, name="approve"),
     path("<int:pk>/delete/", views.comment_delete, name="delete"),
     path("site-setting", views.site_settings_view, name="site_settings"),
-
+    path("reading/", views.reading_settings_view, name="reading_settings"),
+    path("seo/", views.seo_settings_view, name="seo_settings"),
 ]
